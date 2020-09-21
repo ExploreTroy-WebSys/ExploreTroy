@@ -1,1 +1,1 @@
-# GroupRide
+# ExploreTroy
