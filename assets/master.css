@@ -6,3 +6,31 @@
 .columns {
     text-align: center;
 }
+
+/* Explore banner */
+
+.explore-heading {
+    text-align: center;
+}
+
+.explore-boxes {
+    height: 200px;
+}
+
+.explore-box-1 {
+    background-color: #a8dadc;
+    margin: 0 20px 0 20px;
+    border-radius: 8px;
+}
+
+.explore-box-2 {
+    background-color: #457b9d;
+    margin: 0 20px 0 20px;
+    border-radius: 8px;
+}
+
+.explore-box-3 {
+    background-color: #e63946;
+    margin: 0 20px 0 20px;
+    border-radius: 8px;
+}

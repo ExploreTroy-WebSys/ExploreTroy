@@ -38,19 +38,20 @@
     </ul>
   </section>
 
+  <!-- Explore banner -->
   <section class="explore-banner">
     <div class="explore-heading">
-      Explore
+      <h2>Explore</h2>
     </div>
     <div class="container columns">
-      <div class="row">
-        <div class="col-sm">
+      <div class="row explore-boxes">
+        <div class="col-sm explore-box-1">
           One of three columns
         </div>
-        <div class="col-sm">
+        <div class="col-sm explore-box-2">
           One of three columns
         </div>
-        <div class="col-sm">
+        <div class="col-sm explore-box-3">
           One of three columns
         </div>
       </div>
