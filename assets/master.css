@@ -1,7 +1,23 @@
 .jumbotron-banner {
-    background-image: url("assets/images/TroyView.jpg");
-    background-color: #111111;
-    color: whitesmoke;
+    background-image: url("images/TroyView.jpg");
+    color: rgb(0, 0, 0);
+}
+
+#logo {
+    width: 280px;
+    margin: 0, auto;
+    padding: 0;
+    background-color: rgb(255, 255, 255, .8);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.display-4 {
+    margin-bottom: 0;
+}
+
+.lead {
+    margin-bottom: 3px;
 }
 
 .columns {

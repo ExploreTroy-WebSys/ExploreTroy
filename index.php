@@ -14,7 +14,7 @@
 
   <section class="banner">
     <div class="jumbotron jumbotron-fluid jumbotron-banner">
-      <div class="container">
+      <div class="container" id="logo">
         <h1 class="display-4">ExploreTroy</h1>
         <p class="lead">Know Better. Enjoy More.</p>
       </div>
