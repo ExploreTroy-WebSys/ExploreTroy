@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -21,7 +25,7 @@
     </div>
   </section>
 
-  <section class="navigation">
+  <nav class="navigation">
     <ul class="nav nav-pills">
       <li class="nav-item">
           <a class="nav-link active" href="#">Post</a>
@@ -34,13 +38,12 @@
       </li>
       <li class="nav-item">
         <?php
-            echo($_SESSION['authenticated']);
-            if($_SESSION['authenticated']) echo('<a href="authentication/logout.php">Log-Out</a> ');
+            if($_SESSION['authenticated']) echo('<a href="authentication/logout.php" class="nav-link">Log-Out' . $_SESSION['rscid'] . '</a>');
             else echo('<a href="authentication/login.php" class="nav-link">Login</a>');
         ?>
       </li>
     </ul>
-  </section>
+  </nav>
 
   <section class="explore-banner">
     <div class="explore-heading">
