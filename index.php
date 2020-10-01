@@ -33,7 +33,11 @@
           <a class="nav-link" href="#">Profile</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Logout</a>
+        <?php
+            echo($_SESSION['authenticated']);
+            if($_SESSION['authenticated']) echo('<a href="authentication/logout.php">Log-Out</a> ');
+            else echo('<a href="authentication/login.php" class="nav-link">Login</a>');
+        ?>
       </li>
     </ul>
   </section>
