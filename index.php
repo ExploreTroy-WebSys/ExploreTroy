@@ -38,7 +38,7 @@
       </li>
       <li class="nav-item">
           <?php
-            if($_SESSION['authenticated']) echo('<a href="authentication/logout.php" class="nav-link" tabindex="-1" aria-disabled="true">Log-Out' . $_SESSION['rscid'] . '</a>');
+            if($_SESSION['authenticated']) echo('<a href="authentication/logout.php" target="_blank" class="nav-link" tabindex="-1" aria-disabled="true">Log-Out' . $_SESSION['rscid'] . '</a>');
             else echo('<a href="authentication/login.php" class="nav-link" tabindex="-1" aria-disabled="true">Login</a>');
         ?>
       </li>
