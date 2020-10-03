@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -17,7 +21,7 @@
 
   <section class="banner">
     <div class="jumbotron jumbotron-fluid jumbotron-banner">
-      <div class="container">
+      <div class="container" id="logo">
         <h1 class="display-4">ExploreTroy</h1>
         <p class="lead">Know Better. Enjoy More.</p>
       </div>
@@ -36,7 +40,10 @@
           <a class="nav-link" href="#">Profile</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Logout</a>
+          <?php
+            if($_SESSION['authenticated']) echo('<a href="authentication/logout.php" target="_blank" class="nav-link" tabindex="-1" aria-disabled="true">Log-Out' . $_SESSION['rscid'] . '</a>');
+            else echo('<a href="authentication/login.php" class="nav-link" tabindex="-1" aria-disabled="true">Login</a>');
+        ?>
       </li>
     </ul>
   </section>
