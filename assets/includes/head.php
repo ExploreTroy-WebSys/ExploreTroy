@@ -9,3 +9,6 @@
 
   <!-- Master CSS -->
   <link rel="stylesheet" href="assets/master.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="assets/fontawesome/css/all.css">
