@@ -1,4 +1,57 @@
 .jumbotron-banner {
+    background-color: #111111;
+    color: whitesmoke;
+}
+
+.columns {
+    text-align: center;
+}
+
+/* Explore banner */
+
+.explore-heading {
+    text-align: center;
+    margin: 50px 0 50px 0;
+}
+
+.explore-heading h2 {
+    font-size: 48px;
+}
+
+.explore-boxes {
+    height: 200px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.explore-box-1 {
+    background-color: #a8dadc;
+    margin: 0 20px 0 20px;
+    border-radius: 8px;
+    padding: 50px;
+}
+
+.explore-box-2 {
+    background-color: #457b9d;
+    margin: 0 20px 0 20px;
+    border-radius: 8px;
+    padding: 50px;
+}
+
+.explore-box-3 {
+    background-color: #e63946;
+    margin: 0 20px 0 20px;
+    border-radius: 8px;
+    padding: 50px;
+}
+
+.explore-box:hover {
+    cursor: pointer;
+    color: #f1faee;
+    transition: 0.5s;
+}
+
+.jumbotron-banner {
     background-image: url("images/TroyView.jpg");
     color: rgb(0, 0, 0);
 }
