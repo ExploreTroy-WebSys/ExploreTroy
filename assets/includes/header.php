@@ -1,5 +1,5 @@
 <header>
-    <section class="banner">
+  <section class="banner">
       <div class="jumbotron jumbotron-fluid jumbotron-banner">
         <div class="container" id="logo">
           <h1 class="display-4">ExploreTroy</h1>
@@ -26,4 +26,4 @@
           ?>
         </li>
       </ul>
-    </nav>  
+    </nav>
