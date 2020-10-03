@@ -14,9 +14,9 @@
 
   <main>
     <section class="explore-banner">
-      <section class="explore-heading">
+      <header class="explore-heading">
         Explore
-      </section>
+      </header>
       <div class="container columns">
         <section class="row">
           <article class="col-sm">
