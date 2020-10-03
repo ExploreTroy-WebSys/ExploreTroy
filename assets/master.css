@@ -49,6 +49,7 @@
     cursor: pointer;
     color: #f1faee;
     transition: 0.5s;
+}
 
 .jumbotron-banner {
     background-image: url("images/TroyView.jpg");
