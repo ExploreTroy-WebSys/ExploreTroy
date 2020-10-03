@@ -29,6 +29,7 @@
     margin: 0 20px 0 20px;
     border-radius: 8px;
     padding: 50px;
+    margin-bottom: 50px;
 }
 
 .explore-box-2 {
@@ -36,6 +37,7 @@
     margin: 0 20px 0 20px;
     border-radius: 8px;
     padding: 50px;
+    margin-bottom: 50px;
 }
 
 .explore-box-3 {
@@ -43,6 +45,7 @@
     margin: 0 20px 0 20px;
     border-radius: 8px;
     padding: 50px;
+    margin-bottom: 50px;
 }
 
 .explore-box:hover {
@@ -75,4 +78,26 @@
 
 .columns {
     text-align: center;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    background-color: #111111;
+}
+
+.footer-text {
+    margin-bottom: 0;
+    padding: 20px 0;
+    color: whitesmoke;
+}
+
+.footer-link {
+    color: #a8dadc;
+}
+
+.footer-link:hover {
+    color: whitesmoke;
+    text-decoration: none;
 }
