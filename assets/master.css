@@ -1,3 +1,7 @@
+html {
+    font-family: 'Ubuntu', sans-serif;
+}
+
 .jumbotron-banner {
     background-color: #111111;
     color: whitesmoke;
