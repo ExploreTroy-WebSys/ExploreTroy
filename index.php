@@ -36,7 +36,7 @@
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Logout</a>
       </li>
     </ul>
-  </section>
+</nav>
 
   <section class="explore-banner">
     <div class="explore-heading">
