@@ -1,10 +1,44 @@
-.jumbotron-banner {
-    background-color: #111111;
-    color: whitesmoke;
+@font-face {
+    font-family: 'Magallanes Black';
+    src: url('fonts/MagallanesBlack.ttf') format('truetype');
 }
 
-.columns {
+.jumbotron {
+    padding: 5%;
+}
+
+.jumbotron-banner {
+    background-image: url("images/TroyView.jpg");
+    color: rgb(0, 0, 0);
+    position: fixed; /* Fixed position - sit on top of the page */
+    top: 0;
+    width: 100%; /* Full width */
+    z-index: 100;
+    transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+}
+
+#logo {
+    width: 280px;
+    padding: 0;
+    background-color: rgb(255, 255, 255, .8);
+    border-radius: 10px;
     text-align: center;
+    font-size: 300%;
+}
+
+.display-4 {
+    font-family: "Magallanes Black";
+    margin-bottom: 0;
+}
+
+.lead {
+    margin-bottom: 3px;
+}
+
+main {
+    margin-top:15%;
+    padding-bottom: 2500px;
+    font-size:30px
 }
 
 /* Explore banner */

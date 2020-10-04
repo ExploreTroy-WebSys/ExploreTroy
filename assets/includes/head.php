@@ -12,3 +12,6 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="assets/fontawesome/css/all.css">
+
+    <!-- Eventhandler js file -->
+    <script src="assets/scripts/eventhandling.js"></script>
