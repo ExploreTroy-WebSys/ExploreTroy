@@ -21,7 +21,7 @@
     </div>
   </section>
 
-  <section class="navigation">
+  <nav class="navbar nvarbar-expand-md navbar-dark bg-dark">
     <ul class="nav nav-pills">
       <li class="nav-item">
           <a class="nav-link active" href="#">Post</a>

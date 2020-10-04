@@ -1,6 +1,11 @@
 .jumbotron-banner {
     background-color: #111111;
     color: whitesmoke;
+    margin-bottom:0;
+}
+
+.navbar nvarbar-expand-md navbar-dark bg-dark{
+    margin-bottom:0;
 }
 
 .columns {
