@@ -1,19 +1,17 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ExploreTroy</title>
+<?php 
+    session_start();
+    if (!(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
-  
-  <!-- Master CSS -->
-  <link rel="stylesheet" href="assets/master.css">
+    # Include all boiler-plate head information for the site
+    include('assets/includes/head.php');
+?>
 </head>
 <body>
+  <?php 
+    # Include all boiler-plate header information for the site
+    include('assets/includes/header.php');
+  ?>
+  </header>
 
   <section class="banner">
     <div class="jumbotron jumbotron-fluid jumbotron-banner">
@@ -55,24 +53,28 @@
     </ul>
 </nav>
 
+  <!-- Explore banner -->
   <section class="explore-banner">
     <div class="explore-heading">
-      Explore
+      <h2>Explore</h2>
     </div>
     <div class="container columns">
-      <div class="row">
-        <div class="col-sm">
-          One of three columns
+      <div class="row explore-boxes justify-content-center">
+        <div class="shadow col-sm explore-box-1 explore-box">
+          <i class="fas fa-utensils fa-5x explore-icon"></i>          
         </div>
-        <div class="col-sm">
-          One of three columns
+        <div class="shadow col-sm explore-box-2 explore-box">
+          <i class="fas fa-store fa-5x explore-icon"></i>
         </div>
-        <div class="col-sm">
-          One of three columns
+        <div class="shadow col-sm explore-box-3 explore-box">
+          <i class="fas fa-hiking fa-5x explore-icon"></i>
         </div>
       </div>
     </div>
   </section>
     
-</body>
-</html>
+<?php
+  include('assets/includes/footer.php');
+  # Include end of document boiler-plate for the site
+  include('assets/includes/foot.php');
+?>

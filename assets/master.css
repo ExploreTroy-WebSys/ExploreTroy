@@ -1,3 +1,7 @@
+html {
+    font-family: 'Ubuntu', sans-serif;
+}
+
 .jumbotron-banner {
     background-color: #111111;
     color: whitesmoke;
@@ -10,4 +14,99 @@
 
 .columns {
     text-align: center;
+}
+
+/* Explore banner */
+
+.explore-heading {
+    text-align: center;
+    margin: 50px 0 50px 0;
+}
+
+.explore-heading h2 {
+    font-size: 48px;
+}
+
+.explore-boxes {
+    height: 200px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.explore-box-1 {
+    background-color: #a8dadc;
+    margin: 0 20px 0 20px;
+    border-radius: 8px;
+    padding: 50px;
+    margin-bottom: 50px;
+}
+
+.explore-box-2 {
+    background-color: #457b9d;
+    margin: 0 20px 0 20px;
+    border-radius: 8px;
+    padding: 50px;
+    margin-bottom: 50px;
+}
+
+.explore-box-3 {
+    background-color: #e63946;
+    margin: 0 20px 0 20px;
+    border-radius: 8px;
+    padding: 50px;
+    margin-bottom: 50px;
+}
+
+.explore-box:hover {
+    cursor: pointer;
+    color: #f1faee;
+    transition: 0.5s;
+}
+
+.jumbotron-banner {
+    background-image: url("images/TroyView.jpg");
+    color: rgb(0, 0, 0);
+}
+
+#logo {
+    width: 280px;
+    margin: 0, auto;
+    padding: 0;
+    background-color: rgb(255, 255, 255, .8);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.display-4 {
+    margin-bottom: 0;
+}
+
+.lead {
+    margin-bottom: 3px;
+}
+
+.columns {
+    text-align: center;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    background-color: #111111;
+}
+
+.footer-text {
+    margin-bottom: 0;
+    padding: 20px 0;
+    color: whitesmoke;
+}
+
+.footer-link {
+    color: #a8dadc;
+}
+
+.footer-link:hover {
+    color: whitesmoke;
+    text-decoration: none;
 }
