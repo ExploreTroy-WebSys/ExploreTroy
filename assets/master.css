@@ -1,6 +1,5 @@
-@font-face {
-    font-family: 'Magallanes Black';
-    src: url('fonts/MagallanesBlack.ttf') format('truetype');
+html {
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .jumbotron {
@@ -27,7 +26,6 @@
 }
 
 .display-4 {
-    font-family: "Magallanes Black";
     margin-bottom: 0;
 }
 
@@ -87,4 +85,24 @@ main {
 
 .columns {
     text-align: center;
+  
+  /* Footer */
+
+footer {
+    text-align: center;
+    background-color: #111111;
 }
+
+.footer-text {
+    margin-bottom: 0;
+    padding: 20px 0;
+    color: whitesmoke;
+}
+
+.footer-link {
+    color: #a8dadc;
+}
+
+.footer-link:hover {
+    color: whitesmoke;
+    text-decoration: none;

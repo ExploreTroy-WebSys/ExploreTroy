@@ -36,6 +36,7 @@
   </main>
     
 <?php
+  include('assets/includes/footer.php');
   # Include end of document boiler-plate for the site
   include('assets/includes/foot.php');
 ?>
