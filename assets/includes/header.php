@@ -8,7 +8,7 @@
     </div>
   </section>
 
-  <nav class="navbar nvarbar-expand-md navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <ul class="nav nav-pills">
       <li class="nav-item">
           <a class="nav-link active" href="explore.php">Explore</a>
