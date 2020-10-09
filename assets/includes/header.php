@@ -2,8 +2,8 @@
     <section class="banner">
     <div class="jumbotron jumbotron-fluid jumbotron-banner">
       <div class="container">
-        <h1 class="display-4">ExploreTroy</h1>
-        <p class="lead">Know Better. Enjoy More.</p>
+        <h2 class="lead">Know Better. Enjoy More.</h2>
+        <img class="banner-logo" height="300" src="./assets/images/PotentialLogo2.png" alt="logo">
       </div>
     </div>
   </section>
