@@ -1,4 +1,12 @@
 <header>
+    <section class="banner">
+    <div class="jumbotron jumbotron-fluid jumbotron-banner">
+      <div class="container">
+        <h2 class="lead">Know Better. Enjoy More.</h2>
+        <img class="banner-logo" height="300" src="./assets/images/PotentialLogo2.png" alt="logo">
+      </div>
+    </div>
+  </section>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <ul class="nav nav-pills">
         <li class="nav-item">

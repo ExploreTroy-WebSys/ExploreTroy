@@ -2,16 +2,21 @@ html {
     font-family: 'Ubuntu', sans-serif;
 }
 
-.jumbotron {
-    transition: 1;
-}
-
 .jumbotron-banner {
     background-image: url("images/TroyView.jpg");
+    background-size: 100%;
+    background-position: center;
+    background-color: #457b9d;
     color: rgb(0, 0, 0);
-    width: 100%; /* Full width */
-    z-index: 100;
-    transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+    height: 650px;
+    text-align: center;
+}
+
+.banner-logo {
+    padding-top: 10px;
+    background-color: #f1faee;
+    border-radius: 20px;
+    margin-top: 40px;
 }
 
 #logo {
@@ -23,14 +28,19 @@ html {
     font-size: 300%;
 }
 
-.display-4 {
-    margin-bottom: 0;
-}
-
 main {
     font-size:30px;
     padding-bottom: 1%;
 }
+
+.lead {
+    margin-top: 50px;
+    font-size: 48px;
+    color: #f1faee;
+    font-weight: bold;
+    text-shadow: 4px 4px #457b9d;
+}
+
 
 /* Explore banner */
 
@@ -49,7 +59,7 @@ main {
 .explore-boxes {
     height: 200px;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 150px;
 }
 
 .explore-box {
