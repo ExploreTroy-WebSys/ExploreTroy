@@ -28,7 +28,8 @@ html {
 }
 
 main {
-    font-size:30px
+    font-size:30px;
+    padding-bottom: 1%;
 }
 
 /* Explore banner */
@@ -39,6 +40,10 @@ main {
 
 .explore-heading h2 {
     font-size: 48px;
+}
+
+.columns {
+    text-align: center;
 }
 
 .explore-boxes {
@@ -71,15 +76,19 @@ main {
     background-color: #e63946;
 }
 
-.columns {
-    text-align: center;
-}
-
 /* Footer */
 
 footer {
     text-align: center;
     background-color: #111111;
+}
+
+/* Optional class which is added if the content of the page is smaller than the current screen height (See eventhandling.js for more information) */
+.sticky-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .footer-text {

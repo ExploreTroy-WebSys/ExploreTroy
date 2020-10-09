@@ -10,9 +10,11 @@
 // }
 
 function repositionFooter () {
-    var height = document.getElementsByTagName("header")[0].scrollHeight + document.getElementsByTagName("main")[0].scrollHeight + document.getElementsByTagName("footer")[0].scrollHeight;
-    var modHeight = window.innerHeight - (document.getElementsByTagName("header")[0].scrollHeight + document.getElementsByTagName("main")[0].scrollHeight);
-    modHeight = document.body.scrollHeight - document.getElementsByTagName("footer")[0].scrollHeight;
+    var height = 0;
+    height += document.getElementsByTagName("header")[0].clientHeight;
+    height += document.getElementsByTagName("main")[0].clientHeight;
+    height += document.getElementsByTagName("footer")[0].clientHeight;
 
-    if (window.innerHeight > height) document.getElementsByTagName("main")[0].style.minHeight = modHeight + "px";
+    if (window.innerHeight > height) document.getElementsByTagName("footer")[0].classList.add("sticky-footer");
+    else if (document.getElementsByTagName("footer")[0].classList.contains("sticky-footer")) document.getElementsByTagName("footer")[0].classList.remove("sticky-footer");
 }
