@@ -3,9 +3,20 @@ html {
 }
 
 .jumbotron-banner {
-    background-image: url("images/HomePage_material01.png");
+    background-image: url("images/TroyView.jpg");
+    background-size: 100%;
+    background-position: center;
+    background-color: #457b9d;
     color: rgb(0, 0, 0);
     height: 650px;
+    text-align: center;
+}
+
+.banner-logo {
+    padding-top: 10px;
+    background-color: #f1faee;
+    border-radius: 20px;
+    margin-top: 40px;
 }
 
 .navbar navbar-expand-md navbar-dark bg-dark {
@@ -21,13 +32,12 @@ html {
     font-size: 300%;
 }
 
-.display-4 {
-    padding-top: 50px;
-    margin-bottom: 0;
-}
-
 .lead {
-    margin-bottom: 3px;
+    margin-top: 50px;
+    font-size: 48px;
+    color: #f1faee;
+    font-weight: bold;
+    text-shadow: 4px 4px #457b9d;
 }
 
 main {
