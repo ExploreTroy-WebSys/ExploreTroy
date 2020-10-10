@@ -38,7 +38,6 @@ main {
     font-size: 48px;
     color: #f1faee;
     font-weight: bold;
-    text-shadow: 4px 4px #457b9d;
 }
 
 
@@ -50,6 +49,7 @@ main {
 
 .explore-heading h2 {
     font-size: 48px;
+    margin-bottom: 30px;
 }
 
 .columns {
@@ -57,13 +57,12 @@ main {
 }
 
 .explore-boxes {
-    height: 200px;
     align-items: center;
     margin-bottom: 150px;
 }
 
 .explore-box {
-    margin: 0 20px 0 20px;
+    margin: 0 20px 20px 20px;
     border-radius: 8px;
     padding: 50px;
 }
@@ -90,7 +89,7 @@ main {
 
 footer {
     text-align: center;
-    background-color: #111111;
+    background-color: #343a40;
 }
 
 /* Optional class which is added if the content of the page is smaller than the current screen height (See eventhandling.js for more information) */
