@@ -9,9 +9,10 @@
   </section>
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand"><img src="assets/images/PotentialLogo2.png" class=img-fluid></a>
   <ul class="nav nav-pills">
       <li class="nav-item">
-          <a class="nav-link active" href="explore.php">Explore</a>
+          <a class="nav-link" href="explore.php">Explore</a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="listing.php">Details</a>
@@ -41,3 +42,13 @@
       </li>
     </ul>
 </nav>
+
+<style>
+  .navbar-brand{
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+    overflow: hidden;
+    margin-bottom: -20px;
+}
+</style>

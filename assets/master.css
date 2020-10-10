@@ -6,6 +6,16 @@ html {
     transition: 1;
 }
 
+
+.navbar-brand{
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+    overflow: hidden;
+    margin-bottom: -20px;
+}
+
+
 .jumbotron-banner {
     background-image: url("images/TroyView.jpg");
     color: rgb(0, 0, 0);
