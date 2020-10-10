@@ -3,7 +3,6 @@ html {
 }
 
 .jumbotron-banner {
-    background-image: url("images/TroyView.jpg");
     background-size: 100%;
     background-position: center;
     background-color: #457b9d;
@@ -48,6 +47,7 @@ main {
 }
 
 .explore-heading h2 {
+    padding-top: 40px;
     font-size: 48px;
     margin-bottom: 30px;
 }
@@ -58,7 +58,7 @@ main {
 
 .explore-boxes {
     align-items: center;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
 }
 
 .explore-box {
