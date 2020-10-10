@@ -2,6 +2,18 @@ html {
     font-family: 'Ubuntu', sans-serif;
 }
 
+.navbar-brand{
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+    overflow: hidden;
+    margin-bottom: -20px;
+}
+
+.jumbotron {
+    transition: 1;
+}
+
 .jumbotron-banner {
     background-size: 100%;
     background-position: center;
