@@ -18,3 +18,8 @@ function repositionFooter () {
     if (window.innerHeight > height) document.getElementsByTagName("footer")[0].classList.add("sticky-footer");
     else if (document.getElementsByTagName("footer")[0].classList.contains("sticky-footer")) document.getElementsByTagName("footer")[0].classList.remove("sticky-footer");
 }
+
+function mainMargin() {
+    var height = document.getElementsByTagName("header")[0].clientHeight;
+    document.getElementsByTagName("main")[0].style.marginTop = height + 'px';
+}

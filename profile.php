@@ -12,8 +12,8 @@
 <body onresize="repositionFooter()">
     <?php include_once("assets/includes/header.php"); ?>
     <main>
-        <h1>Test</h1>
-        <?php echo('<h1>Welcome ' . $_SESSION['rcsid'] . '!</h1>'); ?>
+        <?php // echo('<h1>Welcome ' . $_SESSION['rcsid'] . '!</h1>'); ?>
+        <h1>Testing something</h1>
     </main>
 
     <?php
