@@ -11,18 +11,18 @@
     # Include all boiler-plate header information for the site
     include('assets/includes/header.php');
   ?>
-  <section class="banner">
-    <div class="jumbotron jumbotron-fluid jumbotron-banner">
-      <div class="container">
-        <h2 class="lead">Know Better. Enjoy More.</h2>
-        <img class="banner-logo" height="300" src="./assets/images/PotentialLogo2.png" alt="logo">
-      </div>
-    </div>
-  </section>
   </header>
 
   <!-- Explore banner -->
   <main>
+    <section class="banner">
+      <div class="jumbotron jumbotron-fluid jumbotron-banner">
+        <div class="container">
+          <h2 class="lead">Know Better. Enjoy More.</h2>
+          <img class="banner-logo" height="300" src="./assets/images/PotentialLogo2.png" alt="logo">
+        </div>
+      </div>
+    </section>
     <section class="explore-banner">
       <div class="explore-heading">
         <h2>Explore</h2>
