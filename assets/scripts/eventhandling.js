@@ -8,3 +8,13 @@
 //     tron[0].style.height = "200px";
 //   }
 // }
+
+function repositionFooter () {
+    var height = 0;
+    height += document.getElementsByTagName("header")[0].clientHeight;
+    height += document.getElementsByTagName("main")[0].clientHeight;
+    height += document.getElementsByTagName("footer")[0].clientHeight;
+
+    if (window.innerHeight > height) document.getElementsByTagName("footer")[0].classList.add("sticky-footer");
+    else if (document.getElementsByTagName("footer")[0].classList.contains("sticky-footer")) document.getElementsByTagName("footer")[0].classList.remove("sticky-footer");
+}

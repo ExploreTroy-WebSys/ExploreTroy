@@ -2,11 +2,6 @@ html {
     font-family: 'Ubuntu', sans-serif;
 }
 
-.jumbotron {
-    transition: 1;
-}
-
-
 .navbar-brand{
     width: 80px;
     height: 80px;
@@ -15,17 +10,24 @@ html {
     margin-bottom: -20px;
 }
 
-
-.jumbotron-banner {
-    background-image: url("images/TroyView.jpg");
-    color: rgb(0, 0, 0);
-    width: 100%; /* Full width */
-    z-index: 100;
-    transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+.jumbotron {
+    transition: 1;
 }
 
-.navbar navbar-expand-md navbar-dark bg-dark{
-    margin-bottom:0;
+.jumbotron-banner {
+    background-size: 100%;
+    background-position: center;
+    background-color: #457b9d;
+    color: rgb(0, 0, 0);
+    height: 650px;
+    text-align: center;
+}
+
+.banner-logo {
+    padding-top: 10px;
+    background-color: #f1faee;
+    border-radius: 20px;
+    margin-top: 40px;
 }
 
 #logo {
@@ -37,54 +39,42 @@ html {
     font-size: 300%;
 }
 
-.display-4 {
-    margin-bottom: 0;
+main {
+    font-size:30px;
+    padding-bottom: 1%;
 }
 
 .lead {
-    margin-bottom: 3px;
+    margin-top: 50px;
+    font-size: 48px;
+    color: #f1faee;
+    font-weight: bold;
 }
 
-main {
-    margin-top:15%;
-    padding-bottom: 2500px;
-    font-size:30px
-}
 
 /* Explore banner */
 
 .explore-heading {
     text-align: center;
-    margin: 50px 0 50px 0;
 }
 
 .explore-heading h2 {
+    padding-top: 40px;
     font-size: 48px;
+    margin-bottom: 30px;
+}
+
+.columns {
+    text-align: center;
 }
 
 .explore-boxes {
-    height: 200px;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
-.explore-box-1 {
-    background-color: #a8dadc;
-    margin: 0 20px 0 20px;
-    border-radius: 8px;
-    padding: 50px;
-}
-
-.explore-box-2 {
-    background-color: #457b9d;
-    margin: 0 20px 0 20px;
-    border-radius: 8px;
-    padding: 50px;
-}
-
-.explore-box-3 {
-    background-color: #e63946;
-    margin: 0 20px 0 20px;
+.explore-box {
+    margin: 0 20px 20px 20px;
     border-radius: 8px;
     padding: 50px;
 }
@@ -95,15 +85,31 @@ main {
     transition: 0.5s;
 }
 
-.columns {
-    text-align: center;
-  
-  /* Footer */
+#explore-box-1 {
+    background-color: #a8dadc;  
 }
+
+#explore-box-2 {
+    background-color: #457b9d;
+}
+
+#explore-box-3 {
+    background-color: #e63946;
+}
+
+/* Footer */
 
 footer {
     text-align: center;
-    background-color: #111111;
+    background-color: #343a40;
+}
+
+/* Optional class which is added if the content of the page is smaller than the current screen height (See eventhandling.js for more information) */
+.sticky-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .footer-text {

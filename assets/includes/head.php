@@ -11,10 +11,10 @@
   <link rel="stylesheet" href="assets/master.css">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="assets/fontawesome/css/all.css">
+  <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.css">
 
   <!-- Eventhandler js file -->
   <script src="assets/scripts/eventhandling.js"></script>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">

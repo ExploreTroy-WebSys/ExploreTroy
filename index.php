@@ -6,11 +6,19 @@
     include('assets/includes/head.php');
 ?>
 </head>
-<body>
+<body onresize="repositionFooter()">
   <?php 
     # Include all boiler-plate header information for the site
     include('assets/includes/header.php');
   ?>
+  <section class="banner">
+    <div class="jumbotron jumbotron-fluid jumbotron-banner">
+      <div class="container">
+        <h2 class="lead">Know Better. Enjoy More.</h2>
+        <img class="banner-logo" height="300" src="./assets/images/PotentialLogo2.png" alt="logo">
+      </div>
+    </div>
+  </section>
   </header>
 
   <!-- Explore banner -->
@@ -21,14 +29,14 @@
       </div>
       <div class="container columns">
         <div class="row explore-boxes justify-content-center">
-          <div class="shadow col-sm explore-box-1 explore-box">
-            <i class="fas fa-utensils fa-5x explore-icon"></i>          
+          <div class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-1">
+            <i class="fas fa-utensils fa-4x explore-icon"></i>
           </div>
-          <div class="shadow col-sm explore-box-2 explore-box">
-            <i class="fas fa-store fa-5x explore-icon"></i>
+          <div class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-2">
+            <i class="fas fa-store fa-4x explore-icon"></i>
           </div>
-          <div class="shadow col-sm explore-box-3 explore-box">
-            <i class="fas fa-hiking fa-5x explore-icon"></i>
+          <div class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-3">
+            <i class="fas fa-hiking fa-4x explore-icon"></i>
           </div>
         </div>
       </div>
