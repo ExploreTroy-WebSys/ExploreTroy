@@ -13,6 +13,9 @@
     <?php include_once("assets/includes/header.php"); ?>
     <main>
         <?php echo('<h1>Welcome ' . $_SESSION['rcsid'] . '!</h1>'); ?>
+        <section class="container">
+            
+        </section>
     </main>
 
     <?php
