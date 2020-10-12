@@ -1,4 +1,4 @@
-<header>
+<header id="header">
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a href="index.php" class="navbar-brand"><img src="assets/images/PotentialLogo2.png" class=img-fluid></a>
     <ul class="nav nav-pills">

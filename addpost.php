@@ -1,14 +1,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php 
-    # Spawn session cookie if one does not exist and set authentication status to false
-    session_start();
-    if (!(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
-
+    include_once("assets/includes/head.php");
+    
     # If the user isn't authenticated then redirect them to main
     // if (!$_SESSION['authenticated']) header('location: index.php');
-
-    include_once("assets/includes/head.php");
-
 ?>
 </head>
 <body onresize="repositionFooter()">

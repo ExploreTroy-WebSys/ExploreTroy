@@ -1,7 +1,4 @@
     <?php
-        session_start();
-        if (!(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
-
         # Include all boiler-plate head information for the site
         include("assets/includes/head.php");
     ?>
