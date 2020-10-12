@@ -18,3 +18,9 @@
 
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
+
+  <?php 
+    # Spawn session cookie if one does not exist and set authentication status to false
+    session_start();
+    if ($_SESSION && !(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
+  ?>
