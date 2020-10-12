@@ -9,9 +9,9 @@
 //   }
 // }
 
-function repositionFooter () {
+function repositionFooter (multiplier) {
     var height = 0;
-    height += 2 * document.getElementsByTagName("nav")[0].clientHeight;
+    height += multiplier * document.getElementsByTagName("nav")[0].clientHeight;
     height += document.getElementsByTagName("main")[0].clientHeight;
     height += document.getElementsByTagName("footer")[0].clientHeight;
 
@@ -19,12 +19,20 @@ function repositionFooter () {
     else if (document.getElementsByTagName("footer")[0].classList.contains("sticky-footer")) document.getElementsByTagName("footer")[0].classList.remove("sticky-footer");
 }
 
-function mainMargin() {
+function mainMargin(multiplier) {
     var height = document.getElementsByTagName("nav")[0].clientHeight;
-    document.getElementsByTagName("main")[0].style.marginTop = 2 * height + 'px';
+    document.getElementsByTagName("main")[0].style.marginTop = multiplier * height + 'px';
 }
 
 function resizeEvents() {
-    repositionFooter();
-    mainMargin();
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    var multiplier = 0;
+
+    if (!(page == "index.php")) {
+        multiplier = 1.25
+    }
+
+    repositionFooter(multiplier);
+    mainMargin(multiplier);
 }
