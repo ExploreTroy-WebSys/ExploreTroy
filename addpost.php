@@ -24,7 +24,7 @@
 ?> -->
 
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@500&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 
 <form>
