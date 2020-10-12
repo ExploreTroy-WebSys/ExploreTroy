@@ -95,6 +95,7 @@ main {
     margin: 0 20px 20px 20px;
     border-radius: 8px;
     padding: 50px;
+    color: #343a40;
 }
 
 .explore-box:hover {

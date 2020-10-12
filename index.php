@@ -29,15 +29,15 @@
       </div>
       <div class="container columns">
         <div class="row explore-boxes justify-content-center">
-          <div class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-1">
+          <a href="explore.php" class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-1">
             <i class="fas fa-utensils fa-4x explore-icon"></i>
-          </div>
-          <div class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-2">
+          </a>
+          <a href="explore.php" class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-2">
             <i class="fas fa-store fa-4x explore-icon"></i>
-          </div>
-          <div class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-3">
+          </a>
+          <a href="explore.php" class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-3">
             <i class="fas fa-hiking fa-4x explore-icon"></i>
-          </div>
+          </a>
         </div>
       </div>
     </section>
