@@ -14,36 +14,55 @@
     <main>
         <section class="explore-page-main">
         <div class="explore-category">
-            <h2>Explore [Category]</h2>
+            <h2 class="explore-page-header-text">Explore</h2>
+            <input class="exploreSearch" type="text" placeholder="Search..">
         </div>
         <div class="container-fluid explore-grid">
             <div class="row justify-content-center">
                 <div class="col-sm-3 grid-item">
-                    hi
+                    <img class="tmpImg" src="assets/images/the-whistling-kettle.jpg"/>
+                    <p class="locationName">The Whistling Kettle</p>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                 </div>
                 <div class="col-sm-3 grid-item">
-                    hi
+                    <img class="tmpImg" src="assets/images/DinosaurBBQ.jpg"/>
+                    <p class="locationName">Dinosaur Bar-B-Que</p>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                 </div>
                 <div class="col-sm-3 grid-item">
-                    hi
+                    <img class="tmpImg" src="assets/images/Druthers.jpg"/>
+                    <p class="locationName">Druthers Brewing Company</p>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                 </div>
                 <div class="col-sm-3 grid-item">
-                    hi
+                    Troy Atrium
                 </div>
                 <div class="col-sm-3 grid-item">
-                    hi
+                    Shop2
                 </div>
                 <div class="col-sm-3 grid-item">
-                    hi
+                    Shop3
                 </div>
                 <div class="col-sm-3 grid-item">
-                    hi
+                    Firefighters Park
                 </div>
                 <div class="col-sm-3 grid-item">
-                    hi
+                    Excursion 2
                 </div>
                 <div class="col-sm-3 grid-item">
-                    hi
+                    Excursion 3
                 </div>
                 <div class="col-sm-3 grid-item">
                     hi
