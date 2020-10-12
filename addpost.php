@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-
+<div class="container">
 <form>
   <section class="form-group">
       <section class="intro">
@@ -109,3 +109,4 @@
         <button type="submit" class="btn btn-primary">Submit your post</button>
 </section>
 </form>
+</div>
