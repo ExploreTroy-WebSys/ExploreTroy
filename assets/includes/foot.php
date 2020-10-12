@@ -1,4 +1,3 @@
-  <script>repositionFooter();</script>
-  <script>mainMargin();</script>
+  <script>resizeEvents();</script>
   </body>
 </html>
