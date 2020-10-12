@@ -10,12 +10,6 @@
     margin-bottom: -20px;
 }
 
-.navbar-brand img {
-    background-color: #f1faee;
-    padding-top: 2%;
-    border-radius: 10%;
-}
-
 .nav-link {
     color: #a8dadc;
 }
@@ -84,6 +78,7 @@ main {
 
 .explore-heading {
     text-align: center;
+    color: #343a40;
 }
 
 .explore-heading h2 {
