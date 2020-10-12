@@ -15,10 +15,10 @@
         <section class="explore-page-main">
         <div class="explore-category">
             <h2 class="explore-page-header-text">Explore</h2>
-            <input class="exploreSearch" type="text" placeholder="Search..">
+            <input id="exploreSearch" onkeyup="searchListings()" type="text" placeholder="Search for locations...">
         </div>
         <div class="container-fluid explore-grid">
-            <div class="row justify-content-center">
+            <div id="listingGrid" class="row justify-content-center">
                 <div class="col-sm-3 grid-item">
                     <img class="tmpImg" src="assets/images/the-whistling-kettle.jpg"/>
                     <p class="locationName">The Whistling Kettle</p>
@@ -47,30 +47,30 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <div class="col-sm-3 grid-item">
-                    Troy Atrium
+                    <p class="locationName">Troy Atrium</p>
                 </div>
                 <div class="col-sm-3 grid-item">
-                    Shop2
+                    <p class="locationName">Shop 2</p>
                 </div>
                 <div class="col-sm-3 grid-item">
-                    Shop3
+                    <p class="locationName">Shop3</p>
                 </div>
                 <div class="col-sm-3 grid-item">
-                    Firefighters Park
+                    <p class="locationName">Firefighters Park</p>
                 </div>
                 <div class="col-sm-3 grid-item">
-                    Excursion 2
+                    <p class="locationName">Excursion 2</p>
                 </div>
                 <div class="col-sm-3 grid-item">
-                    Excursion 3
+                    <p class="locationName">Excursion 3</p>
                 </div>
                 <div class="col-sm-3 grid-item">
-                    hi
+                    <p class="locationName">Hi</p>
                 </div><div class="col-sm-3 grid-item">
-                    hi
+                    <p class="locationName">Hi</p>
                 </div>
                 <div class="col-sm-3 grid-item">
-                    hi
+                    <p class="locationName">Hi</p>
                 </div>
             </div>
         </div>
