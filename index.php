@@ -26,7 +26,7 @@
       </div>
       <div class="container columns">
         <div class="row explore-boxes justify-content-center">
-          <a href="explore.php" class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-1">
+          <a href="RestaurantTemp.php" class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-1">
             <i class="fas fa-utensils fa-4x explore-icon"></i>
           </a>
           <a href="explore.php" class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-2">
