@@ -6,10 +6,6 @@
             <a class="nav-link" href="explore.php">EXPLORE</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="listing.php">DETAILS</a>
-        </li>     
-
-        <li class="nav-item">
             <a class="nav-link" href="addpost.php">POST</a>
         </li>
 
