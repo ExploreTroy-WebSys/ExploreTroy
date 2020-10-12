@@ -14,7 +14,7 @@
     <?php include_once("assets/includes/header.php"); ?>
     </header>
     <main class="container">
-        <section class="columns" id="base-info-and-pfp">
+        <section class="columns">
             <section class="row">
                 <figure class="col-md">
                     <img src="assets/images/Anchovie 1.png" alt="profile-photo" id="profile-photo">
@@ -23,6 +23,11 @@
                     <?php echo("<h4>Welcome " . $_SESSION['rcsid'] . "!</h4>"); ?>
                 </article>
             </section>
+            <aside class="row">
+                <header class="col">
+                    <h1>Personal Information</h1>
+                </header>
+            </aside>
             <section class="row">
                 <article class="col">
                     <form action="post.php">
@@ -49,7 +54,12 @@
                 </article>
             </section>
         </section>
-        <form action="post.php">
+        <form action="post.php" class="columns">
+            <aside class="row">
+                <header class="col justify-content-center">
+                    <h1>Account Details</h1>
+                </header>
+            </aside>
             <fieldset class="form-row">
                 <fieldset class="col-md form-group">
                     <label for="phone" class="sr-only">Phone Number:</label>
@@ -60,6 +70,11 @@
                     <input type="text" class="form-control mb-2" placeholder="Tell us a bit about yourself">
                 </fieldset>
             </fieldset>
+            <aside class="row">
+                <header class="col">
+                    <h1>Linked Accounts</h1>
+                </header>
+            </aside>
             <fieldset class="form-row">
                 <fieldset class="col-md input-group mb-2">
                     <div class="input-group-prepend">

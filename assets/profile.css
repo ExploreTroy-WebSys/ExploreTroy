@@ -3,10 +3,6 @@
     height: auto;
 }
 
-#base-info-and-pf {
-    border-bottom: 1px solid black;
-}
-
-i {
-    display: inline-block;  
+main {
+    padding-top: 30px;
 }
