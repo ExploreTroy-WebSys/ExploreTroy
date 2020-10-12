@@ -13,10 +13,13 @@ html {
 .jumbotron {
     transition: 1;
 }
+.container{
+    padding:10px 10px 10px 10px
+}
 
 .form-group{
     margin-top:70px;
-    }
+}
     form-control{
         margin-bottom:75px;
     }
@@ -26,7 +29,12 @@ html {
    }
    .intro{
     font-family: 'Commissioner', sans-serif;
-    font-size: 25px;
+    font-size:30px;
+    background-color: #a8dadc;
+    margin-top:-37px;
+    margin-left: -78px;
+    margin-right:-78px;
+    text-align:center;
    }
    .font{
     font-family: 'Poppins', sans-serif;
