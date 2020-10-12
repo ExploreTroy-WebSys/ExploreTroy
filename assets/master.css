@@ -1,5 +1,5 @@
-html {
-    font-family: 'Ubuntu', sans-serif;
+* {
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar-brand{
@@ -10,34 +10,44 @@ html {
     margin-bottom: -20px;
 }
 
-.jumbotron {
-    transition: 1;
+.navbar-brand img {
+    background-color: #f1faee;
+    padding-top: 2%;
+    border-radius: 10%;
+}
+
+.nav-link {
+    color: #a8dadc;
+}
+
+.nav-link:hover {
+    color: #f1faee;
 }
 
 .form-group{
     margin-top:70px;
-    }
-    form-control{
-        margin-bottom:75px;
-    }
-   .options{
-       border-style:solid;
-       border-color: red;
-   }
-   .intro{
-    font-family: 'Commissioner', sans-serif;
-    font-size: 25px;
-   }
-   .font{
-    font-family: 'Poppins', sans-serif;
-   }
+}
+form-control{
+    margin-bottom:75px;
+}
+.options{
+    border-style:solid;
+    border-color: red;
+}
+.intro{
+font-family: 'Commissioner', sans-serif;
+font-size: 25px;
+}
+.font{
+font-family: 'Poppins', sans-serif;
+}
 
 .jumbotron-banner {
     background-size: 100%;
     background-position: center;
     background-color: #457b9d;
     color: rgb(0, 0, 0);
-    height: 650px;
+    height: 550px;
     text-align: center;
 }
 
@@ -46,16 +56,17 @@ html {
     background-color: #f1faee;
     border-radius: 20px;
     margin-top: 40px;
+    height: 300px;
 }
 
-#logo {
+/* #logo {
     width: 280px;
     padding: 0;
     background-color: rgb(255, 255, 255, .8);
     border-radius: 10px;
     text-align: center;
     font-size: 300%;
-}
+} */
 
 main {
     font-size:30px;
@@ -63,8 +74,7 @@ main {
 }
 
 .lead {
-    margin-top: 50px;
-    font-size: 48px;
+    font-size: 36px;
     color: #f1faee;
     font-weight: bold;
 }
@@ -118,14 +128,14 @@ main {
 
 /* Explore page */
 .explore-category {
-    background-color: #a8dadc;
+    background-color: #457b9d;
     padding: 1%;
     display: flex;
-    justify-content: space-betweenS;
 }
 
 .explore-page-header-text{
     display: inline-block;
+    color: #f1faee;
 }
 
 .exploreSearch {
@@ -155,7 +165,6 @@ main {
   }
 
 .explore-page-main {
-    margin-top: 76px;
     text-align: center;
 }
 
@@ -168,16 +177,32 @@ main {
     background-color: #457b9d;
     height: 300px;
     border-radius: 8px;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.explore-grid .grid-item:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 4px rgb(0, 44, 56);
+    text-decoration: none;
+}
+
+.explore-grid .grid-item {
+    color: #343a40;
+}
+
+.explore-grid .grid-item i {
+    color: #f1faee;
 }
 
 .tmpImg {
-    margin-top: 10px;
-    box-shadow: 0px 0px 10px 4px rgb(0, 44, 56);
+    margin-bottom: 10px;
     display: block;
     height: 60%;
     width: auto;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 8px;
 }
 
 .locationName {

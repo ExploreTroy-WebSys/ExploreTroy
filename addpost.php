@@ -18,10 +18,6 @@
         include_once("assets/includes/foot.php");
 ?> -->
 
-<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@500&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
-
 <form>
   <section class="form-group">
       <section class="intro">

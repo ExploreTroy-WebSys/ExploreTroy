@@ -16,7 +16,7 @@
       <div class="jumbotron jumbotron-fluid jumbotron-banner">
         <div class="container">
           <h2 class="lead">Know Better. Enjoy More.</h2>
-          <img class="banner-logo" height="300" src="./assets/images/PotentialLogo2.png" alt="logo">
+          <img class="banner-logo" src="./assets/images/PotentialLogo2.png" alt="logo">
         </div>
       </div>
     </section>

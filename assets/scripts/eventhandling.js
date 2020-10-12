@@ -21,7 +21,7 @@ function repositionFooter (multiplier) {
 
 function mainMargin(multiplier) {
     var height = document.getElementsByTagName("nav")[0].clientHeight;
-    document.getElementsByTagName("main")[0].style.marginTop = multiplier * height + 'px';
+    document.getElementsByTagName("main")[0].style.marginTop = '76px';
 }
 
 function resizeEvents() {
