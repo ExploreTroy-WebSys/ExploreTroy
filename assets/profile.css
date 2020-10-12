@@ -1,0 +1,12 @@
+#profile-photo {
+    width: 120px;
+    height: auto;
+}
+
+#base-info-and-pf {
+    border-bottom: 1px solid black;
+}
+
+i {
+    display: inline-block;  
+}

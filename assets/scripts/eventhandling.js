@@ -11,7 +11,7 @@
 
 function repositionFooter () {
     var height = 0;
-    height += document.getElementsByTagName("header")[0].clientHeight;
+    height += 2.5 * document.getElementsByTagName("nav")[0].clientHeight;
     height += document.getElementsByTagName("main")[0].clientHeight;
     height += document.getElementsByTagName("footer")[0].clientHeight;
 
@@ -20,6 +20,11 @@ function repositionFooter () {
 }
 
 function mainMargin() {
-    var height = document.getElementsByTagName("header")[0].clientHeight;
-    document.getElementsByTagName("main")[0].style.marginTop = height + 'px';
+    var height = document.getElementsByTagName("nav")[0].clientHeight;
+    document.getElementsByTagName("main")[0].style.marginTop = 1.5 * height + 'px';
+}
+
+function resizeEvents() {
+    repositionFooter();
+    mainMargin();
 }
