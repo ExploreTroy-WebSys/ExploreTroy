@@ -65,7 +65,7 @@
                     <label for="bio" class="sr-only">Bio:</label>
                     <input type="text" class="form-control mb-2" placeholder="Tell us a bit about yourself">
                 </fieldset>
-                <fieldset class="col-auto-md">
+                <fieldset class="col-auto-md form-group">
                     <button class="btn btn-primary btn-small" type="submit">Update Details</button>
                 </fieldset>
             </fieldset>
