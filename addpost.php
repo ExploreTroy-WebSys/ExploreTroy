@@ -35,7 +35,7 @@
 </section>
 <section class="font">
   <label for="exampleFormControlInput1">Title of Post</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Summarize your review or question or highlight an interesting experience">
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Summarize your review or question">
     <br>
     <section class="form-group1">
     <label for="exampleFormControlTextarea1">What's on your mind? Write a question or review</label>
