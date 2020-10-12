@@ -17,7 +17,7 @@
         <section class="columns">
             <section class="row">
                 <figure class="col-md">
-                    <img src="assets/images/Anchovie 1.png" alt="profile-photo" id="profile-photo">
+                    <img src="assets/images/PotentialLogo2.png" alt="profile-photo" id="profile-photo">
                 </figure>
                 <article class="col-md">
                     <?php echo("<h4>Welcome " . $_SESSION['rcsid'] . "!</h4>"); ?>
@@ -61,15 +61,20 @@
                 </header>
             </aside>
             <fieldset class="form-row">
-                <fieldset class="col-md form-group">
+                <fieldset class="col-md-2 form-group">
                     <label for="phone" class="sr-only">Phone Number:</label>
                     <input type="text" class="form-control mb-2" placeholder="(xxx).xxx.xxxx">
                 </fieldset>
-                <fieldset class="col-md-9 form-group">
+                <fieldset class="col-md form-group">
                     <label for="bio" class="sr-only">Bio:</label>
                     <input type="text" class="form-control mb-2" placeholder="Tell us a bit about yourself">
                 </fieldset>
+                <fieldset class="col-auto-md">
+                    <button class="btn btn-primary btn-small" type="submit">Update Details</button>
+                </fieldset>
             </fieldset>
+        </form>
+        <form action="post.php" class="columns">
             <aside class="row">
                 <header class="col">
                     <h1>Linked Accounts</h1>
@@ -109,7 +114,7 @@
                     <input type="text" class="form-control" placeholder="Username">
                 </fieldset>
                 <fieldset class="col-auto-md">
-                    <button class="btn btn-primary" type="submit">Save Profile</button>
+                    <button class="btn btn-primary" type="submit">Update Accounts</button>
                 </fieldset>
             </fieldset>
         </form>
