@@ -1,14 +1,3 @@
-// window.onscroll = function() {scrollFunction()};
-
-// function scrollFunction() {
-//     var tron = document.getElementsByClassName("jumbotron");
-//   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-//     tron[0].style.height = "100px";
-//   } else {
-//     tron[0].style.height = "200px";
-//   }
-// }
-
 function repositionFooter (multiplier) {
     var height = 0;
     height += multiplier * document.getElementsByTagName("nav")[0].clientHeight;
@@ -20,21 +9,22 @@ function repositionFooter (multiplier) {
 }
 
 function mainMargin(multiplier) {
-    var height = document.getElementsByTagName("nav")[0].clientHeight;
-    document.getElementsByTagName("main")[0].style.marginTop = '76px';
+    var height = document.getElementById("nav-bar").clientHeight;
+    document.getElementsByTagName("main")[0].style.marginTop =  multiplier * height + 'px';
+    console.log(height);
 }
 
 function resizeEvents() {
     var path = window.location.pathname;
     var page = path.split("/").pop();
-    var multiplier = 0;
-
-    if (!(page == "index.php")) {
-        multiplier = 1.25
-    }
+    var multiplier = 1;
 
     repositionFooter(multiplier);
     mainMargin(multiplier);
+}
+
+function assignResizeEvents() {
+  document.body.onresize = resizeEvents();
 }
 
 function searchListings() {

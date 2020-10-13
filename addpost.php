@@ -1,10 +1,12 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<?php 
-    include_once("assets/includes/head.php");
-    
-    # If the user isn't authenticated then redirect them to main
-    // if (!$_SESSION['authenticated']) header('location: index.php');
+<?php
+  # Spawn session cookie if one does not exist and set authentication status to false
+  session_start();
+  if ($_SESSION && !(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
+  
+  # Include all boiler-plate head information for the site
+  include("assets/includes/head.php");
 ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body onresize="repositionFooter()">
     <?php include_once("assets/includes/header.php"); ?>

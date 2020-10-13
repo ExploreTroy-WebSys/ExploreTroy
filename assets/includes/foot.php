@@ -1,3 +1,3 @@
-  <script>resizeEvents();</script>
+  <script>assignResizeEvents();</script>
   </body>
 </html>

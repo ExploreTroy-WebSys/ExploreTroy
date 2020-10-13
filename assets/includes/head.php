@@ -20,9 +20,3 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
-  <?php 
-    # Spawn session cookie if one does not exist and set authentication status to false
-    session_start();
-    if ($_SESSION && !(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
-  ?>

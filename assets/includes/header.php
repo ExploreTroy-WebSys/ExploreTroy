@@ -1,5 +1,5 @@
 <header id="header">
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="nav-bar">
     <a href="index.php" class="navbar-brand"><img src="assets/images/LogoWithoutText.png" class=img-fluid></a>
     <ul class="nav nav-pills">
         <li class="nav-item">
