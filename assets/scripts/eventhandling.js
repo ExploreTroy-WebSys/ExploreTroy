@@ -36,3 +36,23 @@ function resizeEvents() {
     repositionFooter(multiplier);
     mainMargin(multiplier);
 }
+
+function searchListings() {
+    // Declare variables
+    var input, filter, list, listings, p, i, txtValue;
+    input = document.getElementById('exploreSearch');
+    filter = input.value.toUpperCase();
+    list = document.getElementById("listingGrid");
+    listings = list.getElementsByClassName('grid-item');
+  
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < listings.length; i++) {
+      p = listings[i].getElementsByTagName("p")[0];
+      txtValue = p.textContent || p.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        listings[i].style.display = "";
+      } else {
+        listings[i].style.display = "none";
+      }
+    }
+  }
