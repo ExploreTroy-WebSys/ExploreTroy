@@ -1,5 +1,5 @@
-html {
-    font-family: 'Ubuntu', sans-serif;
+* {
+    font-family: 'Poppins', sans-serif;
 }
 
 .navbar-brand{
@@ -10,8 +10,12 @@ html {
     margin-bottom: -20px;
 }
 
-.jumbotron {
-    transition: 1;
+.nav-link {
+    color: #a8dadc;
+}
+
+.nav-link:hover {
+    color: #f1faee;
 }
 .container{
     padding:10px 10px 10px 10px
@@ -20,14 +24,14 @@ html {
 .form-group{
     margin-top:70px;
 }
-    form-control{
-        margin-bottom:75px;
-    }
-   .options{
-       border-style:solid;
-       border-color: red;
-   }
-   .intro{
+form-control{
+    margin-bottom:75px;
+}
+.options{
+   border-style:solid;
+   border-color: red;
+}
+.intro{
     font-family: 'Commissioner', sans-serif;
     font-size:30px;
     background-color: #a8dadc;
@@ -35,17 +39,17 @@ html {
     margin-left: -78px;
     margin-right:-78px;
     text-align:center;
-   }
-   .font{
-    font-family: 'Poppins', sans-serif;
-   }
+}
+.font{
+font-family: 'Poppins', sans-serif;
+}
 
 .jumbotron-banner {
     background-size: 100%;
     background-position: center;
     background-color: #457b9d;
     color: rgb(0, 0, 0);
-    height: 650px;
+    height: 550px;
     text-align: center;
 }
 
@@ -54,16 +58,17 @@ html {
     background-color: #f1faee;
     border-radius: 20px;
     margin-top: 40px;
+    height: 300px;
 }
 
-#logo {
+/* #logo {
     width: 280px;
     padding: 0;
     background-color: rgb(255, 255, 255, .8);
     border-radius: 10px;
     text-align: center;
     font-size: 300%;
-}
+} */
 
 main {
     font-size:30px;
@@ -71,8 +76,7 @@ main {
 }
 
 .lead {
-    margin-top: 50px;
-    font-size: 48px;
+    font-size: 36px;
     color: #f1faee;
     font-weight: bold;
 }
@@ -82,6 +86,7 @@ main {
 
 .explore-heading {
     text-align: center;
+    color: #343a40;
 }
 
 .explore-heading h2 {
@@ -126,14 +131,15 @@ main {
 
 /* Explore page */
 .explore-category {
-    background-color: #a8dadc;
+    background-color: #457b9d;
     padding: 1%;
     display: flex;
-    justify-content: space-betweenS;
 }
 
 .explore-page-header-text{
     display: inline-block;
+    color: #f1faee;
+    font-size: 24px;
 }
 
 #exploreSearch {
@@ -163,7 +169,6 @@ main {
   }
 
 .explore-page-main {
-    margin-top: 76px;
     text-align: center;
 }
 
@@ -176,21 +181,72 @@ main {
     background-color: #457b9d;
     height: 300px;
     border-radius: 8px;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.explore-grid .grid-item:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 4px rgb(0, 44, 56);
+    text-decoration: none;
+}
+
+.explore-grid .grid-item {
+    color: #343a40;
+}
+
+.explore-grid .grid-item i {
+    color: #f1faee;
 }
 
 .tmpImg {
-    margin-top: 10px;
-    box-shadow: 0px 0px 10px 4px rgb(0, 44, 56);
+    margin-bottom: 10px;
     display: block;
     height: 60%;
     width: auto;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 8px;
 }
 
 .locationName {
     display: block;
     padding-bottom: 0;
+}
+
+/* Listing page */
+
+.attraction-name {
+    color: #a8dadc;
+}
+
+.reviews {
+    margin: 20px 20px 0 20px;
+    font-size: 20px;
+}
+
+.review {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid #457b9d;
+    text-align: left;
+    padding-top: 10px;
+}
+
+.review .review-header {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 0;
+    color: #e63946;
+}
+
+.review .rating {
+    display: inline-block;
+    color: #f9c74f;
+}
+
+.review-description {
+    font-size: 18px;
 }
 
 /* Footer */
