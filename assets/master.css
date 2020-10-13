@@ -131,6 +131,7 @@ main {
 .explore-page-header-text{
     display: inline-block;
     color: #f1faee;
+    font-size: 24px;
 }
 
 .exploreSearch {
@@ -203,6 +204,41 @@ main {
 .locationName {
     display: block;
     padding-bottom: 0;
+}
+
+/* Listing page */
+
+.attraction-name {
+    color: #a8dadc;
+}
+
+.reviews {
+    margin: 20px 20px 0 20px;
+    font-size: 20px;
+}
+
+.review {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid #457b9d;
+    text-align: left;
+    padding-top: 10px;
+}
+
+.review .review-header {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 0;
+    color: #e63946;
+}
+
+.review .rating {
+    display: inline-block;
+    color: #f9c74f;
+}
+
+.review-description {
+    font-size: 18px;
 }
 
 /* Footer */
