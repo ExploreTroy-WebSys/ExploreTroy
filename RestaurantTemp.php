@@ -19,7 +19,7 @@
         <section class="explore-page-main">
         <div class="explore-category">
             <h2 class="explore-page-header-text">Explore</h2>
-            <input class="exploreSearch" type="text" placeholder="Search..">
+            <input id="exploreSearch" onkeyup="searchListings()" type="text" placeholder="Search for locations...">
         </div>
         <div class="container-fluid explore-grid">
             <div class="row justify-content-center">
