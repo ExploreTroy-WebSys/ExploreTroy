@@ -1,4 +1,4 @@
-* {
+body {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -16,6 +16,22 @@
 
 .nav-link:hover {
     color: #f1faee;
+}
+
+/* Post page */
+.post-page {
+    font-size: 18px;
+}
+.post-header {
+    background-color: #457b9d;
+    padding: 1%;
+    display: flex;
+}
+
+.post-header-text{
+    display: inline-block;
+    color: #f1faee;
+    font-size: 24px;
 }
 .container{
     padding:10px 10px 10px 10px

@@ -14,7 +14,10 @@
     include('assets/includes/header.php');
   ?>
 
-  <main>
+  <main class="post-page">
+    <div class="post-header">
+      <h2 class="post-header-text">Post</h2>
+    </div>
     <section class="container">
       <form>
         <!-- Form header -->
@@ -26,13 +29,13 @@
 
         <!-- Title of post and review body -->
         <section class="font">
-          <label for="exampleFormControlInput1"><b>Title of Post</b></label>
+          <label for="exampleFormControlInput1">Title of Post</label>
           <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Summarize your review or question">
           
           <br>
 
           <section class="form-group1">
-            <label for="exampleFormControlTextarea1"><b>What's on your mind? Write a question or review</b></label>
+            <label for="exampleFormControlTextarea1">What's on your mind? Write a question or review.</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 
             <br>
@@ -40,7 +43,7 @@
         
           <!-- Category selection -->
           <section class="options">
-            <p><b>To ensure your post can be viewed by other ExploreTroyers, please select the restaurant, shop, or excursion your post is related to (only one location per post). If you do not see your location of choice, please insert it in the "other box."</b>
+            <p>To ensure your post can be viewed by other ExploreTroyers, please select the restaurant, shop, or excursion your post is related to (only one location per post). If you do not see your location of choice, please insert it in the "other box."
             
             <br>
 
@@ -83,7 +86,7 @@
           <br>
 
           <!-- Date of visit -->
-          <label for="sel2"><b>Date of Visit (select one) </b></label>
+          <label for="sel2">Date of Visit (select one)</label>
           <select class="form-control" id="sel1">
             <option>Select One</option>
             <option>Q2 2021</option>
@@ -102,7 +105,7 @@
           <br>
 
           <!-- Upload -->
-          <p><b>Upload a picture of your visit or to better explain your question</b>
+          <p>Upload a picture of your visit or to better explain your question.</p>
 
           <div class="file-field">
             <div class="btn btn-primary btn-sm float-left">
@@ -119,7 +122,7 @@
           
           <br>
 
-          <button type="submit" class="btn btn-primary">Submit your post</button>
+          <button type="submit" class="btn btn-primary">Submit your post!</button>
         </section>
       </form>
     </section>
