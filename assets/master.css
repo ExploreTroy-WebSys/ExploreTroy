@@ -21,17 +21,17 @@
     padding:10px 10px 10px 10px
 }
 
-.form-group{
+/* .form-group{
     margin-top:70px;
-}
-form-control{
+} */
+/* form-control{
     margin-bottom:75px;
-}
+} */
 .options{
    border-style:solid;
    border-color: red;
 }
-.intro{
+/* .intro{
     font-family: 'Commissioner', sans-serif;
     font-size:30px;
     background-color: #a8dadc;
@@ -39,7 +39,7 @@ form-control{
     margin-left: -78px;
     margin-right:-78px;
     text-align:center;
-}
+} */
 .font{
 font-family: 'Poppins', sans-serif;
 }
