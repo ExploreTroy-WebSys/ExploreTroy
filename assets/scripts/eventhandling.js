@@ -1,6 +1,7 @@
-function repositionFooter (multiplier) {
+// Function which applies or removes a sticky footer tag based on whether or not there is enough content on the page to fill the page
+function repositionFooter () {
     var height = 0;
-    height += multiplier * document.getElementsByTagName("nav")[0].clientHeight;
+    height += document.getElementsByTagName("nav")[0].clientHeight;
     height += document.getElementsByTagName("main")[0].clientHeight;
     height += document.getElementsByTagName("footer")[0].clientHeight;
 
@@ -8,21 +9,20 @@ function repositionFooter (multiplier) {
     else if (document.getElementsByTagName("footer")[0].classList.contains("sticky-footer")) document.getElementsByTagName("footer")[0].classList.remove("sticky-footer");
 }
 
-function mainMargin(multiplier) {
+// Function which introduced a margin-top to the main tag in order to not be obscured by the navbar
+function mainMargin() {
     var height = document.getElementById("nav-bar").clientHeight;
-    document.getElementsByTagName("main")[0].style.marginTop =  multiplier * height + 'px';
+    document.getElementsByTagName("main")[0].style.marginTop = height + 'px';
     console.log(height);
 }
 
+// Wrapper function which handles all styling updates based on window resizing
 function resizeEvents() {
-    var path = window.location.pathname;
-    var page = path.split("/").pop();
-    var multiplier = 1;
-
-    repositionFooter(multiplier);
-    mainMargin(multiplier);
+    repositionFooter();
+    mainMargin();
 }
 
+// Add resize event listener to body
 function assignResizeEvents() {
   document.body.onresize = resizeEvents();
 }
@@ -44,5 +44,7 @@ function searchListings() {
       } else {
         listings[i].style.display = "none";
       }
+      // Reposition footer as needed based on element removal/addition
+      resizeEvents();
     }
   }
