@@ -5,7 +5,7 @@
     # Include phpCAS library, designate client and server
     include_once('../assets/CAS-1.3.8/CAS.php');
     phpCAS::client(CAS_VERSION_2_0, 'cas-auth.rpi.edu', 443, '/cas/');
-    phpCAS::setCasServerCACert('../assets/CAS-cert.pem');
+    phpCAS::setNoCasServerValidation();
 
     # If the user is authenticated store account information in the session cookie
     if (phpCAS::isAuthenticated()) {
