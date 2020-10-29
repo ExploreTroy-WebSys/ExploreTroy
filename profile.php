@@ -19,7 +19,7 @@
                     <img src="assets/images/PotentialLogo2.png" alt="profile-photo" id="profile-photo">
                 </figure>
                 <article class="col-md">
-                    <?php echo("<h4>Welcome " . $_SESSION['rcsid'] . "!</h4>"); ?>
+                    <?php if (array_key_exists('rcsid', $_SESSION)) echo("<h4>Welcome " . $_SESSION['rcsid'] . "!</h4>"); ?>
                 </article>
             </section>
             <aside class="row">
