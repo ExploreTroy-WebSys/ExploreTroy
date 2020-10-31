@@ -119,7 +119,7 @@
         </form>
     </main>
 
-    <?php
-        include_once("assets/includes/footer.php");
-        include_once("assets/includes/foot.php");
+<?php
+    include_once("assets/includes/footer.php");
+    include_once("assets/includes/foot.php");
 ?>
