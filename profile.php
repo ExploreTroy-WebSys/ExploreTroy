@@ -1,6 +1,7 @@
 <?php
     # Spawn session cookie if one does not exist and set authentication status to false
     session_start();
+    if ($_SESSION && !(array_key_exists('rcsid', $_SESSION))) $_SESSION['rcsid'] = 'Not-Logged-in';
     if ($_SESSION && !(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
 
   # Include all boiler-plate head information for the site
@@ -18,7 +19,7 @@
                     <img src="assets/images/PotentialLogo2.png" alt="profile-photo" id="profile-photo">
                 </figure>
                 <article class="col-md">
-                    <?php echo("<h4>Welcome " . $_SESSION['rcsid'] . "!</h4>"); ?>
+                    <?php if (array_key_exists('rcsid', $_SESSION)) echo("<h4>Welcome " . $_SESSION['rcsid'] . "!</h4>"); ?>
                 </article>
             </section>
             <aside class="row">
