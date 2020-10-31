@@ -163,7 +163,7 @@ main {
 .explore-category {
     background-color: #457b9d;
     padding: 1%;
-    display: flex;
+    display: block;
 }
 
 .explore-page-header-text{
@@ -248,6 +248,10 @@ main {
 
 .attraction-name {
     color: #a8dadc;
+}
+
+.review-button {
+    float: right;
 }
 
 .reviews {
