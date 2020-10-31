@@ -117,6 +117,34 @@
                 </fieldset>
             </fieldset>
         </form>
+
+        <form action="post.php" class="columns">
+            <aside class="row">
+                <header class="col justify-content-center">
+                    <h1>Interests</h1>
+                </header>
+            </aside>
+            <fieldset class="form-row justify-content-center chips">
+                <div class="col-md-auto chip">Italian food</div>
+                <div class="col-md-auto chip">Fast food</div>
+                <div class="col-md-auto chip">Chinese food</div>
+                <div class="col-md-auto chip">Ice cream</div>
+                <div class="col-md-auto chip">Coffee</div>
+                <div class="col-md-auto chip">Hiking</div>
+                <div class="col-md-auto chip">Boating</div>
+                <div class="col-md-auto chip">Swimming</div>
+                <div class="col-md-auto chip">Sightseeing</div>
+                <div class="col-md-auto chip">Campus activities</div>
+                <div class="col-md-auto chip">Convenience store</div>
+                <div class="col-md-auto chip">Grocery store</div>
+                <div class="col-md-auto chip">Shopping</div>
+                <div class="col-md-auto chip">Mexican food</div>
+                <div class="col-md-auto chip">Golfing</div>
+            </fieldset>
+            <fieldset class="col-auto-md form-group">
+                <button class="btn btn-primary btn-small" type="submit">Update Details</button>
+            </fieldset>
+        </form>
     </main>
 
     <?php
