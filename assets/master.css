@@ -18,6 +18,20 @@ body {
     color: #f1faee;
 }
 
+/* Profile page */
+.chip {
+    color: #343a40;
+    font-size: 18px;
+    border: 2px solid;
+    border-radius: 16px;
+    margin: 5px;
+    padding: 0 10px;
+}
+
+.chips {
+    margin-bottom: 20px;
+}
+
 /* Post page */
 .post-page {
     font-size: 18px;
