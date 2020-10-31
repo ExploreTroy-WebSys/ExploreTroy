@@ -48,3 +48,12 @@ function searchListings() {
       resizeEvents();
     }
   }
+
+function fillHeartIcon(num) {
+  var heart = document.getElementById("heart-" + num);
+  heart.style.color = "#e63946";
+}
+
+function showComments() {
+  $(".review").after("<div>hi</div>");
+}
