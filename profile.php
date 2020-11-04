@@ -18,6 +18,13 @@
                 <figure class="col-md">
                     <img src="assets/images/PotentialLogo2.png" alt="profile-photo" id="profile-photo">
                 </figure>
+                <form action="photoTest.php" method="post" enctype="multipart/form-data">
+                    <fieldset class="col-md">
+                        <label for="" class="sr-only">Upload profile picture</label>
+                        <input type="file" name="fileToUpload" id="fileToUpload" class="form-control mb-2">
+                        <button class="btn btn-primary btn-small" type="submit" name="submit">Upload Image</button>
+                    </fieldset>
+                </form>
                 <article class="col-md">
                     <?php if (array_key_exists('rcsid', $_SESSION)) echo("<h4>Welcome " . $_SESSION['rcsid'] . "!</h4>"); ?>
                 </article>
