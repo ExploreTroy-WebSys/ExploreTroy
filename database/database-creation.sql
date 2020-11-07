@@ -22,24 +22,39 @@ CREATE TABLE IF NOT EXISTS `users_optional` (
 
 CREATE TABLE IF NOT EXISTS `users_interests` (
     `index` INT(10) signed NOT NULL AUTO_INCREMENT,
-    `id` INT(10) signed NOT NULL,
+    `user_id` INT(10) signed NOT NULL,
     `interest` INT NOT NULL,
     PRIMARY KEY (`index`)
 );
 
-CREATE TABLE IF NOT EXISTS `attraction_registry` (
+CREATE TABLE IF NOT EXISTS `interests` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(100),
-    `bio` VARCHAR(1000),
+    `interest_name` VARCHAR(25) NOT NULL,
     PRIMARY KEY (`id`)
 );
 
-CREATE TABLE IF NOT EXISTS `attraction_category` (
+CREATE TABLE IF NOT EXISTS `attractions` (
+    `id` INT(10) signed NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL,
+    `description` VARCHAR(1000),
+    `phone` INT(10) signed NOT NULL,
+    `avg_rating` FLOAT(2) NOT NULL,
+    `address` VARCHAR(100) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `attractions_categories` (
     `index` INT(10) signed NOT NULL AUTO_INCREMENT,
     `attraction_id` INT(10) signed NOT NULL,
-    `category` VARCHAR(30) NOT NULL,
+    `category` INT(10) signed NOT NULL,
     PRIMARY KEY (`index`)
 );
+
+CREATE TABLE IF NOT EXISTS `categories` (
+    `id` INT(10) signed NOT NULL AUTO_INCREMENT,
+    `category_name` VARCHAR(25) NOT NULL,
+    PRIMARY KEY (`id`)
+)
 
 CREATE TABLE IF NOT EXISTS `reviews` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
@@ -47,6 +62,8 @@ CREATE TABLE IF NOT EXISTS `reviews` (
     `review_body` VARCHAR(2000) NOT NULL,
     `child_id` INT(10) signed,
     `rating` INT(2) NOT NULL,
+    `likes` INT(10) DEFAULT 0,
+    `dislikes` INT(10) DEFAULT 0,
     PRIMARY KEY (`id`)
 );
 
@@ -55,8 +72,6 @@ CREATE TABLE IF NOT EXISTS `comments` (
     `author_id` INT(10) signed NOT NULL,
     `comment_body` VARCHAR(300) NOT NULL,
     `parent_id` INT(10) signed NOT NULL,
-    `child_id` INT(10) signed NOT NULL,
-    `likes` INT(10),
-    `dislikes` INT(10),
+    `likes` INT(10) DEFAULT 0,
     PRIMARY KEY(`id`)
 );
