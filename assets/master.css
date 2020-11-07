@@ -163,7 +163,7 @@ main {
 .explore-category {
     background-color: #457b9d;
     padding: 1%;
-    display: flex;
+    display: block;
 }
 
 .explore-page-header-text{
@@ -250,6 +250,10 @@ main {
     color: #a8dadc;
 }
 
+.review-button {
+    float: right;
+}
+
 .reviews {
     margin: 20px 20px 0 20px;
     font-size: 20px;
@@ -277,6 +281,35 @@ main {
 
 .review-description {
     font-size: 18px;
+}
+
+.actions {
+    color: #343a40;
+}
+
+.review-comments {
+    background-color: #343a40;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 20px;
+}
+
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.review-comment {
+    background-color: #6C757D;
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.comment-container {
+    padding: 10px 5px;
 }
 
 /* Footer */
