@@ -177,7 +177,7 @@ main {
     position: absolute;
     right: 2%;
     height: 3%;
-    width: 8%;
+    width: 10%;
     background-color: #ffffff;
     font-size: 50%;
     border-radius: 10px;
@@ -208,40 +208,41 @@ main {
 
 .explore-grid .grid-item {
     margin: 0 20px 50px 20px;
-    background-color: #457b9d;
+    color: #343a40;
+    background-color: #ffffff;
     height: 300px;
-    border-radius: 8px;
+    border-radius: 10px 0 10px 10px;
+    border: 1px solid #838383;
     font-size: 20px;
-    padding: 20px;
+    padding: 0;
+    transition: box-shadow 0.3s;
 }
 
 .explore-grid .grid-item:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 10px 4px rgb(0, 44, 56);
+    box-shadow: 0px 0px 5px 2px rgb(109, 109, 109);
     text-decoration: none;
-}
-
-.explore-grid .grid-item {
-    color: #343a40;
 }
 
 .explore-grid .grid-item i {
     color: #f1faee;
 }
 
-.tmpImg {
-    margin-bottom: 10px;
-    display: block;
-    height: 60%;
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 8px;
+.listingTitle {
+    width: 100%;
+    height: 15%;
 }
 
 .locationName {
-    display: block;
-    padding-bottom: 0;
+    text-align: left;
+    padding-top: 2%;
+    padding-left: 1%;
+}
+
+.tmpImg {
+    object-fit: cover;
+    width: 100%;
+    height: 50%;
 }
 
 /* Listing page */
