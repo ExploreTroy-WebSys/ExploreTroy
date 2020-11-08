@@ -1,4 +1,6 @@
 <?php
+    include("assets/includes/database_object.php");
+
     # Spawn session cookie if one does not exist and set authentication status to false
     session_start();
     if ($_SESSION && !(array_key_exists('rcsid', $_SESSION))) $_SESSION['rcsid'] = 'Not-Logged-in';
@@ -9,15 +11,24 @@
 ?>
     <link rel="stylesheet" href="assets/profile.css">
 </head>
-<body onresize="resizeEvents()">
+<body>
     <?php include_once("assets/includes/header.php"); ?>
     </header>
     <main class="container">
         <section class="columns">
             <section class="row">
-                <figure class="col-md">
-                    <img src="assets/images/PotentialLogo2.png" alt="profile-photo" id="profile-photo">
-                </figure>
+                <section class="col-md">
+                    <figure class="col-md">
+                        <img src="assets/images/PotentialLogo2.png" alt="profile-photo" id="profile-photo">
+                    </figure>
+                    <form action="photoTest.php" method="post" enctype="multipart/form-data">
+                        <fieldset class="col-md">
+                            <label for="" class="sr-only">Upload profile picture</label>
+                            <input type="file" name="fileToUpload" id="fileToUpload" class="form-control mb-2">
+                            <button class="btn btn-primary btn-small" type="submit" name="submit">Upload Image</button>
+                        </fieldset>
+                    </form>
+                </section>
                 <article class="col-md">
                     <?php if (array_key_exists('rcsid', $_SESSION)) echo("<h4>Welcome " . $_SESSION['rcsid'] . "!</h4>"); ?>
                 </article>
@@ -33,17 +44,17 @@
                         <fieldset class="form-row">
                             <fieldset class="col-md">
                                 <label class="sr-only" for="first-name">First Name:</label>
-                                <input type="text" class="form-control mb-2" placeholder="Sean">
+                                <input type="text" class="form-control mb-2" name="first-name" placeholder="First Name">
                             </fieldset>
                             <fieldset class="col-md">
                                 <label for="last-name" class="sr-only">Last Name:</label>
-                                <input type="text" class="form-control mb-2" placeholder="Hale">
+                                <input type="text" class="form-control mb-2" name="last-name" placeholder="Last Name">
                             </fieldset>
                         </fieldset>
                         <fieldset class="form-row">
                             <fieldset class="col-md" disabled>
                                 <label for="email" class='sr-only'>Email:</label>
-                                <input type="text" class="form-control mb-2" placeholder="rcsid@rpi.edu">
+                                <input type="text" class="form-control mb-2" name="email" placeholder="rcsid@rpi.edu">
                             </fieldset>
                             <fieldset class="col-auto-md">
                                 <button class="btn btn-primary btn-small" type="submit">Update Name</button>
@@ -62,11 +73,11 @@
             <fieldset class="form-row">
                 <fieldset class="col-md-2 form-group">
                     <label for="phone" class="sr-only">Phone Number:</label>
-                    <input type="text" class="form-control mb-2" placeholder="(xxx).xxx.xxxx">
+                    <input type="text" class="form-control mb-2" name="phone" placeholder="(xxx).xxx.xxxx">
                 </fieldset>
                 <fieldset class="col-md form-group">
                     <label for="bio" class="sr-only">Bio:</label>
-                    <input type="text" class="form-control mb-2" placeholder="Tell us a bit about yourself">
+                    <input type="text" class="form-control mb-2" name="bio" placeholder="Tell us a bit about yourself">
                 </fieldset>
                 <fieldset class="col-auto-md form-group">
                     <button class="btn btn-primary btn-small" type="submit">Update Details</button>
@@ -84,13 +95,13 @@
                     <div class="input-group-prepend">
                         <pre class="input-group-text"><i class="fab fa-facebook-square"></i></pre>
                     </div>
-                    <input type="text" class="form-control" placeholder="Account Link">
+                    <input type="text" class="form-control" name="facebook" placeholder="Account Link">
                 </fieldset>
                 <fieldset class="col-md input-group mb-2">
                     <div class="input-group-prepend">
                         <pre class="input-group-text"><i class="fab fa-twitter-square"></i></pre>
                     </div>
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" name="twitter" placeholder="Username">
                 </fieldset>
             </fieldset>
             <fieldset class="form-row">
@@ -98,19 +109,19 @@
                     <div class="input-group-prepend">
                         <pre class="input-group-text"><i class="fab fa-discord"></i></pre>
                     </div>
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" name="discord" placeholder="Username">
                 </fieldset>
                 <fieldset class="col-md input-group mb-2">
                     <div class="input-group-prepend">
                         <pre class="input-group-text"><i class="fab fa-snapchat-square"></i></pre>
                     </div>
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" name="snapchat" placeholder="Username">
                 </fieldset>
                 <fieldset class="col-md input-group mb-2">
                     <div class="input-group-prepend">
                         <pre class="input-group-text"><i class="fab fa-instagram"></i></pre>
                     </div>
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" name="instagram" placeholder="Username">
                 </fieldset>
                 <fieldset class="col-auto-md">
                     <button class="btn btn-primary" type="submit">Update Accounts</button>
@@ -142,7 +153,7 @@
                 <div class="col-md-auto chip">Golfing</div>
             </fieldset>
             <fieldset class="col-auto-md form-group">
-                <button class="btn btn-primary btn-small" type="submit">Update Details</button>
+                <button class="btn btn-primary btn-small" type="submit">Update Interests</button>
             </fieldset>
         </form>
     </main>

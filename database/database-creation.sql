@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `users` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
-    `rscid` VARCHAR(10) NOT NULL,
+    `rcsid` VARCHAR(10) NOT NULL,
     `fname` VARCHAR(50) NOT NULL,
     `lname` VARCHAR(50) NOT NULL,
     `email` VARCHAR(100) NOT NULL,
@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 CREATE TABLE IF NOT EXISTS `users_optional` (
     `index` INT(10) signed NOT NULL AUTO_INCREMENT,
-    `id` INT(10) signed NOT NULL
+    `id` INT(10) signed NOT NULL,
+    `profile_picture` BLOB,
     `bio` VARCHAR(1000),
     `twitter` VARCHAR(100),
     `facebook` VARCHAR(100),
