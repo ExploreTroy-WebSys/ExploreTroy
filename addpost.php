@@ -7,6 +7,10 @@
   include("assets/includes/head.php");
 ?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body onresize="repositionFooter()">
   <?php
@@ -26,6 +30,86 @@
           <p>Your first-hand experiences, recommendations, and questions truly help other travelers. Thanks!
           <br>
         </section>
+        <section class="postpageborder">
+         <!-- Category selection -->
+         <section class="options">
+            <p>Select the Type of Location: </p>
+            <input type="checkbox" id="restaurant" name="restaurant" value="Restaurant">
+            <label for="restaurant">Restaurant</label><br>
+            <div id="restaurant_items">
+            <fieldset class="form-row justify-content-left chips">
+                <div class="col-md-auto chip">Fine-Dining</div>
+                <div class="col-md-auto chip">Fast food</div>
+                <div class="col-md-auto chip">Outdoor Dining</div>
+                <label for="cars">Cuisine:</label>
+                <select name="cuisine" id="cuisine">
+                  <option value="volvo">Italian</option>
+                  <option value="saab">American</option>
+                  <option value="opel">Indian</option>
+                  <option value="audi">Thai</option>
+                </select>
+            </fieldset>
+            </div>
+            
+            <input type="checkbox" id="shop" name="shop" value="shop">
+            <label for="shop">Shop</label><br>
+            <div id="shop_items">
+            <fieldset class="form-row justify-content-left chips">
+                <div class="col-md-auto chip">Grocery</div>
+                <div class="col-md-auto chip">Clothing</div>
+                <div class="col-md-auto chip">Toy</div>
+                <div class="col-md-auto chip">Pharmacy</div>
+              </fieldset>
+              </div>
+            
+            <input type="checkbox" id="excursion" name="excursion" value="excursion">
+            <label for="Excursion">Excursion</label><br><br>
+            <div id="excursion_items">
+              <fieldset class="form-row justify-content-left chips">
+                  <div class="col-md-auto chip">Swimming</div>
+                  <div class="col-md-auto chip">Golfing</div>
+                  <div class="col-md-auto chip">Hiking</div>
+                  <div class="col-md-auto chip">Rock Climbing</div>
+                  <div class="col-md-auto chip">Movie Theatre</div>
+             </fieldset>
+            </div>
+          </section>
+
+      <script>
+        document.getElementById('restaurant').onclick = function() {
+        toggleSub(this, 'restaurant_items');
+        };
+        function toggleSub(box, id) {
+            var food = document.getElementById(id);
+            if ( box.checked ) {
+                food.style.display = 'block';
+            } else {
+                food.style.display = 'none';
+            }
+        }
+        document.getElementById('shop').onclick = function() {
+        toggleSub(this, 'shop_items');
+        };
+        function toggleSub(box, id) {
+            var shop = document.getElementById(id);
+            if ( box.checked ) {
+                shop.style.display = 'block';
+            } else {
+                shop.style.display = 'none';
+            }
+        }
+        document.getElementById('excursion').onclick = function() {
+        toggleSub(this, 'excursion_items');
+        };
+        function toggleSub(box, id) {
+            var activity = document.getElementById(id);
+            if ( box.checked ) {
+                activity.style.display = 'block';
+            } else {
+                activity.style.display = 'none';
+            }
+        }
+  </script>
 
         <!-- Title of post and review body -->
         <section class="font">
@@ -40,92 +124,27 @@
 
             <br>
           </section>
+
+          
         
-          <!-- Category selection -->
-          <section class="options">
-            <p>To ensure your post can be viewed by other ExploreTroyers, please select the restaurant, shop, or excursion your post is related to (only one location per post). If you do not see your location of choice, please insert it in the "other box."
-            
-            <br>
+         
 
-            <br>
-
-            <label for="sel2">Restaurant (select one):</label>
-            <select class="form-control" id="sel1">
-              <option>Select Restaurant</option>
-              <option>Whistling Kettle</option>
-              <option>Dinosaur Bar-B-Que</option>
-              <option>Druthers Brewing Company</option>
-            </select>
-
-            <br>
-
-            <label for="sel3">Shopping (select one):</label>
-            <select class="form-control" id="sel1">
-              <option>Select Shop</option>
-              <option>Shop1</option>
-              <option>Shop2</option>
-              <option>Shop3</option>
-            </select>
-
-            <br>
-
-            <label for="sel4">Excursion (select one):</label>
-            <select class="form-control" id="sel1">
-              <option>Select Excursion</option>
-              <option>Excursion1</option>
-              <option>Excursion2</option>
-              <option>Excursion3</option>
-            </select>
-
-            <br>
-
-            <label for="exampleFormControlInput1">Other</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Please enter location name if not found in the above dropdown lists">
-          </section>
-
-          <br>
+        <br>
 
           <!-- Date of visit -->
-          <label for="sel2">Date of Visit (select one)</label>
-          <select class="form-control" id="sel1">
-            <option>Select One</option>
-            <option>Q2 2021</option>
-            <option>Q1 2021</option>
-            <option>Q4 2020</option>
-            <option>Q3 2020 </option>
-            <option>Q2 2020</option>
-            <option>Q1 2020</option>
-            <option>Q4 2019</option>
-            <option>Q3 2019</option>
-            <option>Q2 2019</option>
-            <option>Q1 2019</option>
-            <option>Other</option>
-          </select>
-
-          <br>
-
-          <!-- Upload -->
-          <p>Upload a picture of your visit or to better explain your question.</p>
-
-          <div class="file-field">
-            <div class="btn btn-primary btn-sm float-left">
-              <input type="file">
-            </div>
-            <div class="file-path-wrapper">
-            </div>
-          </div>
-
-          <br>
-          <br>
-
-          <input type="form-control" class="form-control" id="exampleFormControlInput1" placeholder="A few words about your upload...">
-          
+          <script>
+          $( function() {
+          $( "#datepicker" ).datepicker();
+          } );
+          </script>
+          <p>Date of Vist: <input type="text" id="datepicker"></p>
           <br>
 
           <button type="submit" class="btn btn-primary">Submit your post!</button>
         </section>
       </form>
     </section>
+        </section>
   </main>
 
   <?php

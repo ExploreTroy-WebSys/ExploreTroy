@@ -42,6 +42,22 @@ body {
     display: flex;
 }
 
+.postpageborder{
+    border: 2px solid #457b9d;
+}
+
+#restaurant_items{
+    display:none;
+}
+
+#shop_items{
+    display:none;
+}
+
+#excursion_items{
+    display:none;
+}
+
 .post-header-text{
     display: inline-block;
     color: #f1faee;
@@ -57,10 +73,10 @@ body {
 /* form-control{
     margin-bottom:75px;
 } */
-.options{
+/* .options{
    border-style:solid;
    border-color: red;
-}
+} */
 /* .intro{
     font-family: 'Commissioner', sans-serif;
     font-size:30px;

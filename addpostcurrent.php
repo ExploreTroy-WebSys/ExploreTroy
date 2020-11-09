@@ -85,9 +85,9 @@
 
           <br>
 
-          <!-- Date of visit -->
+          <!-- Date of visit  -->
           <label for="sel2">Date of Visit (select one)</label>
-          <select class="form-control" id="sel1">
+          <select class="form-control" id="sel1"> 
             <option>Select One</option>
             <option>Q2 2021</option>
             <option>Q1 2021</option>
@@ -100,7 +100,7 @@
             <option>Q2 2019</option>
             <option>Q1 2019</option>
             <option>Other</option>
-          </select>
+          </select> 
 
           <br>
 
