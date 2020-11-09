@@ -19,7 +19,7 @@
         <section>
         <div class="explore-category">
             <h2 class="explore-page-header-text">Reviews for <span class="attraction-name">The Whistling Kettle</span></h2>
-            <button type="button" class="btn btn-primary review-button btn-dark">Write a Review</button>
+            <button type="button" class="btn btn-primary review-button btn-dark"><a href="addpostcurrent.php"> Write a Review </button>
         </div>
         <div class="container">
             <div class="row reviews">
