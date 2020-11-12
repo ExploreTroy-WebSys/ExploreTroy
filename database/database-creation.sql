@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
     `category_name` VARCHAR(25) NOT NULL,
     PRIMARY KEY (`id`)
-)
+);
 
 CREATE TABLE IF NOT EXISTS `reviews` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
