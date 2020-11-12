@@ -41,4 +41,11 @@ function getQuery($query, $db_obj) {
     return json_encode($output);
 }
 
+function postQuery($query, $db_obj) {
+    if ($db_obj->query($query) == true) {
+        return true;
+    }
+    return false;
+}
+
 ?>
