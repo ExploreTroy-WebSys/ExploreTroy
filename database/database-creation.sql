@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `users_optional` (
     `bio` VARCHAR(1000),
     `twitter` VARCHAR(100),
     `facebook` VARCHAR(100),
-    `phone` INT(10) signed,
+    `phone` BIGINT signed,
     `discord` VARCHAR(25), 
     `snapchat` VARCHAR(30),
     `instagram` VARCHAR(30),
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `attractions` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(100) NOT NULL,
     `description` VARCHAR(1000),
-    `phone` INT(10) signed NOT NULL,
+    `phone` BIGINT signed NOT NULL,
     `avg_rating` FLOAT(2) NOT NULL,
     `address` VARCHAR(100) NOT NULL,
     PRIMARY KEY (`id`)
@@ -83,3 +83,5 @@ CREATE TABLE IF NOT EXISTS `comments` (
     FOREIGN KEY (`author_id`) REFERENCES users(`id`),
     FOREIGN KEY (`parent_id`) REFERENCES reviews(`id`)
 );
+
+INSERT INTO `attractions` (`name`, `description`, `phone`, `avg_rating`, `address`) VALUES ('test place', 'with a test description', '1234567890', '2.1', '123 Place Blvd. Troy, NY');
