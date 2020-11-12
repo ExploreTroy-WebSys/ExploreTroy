@@ -18,20 +18,23 @@ CREATE TABLE IF NOT EXISTS `users_optional` (
     `discord` VARCHAR(25), 
     `snapchat` VARCHAR(30),
     `instagram` VARCHAR(30),
-    PRIMARY KEY (`index`)
-);
-
-CREATE TABLE IF NOT EXISTS `users_interests` (
-    `index` INT(10) signed NOT NULL AUTO_INCREMENT,
-    `user_id` INT(10) signed NOT NULL,
-    `interest` INT NOT NULL,
-    PRIMARY KEY (`index`)
+    PRIMARY KEY (`index`),
+    FOREIGN KEY (`id`) REFERENCES users(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `interests` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
     `interest_name` VARCHAR(25) NOT NULL,
     PRIMARY KEY (`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `users_interests` (
+    `index` INT(10) signed NOT NULL AUTO_INCREMENT,
+    `user_id` INT(10) signed NOT NULL,
+    `interest` INT NOT NULL,
+    PRIMARY KEY (`index`),
+    FOREIGN KEY (`user_id`) REFERENCES users(`id`),
+    FOREIGN KEY (`interest`) REFERENCES interests(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `attractions` (
@@ -48,14 +51,15 @@ CREATE TABLE IF NOT EXISTS `attractions_categories` (
     `index` INT(10) signed NOT NULL AUTO_INCREMENT,
     `attraction_id` INT(10) signed NOT NULL,
     `category` INT(10) signed NOT NULL,
-    PRIMARY KEY (`index`)
+    PRIMARY KEY (`index`),
+    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `categories` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
     `category_name` VARCHAR(25) NOT NULL,
     PRIMARY KEY (`id`)
-)
+);
 
 CREATE TABLE IF NOT EXISTS `reviews` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
@@ -65,7 +69,8 @@ CREATE TABLE IF NOT EXISTS `reviews` (
     `rating` INT(2) NOT NULL,
     `likes` INT(10) DEFAULT 0,
     `dislikes` INT(10) DEFAULT 0,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`author_id`) REFERENCES users(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `comments` (
@@ -74,5 +79,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
     `comment_body` VARCHAR(300) NOT NULL,
     `parent_id` INT(10) signed NOT NULL,
     `likes` INT(10) DEFAULT 0,
-    PRIMARY KEY(`id`)
+    PRIMARY KEY(`id`),
+    FOREIGN KEY (`author_id`) REFERENCES users(`id`),
+    FOREIGN KEY (`parent_id`) REFERENCES reviews(`id`)
 );
