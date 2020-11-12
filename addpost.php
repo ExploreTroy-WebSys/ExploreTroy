@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body onresize="repositionFooter()">
   <?php
@@ -39,43 +38,56 @@
             <input type="checkbox" id="restaurant" class="class" class="check" name="restaurant" value="Restaurant">
             <label for="restaurant">Restaurant</label><br>
             <div id="restaurant_items">
+            <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips">
-                <div class="col-md-auto chip">Fine-Dining</div>
-                <div class="col-md-auto chip">Fast food</div>
-                <div class="col-md-auto chip">Outdoor Dining Available</div>
-                <label for="cars">Cuisine:</label>
-                <select name="cuisine" id="cuisine">
-                <option value="" disabled selected hidden>Select One</option>
-                  <option value="italian">Italian</option>
-                  <option value="american">American</option>
-                  <option value="indian">Indian</option>
-                  <option value="thai">Thai</option>
-                  <option value="mexican">Mexican</option>
-                  <option value="thai">Chinese</option>
-                </select>
+                <div class="col-md-auto chip fooditem1">Fine-Dining</div>
+                <div class="col-md-auto chip fooditem2">Fast food</div>
+                <div class="col-md-auto chip fooditem3">Outdoor Dining</div>
+                <div class="col-md-auto chip fooditem4">Italian</div>
+                <div class="col-md-auto chip fooditem5">American</div>
+                <div class="col-md-auto chip fooditem6">Indian</div>
+                <div class="col-md-auto chip fooditem7">Thai</div>
+                <div class="col-md-auto chip fooditem8">Mexican</div>
+                <div class="col-md-auto chip fooditem9">Chinese</div>
+                <div class="col-md-auto chip fooditem10">Curbside Pickup</div>
+                <div class="col-md-auto chip fooditem11">Food Court</div>
+                <div class="col-md-auto chip fooditem12">Farmer's Market</div>
             </fieldset>
             </div>
             
             <input type="checkbox" id="shop" class="check" name="shop" value="shop">
             <label for="shop">Shop</label><br>
             <div id="shop_items">
+            <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips">
-                <div class="col-md-auto chip">Grocery</div>
-                <div class="col-md-auto chip">Clothing</div>
-                <div class="col-md-auto chip">Toys</div>
-                <div class="col-md-auto chip">Pharmacy</div>
+                <div class="col-md-auto chip shopitem1">Grocery</div>
+                <div class="col-md-auto chip shopitem2">Clothing</div>
+                <div class="col-md-auto chip shopitem3">Toys</div>
+                <div class="col-md-auto chip shopitem4">Pharmacy</div>
+                <div class="col-md-auto chip shopitem5">Car Dealership</div>
+                <div class="col-md-auto chip shopitem6">Home Improvement</div>
+                <div class="col-md-auto chip shopitem7">Dry Cleaning</div>
+                <div class="col-md-auto chip shopitem8">Shopping Mall</div>
               </fieldset>
               </div>
             
             <input type="checkbox" id="excursion" class="check" name="excursion" value="excursion">
             <label for="Excursion">Excursion</label><br><br>
             <div id="excursion_items">
-              <fieldset class="form-row justify-content-left chips">
-                  <div class="col-md-auto chip">Swimming</div>
-                  <div class="col-md-auto chip">Golfing</div>
-                  <div class="col-md-auto chip">Hiking</div>
-                  <div class="col-md-auto chip">Rock Climbing</div>
-                  <div class="col-md-auto chip">Movie Theatre</div>
+            <div id="detailsforchips1">Select all characteristics that apply:</div>
+            <fieldset class="form-row justify-content-left chips activitychips">
+                  <div class="col-md-auto chip activityitem1">Swimming</div>
+                  <div class="col-md-auto chip activityitem2">Golfing</div>
+                  <div class="col-md-auto chip activityitem3">Hiking</div>
+                  <div class="col-md-auto chip activityitem4">Rock Climbing</div>
+                  <div class="col-md-auto chip activityitem5">Movie Theatre</div>
+                  <div class="col-md-auto chip activityitem6">Water Sports</div>
+                  <div class="col-md-auto chip activityitem7">Museum</div>
+                  <div class="col-md-auto chip activityitem8">Historic Sight</div>
+                  <div class="col-md-auto chip activityitem9">Cuisine and Culture Tours</div>
+                  <div class="col-md-auto chip activityitem10">Outdoor Activity</div>
+                  <div class="col-md-auto chip activityitem11">Indoor Activity</div>
+                  <div class="col-md-auto chip activityitem12">Admission Fee</div>
              </fieldset>
             </div>
           </section>
@@ -87,64 +99,150 @@
               $('input:checkbox').not(this).prop('checked', false);
               });
           });
-          </script>
-
-          <script>
-        document.getElementById('restaurant').onclick = function() {
-        toggleSub(this, 'restaurant_items');
-        };
-        function toggleSub(box, id) {
-            var food = document.getElementById(id);
-            if ( box.checked ) {
-                food.style.display = 'block';
-            } else {
-                food.style.display = 'none';
-            }
-        }  
-
-        document.getElementById('shop').onclick = function() {
-        toggleSub(this, 'shop_items');
-        };
-        function toggleSub(box, id) {
-            var shop = document.getElementById(id);
-            if ( box.checked ) {
-                shop.style.display = 'block';
-            } else {
-                shop.style.display = 'none';
-            }
-        }
-        document.getElementById('excursion').onclick = function() {
-        toggleSub(this, 'excursion_items');
-        };
-        function toggleSub(box, id) {
-            var activity = document.getElementById(id);
-            if ( box.checked ) {
-                activity.style.display = 'block';
-            } else {
-                activity.style.display = 'none';
-            }
-        }
-  </script>
+          $(document).ready(function(){
+              $('.fooditem1').on("click", function(){
+              $(this).toggleClass('colorchange');
+          }); 
+          $('.fooditem2').on("click", function(){
+              $(this).toggleClass('colorchange');
+          }); 
+          $('.fooditem3').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.fooditem4').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.fooditem5').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.fooditem6').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.fooditem7').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.fooditem8').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.fooditem9').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.fooditem10').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.fooditem11').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.fooditem12').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.shopitem1').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.shopitem2').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.shopitem3').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.shopitem4').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.shopitem5').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.shopitem6').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.shopitem7').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.shopitem8').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.activityitem1').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.activityitem2').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.activityitem3').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.activityitem4').on("click", function(){
+              $(this).toggleClass('colorchange');
+          }); 
+          $('.activityitem5').on("click", function(){
+              $(this).toggleClass('colorchange');
+          }); 
+          $('.activityitem6').on("click", function(){
+              $(this).toggleClass('colorchange');
+          }); 
+          $('.activityitem7').on("click", function(){
+              $(this).toggleClass('colorchange');
+          }); 
+          $('.activityitem8').on("click", function(){
+              $(this).toggleClass('colorchange');
+          }); 
+          $('.activityitem9').on("click", function(){
+              $(this).toggleClass('colorchange');
+          }); 
+          $('.activityitem10').on("click", function(){
+              $(this).toggleClass('colorchange');
+          }); 
+          $('.activityitem11').on("click", function(){
+              $(this).toggleClass('colorchange');
+          }); 
+          $('.activityitem12').on("click", function(){
+              $(this).toggleClass('colorchange');
+          }); 
+      });
+          document.getElementById('restaurant').onclick = function() {
+          toggleSub(this, 'restaurant_items');
+          };
+          function toggleSub(box, id) {
+              var food = document.getElementById(id);
+              if ( box.checked ) {
+                  food.style.display = 'block';
+              } else {
+                  food.style.display = 'none';
+              }
+          }  
+          document.getElementById('shop').onclick = function() {
+          toggleSub(this, 'shop_items');
+          };
+          function toggleSub(box, id) {
+              var shop = document.getElementById(id);
+              if ( box.checked ) {
+                  shop.style.display = 'block';
+              } else {
+                  shop.style.display = 'none';
+              }
+          }
+          document.getElementById('excursion').onclick = function() {
+          toggleSub(this, 'excursion_items');
+          };
+          function toggleSub(box, id) {
+              var activity = document.getElementById(id);
+              if ( box.checked ) {
+                  activity.style.display = 'block';
+              } else {
+                  activity.style.display = 'none';
+              }
+          }
+        </script>
 
         <!-- Title of post and review body -->
         <section class="font">
           <label for="exampleFormControlInput1">Title of post</label>
           <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Summarize your review or question">
-          
           <br>
 
           <section class="form-group1">
             <label for="exampleFormControlTextarea1">What's on your mind? Ask a question or write a review.</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-
             <br>
           </section>
-
-          
-        
-         
-
-        <br>
 
           <!-- Date of visit -->
           <script>
