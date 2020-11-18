@@ -9,7 +9,7 @@ class Database {
         try {
             $this->db = new PDO($db_t_hostname, $db_username, $db_password);
         } catch(PDOException $e) {
-            echo "Connection to database failed";
+            // echo "Connection to database failed";
         }
     }
 
@@ -26,7 +26,7 @@ class Database {
             $query = $query->fetchAll(PDO::FETCH_ASSOC);
         }
         catch(PDOException $e) {
-            echo $e;
+            // echo $e;
         }
     
         // Iterate over results, parse, sanatize, and add to $output
