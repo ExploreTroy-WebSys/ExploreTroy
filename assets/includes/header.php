@@ -14,8 +14,8 @@
         </li>
         <li class="nav-item">
             <?php
-                if($_SESSION && $_SESSION['authenticated']) echo('<a href="authentication/logout.php" target="_blank" class="nav-link" tabindex="-1" aria-disabled="true">Log-Out ' . $_SESSION['rcsid'] . '</a>');
-                else echo('<a href="authentication/login.php" class="nav-link" tabindex="-1" aria-disabled="true">Login</a>');
+                if($_SESSION && $_SESSION['authenticated']) echo('<a href="backend/authentication/logout.php" target="_blank" class="nav-link" tabindex="-1" aria-disabled="true">Log-Out ' . $_SESSION['rcsid'] . '</a>');
+                else echo('<a href="backend/authentication/login.php" class="nav-link" tabindex="-1" aria-disabled="true">Login</a>');
             ?>
         </li>
       </ul>
