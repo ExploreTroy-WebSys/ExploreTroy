@@ -19,6 +19,9 @@
   <!-- Eventhandler js file -->
   <script src="assets/scripts/eventhandling.js"></script>
 
+  <!-- AJAX handler js file -->
+  <script src="assets/scripts/AJAX.js"></script>
+
   <!-- Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@500&display=swap" rel="stylesheet">
