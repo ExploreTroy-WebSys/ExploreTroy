@@ -2,14 +2,14 @@
 
 class Database {
     // PDO connect object
-    public $db;
+    private $db;
 
     // Constructor defaults to connecting to ExploreTroy database
     public function __construct($db_t_hostname="mysql:host=localhost;dbname=websys_final", $db_username="websys_user", $db_password="websys_password") {
         try {
             $this->db = new PDO($db_t_hostname, $db_username, $db_password);
         } catch(PDOException $e) {
-            throw new Exception('Database Connection Error: ' . $e->getMessage());
+            echo "Connection to database failed";
         }
     }
 
