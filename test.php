@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 include('assets/includes/database_object.php');
 
 $db = new Database();
@@ -9,18 +11,25 @@ $query = "SELECT * FROM `attractions` WHERE `name` = :attrcName";
 $param_array = array();
 $param_array[':attrcName'] = 'test place';
 
-echo $db->getQuery($query, $param_array);
-
-$param_array = array();
-$param_array[':attrName'] = 'test place 2';
-$param_array[':attrDesc'] = 'with another test description';
-$param_array[':attrPhone'] = '987654321';
-$param_array[':attrRating'] = '4.1';
-$param_array[':attrAddr'] = '321 Loc Str. Troy, NY';
-$query = "INSERT INTO `attractions` (`name`, `description`, `phone`, `avg_rating`, `address`) VALU (:attrName, :attrDesc, :attrPhone, :attrRating, :attrAddr)";
-
-$res = $db->postQuery($query, $param_array);
-if ($res) echo "yay";
-else echo "oh no";
+$query = $db->getQuery($query, $param_array);
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/scripts/jquery-3.5.1.min.js" type='text/javascript'></script>
+    <script src="assets/scripts/AJAX.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form id="testForm">
+        <input type="hidden" name="tableName" value="testTable">
+        <input type="hidden" name="rcsid" value="<?php echo $_SESSION['rcsid'] ?>">
+        <input type="text" name="text">
+        <input type="submit" value="Submit" id="testFormSubmit" onclick="parseForm(this.parentElement.id)">
+    </form>    
+</body>
+</html>
