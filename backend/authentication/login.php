@@ -2,17 +2,16 @@
 
 include("../../assets/includes/database_object.php");
 
-$db = new Database();
 
 // Function which queries the users' table in the DB for a given RCSID. Return true if that ID exists and false otherwise.
-function checkUserExists($rcsid, $db_obj) {
+function checkUserExists($rcsid) {
+    $db = new Database();
     $query = "SELECT * FROM `users` WHERE `rcsid` = :rcsid";
     $param_arr = array(":rcsid" => $rcsid);
-
-    $query = $db_obj->getQuery($query, $param_arr);
+    $query = $db->getQuery($query, $param_arr);
+    $query = json_decode($query, true)[0];
     
     if ($query) {
-        $query = json_decode($query, true);
         if ($query['rcsid'] == $rcsid) {
             return true;
         } else {
