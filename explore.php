@@ -1,6 +1,14 @@
 <?php
     include("assets/includes/database_object.php");
 
+    $db = new Database();
+
+    $query = "SELECT * FROM `attractions`";
+
+    $query = $db->getQuery($query);
+
+    $query = json_decode($query, true);
+
     # Spawn session cookie if one does not exist and set authentication status to false
     session_start();
     if ($_SESSION && !(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
@@ -11,8 +19,8 @@
 </head>
 <body>
     <?php 
-    # Include all boiler-plate header information for the site
-    include('assets/includes/header.php');
+        # Include all boiler-plate header information for the site
+        include('assets/includes/header.php');
     ?>
     </header>
 
@@ -24,59 +32,28 @@
             </div>
             <div class="container-fluid explore-grid">
                 <div id="listingGrid" class="row justify-content-center">
-                    <div class="col-sm-3 grid-item">
-                        <img class="tmpImg" src="assets/images/the-whistling-kettle.jpg"/>
-                        <p class="locationName">The Whistling Kettle</p>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <img class="tmpImg" src="assets/images/DinosaurBBQ.jpg"/>
-                        <p class="locationName">Dinosaur Bar-B-Que</p>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <img class="tmpImg" src="assets/images/Druthers.jpg"/>
-                        <p class="locationName">Druthers Brewing Company</p>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Troy Atrium</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Shop 2</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Shop3</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Firefighters Park</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Excursion 2</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Excursion 3</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Hi</p>
-                    </div><div class="col-sm-3 grid-item">
-                        <p class="locationName">Hi</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Hi</p>
-                    </div>
+                    <?php
+
+                        foreach ($query as $item) {
+                            echo '<div class="col-sm-3 grid-item">';
+                            echo '<div class="hidden-attrid">' . $item['id'] . '</div>';
+                            echo '<img class="tmpImg" src="assets/images/the-whistling-kettle.jpg"/>';
+                            echo '<p class="locationName">' . $item['name'] . '</p>';
+                            echo '<p class="address">' . $item['address'] . '</p>';
+                            echo '<p class="phone">' . $item['phone'] . '</p>';
+                            echo '<div class="rating">';
+                            for ($i = 1; $i < 6; $i++) {
+                                if ($item['avg_rating'] > $i) {
+                                    echo '<i class="fas fa-star filled-star"></i>';
+                                } else {
+                                    echo '<i class="fas fa-star unfilled-star"></i>';
+                                }
+                            }
+                            echo '<span class="avg-rating">' . $item['avg_rating'] . '</span></div>';
+                            echo '<div class="description">' . $item['description'] . '</div>';
+                            echo '</div>';
+                        }
+                    ?>
                 </div>
             </div>
         </section>

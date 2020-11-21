@@ -57,3 +57,13 @@ function fillHeartIcon(num) {
 function showComments() {
   $(".review").after("<div>hi</div>");
 }
+
+$(document).ready(function() {
+  $(".grid-item").each(function() {
+    var gridItem = this;
+    gridItem.addEventListener("click", function() {
+      var attrid = $(this).find(".hidden-attrid").html();
+      window.location.href = "./listing.php?" + attrid;
+    });
+  });
+});

@@ -6,7 +6,7 @@
             <a class="nav-link" href="explore.php">EXPLORE</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="addpost.php">POST</a>
+            <a class="nav-link" href="addpost.php">ADD LOCATION</a>
         </li>
 
         <li class="nav-item">
@@ -14,8 +14,8 @@
         </li>
         <li class="nav-item">
             <?php
-                if($_SESSION && $_SESSION['authenticated']) echo('<a href="backend/authentication/logout.php" target="_blank" class="nav-link" tabindex="-1" aria-disabled="true">Log-Out ' . $_SESSION['rcsid'] . '</a>');
-                else echo('<a href="backend/authentication/login.php" class="nav-link" tabindex="-1" aria-disabled="true">Login</a>');
+                if($_SESSION && $_SESSION['authenticated']) echo('<a href="backend/authentication/logout.php" target="_blank" class="nav-link" tabindex="-1" aria-disabled="true">LOG OUT ' . strtoupper($_SESSION['rcsid']) . '</a>');
+                else echo('<a href="backend/authentication/login.php" class="nav-link" tabindex="-1" aria-disabled="true">LOG IN</a>');
             ?>
         </li>
       </ul>
