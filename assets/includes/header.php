@@ -6,7 +6,7 @@
             <a class="nav-link" href="explore.php">EXPLORE</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="addpost.php">POST</a>
+            <a class="nav-link" href="addpost.php">ADD LOCATION</a>
         </li>
 
         <li class="nav-item">

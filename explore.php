@@ -38,7 +38,8 @@
                             echo '<div class="col-sm-3 grid-item">';
                             echo '<img class="tmpImg" src="assets/images/the-whistling-kettle.jpg"/>';
                             echo '<p class="locationName">' . $item['name'] . '</p>';
-                            echo '<p class="address-and-phone">' . $item['address'] . " &#8226; " . $item['phone'] . '</p>';
+                            echo '<p class="address">' . $item['address'] . '</p>';
+                            echo '<p class="phone">' . $item['phone'] . '</p>';
                             echo '<div class="rating">';
                             for ($i = 0; $i < 5; $i++) {
                                 echo '<i class="fas fa-star star"></i>';
