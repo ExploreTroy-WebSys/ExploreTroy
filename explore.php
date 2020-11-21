@@ -41,8 +41,12 @@
                             echo '<p class="address">' . $item['address'] . '</p>';
                             echo '<p class="phone">' . $item['phone'] . '</p>';
                             echo '<div class="rating">';
-                            for ($i = 0; $i < 5; $i++) {
-                                echo '<i class="fas fa-star star"></i>';
+                            for ($i = 1; $i < 6; $i++) {
+                                if ($item['avg_rating'] > $i) {
+                                    echo '<i class="fas fa-star filled-star"></i>';
+                                } else {
+                                    echo '<i class="fas fa-star unfilled-star"></i>';
+                                }
                             }
                             echo '<span class="avg-rating">' . $item['avg_rating'] . '</span></div>';
                             echo '<div class="description">' . $item['description'] . '</div>';

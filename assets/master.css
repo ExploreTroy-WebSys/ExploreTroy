@@ -206,8 +206,14 @@ main {
     text-decoration: none;
 }
 
-.rating .star {
+.rating .filled-star {
     color: #f9c74f;
+    padding: 2px;
+    font-size: 18px;
+}
+
+.rating .unfilled-star {
+    color: #343a40;
     padding: 2px;
     font-size: 18px;
 }
