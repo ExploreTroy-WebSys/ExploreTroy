@@ -20,7 +20,7 @@
 
   <main class="post-page">
     <div class="post-header">
-      <h2 class="post-header-text">Review for Whistling Kettle</h2>
+      <h2 class="post-header-text">Write a Review</h2>
     </div>
     <section class="container">
       <form>
