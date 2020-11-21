@@ -218,6 +218,10 @@ main {
     font-size: 18px;
 }
 
+.hidden-attrid {
+    display: none;
+}
+
 .rating .avg-rating {
     margin-left: 5px;
     font-size: 14px;
@@ -256,12 +260,9 @@ main {
 
 /* Listing page */
 
-.attraction-name {
-    color: #a8dadc;
-}
-
 .review-button {
-    float: right;
+    position: absolute;
+    right: 1%;
 }
 
 .reviews {

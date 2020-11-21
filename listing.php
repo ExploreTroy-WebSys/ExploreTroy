@@ -20,7 +20,25 @@
     <main>
         <section>
         <div class="explore-category">
-            <h2 class="explore-page-header-text">Reviews for <span class="attraction-name">The Whistling Kettle</span></h2>
+            <?php
+
+                $db = new Database();
+
+                $id = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+
+                $query = "SELECT * FROM `attractions` WHERE `id` = :id";
+
+                $param_array = array();
+                $param_array[':id'] =  $id;
+
+                $query = $db->getQuery($query, $param_array);
+
+                $query = json_decode($query, true);
+
+                $attr_name = $query[0]['name'];
+
+            ?>
+            <h2 class="explore-page-header-text">Reviews for <?php echo $attr_name ?></h2>
             <button type="button" class="btn btn-primary review-button btn-dark">Write a Review</button>
         </div>
         <div class="container">

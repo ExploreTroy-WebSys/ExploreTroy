@@ -36,6 +36,7 @@
 
                         foreach ($query as $item) {
                             echo '<div class="col-sm-3 grid-item">';
+                            echo '<div class="hidden-attrid">' . $item['id'] . '</div>';
                             echo '<img class="tmpImg" src="assets/images/the-whistling-kettle.jpg"/>';
                             echo '<p class="locationName">' . $item['name'] . '</p>';
                             echo '<p class="address">' . $item['address'] . '</p>';
