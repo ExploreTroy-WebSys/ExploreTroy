@@ -191,12 +191,12 @@ main {
 .explore-grid .grid-item {
     margin: 0 20px 50px 20px;
     color: #343a40;
-    background-color: #a8dadc;
     height: 300px;
     border-radius: 10px 0 10px 10px;
     border: 2px solid #838383;
     font-size: 20px;
     padding: 0;
+    padding-bottom: 20px;
     transition: box-shadow 0.3s;
 }
 
@@ -206,8 +206,21 @@ main {
     text-decoration: none;
 }
 
-.explore-grid .grid-item i {
-    color: #f1faee;
+.rating .star {
+    color: #f9c74f;
+    padding: 2px;
+    font-size: 18px;
+}
+
+.rating .avg-rating {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.description {
+    font-size: 14px;
+    text-align: left;
+    padding: 10px;
 }
 
 .listingTitle {
@@ -217,8 +230,14 @@ main {
 
 .locationName {
     padding-top: 2%;
-    padding-left: 2%;
+    font-size: 18px;
     margin-bottom: 0;
+    color: #e63946;
+}
+
+.address-and-phone {
+    margin-bottom: 5px;
+    font-size: 14px;
 }
 
 .tmpImg {
