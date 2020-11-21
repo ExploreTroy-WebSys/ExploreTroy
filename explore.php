@@ -1,6 +1,14 @@
 <?php
     include("assets/includes/database_object.php");
 
+    $db = new Database();
+
+    $query = "SELECT * FROM `attractions`";
+
+    $query = $db->getQuery($query);
+
+    $query = json_decode($query, true);
+
     # Spawn session cookie if one does not exist and set authentication status to false
     session_start();
     if ($_SESSION && !(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
@@ -11,8 +19,8 @@
 </head>
 <body>
     <?php 
-    # Include all boiler-plate header information for the site
-    include('assets/includes/header.php');
+        # Include all boiler-plate header information for the site
+        include('assets/includes/header.php');
     ?>
     </header>
 
@@ -24,48 +32,21 @@
             </div>
             <div class="container-fluid explore-grid">
                 <div id="listingGrid" class="row justify-content-center">
-                    <div class="col-sm-3 grid-item">
-                        <img class="tmpImg" src="assets/images/the-whistling-kettle.jpg"/>
-                        <p class="locationName">The Whistling Kettle</p>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="description">
-                            Description
-                        </div>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <img class="tmpImg" src="assets/images/DinosaurBBQ.jpg"/>
-                        <p class="locationName">Dinosaur Bar-B-Que</p>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="description">
-                            Description
-                        </div>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <img class="tmpImg" src="assets/images/Druthers.jpg"/>
-                        <p class="locationName">Druthers Brewing Company</p>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <div class="description">
-                            Description
-                        </div>
-                    </div>
+                    <?php
+
+                        foreach ($query as $item) {
+                            echo '<div class="col-sm-3 grid-item">';
+                            echo '<img class="tmpImg" src="assets/images/the-whistling-kettle.jpg"/>';
+                            echo '<p class="locationName">' . $item['name'] . '</p>';
+                            echo '<div class="rating">';
+                            for ($i = 0; $i < 5; $i++) {
+                                echo '<i class="fas fa-star"></i>';
+                            }
+                            echo '</div>';
+                            echo '<div class="description">' . $item['description'] . '</div>';
+                            echo '</div>';
+                        }
+                    ?>
                 </div>
             </div>
         </section>
