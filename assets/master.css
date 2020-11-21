@@ -19,6 +19,7 @@ body {
 }
 
 /* Profile page */
+
 .chip {
     color: #343a40;
     font-size: 18px;
@@ -33,9 +34,11 @@ body {
 }
 
 /* Post page */
+
 .post-page {
     font-size: 18px;
 }
+
 .post-header {
     background-color: #457b9d;
     padding: 1%;
@@ -47,31 +50,18 @@ body {
     color: #f1faee;
     font-size: 24px;
 }
+
 .container{
     padding:10px 10px 10px 10px
 }
 
-/* .form-group{
-    margin-top:70px;
-} */
-/* form-control{
-    margin-bottom:75px;
-} */
 .options{
    border-style:solid;
    border-color: red;
 }
-/* .intro{
-    font-family: 'Commissioner', sans-serif;
-    font-size:30px;
-    background-color: #a8dadc;
-    margin-top:-37px;
-    margin-left: -78px;
-    margin-right:-78px;
-    text-align:center;
-} */
+
 .font{
-font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .jumbotron-banner {
@@ -90,15 +80,6 @@ font-family: 'Poppins', sans-serif;
     margin-top: 40px;
     height: 300px;
 }
-
-/* #logo {
-    width: 280px;
-    padding: 0;
-    background-color: rgb(255, 255, 255, .8);
-    border-radius: 10px;
-    text-align: center;
-    font-size: 300%;
-} */
 
 main {
     font-size:30px;
@@ -160,10 +141,11 @@ main {
 }
 
 /* Explore page */
+
 .explore-category {
     background-color: #457b9d;
     padding: 1%;
-    display: block;
+    display: flex;
 }
 
 .explore-page-header-text{
@@ -322,6 +304,7 @@ footer {
 }
 
 /* Optional class which is added if the content of the page is smaller than the current screen height (See eventhandling.js for more information) */
+
 .sticky-footer {
     position: fixed;
     bottom: 0;
