@@ -34,30 +34,35 @@
         <section class="info">
          <!-- Category selection -->
          <section class="options">
-            <p>Select category type: </p>
+            <p><b>Select category type: </b></p>
             <input type="checkbox" id="restaurant" class="class" class="check" name="restaurant" value="Restaurant">
             <label for="restaurant">Restaurant</label><br>
             <div id="restaurant_items">
+            <label for="exampleFormControlInput1">Name of Restaurant:</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Restaurant"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips">
-                <div class="col-md-auto chip fooditem1">Fine-Dining</div>
-                <div class="col-md-auto chip fooditem2">Fast food</div>
-                <div class="col-md-auto chip fooditem3">Outdoor Dining</div>
-                <div class="col-md-auto chip fooditem4">Italian</div>
-                <div class="col-md-auto chip fooditem5">American</div>
-                <div class="col-md-auto chip fooditem6">Indian</div>
-                <div class="col-md-auto chip fooditem7">Thai</div>
-                <div class="col-md-auto chip fooditem8">Mexican</div>
-                <div class="col-md-auto chip fooditem9">Chinese</div>
-                <div class="col-md-auto chip fooditem10">Curbside Pickup</div>
-                <div class="col-md-auto chip fooditem11">Food Court</div>
-                <div class="col-md-auto chip fooditem12">Farmer's Market</div>
+            <div class="col-md-auto chip fooditem1">Fine-Dining</div>
+            <div class="col-md-auto chip fooditem2">Fast food</div>
+            <div class="col-md-auto chip fooditem3">Outdoor Dining</div>
+            <div class="col-md-auto chip fooditem4">Italian</div>
+            <div class="col-md-auto chip fooditem5">American</div>
+            <div class="col-md-auto chip fooditem6">Indian</div>
+            <div class="col-md-auto chip fooditem7">Thai</div>
+            <div class="col-md-auto chip fooditem8">Mexican</div>
+            <div class="col-md-auto chip fooditem9">Chinese</div>
+            <div class="col-md-auto chip fooditem10">Curbside Pickup</div>
+            <div class="col-md-auto chip fooditem11">Food Court</div>
+            <div class="col-md-auto chip fooditem12">Farmer's Market</div>
+            <div class="col-md-auto chip fooditem12">Kid Friendly</div> 
             </fieldset>
             </div>
             
             <input type="checkbox" id="shop" class="check" name="shop" value="shop">
             <label for="shop">Shop</label><br>
             <div id="shop_items">
+            <label for="exampleFormControlInput1">Name of Shop:</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Shop"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips">
                 <div class="col-md-auto chip shopitem1">Grocery</div>
@@ -72,8 +77,10 @@
               </div>
             
             <input type="checkbox" id="excursion" class="check" name="excursion" value="excursion">
-            <label for="Excursion">Excursion</label><br><br>
+            <label for="Excursion">Activity</label><br><br>
             <div id="excursion_items">
+            <label for="exampleFormControlInput1"></label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Activity"> <br>
             <div id="detailsforchips1">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips activitychips">
                   <div class="col-md-auto chip activityitem1">Swimming</div>
@@ -87,7 +94,9 @@
                   <div class="col-md-auto chip activityitem9">Cuisine and Culture Tours</div>
                   <div class="col-md-auto chip activityitem10">Outdoor Activity</div>
                   <div class="col-md-auto chip activityitem11">Indoor Activity</div>
-                  <div class="col-md-auto chip activityitem12">Admission Fee</div>
+                  <div class="col-md-auto chip activityitem12">Exercise Class</div>
+                  <div class="col-md-auto chip activityitem13">Park</div>
+                  <div class="col-md-auto chip activityitem14">Kid Friendly</div>
              </fieldset>
             </div>
           </section>
@@ -95,10 +104,10 @@
           <!-- Confirms that only one checkbox can be checked at one time-->
           <script>
           $(document).ready(function(){
-              $('input:checkbox').click(function() {
-              $('input:checkbox').not(this).prop('checked', false);
-              });
+             $('input:checkbox').click(function() {
+             $('input:checkbox').not(this).prop('checked', false);
           });
+            });
           $(document).ready(function(){
               $('.fooditem1').on("click", function(){
               $(this).toggleClass('colorchange');
@@ -196,9 +205,17 @@
           $('.activityitem12').on("click", function(){
               $(this).toggleClass('colorchange');
           }); 
+          $('.activityitem13').on("click", function(){
+              $(this).toggleClass('colorchange');
+          });
+          $('.activityitem14').on("click", function(){
+              $(this).toggleClass('colorchange');
+          }); 
       });
           document.getElementById('restaurant').onclick = function() {
           toggleSub(this, 'restaurant_items');
+          $('#shop_items').hide();
+          $('#excursion_items').hide();
           };
           function toggleSub(box, id) {
               var food = document.getElementById(id);
@@ -210,6 +227,8 @@
           }  
           document.getElementById('shop').onclick = function() {
           toggleSub(this, 'shop_items');
+          $('#restaurant_items').hide();
+          $('#excursion_items').hide();
           };
           function toggleSub(box, id) {
               var shop = document.getElementById(id);
@@ -221,6 +240,8 @@
           }
           document.getElementById('excursion').onclick = function() {
           toggleSub(this, 'excursion_items');
+          $('#shop_items').hide();
+          $('#restaurant_items').hide();
           };
           function toggleSub(box, id) {
               var activity = document.getElementById(id);
@@ -234,12 +255,12 @@
 
         <!-- Title of post and review body -->
         <section class="font">
-          <label for="exampleFormControlInput1">Title of post</label>
+          <label for="exampleFormControlInput1"><b>Title of post </b></label>
           <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Summarize your review or question">
           <br>
 
           <section class="form-group1">
-            <label for="exampleFormControlTextarea1">What's on your mind? Ask a question or write a review.</label>
+            <label for="exampleFormControlTextarea1"><b>What's on your mind? Ask a question or write a review. </b></label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             <br>
           </section>
@@ -250,7 +271,7 @@
           $( "#datepicker" ).datepicker();
           } );
           </script>
-          <p>Date of visit: <input type="text" id="datepicker"></p>
+          <p><b>Date of visit:</b> <input type="text" id="datepicker"></p>
           <br>
 
           <button type="submit" class="btn btn-primary">Submit your post!</button>
