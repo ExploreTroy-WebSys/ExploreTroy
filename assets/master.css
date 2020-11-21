@@ -158,8 +158,8 @@ main {
     display: inline-block;
     position: absolute;
     right: 2%;
-    height: 3%;
-    width: 10%;
+    height: 5%;
+    width: 20%;
     background-color: #ffffff;
     font-size: 50%;
     border-radius: 10px;
@@ -168,17 +168,17 @@ main {
 #exploreSearch, textarea {
     transition: all .30s;
     outline: none;
-    padding: 3px 0px 3px 3px;
+    padding: 3px 0 3px 10px;
     margin: 5px 1px 3px 0px;
-    border: 1px solid #0086bb;
+    border: 2px solid #838383;
   }
    
 #exploreSearch:focus, textarea:focus {
     box-shadow: 0px 0px 10px 4px rgb(44, 110, 128);
-    padding: 3px 0px 3px 3px;
+    padding: 3px 0px 3px 10px;
     margin: 5px 1px 3px 0px;
-    border: 1px solid rgba(81, 203, 238, 1);
-  }
+    border: 2px solid #a8dadc;
+}
 
 .explore-page-main {
     text-align: center;
@@ -191,10 +191,10 @@ main {
 .explore-grid .grid-item {
     margin: 0 20px 50px 20px;
     color: #343a40;
-    background-color: #ffffff;
+    background-color: #a8dadc;
     height: 300px;
     border-radius: 10px 0 10px 10px;
-    border: 1px solid #838383;
+    border: 2px solid #838383;
     font-size: 20px;
     padding: 0;
     transition: box-shadow 0.3s;
@@ -216,16 +216,17 @@ main {
 }
 
 .locationName {
-    text-align: left;
     padding-top: 2%;
-    padding-left: 1%;
+    padding-left: 2%;
+    margin-bottom: 0;
 }
 
 .tmpImg {
     object-fit: cover;
     width: 100%;
     height: 50%;
-    border-radius: 10px 0 0 0;
+    border-radius: 8px 0 0 0;
+    border-bottom: 2px solid #838383;
 }
 
 /* Listing page */

@@ -27,55 +27,44 @@
                     <div class="col-sm-3 grid-item">
                         <img class="tmpImg" src="assets/images/the-whistling-kettle.jpg"/>
                         <p class="locationName">The Whistling Kettle</p>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="description">
+                            Description
+                        </div>
                     </div>
                     <div class="col-sm-3 grid-item">
                         <img class="tmpImg" src="assets/images/DinosaurBBQ.jpg"/>
                         <p class="locationName">Dinosaur Bar-B-Que</p>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="description">
+                            Description
+                        </div>
                     </div>
                     <div class="col-sm-3 grid-item">
                         <img class="tmpImg" src="assets/images/Druthers.jpg"/>
                         <p class="locationName">Druthers Brewing Company</p>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Troy Atrium</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Shop 2</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Shop3</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Firefighters Park</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Excursion 2</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Excursion 3</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Hi</p>
-                    </div><div class="col-sm-3 grid-item">
-                        <p class="locationName">Hi</p>
-                    </div>
-                    <div class="col-sm-3 grid-item">
-                        <p class="locationName">Hi</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="description">
+                            Description
+                        </div>
                     </div>
                 </div>
             </div>
