@@ -45,6 +45,45 @@ body {
     display: flex;
 }
 
+.postpageborder{
+    border: 2px solid #457b9d;
+}
+
+.info{
+    padding:15px;
+}
+
+#restaurant_items{
+    display:none;
+}
+
+.colorchange{
+    background-color: #457b9d;
+}
+
+#shop_items{
+    display:none;
+}
+
+#excursion_items{
+    display:none;
+    margin-top:-30px;
+}
+
+.activitychips{
+    margin-bottom:-30px;
+    padding-bottom: 42px;
+}
+
+#detailsforchips{
+    margin-top:-2px;
+    color: #457b9d;
+}
+
+#nameof{
+    color: #457b9d;
+}
+
 .post-header-text{
     display: inline-block;
     color: #f1faee;
