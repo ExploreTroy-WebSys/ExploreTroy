@@ -53,7 +53,7 @@
             <div class="row reviews">
 
                 <?php
-                    if (isset($_POST['new_comment'])) {
+                    if (isset($_POST['new_comment']) && $_POST['new_comment'] != '') {
                         // Get comment_body and review_id
                         $comment_body = $_POST['new_comment'];
                         $review_id = $_POST['review_id'];
@@ -78,62 +78,66 @@
                         $post_query = $db->postQuery($post_query, $param_array);
                     }
 
-                    foreach ($reviews as $review) {
-                        echo '<div class="col-12 review">';
-                        echo '<p class="review-header">';
-                        echo $review['review_title'];
-                        echo '<div class="rating">';
-                        for ($i = 1; $i < 6; $i++) {
-                            if ($review['rating'] >= $i) {
-                                echo '<i class="fas fa-star filled-star"></i>';
-                            } else {
-                                echo '<i class="fas fa-star unfilled-star"></i>';
+                    if ($reviews != NULL) {
+                        foreach ($reviews as $review) {
+                            echo '<div class="col-12 review">';
+                            echo '<p class="review-header">';
+                            echo $review['review_title'];
+                            echo '<div class="rating">';
+                            for ($i = 1; $i < 6; $i++) {
+                                if ($review['rating'] >= $i) {
+                                    echo '<i class="fas fa-star filled-star"></i>';
+                                } else {
+                                    echo '<i class="fas fa-star unfilled-star"></i>';
+                                }
                             }
-                        }
-                        echo '</div>';
-                        echo '<img class="user-image float-right" src="assets/images/JodySunray.jpg" alt="temp-image">';
-                        echo '</p>';
-                        echo '<p class="review-description">';
-                        echo $review['review_body'];
-                        echo '</p>';
-                        echo '<div class="actions">';
-                        echo '<i class="fas fa-heart heart-icon" onClick="fillHeartIcon(1)"></i>';
-                        echo '<i class="fas fa-comment comment-icon" onClick="showComments()"></i>';
-                        echo '<i class="fas fa-share-alt float-right"></i>';
-                        echo '</div>';
-                        echo '</div>';
-
-                        $review_id = $review['id'];
-                        $query = "SELECT * FROM `comments` WHERE `parent_id` = $review_id";
-                        
-                        $query = $db->getQuery($query);
-                        $comments = json_decode($query, true);
-
-                        echo '<div class="review-comments">';
-                        echo '<div class="container">';
-                        
-                        foreach ($comments as $comment) {
-                            echo '<div class="row comment-container">';
+                            echo '</div>';
+                            echo '<img class="user-image float-right" src="assets/images/JodySunray.jpg" alt="temp-image">';
+                            echo '</p>';
+                            echo '<p class="review-description">';
+                            echo $review['review_body'];
+                            echo '</p>';
+                            echo '<div class="actions">';
+                            echo '<i class="fas fa-heart heart-icon" onClick="fillHeartIcon(1)"></i>';
+                            echo '<i class="fas fa-comment comment-icon" onClick="showComments()"></i>';
+                            echo '<i class="fas fa-share-alt float-right"></i>';
+                            echo '</div>';
+                            echo '</div>';
+    
+                            $review_id = $review['id'];
+                            $query = "SELECT * FROM `comments` WHERE `parent_id` = $review_id";
+                            
+                            $query = $db->getQuery($query);
+                            $comments = json_decode($query, true);
+    
+                            echo '<div class="review-comments">';
+                            echo '<div class="container">';
+                            
+                            foreach ($comments as $comment) {
+                                echo '<div class="row comment-container">';
+                                echo '<div class="col-1">';
+                                echo '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
+                                echo '</div>';
+                                echo '<div class="col-10 review-comment">';
+                                echo $comment['comment_body'];
+                                echo '</div>';
+                                echo '</div>';
+                            }
+    
+                            echo '<form method="POST" class="row comment-container">';
                             echo '<div class="col-1">';
                             echo '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
                             echo '</div>';
-                            echo '<div class="col-10 review-comment">';
-                            echo $comment['comment_body'];
+                            echo '<input type="hidden" id="review_id" name="review_id" value="' . $review_id . '">';
+                            echo '<input class="col-10 review-comment" type="text" id="new_comment" name="new_comment" placeholder="Write a comment...">';
+                            echo '<input class="submit-comment-button" type="submit" value="Send">';
+                            echo '</form>';
+    
                             echo '</div>';
                             echo '</div>';
                         }
-
-                        echo '<form method="POST" class="row comment-container">';
-                        echo '<div class="col-1">';
-                        echo '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
-                        echo '</div>';
-                        echo '<input type="hidden" id="review_id" name="review_id" value="' . $review_id . '">';
-                        echo '<input class="col-10 review-comment" type="text" id="new_comment" name="new_comment" placeholder="Write a comment...">';
-                        echo '<input class="submit-comment-button" type="submit" value="Send">';
-                        echo '</form>';
-
-                        echo '</div>';
-                        echo '</div>';
+                    } else {
+                        echo "<p>No reviews for this attraction. Try adding one!</p>";
                     }
                 ?>
             </div>
