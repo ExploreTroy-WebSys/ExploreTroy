@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `users_optional` (
     FOREIGN KEY (`id`) REFERENCES users(`id`)
 );
 
-CREATE TABLE IF NOT EXISTS `interests` (
+CREATE TABLE IF NOT EXISTS `tags` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
     `interest_name` VARCHAR(25) NOT NULL,
     PRIMARY KEY (`id`)
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `users_interests` (
     `interest` INT NOT NULL,
     PRIMARY KEY (`index`),
     FOREIGN KEY (`user_id`) REFERENCES users(`id`),
-    FOREIGN KEY (`interest`) REFERENCES interests(`id`)
+    FOREIGN KEY (`interest`) REFERENCES tags(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `attractions` (
@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS `attractions` (
     `phone` BIGINT signed NOT NULL,
     `avg_rating` FLOAT(2) NOT NULL,
     `address` VARCHAR(100) NOT NULL,
+    `attraction_picture` BLOB,
     PRIMARY KEY (`id`)
 );
 
@@ -53,12 +54,7 @@ CREATE TABLE IF NOT EXISTS `attractions_categories` (
     `category` INT(10) signed NOT NULL,
     PRIMARY KEY (`index`),
     FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`)
-);
-
-CREATE TABLE IF NOT EXISTS `categories` (
-    `id` INT(10) signed NOT NULL AUTO_INCREMENT,
-    `category_name` VARCHAR(25) NOT NULL,
-    PRIMARY KEY (`id`)
+    FOREIGN KEY (`category`) REFERENCES tags(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `reviews` (
