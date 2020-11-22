@@ -73,6 +73,7 @@
                 <div class="col-md-auto chip shopitem6">Home Improvement</div>
                 <div class="col-md-auto chip shopitem7">Dry Cleaning</div>
                 <div class="col-md-auto chip shopitem8">Shopping Mall</div>
+                <div class="col-md-auto chip shopitem8">Department Store</div>
               </fieldset>
               </div>
             
