@@ -303,6 +303,14 @@ main {
     padding: 5px;
 }
 
+.heart-icon {
+    cursor: pointer;
+}
+
+.comment-icon {
+    cursor: pointer;
+}
+
 .review-comments {
     border: 2px solid #457b9d;
     border-top: none;
@@ -330,6 +338,27 @@ main {
 
 .comment-container {
     padding: 10px 5px;
+    margin-bottom: 0;
+}
+
+.submit-comment-button {
+    font-size: 14px;
+    border-radius: 20px;
+    border: 2px solid #457b9d;
+    background-color: white;
+    margin-left: 10px;
+}
+
+.submit-comment-button:hover {
+    background-color: #457b9d;
+    transition: 0.5s;
+    color: white;
+}
+
+input.review-comment:focus {
+    outline: none;
+    border: 2px solid #e63946;
+    transition: 0.5s;
 }
 
 /* Footer */

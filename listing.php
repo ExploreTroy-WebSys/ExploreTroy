@@ -53,6 +53,20 @@
             <div class="row reviews">
 
                 <?php
+                    if (isset($_POST['new_comment'])) {
+                        echo $_POST['new_comment'];
+                        echo $_POST['review_id'];
+                        echo $_SESSION['rcsid'];
+
+                        $rcsid = $_SESSION['rcsid'];
+
+                        $query = "SELECT `id` FROM `users` WHERE `rcsid` = '" . $rcsid . "'";
+                        $result = $db->getQuery($query);
+                        // $author_id = json_decode($result, true);
+
+                        echo $result;
+                        // $post_query = "INSERT INTO `comments` (`author_id`, `comment_body`, `parent_id`) VALUES ($_POST)"
+                    }
 
                     foreach ($reviews as $review) {
                         echo '<div class="col-12 review">';
@@ -73,8 +87,8 @@
                         echo $review['review_body'];
                         echo '</p>';
                         echo '<div class="actions">';
-                        echo '<i id="heart-1" class="fas fa-heart" onClick="fillHeartIcon(1)"></i>';
-                        echo '<i id="comment-1" class="fas fa-comment" onClick="showComments()"></i>';
+                        echo '<i class="fas fa-heart heart-icon" onClick="fillHeartIcon(1)"></i>';
+                        echo '<i class="fas fa-comment comment-icon" onClick="showComments()"></i>';
                         echo '<i class="fas fa-share-alt float-right"></i>';
                         echo '</div>';
                         echo '</div>';
@@ -98,6 +112,15 @@
                             echo '</div>';
                             echo '</div>';
                         }
+
+                        echo '<form method="POST" class="row comment-container">';
+                        echo '<div class="col-1">';
+                        echo '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
+                        echo '</div>';
+                        echo '<input type="hidden" id="review_id" name="review_id" value="' . $review_id . '">';
+                        echo '<input class="col-10 review-comment" type="text" id="new_comment" name="new_comment" placeholder="Write a comment...">';
+                        echo '<input class="submit-comment-button" type="submit" value="Send">';
+                        echo '</form>';
 
                         echo '</div>';
                         echo '</div>';
