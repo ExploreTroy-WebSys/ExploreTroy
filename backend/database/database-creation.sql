@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `users_optional` (
 
 CREATE TABLE IF NOT EXISTS `tags` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
-    `interest_name` VARCHAR(25) NOT NULL,
+    `tag_name` VARCHAR(25) NOT NULL,
     PRIMARY KEY (`id`)
 );
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `attractions_categories` (
     `attraction_id` INT(10) signed NOT NULL,
     `category` INT(10) signed NOT NULL,
     PRIMARY KEY (`index`),
-    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`)
+    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`),
     FOREIGN KEY (`category`) REFERENCES tags(`id`)
 );
 
