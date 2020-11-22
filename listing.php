@@ -98,8 +98,14 @@
                             echo $review['review_body'];
                             echo '</p>';
                             echo '<div class="actions">';
-                            echo '<i class="fas fa-heart heart-icon" onClick="fillHeartIcon(1)"></i>';
-                            echo '<i class="fas fa-comment comment-icon" onClick="showComments()"></i>';
+                            echo '<i class="fas fa-heart heart-icon" onClick="fillHeartIcon(1)"></i><span class="num-likes">' . $review['likes'] . '</span>';
+                            
+                            $review_id = $review['id'];
+                            $query = "SELECT COUNT(`id`) AS `num_comments` FROM `comments` WHERE `parent_id` = $review_id";
+                            $result = $db->getQuery($query);
+                            $result = json_decode($result, true);
+
+                            echo '<i class="fas fa-comment comment-icon" onClick="showComments()"></i><span>' . $result[0]['num_comments'] . '</span>';
                             echo '<i class="fas fa-share-alt float-right"></i>';
                             echo '</div>';
                             echo '</div>';

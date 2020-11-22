@@ -307,6 +307,10 @@ main {
     cursor: pointer;
 }
 
+.num-likes {
+    margin-right: 5px;
+}
+
 .comment-icon {
     cursor: pointer;
 }
