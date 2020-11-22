@@ -19,6 +19,7 @@ body {
 }
 
 /* Profile page */
+
 .chip {
     color: #343a40;
     font-size: 18px;
@@ -33,9 +34,11 @@ body {
 }
 
 /* Post page */
+
 .post-page {
     font-size: 18px;
 }
+
 .post-header {
     background-color: #457b9d;
     padding: 1%;
@@ -47,31 +50,18 @@ body {
     color: #f1faee;
     font-size: 24px;
 }
+
 .container{
     padding:10px 10px 10px 10px
 }
 
-/* .form-group{
-    margin-top:70px;
-} */
-/* form-control{
-    margin-bottom:75px;
-} */
 .options{
    border-style:solid;
    border-color: red;
 }
-/* .intro{
-    font-family: 'Commissioner', sans-serif;
-    font-size:30px;
-    background-color: #a8dadc;
-    margin-top:-37px;
-    margin-left: -78px;
-    margin-right:-78px;
-    text-align:center;
-} */
+
 .font{
-font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .jumbotron-banner {
@@ -90,15 +80,6 @@ font-family: 'Poppins', sans-serif;
     margin-top: 40px;
     height: 300px;
 }
-
-/* #logo {
-    width: 280px;
-    padding: 0;
-    background-color: rgb(255, 255, 255, .8);
-    border-radius: 10px;
-    text-align: center;
-    font-size: 300%;
-} */
 
 main {
     font-size:30px;
@@ -160,10 +141,11 @@ main {
 }
 
 /* Explore page */
+
 .explore-category {
     background-color: #457b9d;
     padding: 1%;
-    display: block;
+    display: flex;
 }
 
 .explore-page-header-text{
@@ -176,8 +158,8 @@ main {
     display: inline-block;
     position: absolute;
     right: 2%;
-    height: 3%;
-    width: 10%;
+    height: 5%;
+    width: 20%;
     background-color: #ffffff;
     font-size: 50%;
     border-radius: 10px;
@@ -186,17 +168,17 @@ main {
 #exploreSearch, textarea {
     transition: all .30s;
     outline: none;
-    padding: 3px 0px 3px 3px;
+    padding: 3px 0 3px 10px;
     margin: 5px 1px 3px 0px;
-    border: 1px solid #0086bb;
+    border: 2px solid #838383;
   }
    
 #exploreSearch:focus, textarea:focus {
     box-shadow: 0px 0px 10px 4px rgb(44, 110, 128);
-    padding: 3px 0px 3px 3px;
+    padding: 3px 0px 3px 10px;
     margin: 5px 1px 3px 0px;
-    border: 1px solid rgba(81, 203, 238, 1);
-  }
+    border: 2px solid #a8dadc;
+}
 
 .explore-page-main {
     text-align: center;
@@ -209,12 +191,12 @@ main {
 .explore-grid .grid-item {
     margin: 0 20px 50px 20px;
     color: #343a40;
-    background-color: #ffffff;
-    height: 300px;
+    height: 350px;
     border-radius: 10px 0 10px 10px;
-    border: 1px solid #838383;
+    border: 2px solid #838383;
     font-size: 20px;
     padding: 0;
+    padding-bottom: 20px;
     transition: box-shadow 0.3s;
 }
 
@@ -224,8 +206,31 @@ main {
     text-decoration: none;
 }
 
-.explore-grid .grid-item i {
-    color: #f1faee;
+.rating .filled-star {
+    color: #f9c74f;
+    padding: 2px;
+    font-size: 18px;
+}
+
+.rating .unfilled-star {
+    color: #343a40;
+    padding: 2px;
+    font-size: 18px;
+}
+
+.hidden-attrid {
+    display: none;
+}
+
+.rating .avg-rating {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.description {
+    font-size: 14px;
+    text-align: left;
+    padding: 10px;
 }
 
 .listingTitle {
@@ -234,25 +239,30 @@ main {
 }
 
 .locationName {
-    text-align: left;
     padding-top: 2%;
-    padding-left: 1%;
+    font-size: 18px;
+    margin-bottom: 0;
+    color: #e63946;
+}
+
+.address, .phone {
+    margin-bottom: 5px;
+    font-size: 14px;
 }
 
 .tmpImg {
     object-fit: cover;
     width: 100%;
     height: 50%;
+    border-radius: 8px 0 0 0;
+    border-bottom: 2px solid #838383;
 }
 
 /* Listing page */
 
-.attraction-name {
-    color: #a8dadc;
-}
-
 .review-button {
-    float: right;
+    position: absolute;
+    right: 1%;
 }
 
 .reviews {
@@ -321,6 +331,7 @@ footer {
 }
 
 /* Optional class which is added if the content of the page is smaller than the current screen height (See eventhandling.js for more information) */
+
 .sticky-footer {
     position: fixed;
     bottom: 0;

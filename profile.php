@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/profile.css">
 </head>
 <body>
-    <?php include_once("assets/includes/header.php"); ?>
+    <?php include_once("assets/includes/header.php");?>
     </header>
     <main class="container">
         <section class="columns">
@@ -30,7 +30,7 @@
                     </form>
                 </section>
                 <article class="col-md">
-                    <?php if (array_key_exists('rcsid', $_SESSION)) echo("<h4>Welcome " . $_SESSION['rcsid'] . "!</h4>"); ?>
+                    <?php if (array_key_exists('rcsid', $_SESSION)) echo("<h4>Welcome " . $_SESSION['rcsid'] . "!</h4>");?>
                 </article>
             </section>
             <aside class="row">
@@ -40,24 +40,29 @@
             </aside>
             <section class="row">
                 <article class="col">
-                    <form action="post.php">
+                    <form id="mandatoryUserForm">
+                        <input type="hidden" name="rcsid" value="<?php echo $_SESSION['rcsid']; ?>">
+                        <?php 
+                            if(parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY) == "newUser") echo '<input type="hidden" name="newUser" value="true">';
+                        ?>
+                        <input type="hidden" name="tableName" value="users">
                         <fieldset class="form-row">
                             <fieldset class="col-md">
                                 <label class="sr-only" for="first-name">First Name:</label>
-                                <input type="text" class="form-control mb-2" name="first-name" placeholder="First Name">
+                                <input type="text" class="form-control mb-2" name="fname" placeholder="First Name">
                             </fieldset>
                             <fieldset class="col-md">
                                 <label for="last-name" class="sr-only">Last Name:</label>
-                                <input type="text" class="form-control mb-2" name="last-name" placeholder="Last Name">
+                                <input type="text" class="form-control mb-2" name="lname" placeholder="Last Name">
                             </fieldset>
                         </fieldset>
                         <fieldset class="form-row">
-                            <fieldset class="col-md" disabled>
+                            <fieldset class="col-md">
                                 <label for="email" class='sr-only'>Email:</label>
-                                <input type="text" class="form-control mb-2" name="email" placeholder="rcsid@rpi.edu">
+                                <input type="text" class="form-control mb-2" name="email" placeholder="<?php echo $_SESSION['rcsid'] . "@rpi.edu"; ?>", value="<?php echo $_SESSION['rcsid'] . "@rpi.edu"; ?>">
                             </fieldset>
                             <fieldset class="col-auto-md">
-                                <button class="btn btn-primary btn-small" type="submit">Update Name</button>
+                                <button class="btn btn-primary btn-small" onclick="parseForm(this.parentElement.parentElement.parentElement.id)">Update Name</button>
                             </fieldset>
                         </fieldset>
                     </form>

@@ -1,14 +1,18 @@
 <?php
 
-include("../assets/includes/database_object.php");
+include("../../assets/includes/database_object.php");
+
 
 // Function which queries the users' table in the DB for a given RCSID. Return true if that ID exists and false otherwise.
-function checkUserExists($rcsid, $db_obj) {
-    $query = "SELECT * FROM `users` WHERE `rcsid` = '$rcsid'";
-    $query = $db_obj->query($query);
+function checkUserExists($rcsid) {
+    $db = new Database();
+    $query = "SELECT * FROM `users` WHERE `rcsid` = :rcsid";
+    $param_arr = array(":rcsid" => $rcsid);
+    $query = $db->getQuery($query, $param_arr);
+    $query = json_decode($query, true)[0];
     
     if ($query) {
-        if ($query->num_rows != 0) {
+        if ($query['rcsid'] == $rcsid) {
             return true;
         } else {
             return false;
@@ -21,7 +25,7 @@ function checkUserExists($rcsid, $db_obj) {
 session_start();
 
 # Include phpCAS library, designate client and server
-include_once('../assets/CAS-1.3.8/CAS.php');
+include_once('../../assets/CAS-1.3.8/CAS.php');
 phpCAS::client(CAS_VERSION_2_0, 'cas-auth.rpi.edu', 443, '/cas/');
 phpCAS::setNoCasServerValidation();
 
@@ -33,9 +37,9 @@ if (phpCAS::isAuthenticated()) {
 
     // Checks to see if ExploreTroy has record of this RCSID, if so then redirect to index, otherwise redirect to profile with newUser query
     if (checkUserExists($_SESSION['rcsid'], $db)) {
-        header('location: ../index.php');
+        header('location: ../../index.php');
     } else {
-        header('location: ../profile.php?newUser');
+        header('location: ../../profile.php?newUser');
     }
     // Redirect back to index.php
 } 

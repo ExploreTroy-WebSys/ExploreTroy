@@ -4,7 +4,7 @@
 // $target_Path
 
 if (isset($_POST['submit'])) {
-    $path = "assets/uploads/";
+    $path = "backend/uploads/";
     $file = $_FILES['fileToUpload'];
 
     $fileName = $file['name'];
