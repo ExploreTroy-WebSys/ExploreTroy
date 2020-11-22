@@ -12,7 +12,6 @@
     # Include all boiler-plate header information for the site
     include('assets/includes/header.php');
   ?>
-  </header>
 
   <!-- Explore banner -->
   <main>

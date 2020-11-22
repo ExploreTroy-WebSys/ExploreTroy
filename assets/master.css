@@ -20,6 +20,11 @@ body {
 
 /* Profile page */
 
+#profile-photo {
+    width: 120px;
+    height: auto;
+}
+
 .chip {
     color: #343a40;
     font-size: 18px;

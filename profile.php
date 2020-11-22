@@ -9,8 +9,6 @@
   # Include all boiler-plate head information for the site
   include("assets/includes/head.php");
 ?>
-    <link rel="stylesheet" href="assets/profile.css">
-</head>
 <body>
     <?php include_once("assets/includes/header.php");?>
     </header>
