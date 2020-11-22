@@ -54,18 +54,28 @@
 
                 <?php
                     if (isset($_POST['new_comment'])) {
-                        echo $_POST['new_comment'];
-                        echo $_POST['review_id'];
-                        echo $_SESSION['rcsid'];
+                        // Get comment_body and review_id
+                        $comment_body = $_POST['new_comment'];
+                        $review_id = $_POST['review_id'];
 
+                        // Get user id from rcsid
                         $rcsid = $_SESSION['rcsid'];
-
                         $query = "SELECT `id` FROM `users` WHERE `rcsid` = '" . $rcsid . "'";
                         $result = $db->getQuery($query);
-                        // $author_id = json_decode($result, true);
+                        $author_id = json_decode($result, true);
+                        $author_id = $author_id[0]['id'];
 
-                        echo $result;
-                        // $post_query = "INSERT INTO `comments` (`author_id`, `comment_body`, `parent_id`) VALUES ($_POST)"
+                        // Make prepared statement to post comment
+                        $post_query = "INSERT INTO `comments` (`author_id`, `comment_body`, `parent_id`) VALUES (:author_id, :comment_body, :review_id)";
+                        
+                        // Make parameter array
+                        $param_array = array();
+                        $param_array[':author_id'] = $author_id;
+                        $param_array[':comment_body'] = $comment_body;
+                        $param_array[':review_id'] = $review_id;
+                        
+                        // Post query
+                        $post_query = $db->postQuery($post_query, $param_array);
                     }
 
                     foreach ($reviews as $review) {
@@ -125,7 +135,6 @@
                         echo '</div>';
                         echo '</div>';
                     }
-
                 ?>
             </div>
         </div>
