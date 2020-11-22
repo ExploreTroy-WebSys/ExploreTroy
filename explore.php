@@ -43,7 +43,7 @@
                             echo '<p class="phone">' . $item['phone'] . '</p>';
                             echo '<div class="rating">';
                             for ($i = 1; $i < 6; $i++) {
-                                if ($item['avg_rating'] > $i) {
+                                if ($item['avg_rating'] >= $i) {
                                     echo '<i class="fas fa-star filled-star"></i>';
                                 } else {
                                     echo '<i class="fas fa-star unfilled-star"></i>';

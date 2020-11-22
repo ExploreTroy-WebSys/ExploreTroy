@@ -271,11 +271,11 @@ main {
 }
 
 .review {
-    margin-bottom: 20px;
-    border-radius: 8px;
     border: 2px solid #457b9d;
     text-align: left;
     padding-top: 10px;
+    margin-bottom: 0;
+    border-radius: 8px 8px 0 0
 }
 
 .review .review-header {
@@ -296,6 +296,11 @@ main {
 
 .actions {
     color: #343a40;
+    margin-bottom: 5px;
+}
+
+.actions i {
+    padding: 5px;
 }
 
 .review-comments {

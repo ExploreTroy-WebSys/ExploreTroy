@@ -64,13 +64,14 @@ CREATE TABLE IF NOT EXISTS `categories` (
 CREATE TABLE IF NOT EXISTS `reviews` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
     `author_id` INT(10) signed NOT NULL,
+    `attraction_id` INT(10) signed NOT NULL,
     `review_body` VARCHAR(2000) NOT NULL,
-    `child_id` INT(10) signed,
     `rating` INT(2) NOT NULL,
     `likes` INT(10) DEFAULT 0,
     `dislikes` INT(10) DEFAULT 0,
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`author_id`) REFERENCES users(`id`)
+    FOREIGN KEY (`author_id`) REFERENCES users(`id`),
+    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`);
 );
 
 CREATE TABLE IF NOT EXISTS `comments` (

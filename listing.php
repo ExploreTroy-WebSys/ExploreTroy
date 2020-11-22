@@ -21,108 +21,89 @@
         <section>
         <div class="explore-category">
             <?php
-
+                // Create database object
                 $db = new Database();
 
+                // Get query string from url
                 $id = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 
+                // Make prepared statement to get attraction
                 $query = "SELECT * FROM `attractions` WHERE `id` = :id";
 
+                // Create parameter array
                 $param_array = array();
                 $param_array[':id'] =  $id;
 
+                // Get result of query
                 $query = $db->getQuery($query, $param_array);
-
                 $query = json_decode($query, true);
-
                 $attr_name = $query[0]['name'];
 
+                // Make prepared statement to get reviews for attraction
+                $query = "SELECT * FROM `reviews` WHERE `attraction_id` = :id";
+
+                // Get results of query
+                $query = $db->getQuery($query, $param_array);
+                $reviews = json_decode($query, true);
             ?>
             <h2 class="explore-page-header-text">Reviews for <?php echo $attr_name ?></h2>
             <button type="button" class="btn btn-primary review-button btn-dark">Write a Review</button>
         </div>
         <div class="container">
             <div class="row reviews">
-                <div class="col-12 review" style="margin-bottom: 0; border-radius: 8px 8px 0 0">
-                    <p class="review-header">
-                        Fantastic food and service
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <img class="user-image float-right" src="assets/images/JodySunray.jpg" alt="temp-image">
-                    </p>
-                    <p class="review-description">
-                        I love this place! The food is great and the servers are so nice! Plus it’s not too far from campus.
-                    </p>
-                    <div class="actions">
-                        <i id="heart-1" class="fas fa-heart" onClick="fillHeartIcon(1)"></i>
-                        <i id="comment-1" class="fas fa-comment" onClick="showComments()"></i>
-                        <i class="fas fa-share-alt float-right"></i>
-                    </div>
-                </div>
-                <div class="review-comments">
-                    <div class="container">
-                        <div class="row comment-container">
-                            <div class="col-1">
-                                <img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">
-                            </div>
-                            <div class="col-10 review-comment">
-                                I also love The Whistling Kettle. So many good options!
-                            </div>
-                        </div>
-                        <div class="row comment-container">
-                            <div class="col-1">
-                                <img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">
-                            </div>
-                            <div class="col-10 review-comment">
-                                I also love The Whistling Kettle. So many good options!
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 review">
-                    <p class="review-header">
-                        Really enjoyed the atmosphere
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </p>
-                    <p class="review-description">
-                        I found this restaurant while walking around Troy with my friends.
-                    </p>
-                    <div class="actions">
-                        <i id="heart-2" class="fas fa-heart" onClick="fillHeartIcon(2)"></i>
-                        <i class="fas fa-comment"></i>
-                        <i class="fas fa-share-alt float-right"></i>
-                    </div>
-                </div>
-                <div class="col-12 review">
-                    <p class="review-header">
-                        Quick service
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </p>
-                    <p class="review-description">
-                        I was really impressed by how fast the service was. I enjoyed the hot chocolate but I burned my tongue when taking my first sip.
-                    </p>
-                    <div class="actions">
-                        <i id="heart-3" class="fas fa-heart" onClick="fillHeartIcon(3)"></i>
-                        <i class="fas fa-comment"></i>
-                        <i class="fas fa-share-alt float-right"></i>
-                    </div>
-                </div>
+
+                <?php
+
+                    foreach ($reviews as $review) {
+                        echo '<div class="col-12 review">';
+                        echo '<p class="review-header">';
+                        echo $review['review_title'];
+                        echo '<div class="rating">';
+                        for ($i = 1; $i < 6; $i++) {
+                            if ($review['rating'] >= $i) {
+                                echo '<i class="fas fa-star filled-star"></i>';
+                            } else {
+                                echo '<i class="fas fa-star unfilled-star"></i>';
+                            }
+                        }
+                        echo '</div>';
+                        echo '<img class="user-image float-right" src="assets/images/JodySunray.jpg" alt="temp-image">';
+                        echo '</p>';
+                        echo '<p class="review-description">';
+                        echo $review['review_body'];
+                        echo '</p>';
+                        echo '<div class="actions">';
+                        echo '<i id="heart-1" class="fas fa-heart" onClick="fillHeartIcon(1)"></i>';
+                        echo '<i id="comment-1" class="fas fa-comment" onClick="showComments()"></i>';
+                        echo '<i class="fas fa-share-alt float-right"></i>';
+                        echo '</div>';
+                        echo '</div>';
+
+                        $review_id = $review['id'];
+                        $query = "SELECT * FROM `comments` WHERE `parent_id` = $review_id";
+                        
+                        $query = $db->getQuery($query);
+                        $comments = json_decode($query, true);
+
+                        echo '<div class="review-comments">';
+                        echo '<div class="container">';
+                        
+                        foreach ($comments as $comment) {
+                            echo '<div class="row comment-container">';
+                            echo '<div class="col-1">';
+                            echo '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
+                            echo '</div>';
+                            echo '<div class="col-10 review-comment">';
+                            echo $comment['comment_body'];
+                            echo '</div>';
+                            echo '</div>';
+                        }
+
+                        echo '</div>';
+                        echo '</div>';
+                    }
+
+                ?>
             </div>
         </div>
         </section>
