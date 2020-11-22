@@ -72,8 +72,13 @@ body {
     padding-bottom: 42px;
 }
 
-#detailsforchips1{
+#detailsforchips{
     margin-top:-2px;
+    color: #457b9d;
+}
+
+#nameof{
+    color: #457b9d;
 }
 
 

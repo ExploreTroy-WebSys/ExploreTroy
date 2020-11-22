@@ -38,7 +38,7 @@
             <input type="checkbox" id="restaurant" class="class" class="check" name="restaurant" value="Restaurant">
             <label for="restaurant">Restaurant</label><br>
             <div id="restaurant_items">
-            <label for="exampleFormControlInput1">Name of Restaurant:</label>
+            <label for="exampleFormControlInput1" id="nameof">Name of Restaurant:</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Restaurant"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips">
@@ -61,7 +61,7 @@
             <input type="checkbox" id="shop" class="check" name="shop" value="shop">
             <label for="shop">Shop</label><br>
             <div id="shop_items">
-            <label for="exampleFormControlInput1">Name of Shop:</label>
+            <label for="exampleFormControlInput1" id="nameof">Name of Shop:</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Shop"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips">
@@ -79,9 +79,9 @@
             <input type="checkbox" id="excursion" class="check" name="excursion" value="excursion">
             <label for="Excursion">Activity</label><br><br>
             <div id="excursion_items">
-            <label for="exampleFormControlInput1"></label>
+            <label for="exampleFormControlInput1" id="nameof">Name of Activity:</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Activity"> <br>
-            <div id="detailsforchips1">Select all characteristics that apply:</div>
+            <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips activitychips">
                   <div class="col-md-auto chip activityitem1">Swimming</div>
                   <div class="col-md-auto chip activityitem2">Golfing</div>
