@@ -6,8 +6,7 @@
   # Include all boiler-plate head information for the site
   include("assets/includes/head.php");
 ?>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+
 <body onresize="repositionFooter()">
   <?php
     # Include all boiler-plate header information for the site

@@ -16,7 +16,7 @@
     # Include all boiler-plate head information for the site
     include("assets/includes/head.php");
 ?>
-</head>
+
 <body>
     <?php 
         # Include all boiler-plate header information for the site

@@ -6,13 +6,13 @@
   # Include all boiler-plate head information for the site
   include("assets/includes/head.php");
 ?>
-</head>
+
 <body onresize="repositionFooter()">
   <?php 
     # Include all boiler-plate header information for the site
     include('assets/includes/header.php');
   ?>
-  </header>
+  
 
   <!-- Explore banner -->
   <main>
