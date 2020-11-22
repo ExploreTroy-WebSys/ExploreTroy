@@ -299,7 +299,9 @@ main {
 }
 
 .review-comments {
-    background-color: #343a40;
+    border: 2px solid #457b9d;
+    border-top: none;
+    background-color: #a8dadc;
     width: 100%;
     border-radius: 0 0 8px 8px;
     margin-bottom: 20px;
@@ -309,14 +311,16 @@ main {
     width: 40px;
     height: 40px;
     border-radius: 100%;
+    border: 2px solid #838383;
 }
 
 .review-comment {
-    background-color: #6C757D;
-    color: white;
+    border: 2px solid #838383;
+    color: #343a40;
     border-radius: 20px;
     font-size: 14px;
     padding: 10px 20px;
+    background-color: white;
 }
 
 .comment-container {
