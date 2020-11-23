@@ -121,15 +121,17 @@
                             echo '<div id="review-comments-' . $review_id . '" class="review-comments">';
                             echo '<div class="container">';
                             
-                            foreach ($comments as $comment) {
-                                echo '<div class="row comment-container">';
-                                echo '<div class="col-1">';
-                                echo '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
-                                echo '</div>';
-                                echo '<div class="col-10 review-comment">';
-                                echo $comment['comment_body'];
-                                echo '</div>';
-                                echo '</div>';
+                            if ($comments != NULL) {
+                                foreach ($comments as $comment) {
+                                    echo '<div class="row comment-container">';
+                                    echo '<div class="col-1">';
+                                    echo '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
+                                    echo '</div>';
+                                    echo '<div class="col-10 review-comment">';
+                                    echo $comment['comment_body'];
+                                    echo '</div>';
+                                    echo '</div>';
+                                }
                             }
     
                             echo '<form method="POST" class="row comment-container">';
