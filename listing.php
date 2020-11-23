@@ -47,7 +47,7 @@
                 $reviews = json_decode($query, true);
             ?>
             <h2 class="explore-page-header-text">Reviews for <?php echo $attr_name ?></h2>
-            <button type="button" class="btn btn-primary review-button btn-dark">Write a Review</button>
+            <button type="submit" class="btn btn-primary review-button btn-dark" onclick="window.location.href='addpostcurrent.php'"> Write a Review </a> </button>
         </div>
         <div class="container">
             <div class="row reviews">
