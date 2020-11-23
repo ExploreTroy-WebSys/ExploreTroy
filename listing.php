@@ -80,7 +80,8 @@
 
                     if ($reviews != NULL) {
                         foreach ($reviews as $review) {
-                            echo '<div class="col-12 review">';
+                            $review_id = $review['id'];
+                            echo '<div id="review-' . $review_id . '" class="col-12 review">';
                             echo '<p class="review-header">';
                             echo $review['review_title'];
                             echo '<div class="rating">';
@@ -98,14 +99,15 @@
                             echo $review['review_body'];
                             echo '</p>';
                             echo '<div class="actions">';
-                            echo '<i class="fas fa-heart heart-icon" onClick="fillHeartIcon(1)"></i><span class="num-likes">' . $review['likes'] . '</span>';
+                            $review_id = $review['id'];
+                            echo '<i id="heart-icon" class="fas fa-heart heart-icon" onClick="likePost(' . $review_id . ')"></i><span id="num-likes-' . $review_id . '" class="num-likes">' . $review['likes'] . '</span>';
                             
                             $review_id = $review['id'];
                             $query = "SELECT COUNT(`id`) AS `num_comments` FROM `comments` WHERE `parent_id` = $review_id";
                             $result = $db->getQuery($query);
                             $result = json_decode($result, true);
 
-                            echo '<i class="fas fa-comment comment-icon" onClick="showComments()"></i><span>' . $result[0]['num_comments'] . '</span>';
+                            echo '<i class="fas fa-comment comment-icon" onClick="showComments(' . $review_id . ')"></i><span id="num-comments-' . $review_id . '">' . $result[0]['num_comments'] . '</span>';
                             echo '<i class="fas fa-share-alt float-right"></i>';
                             echo '</div>';
                             echo '</div>';
@@ -116,7 +118,7 @@
                             $query = $db->getQuery($query);
                             $comments = json_decode($query, true);
     
-                            echo '<div class="review-comments">';
+                            echo '<div id="review-comments-' . $review_id . '" class="review-comments">';
                             echo '<div class="container">';
                             
                             foreach ($comments as $comment) {

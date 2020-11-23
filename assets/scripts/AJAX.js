@@ -52,3 +52,11 @@ function postToDatabase(data) {
         }
     });
 }
+
+function likePost(review_id) {
+    $.ajax({
+        type: "POST",
+        url: "like.php?" + review_id,
+        success: function() {$("#num-likes-" + review_id).html(parseInt($("#num-likes-" + review_id).html(), 10) + 1)}
+    });
+}

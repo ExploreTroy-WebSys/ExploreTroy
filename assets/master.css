@@ -274,8 +274,8 @@ main {
     border: 2px solid #457b9d;
     text-align: left;
     padding-top: 10px;
-    margin-bottom: 0;
-    border-radius: 8px 8px 0 0
+    margin-bottom: 20px;
+    border-radius: 8px;
 }
 
 .review .review-header {
@@ -316,6 +316,7 @@ main {
 }
 
 .review-comments {
+    display: none;
     border: 2px solid #457b9d;
     border-top: none;
     background-color: #a8dadc;
