@@ -53,30 +53,30 @@
             <div class="row reviews">
 
                 <?php
-                    if (isset($_POST['new_comment']) && $_POST['new_comment'] != '') {
-                        // Get comment_body and review_id
-                        $comment_body = $_POST['new_comment'];
-                        $review_id = $_POST['review_id'];
+                    // if (isset($_POST['new_comment']) && $_POST['new_comment'] != '') {
+                    //     // Get comment_body and review_id
+                    //     $comment_body = $_POST['new_comment'];
+                    //     $review_id = $_POST['review_id'];
 
-                        // Get user id from rcsid
-                        $rcsid = $_SESSION['rcsid'];
-                        $query = "SELECT `id` FROM `users` WHERE `rcsid` = '" . $rcsid . "'";
-                        $result = $db->getQuery($query);
-                        $author_id = json_decode($result, true);
-                        $author_id = $author_id[0]['id'];
+                    //     // Get user id from rcsid
+                    //     $rcsid = $_SESSION['rcsid'];
+                    //     $query = "SELECT `id` FROM `users` WHERE `rcsid` = '" . $rcsid . "'";
+                    //     $result = $db->getQuery($query);
+                    //     $author_id = json_decode($result, true);
+                    //     $author_id = $author_id[0]['id'];
 
-                        // Make prepared statement to post comment
-                        $post_query = "INSERT INTO `comments` (`author_id`, `comment_body`, `parent_id`) VALUES (:author_id, :comment_body, :review_id)";
+                    //     // Make prepared statement to post comment
+                    //     $post_query = "INSERT INTO `comments` (`author_id`, `comment_body`, `parent_id`) VALUES (:author_id, :comment_body, :review_id)";
                         
-                        // Make parameter array
-                        $param_array = array();
-                        $param_array[':author_id'] = $author_id;
-                        $param_array[':comment_body'] = $comment_body;
-                        $param_array[':review_id'] = $review_id;
+                    //     // Make parameter array
+                    //     $param_array = array();
+                    //     $param_array[':author_id'] = $author_id;
+                    //     $param_array[':comment_body'] = $comment_body;
+                    //     $param_array[':review_id'] = $review_id;
                         
-                        // Post query
-                        $post_query = $db->postQuery($post_query, $param_array);
-                    }
+                    //     // Post query
+                    //     $post_query = $db->postQuery($post_query, $param_array);
+                    // }
 
                     if ($reviews != NULL) {
                         foreach ($reviews as $review) {
@@ -121,6 +121,8 @@
                             echo '<div id="review-comments-' . $review_id . '" class="review-comments">';
                             echo '<div class="container">';
                             
+                            echo '<div id="all-comments-' . $review_id . '">';
+
                             if ($comments != NULL) {
                                 foreach ($comments as $comment) {
                                     echo '<div class="row comment-container">';
@@ -133,15 +135,26 @@
                                     echo '</div>';
                                 }
                             }
+
+                            echo '</div>';
     
-                            echo '<form method="POST" class="row comment-container">';
+                            // echo '<form method="POST" class="row comment-container">';
+                            // echo '<div class="col-1">';
+                            // echo '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
+                            // echo '</div>';
+                            // echo '<input type="hidden" id="review_id" name="review_id" value="' . $review_id . '">';
+                            // echo '<input class="col-10 review-comment" type="text" id="new_comment" name="new_comment" placeholder="Write a comment...">';
+                            // echo '<input class="submit-comment-button" type="submit" value="Send">';
+                            // echo '</form>';
+
+                            echo '<div class="row comment-container">';
                             echo '<div class="col-1">';
                             echo '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
                             echo '</div>';
                             echo '<input type="hidden" id="review_id" name="review_id" value="' . $review_id . '">';
-                            echo '<input class="col-10 review-comment" type="text" id="new_comment" name="new_comment" placeholder="Write a comment...">';
-                            echo '<input class="submit-comment-button" type="submit" value="Send">';
-                            echo '</form>';
+                            echo '<input class="col-10 review-comment" type="text" id="new_comment_' . $review_id . '" name="new_comment" placeholder="Write a comment...">';
+                            echo '<input class="submit-comment-button" type="submit" value="Send" onClick="postComment(' . $review_id . ')">';
+                            echo '</div>';
     
                             echo '</div>';
                             echo '</div>';

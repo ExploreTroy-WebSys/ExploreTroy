@@ -60,3 +60,24 @@ function likePost(review_id) {
         success: function() {$("#num-likes-" + review_id).html(parseInt($("#num-likes-" + review_id).html(), 10) + 1)}
     });
 }
+
+function postComment(review_id) {
+    var comment_body = $("#new_comment_" + review_id).val();
+    $.ajax({
+        type: "POST",
+        url: "postcomment.php?id=" + review_id + "&comment=" + comment_body,
+        success: function() {
+            var html = '<div class="row comment-container">';
+            html += '<div class="col-1">';
+            html += '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
+            html += '</div>';
+            html += '<div class="col-10 review-comment">';
+            html += comment_body;
+            html += '</div>';
+            html += '</div>';
+            $("#all-comments-" + review_id).append(html);
+            $("#new_comment_" + review_id).val('');
+            $("#num-comments-" + review_id).html(parseInt($("#num-comments-" + review_id).html(), 10) + 1);
+        }
+    });
+}
