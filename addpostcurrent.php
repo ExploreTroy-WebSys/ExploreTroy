@@ -25,7 +25,7 @@
           <p>Your first-hand experiences, recommendations, and questions truly help other travelers. Thanks!
           <br>
         </section>
-
+        <section class="postpagecurrent">
         <!-- Title of post and review body -->
         <section class="font">
           <label for="exampleFormControlInput1"><b>Title of Post </b></label>
@@ -49,25 +49,6 @@
           <p><b>Date of visit:</b> <input type="text" id="datepicker"></p>
           <br>
 
-          <!-- Upload -->
-          <p><b>Upload a picture</b></p>
-
-          <div class="file-field">
-            <div class="btn btn-primary btn-sm float-left">
-              <input type="file">
-            </div>
-            <div class="file-path-wrapper">
-            </div>
-          </div>
-
-          <br>
-          <br>
-
-          <input type="form-control" class="form-control" id="exampleFormControlInput1" placeholder="A few words about your upload...">
-          
-          <br>
-          <br>
-
           <button type="submit" class="btn btn-primary">Submit your post!</button>
         </section>
       </form>
@@ -80,3 +61,4 @@
     include('assets/includes/foot.php');
   ?>
 </body>
+</section>

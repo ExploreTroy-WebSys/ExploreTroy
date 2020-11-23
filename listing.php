@@ -37,8 +37,10 @@
                 $attr_name = $query[0]['name'];
 
             ?>
-            <h2 class="explore-page-header-text">Reviews for <?php echo $attr_name ?></h2>
-            <button type="button" class="btn btn-primary review-button btn-dark">Write a Review</button>
+            <div class="explore-category">
+            <h2 class="explore-page-header-text">Reviews for <span class="attraction-name">The Whistling Kettle</span></h2>
+            <button type="submit" class="btn btn-primary review-button btn-dark" onclick="window.location.href='addpostcurrent.php'"> Write a Review </a> </button>
+        </div>
         </div>
         <div class="container">
             <div class="row reviews">
