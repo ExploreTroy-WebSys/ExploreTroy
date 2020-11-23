@@ -46,6 +46,11 @@ body {
     border: 2px solid #457b9d;
 }
 
+.postpagecurrent{
+    border: 2px solid #457b9d;
+    padding: 1%;
+}
+
 .info{
     padding:15px;
 }
