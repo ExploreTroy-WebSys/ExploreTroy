@@ -52,3 +52,41 @@ function postToDatabase(data) {
         }
     });
 }
+
+// Function to add likes for a particular review
+function likePost(review_id) {
+    $.ajax({
+        type: "POST",
+        url: "like.php?" + review_id,
+        success: function() {$("#num-likes-" + review_id).html(parseInt($("#num-likes-" + review_id).html(), 10) + 1)}
+    });
+}
+
+// Function to post a comment under a review
+function postComment(review_id) {
+    var comment_body = $("#new_comment_" + review_id).val();
+    $.ajax({
+        type: "POST",
+        url: "postcomment.php?id=" + review_id + "&comment=" + comment_body,
+        success: function() {
+            // New comment
+            var html = '<div class="row comment-container">';
+            html += '<div class="col-1">';
+            html += '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
+            html += '</div>';
+            html += '<div class="col-10 review-comment">';
+            html += comment_body;
+            html += '</div>';
+            html += '</div>';
+
+            // Append new comment
+            $("#all-comments-" + review_id).append(html);
+
+            // Clear comment field
+            $("#new_comment_" + review_id).val('');
+
+            // Update number of comments
+            $("#num-comments-" + review_id).html(parseInt($("#num-comments-" + review_id).html(), 10) + 1);
+        }
+    });
+}

@@ -312,11 +312,11 @@ main {
 }
 
 .review {
-    margin-bottom: 20px;
-    border-radius: 8px;
     border: 2px solid #457b9d;
     text-align: left;
     padding-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
 }
 
 .review .review-header {
@@ -337,10 +337,30 @@ main {
 
 .actions {
     color: #343a40;
+    margin-bottom: 5px;
+}
+
+.actions i {
+    margin: 5px;
+}
+
+.heart-icon {
+    cursor: pointer;
+}
+
+.num-likes {
+    margin-right: 5px;
+}
+
+.comment-icon {
+    cursor: pointer;
 }
 
 .review-comments {
-    background-color: #343a40;
+    display: none;
+    border: 2px solid #457b9d;
+    border-top: none;
+    background-color: #a8dadc;
     width: 100%;
     border-radius: 0 0 8px 8px;
     margin-bottom: 20px;
@@ -350,18 +370,45 @@ main {
     width: 40px;
     height: 40px;
     border-radius: 100%;
+    border: 2px solid #838383;
 }
 
 .review-comment {
-    background-color: #6C757D;
-    color: white;
+    border: 2px solid #838383;
+    color: #343a40;
     border-radius: 20px;
     font-size: 14px;
     padding: 10px 20px;
+    background-color: white;
 }
 
 .comment-container {
     padding: 10px 5px;
+    margin-bottom: 0;
+}
+
+.submit-comment-button {
+    font-size: 14px;
+    border-radius: 20px;
+    border: 2px solid #457b9d;
+    background-color: white;
+    margin-left: 10px;
+}
+
+.submit-comment-button:hover {
+    background-color: #457b9d;
+    transition: 0.5s;
+    color: white;
+}
+
+.submit-comment-button:focus {
+    outline: none;
+}
+
+input.review-comment:focus {
+    outline: none;
+    border: 2px solid #e63946;
+    transition: 0.5s;
 }
 
 /* Footer */
