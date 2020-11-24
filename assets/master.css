@@ -34,6 +34,10 @@ body {
     padding: 0 10px;
 }
 
+.chip.tile {
+    margin: 0 auto;
+}
+
 .chips {
     margin-bottom: 20px;
 }
@@ -232,7 +236,7 @@ main {
 .explore-grid .grid-item {
     margin: 0 20px 50px 20px;
     color: #343a40;
-    height: 350px;
+    height: 380px;
     border-radius: 10px 0 10px 10px;
     border: 2px solid #838383;
     font-size: 20px;
