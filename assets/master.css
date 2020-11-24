@@ -208,6 +208,7 @@ main {
     font-size: 50%;
     border-radius: 10px;
     display: flex;
+    width: auto;
 }
 
 #exploreSearch, textarea {
