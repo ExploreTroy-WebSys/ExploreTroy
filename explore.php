@@ -51,6 +51,20 @@
                             }
                             echo '<span class="avg-rating">' . $item['avg_rating'] . '</span></div>';
                             echo '<div class="description">' . $item['description'] . '</div>';
+
+                            $tagquery = "SELECT DISTINCT `tags`.`tag_name` FROM `tags` INNER JOIN `attractions_categories` ON  `tags`.`id` = `attractions_categories`.`category` WHERE `attractions_categories`.`attraction_id` = '" . $item['id'] . "'";
+
+                            $tagquery = $db->getQuery($tagquery);
+
+                            $tagquery = json_decode($tagquery, true);
+
+                            echo '<fieldset class="form-row justify-content-left">';
+                            foreach($tagquery as $tag){
+                                echo '<div class="chip tile">'. $tag['tag_name'] . '</div>';
+                            }
+                            echo '</fieldset>';
+
+
                             echo '</div>';
                         }
                     ?>
