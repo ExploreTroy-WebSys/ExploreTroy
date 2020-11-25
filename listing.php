@@ -195,7 +195,7 @@
                             echo '</div>';
                             echo '<input type="hidden" id="review_id" name="review_id" value="' . $review_id . '">';
                             echo '<input class="col-10 review-comment" type="text" id="new_comment_' . $review_id . '" name="new_comment" placeholder="Write a comment...">';
-                            echo '<input class="submit-comment-button" type="submit" value="Send" onClick="postComment(' . $review_id . ')">';
+                            echo '<input class="submit-comment-button" type="submit" value="Send" onClick="postComment(' . $review_id . ', ' . $pfp_uri_me . ')">';
                             echo '</div>';
     
                             echo '</div>';
