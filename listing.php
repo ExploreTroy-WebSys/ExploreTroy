@@ -1,5 +1,4 @@
 <?php
-    include("assets/includes/database_object.php");
 
     # Spawn session cookie if one does not exist and set authentication status to false
     session_start();
@@ -7,6 +6,8 @@
 
     # Include all boiler-plate head information for the site
     include("assets/includes/head.php");
+
+    include("assets/includes/helperFunctions.php");
 ?>
 
 <body>
@@ -47,7 +48,30 @@
             ?>
 
             <h2 class="explore-page-header-text">Reviews for <?php echo $attr_name ?></h2>
+
             <button type="submit" class="btn btn-primary review-button btn-dark" onclick="window.location.href='addpostcurrent.php?' + <?php echo $id ?>"> Write a Review </a> </button>
+
+            <?php
+
+                // Get user id from rcsid
+                $rcsid = $_SESSION['rcsid'];
+                $query = "SELECT `id` FROM `users` WHERE `rcsid` = '" . $rcsid . "'";
+                $result = $db->getQuery($query);
+                $user_id = json_decode($result, true);
+                $user_id = $user_id[0]['id'];
+
+                $query = "SELECT * FROM `favorites` WHERE `attraction_id` = $id AND `user_id` = $user_id";
+                $query = $db->getQuery($query);
+
+                if ($query != NULL) {
+                    echo '<i id="favorite-' . $id . '" class="fas fa-heart favorited" onclick="favoriteAttraction(' . $id . ')"></i>';
+                } else {
+                    echo '<i id="favorite-' . $id . '" class="fas fa-heart not-favorited" onclick="favoriteAttraction(' . $id . ')"></i>';
+                }
+                
+            ?>
+
+        
         </div>
         <div class="container">
             <div class="row reviews">
@@ -78,7 +102,18 @@
                             echo '</div>';
 
                             // Echo author image
-                            echo '<img class="user-image float-right" src="assets/images/JodySunray.jpg" alt="temp-image">';
+                            $author_id = $review['author_id'];
+                            $author_rcsid_query = "SELECT `rcsid` from `users` WHERE `id` = $author_id";
+                            $author_rcsid = $db->getQuery($author_rcsid_query);
+                            $author_rcsid = json_decode($author_rcsid, true);
+                            $author_rcsid = $author_rcsid[0]['rcsid'];
+                            $pfp_uri_review = fetchProfileImageURI($author_rcsid);
+                            if ($pfp_uri_review != NULL) {
+                                echo '<img class="user-image float-right" src="backend/uploads/' . $pfp_uri_review . '" alt="temp-image">';
+                            } else {
+                                echo '<img class="user-image float-right" src="assets/images/blankPFP.png" alt="image-temp">';
+                            }
+                            
                             echo '</p>';
 
                             // Echo review body
@@ -124,7 +159,19 @@
                                 foreach ($comments as $comment) {
                                     echo '<div class="row comment-container">';
                                     echo '<div class="col-1">';
-                                    echo '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
+
+                                    $author_id = $comment['author_id'];
+                                    $author_rcsid_query = "SELECT `rcsid` from `users` WHERE `id` = $author_id";
+                                    $author_rcsid = $db->getQuery($author_rcsid_query);
+                                    $author_rcsid = json_decode($author_rcsid, true);
+                                    $author_rcsid = $author_rcsid[0]['rcsid'];
+                                    $pfp_uri_comment = fetchProfileImageURI($author_rcsid);
+                                    if ($pfp_uri_comment != NULL) {
+                                        echo '<img class="user-image" src="backend/uploads/' . $pfp_uri_comment . '" alt="image-temp">';
+                                    } else {
+                                        echo '<img class="user-image" src="assets/images/blankPFP.png" alt="image-temp">';
+                                    }
+                                    
                                     echo '</div>';
                                     echo '<div class="col-10 review-comment">';
                                     echo $comment['comment_body'];
@@ -138,11 +185,18 @@
                             // Input text field to post a comment under a review
                             echo '<div class="row comment-container">';
                             echo '<div class="col-1">';
-                            echo '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
+
+                            $pfp_uri_me = fetchProfileImageURI($_SESSION['rcsid']);
+                            if ($pfp_uri_me != NULL) {
+                                echo '<img class="user-image" src="backend/uploads/' . $pfp_uri_me . '" alt="image-temp">';
+                            } else {
+                                echo '<img class="user-image" src="assets/images/blankPFP.png" alt="image-temp">';
+                            }
+                            
                             echo '</div>';
                             echo '<input type="hidden" id="review_id" name="review_id" value="' . $review_id . '">';
                             echo '<input class="col-10 review-comment" type="text" id="new_comment_' . $review_id . '" name="new_comment" placeholder="Write a comment...">';
-                            echo '<input class="submit-comment-button" type="submit" value="Send" onClick="postComment(' . $review_id . ')">';
+                            echo '<input class="submit-comment-button" type="submit" value="Send" onClick="postComment(' . $review_id . ', ' . $pfp_uri_me . ')">';
                             echo '</div>';
     
                             echo '</div>';

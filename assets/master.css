@@ -1,5 +1,5 @@
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Maven Pro', sans-serif;
 }
 
 .navbar-brand{
@@ -35,11 +35,11 @@ body {
 }
 
 .chip.tile {
-    margin: 0 auto;
+    margin: 3px auto;
 }
 
-.chips {
-    margin-bottom: 20px;
+.form-row>[class*=col-] {
+    padding: 0 10px;
 }
 
 /* Post page */
@@ -224,6 +224,7 @@ main {
     font-size: 50%;
     border-radius: 10px;
     display: flex;
+    width: auto;
 }
 
 #exploreSearch, textarea {
@@ -252,12 +253,12 @@ main {
 .explore-grid .grid-item {
     margin: 0 20px 50px 20px;
     color: #343a40;
-    height: 380px;
+    height: 400px;
     border-radius: 10px 0 10px 10px;
     border: 2px solid #838383;
     font-size: 20px;
     padding: 0;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     transition: box-shadow 0.3s;
 }
 
@@ -314,12 +315,29 @@ main {
 .tmpImg {
     object-fit: cover;
     width: 100%;
-    height: 50%;
+    height: 40%;
     border-radius: 8px 0 0 0;
     border-bottom: 2px solid #838383;
+    position: relative;
+}
+
+.chips {
+    padding: 10px;
 }
 
 /* Listing page */
+
+.not-favorited {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #f1faee;
+}
+
+.favorited {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #f08080;
+}
 
 .review-button {
     position: absolute;
@@ -429,6 +447,12 @@ input.review-comment:focus {
     outline: none;
     border: 2px solid #e63946;
     transition: 0.5s;
+}
+
+/* Favorites page */
+
+.no-favorites-message {
+    font-size: 20px;
 }
 
 /* Footer */

@@ -3,7 +3,14 @@
 
     $db = new Database();
 
-    $query = "SELECT * FROM `attractions`";
+    // Get query string from url
+    $category = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+
+    if ($category != NULL) {
+        $query = "SELECT DISTINCT `attractions`.`id`, `attractions`.`name`, `attractions`.`description`, `attractions`.`phone`, `attractions`.`avg_rating`, `attractions`.`address` FROM `attractions` INNER JOIN `attractions_categories` ON `attractions`.`id` = `attractions_categories`.`attraction_id` INNER JOIN `tags` ON `attractions_categories`.`category` = `tags`.`id` WHERE `tags`.`category` = '" . $category . "'";
+    } else {
+        $query = "SELECT * FROM `attractions`";
+    }
 
     $query = $db->getQuery($query);
 
@@ -58,9 +65,14 @@
 
                             $tagquery = json_decode($tagquery, true);
 
-                            echo '<fieldset class="form-row justify-content-left">';
+                            echo '<fieldset class="form-row justify-content-left chips">';
+
+                            $num_tags = 0;
                             foreach($tagquery as $tag){
-                                echo '<div class="chip tile">'. $tag['tag_name'] . '</div>';
+                                $num_tags += 1;
+                                if ($num_tags <= 5) {
+                                    echo '<div class="chip tile">'. $tag['tag_name'] . '</div>';
+                                }
                             }
                             echo '</fieldset>';
 

@@ -63,7 +63,7 @@ function likePost(review_id) {
 }
 
 // Function to post a comment under a review
-function postComment(review_id) {
+function postComment(review_id, image_url) {
     var comment_body = $("#new_comment_" + review_id).val();
     $.ajax({
         type: "POST",
@@ -72,7 +72,12 @@ function postComment(review_id) {
             // New comment
             var html = '<div class="row comment-container">';
             html += '<div class="col-1">';
-            html += '<img class="user-image" src="assets/images/JodySunray.jpg" alt="image-temp">';
+            if (image_url != null) {
+                html += '<img class="user-image" src="backend/uploads/' + image_url + '" alt="image-temp">';
+            } else {
+                html += '<img class="user-image" src="assets/images/blankPFP.png" alt="image-temp">';
+            }
+            
             html += '</div>';
             html += '<div class="col-10 review-comment">';
             html += comment_body;
@@ -87,6 +92,21 @@ function postComment(review_id) {
 
             // Update number of comments
             $("#num-comments-" + review_id).html(parseInt($("#num-comments-" + review_id).html(), 10) + 1);
+        }
+    });
+}
+
+// Function to favorite an attraction
+function favoriteAttraction(attr_id) {
+    $.ajax({
+        type: "POST",
+        url: "favorite.php?" + attr_id,
+        success: function(inserted) {
+            if (inserted == "true") {
+                $("#favorite-" + attr_id).css("color", "#f08080");
+            } else {
+                $("#favorite-" + attr_id).css("color", "#f1faee")
+            }
         }
     });
 }
