@@ -31,9 +31,9 @@ $author_id = $author_id[0]['id'];
 if ($conn->connect_error){
     die('Connection Failed :'.$conn->connect_error);
 }else{
-    $stmt=$conn->prepare("insert into reviews(id, title, review_body, date,rating)
-    values(?,?,?,?,?)");
-    $stmt->bind_param('isssi',$id, $title, $review_body, $date, $rating,);
+    $stmt=$conn->prepare("insert into reviews(id,author_id, title, review_body, date,rating)
+    values(?,?,?,?,?,?)");
+    $stmt->bind_param('iisssi',$id,$author_id, $title, $review_body, $date, $rating,);
     $stmt->execute();
     echo "Post Successfully Submitted";
     $stmt->close();
