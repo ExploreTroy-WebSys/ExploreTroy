@@ -1,17 +1,24 @@
 <?php
     include("assets/includes/database_object.php");
 
+    # Spawn session cookie if one does not exist and set authentication status to false
+    session_start();
+    if ($_SESSION && !(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
+
     $db = new Database();
 
-    $query = "SELECT * FROM `attractions`";
+    // Get user id from rcsid
+    $rcsid = $_SESSION['rcsid'];
+    $query = "SELECT `id` FROM `users` WHERE `rcsid` = '" . $rcsid . "'";
+    $result = $db->getQuery($query);
+    $user_id = json_decode($result, true);
+    $user_id = $user_id[0]['id'];
+
+    $query = "SELECT DISTINCT `attractions`.`id`, `attractions`.`name`, `attractions`.`description`, `attractions`.`phone`, `attractions`.`avg_rating`, `attractions`.`address` FROM `attractions` INNER JOIN `favorites` ON `favorites`.`attraction_id` = `attractions`.`id` WHERE `favorites`.`user_id` = $user_id";
 
     $query = $db->getQuery($query);
 
     $query = json_decode($query, true);
-
-    # Spawn session cookie if one does not exist and set authentication status to false
-    session_start();
-    if ($_SESSION && !(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
 
     # Include all boiler-plate head information for the site
     include("assets/includes/head.php");
@@ -27,8 +34,7 @@
     <main>
         <section class="explore-page-main">
             <div class="explore-category">
-                <h2 class="explore-page-header-text">Explore</h2>
-                <input id="exploreSearch" onkeyup="searchListings()" type="text" placeholder="Search for a location &#128269">
+                <h2 class="explore-page-header-text">My Favorites</h2>
             </div>
             <div class="container-fluid explore-grid">
                 <div id="listingGrid" class="row justify-content-center">
