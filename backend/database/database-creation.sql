@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `users_optional` (
     `discord` VARCHAR(25), 
     `snapchat` VARCHAR(30),
     `instagram` VARCHAR(30),
+    `profilePictureLocation` VARCHAR(255),
     PRIMARY KEY (`index`),
     FOREIGN KEY (`id`) REFERENCES users(`id`)
 );
