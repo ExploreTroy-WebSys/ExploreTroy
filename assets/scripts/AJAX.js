@@ -100,7 +100,7 @@ function favoriteAttraction(attr_id) {
             if (inserted == "true") {
                 $("#favorite-" + attr_id).css("color", "#e63946");
             } else {
-                $("#favorite-" + attr_id).css("color", "#343a40")
+                $("#favorite-" + attr_id).css("color", "#f1faee")
             }
         }
     });
