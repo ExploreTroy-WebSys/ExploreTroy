@@ -449,6 +449,12 @@ input.review-comment:focus {
     transition: 0.5s;
 }
 
+/* Favorites page */
+
+.no-favorites-message {
+    font-size: 20px;
+}
+
 /* Footer */
 
 footer {
