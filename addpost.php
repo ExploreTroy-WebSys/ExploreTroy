@@ -321,6 +321,11 @@
           <p><b>Date of visit:</b> <input type="text" id="datepicker"></p>
           <br>
 
+          <p><b>Upload Photo of Location </b></p>
+          <input type="file" id="myFile" name="filename">
+          <br>
+          <br>
+
           <button type="submit" class="btn btn-primary">Submit your post!</button>
         </section>
         </section>
