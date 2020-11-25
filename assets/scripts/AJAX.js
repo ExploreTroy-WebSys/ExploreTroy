@@ -103,7 +103,7 @@ function favoriteAttraction(attr_id) {
         url: "favorite.php?" + attr_id,
         success: function(inserted) {
             if (inserted == "true") {
-                $("#favorite-" + attr_id).css("color", "#e63946");
+                $("#favorite-" + attr_id).css("color", "#f08080");
             } else {
                 $("#favorite-" + attr_id).css("color", "#f1faee")
             }
