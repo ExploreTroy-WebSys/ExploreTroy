@@ -66,11 +66,15 @@
                                 $tagquery = json_decode($tagquery, true);
     
                                 echo '<fieldset class="form-row justify-content-left chips">';
+
+                                $num_tags = 0;
                                 foreach($tagquery as $tag){
-                                    echo '<div class="chip tile">'. $tag['tag_name'] . '</div>';
+                                    $num_tags += 1;
+                                    if ($num_tags <= 5) {
+                                        echo '<div class="chip tile">'. $tag['tag_name'] . '</div>';
+                                    }
                                 }
                                 echo '</fieldset>';
-    
     
                                 echo '</div>';
                             }
