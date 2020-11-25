@@ -5,6 +5,9 @@
   
   # Include all boiler-plate head information for the site
   include("assets/includes/head.php");
+   // Get query string from url
+    $id = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+    $url="insert.php?".$id;
 ?>
 
 <body onresize="repositionFooter()">
@@ -17,9 +20,11 @@
   
     <div class="post-header">
     <h2 class="explore-page-header-text">Write a Review for the Whistling Kettle</h2>
+    <?php
+    ?>
     </div>
     <section class="container">
-      <form action="insert.php" method="POST">
+      <form action="<?php echo $url ?>" method="POST">
         <!-- Form header -->
         <section class="form-group">
           <section class="intro">
@@ -62,7 +67,7 @@
               </div>
             </div>
           </div>
-</section>
+        </section>
  
           <script>
           var $star_rating = $('.star-rating .fa');
@@ -107,7 +112,7 @@
           <p><b>Date of visit:</b> <input type="text" name="date" id="datepicker"></p>
           <br>
 
-        <button type="submit" class="btn btn-primary">Submit your post!</button>
+        <button type="submit"  class="btn btn-primary">Submit your post! </button>
         </section>
       </form>
     </section>

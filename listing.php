@@ -49,6 +49,8 @@
 
             <h2 class="explore-page-header-text">Reviews for <?php echo $attr_name ?></h2>
 
+            <button type="submit" class="btn btn-primary review-button btn-dark" onclick="window.location.href='addpostcurrent.php?' + <?php echo $id ?>"> Write a Review </a> </button>
+
             <?php
 
                 // Get user id from rcsid
@@ -69,8 +71,7 @@
                 
             ?>
 
-            <!-- <i id="favorite-<?php echo $id ?>" class="fas fa-heart favorite" onclick="favoriteAttraction(<?php echo $id ?>)"></i> -->
-            <button type="submit" class="btn btn-primary review-button btn-dark" onclick="window.location.href='addpostcurrent.php'"> Write a Review </a> </button>
+        
         </div>
         <div class="container">
             <div class="row reviews">
@@ -86,7 +87,7 @@
                             // Echo review title
                             echo '<div id="review-' . $review_id . '" class="col-12 review">';
                             echo '<p class="review-header">';
-                            echo $review['review_title'];
+                            echo $review['title'];
 
                             // Echo review rating
                             echo '<div class="rating">';
