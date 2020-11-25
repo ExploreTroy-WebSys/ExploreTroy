@@ -1,13 +1,13 @@
 <?php
-    include("assets/includes/database_object.php");
+    include("assets/includes/helperFunctions.php");
 
     # Spawn session cookie if one does not exist and set authentication status to false
     session_start();
     if ($_SESSION && !(array_key_exists('rcsid', $_SESSION))) $_SESSION['rcsid'] = 'Not-Logged-in';
     if ($_SESSION && !(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
 
-  # Include all boiler-plate head information for the site
-  include("assets/includes/head.php");
+    # Include all boiler-plate head information for the site
+    include("assets/includes/head.php");
 ?>
 <body>
     <?php include_once("assets/includes/header.php");?>
@@ -17,12 +17,21 @@
             <section class="row">
                 <section class="col-md">
                     <figure class="col-md">
-                        <img src="assets/images/PotentialLogo2.png" alt="profile-photo" id="profile-photo">
+                        <?php 
+                            $pfp_uri = fetchProfileImageURI($_SESSION['rcsid']); 
+                            if ($pfp_uri != NULL) {
+                                echo '<img src="' . "backend/uploads/" . $pfp_uri . '" alt="profile-photo" id="profile-photo">';
+                            } else {
+                                echo '<img src="assets/images/blankPFP.png" alt="profile-photo" id="profile-photo">';
+                            }
+                        ?>
                     </figure>
-                    <form action="photoTest.php" method="post" enctype="multipart/form-data">
+                    <form action="backend/API/photoUpload.php" method="post" enctype="multipart/form-data">
                         <fieldset class="col-md">
                             <label for="" class="sr-only">Upload profile picture</label>
                             <input type="file" name="fileToUpload" id="fileToUpload" class="form-control mb-2">
+                            <input type="hidden" name="rcsid" value="<?php echo $_SESSION['rcsid']; ?>">
+                            <input type="hidden" name="imageType" value="profile">
                             <button class="btn btn-primary btn-small" type="submit" name="submit">Upload Image</button>
                         </fieldset>
                     </form>
