@@ -10,7 +10,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 CREATE TABLE IF NOT EXISTS `users_optional` (
     `index` INT(10) signed NOT NULL AUTO_INCREMENT,
     `id` INT(10) signed NOT NULL,
-    `profile_picture` BLOB,
     `bio` VARCHAR(1000),
     `twitter` VARCHAR(100),
     `facebook` VARCHAR(100),
@@ -43,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `attractions` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(100) NOT NULL,
     `description` VARCHAR(1000),
-    `phone` BIGINT signed NOT NULL,
+    `phone` VARCHAR(20) signed NOT NULL,
     `avg_rating` FLOAT(2) NOT NULL,
     `address` VARCHAR(100) NOT NULL,
     `attraction_picture` BLOB,
@@ -68,7 +67,6 @@ CREATE TABLE IF NOT EXISTS `reviews` (
     `date` VARCHAR(50) NOT NULL,
     `rating` INT(2) NOT NULL,
     `likes` INT(10) DEFAULT 0,
-    `dislikes` INT(10) DEFAULT 0,
     PRIMARY KEY (`id`),
     FOREIGN KEY (`author_id`) REFERENCES users(`id`),
     FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`);
@@ -79,7 +77,6 @@ CREATE TABLE IF NOT EXISTS `comments` (
     `author_id` INT(10) signed NOT NULL,
     `comment_body` VARCHAR(300) NOT NULL,
     `parent_id` INT(10) signed NOT NULL,
-    `likes` INT(10) DEFAULT 0,
     PRIMARY KEY(`id`),
     FOREIGN KEY (`author_id`) REFERENCES users(`id`),
     FOREIGN KEY (`parent_id`) REFERENCES reviews(`id`)

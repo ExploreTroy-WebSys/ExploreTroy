@@ -35,11 +35,11 @@ body {
 }
 
 .chip.tile {
-    margin: 0 auto;
+    margin: 3px auto;
 }
 
-.chips {
-    margin-bottom: 20px;
+.form-row>[class*=col-] {
+    padding: 0 10px;
 }
 
 /* Post page */
@@ -258,7 +258,7 @@ main {
     border: 2px solid #838383;
     font-size: 20px;
     padding: 0;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     transition: box-shadow 0.3s;
 }
 
@@ -336,7 +336,7 @@ main {
 .favorited {
     margin-left: 20px;
     cursor: pointer;
-    color: #e63946;
+    color: #f08080;
 }
 
 .review-button {
@@ -447,6 +447,12 @@ input.review-comment:focus {
     outline: none;
     border: 2px solid #e63946;
     transition: 0.5s;
+}
+
+/* Favorites page */
+
+.no-favorites-message {
+    font-size: 20px;
 }
 
 /* Footer */

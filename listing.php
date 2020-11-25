@@ -58,7 +58,7 @@
                 $user_id = json_decode($result, true);
                 $user_id = $user_id[0]['id'];
 
-                $query = "SELECT * FROM `favorites` WHERE `attraction_id` = $id AND $user_id = $user_id";
+                $query = "SELECT * FROM `favorites` WHERE `attraction_id` = $id AND `user_id` = $user_id";
                 $query = $db->getQuery($query);
 
                 if ($query != NULL) {
