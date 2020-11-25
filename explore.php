@@ -28,6 +28,13 @@
         <section class="explore-page-main">
             <div class="explore-category">
                 <h2 class="explore-page-header-text">Explore</h2>
+                <div class="btn-group">
+                <button type="button" class="btn btn-primary active" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="filterSelection('all')"> Show all</button>
+                <button type="button"  id="test" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="filterSelection('cars')"> Restaurants</button>
+                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="filterSelection('animals')"> Shopping</button>
+                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="filterSelection('fruits')"> Recreational</button>
+                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="filterSelection('colors')"> Activity</button>
+                </div>
                 <input id="exploreSearch" onkeyup="searchListings()" type="text" placeholder="Search for a location &#128269">
             </div>
             <div class="container-fluid explore-grid">
@@ -63,7 +70,6 @@
                                 echo '<div class="chip tile">'. $tag['tag_name'] . '</div>';
                             }
                             echo '</fieldset>';
-
 
                             echo '</div>';
                         }

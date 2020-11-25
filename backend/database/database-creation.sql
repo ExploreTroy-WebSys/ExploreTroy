@@ -28,6 +28,14 @@ CREATE TABLE IF NOT EXISTS `tags` (
     PRIMARY KEY (`id`)
 );
 
+INSERT INTO `tags` (`tag_name`) VALUES
+    ('Tea'),
+    ('Soup & Sandwiches'),
+    ('Breakfast'),
+    ('Salads'),
+    ('lunch');
+
+
 CREATE TABLE IF NOT EXISTS `users_interests` (
     `index` INT(10) signed NOT NULL AUTO_INCREMENT,
     `user_id` INT(10) signed NOT NULL,

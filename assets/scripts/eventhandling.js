@@ -50,6 +50,19 @@ function searchListings() {
   }
 
 $(document).ready(function() {
+  $(".btn-primary").click(function(){
+      alert("HI");
+      if($(this).hasClass("active")){
+        this.removeClass("active");
+      }
+      else{
+        $(this).addClass("active");
+      }
+  });
+});
+
+
+$(document).ready(function() {
   $(".grid-item").each(function() {
     var gridItem = this;
     gridItem.addEventListener("click", function() {
