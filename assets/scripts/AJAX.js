@@ -72,7 +72,7 @@ function postComment(review_id, image_url) {
             // New comment
             var html = '<div class="row comment-container">';
             html += '<div class="col-1">';
-            if (image_url != null) {
+            if (image_url != "") {
                 html += '<img class="user-image" src="backend/uploads/' + image_url + '" alt="image-temp">';
             } else {
                 html += '<img class="user-image" src="assets/images/blankPFP.png" alt="image-temp">';
