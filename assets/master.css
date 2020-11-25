@@ -54,6 +54,11 @@ body {
     display: flex;
 }
 
+.postpagecurrent{
+    border: 2px solid #457b9d;
+    padding: 1%;
+}
+
 .postpageborder{
     border: 2px solid #457b9d;
 }
