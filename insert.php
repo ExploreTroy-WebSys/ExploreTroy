@@ -43,6 +43,6 @@ if ($conn->connect_error){
     $stmt->close();
     $conn->close();
 }
-header("Location: ../listing.php?" . $attraction_id);
+header("Location: listing.php?" . $attraction_id);
 
 ?>
