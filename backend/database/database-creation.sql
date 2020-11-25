@@ -60,6 +60,7 @@ CREATE TABLE IF NOT EXISTS `attractions_categories` (
 CREATE TABLE IF NOT EXISTS `reviews` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
     `author_id` INT(10) signed NOT NULL,
+    `attraction_id` INT(10) signed NOT NULL,
     `title` VARCHAR(100) NOT NULL,
     `review_body` VARCHAR(2000) NOT NULL,
     `date` VARCHAR(50) NOT NULL,
@@ -67,7 +68,8 @@ CREATE TABLE IF NOT EXISTS `reviews` (
     `likes` INT(10) DEFAULT 0,
     `dislikes` INT(10) DEFAULT 0,
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`author_id`) REFERENCES users(`id`)
+    FOREIGN KEY (`author_id`) REFERENCES users(`id`),
+    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`);
 );
 
 CREATE TABLE IF NOT EXISTS `comments` (

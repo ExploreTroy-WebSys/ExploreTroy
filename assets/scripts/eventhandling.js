@@ -49,15 +49,6 @@ function searchListings() {
     }
   }
 
-function fillHeartIcon(num) {
-  var heart = document.getElementById("heart-" + num);
-  heart.style.color = "#e63946";
-}
-
-function showComments() {
-  $(".review").after("<div>hi</div>");
-}
-
 $(document).ready(function() {
   $(".grid-item").each(function() {
     var gridItem = this;
@@ -67,3 +58,15 @@ $(document).ready(function() {
     });
   });
 });
+
+function showComments(review_id) {
+  if ($("#review-comments-" + review_id).css("display") == "block") {
+    $("#review-comments-" + review_id).css("display", "none");
+    $("#review-" + review_id).css("border-radius", "8px");
+    $("#review-" + review_id).css("margin-bottom", "20px");
+  } else {
+    $("#review-comments-" + review_id).css("display", "block");
+    $("#review-" + review_id).css("border-radius", "8px 8px 0 0");
+    $("#review-" + review_id).css("margin-bottom", "0");
+  }
+}
