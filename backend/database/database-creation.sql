@@ -81,5 +81,14 @@ CREATE TABLE IF NOT EXISTS `comments` (
     FOREIGN KEY (`parent_id`) REFERENCES reviews(`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `favorites` (
+    `id` INT(10) signed NOT NULL AUTO_INCREMENT,
+    `attraction_id` INT(10) signed NOT NULL,
+    `user_id` INT(10) signed NOT NULL,
+    PRIMARY KEY(`id`),
+    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`),
+    FOREIGN KEY (`user_id`) REFERENCES users(`id`)
+);
+
 INSERT INTO `attractions` (`name`, `description`, `phone`, `avg_rating`, `address`) VALUES ('test place', 'with a test description', '1234567890', '2.1', '123 Place Blvd. Troy, NY');
 INSERT INTO `attractions` (`name`, `description`, `phone`, `avg_rating`, `address`) VALUES ('test place 2', 'with another test description', '0987654321', '4.1', '321 Loc Str. Troy, NY');

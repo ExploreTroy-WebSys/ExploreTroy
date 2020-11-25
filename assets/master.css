@@ -311,9 +311,16 @@ main {
 
 /* Listing page */
 
-.favorite {
+.not-favorited {
     margin-left: 20px;
     cursor: pointer;
+    color: #343a40;
+}
+
+.favorited {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #e63946;
 }
 
 .review-button {

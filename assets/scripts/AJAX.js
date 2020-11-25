@@ -90,3 +90,18 @@ function postComment(review_id) {
         }
     });
 }
+
+// Function to favorite an attraction
+function favoriteAttraction(attr_id) {
+    $.ajax({
+        type: "POST",
+        url: "favorite.php?" + attr_id,
+        success: function(inserted) {
+            if (inserted == "true") {
+                $("#favorite-" + attr_id).css("color", "#e63946");
+            } else {
+                $("#favorite-" + attr_id).css("color", "#343a40")
+            }
+        }
+    });
+}

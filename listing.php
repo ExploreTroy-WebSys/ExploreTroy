@@ -46,7 +46,28 @@
                 $reviews = json_decode($query, true);
             ?>
             <h2 class="explore-page-header-text">Reviews for <?php echo $attr_name ?></h2>
-            <i class="fas fa-heart favorite"></i>
+
+            <?php
+
+                // Get user id from rcsid
+                $rcsid = $_SESSION['rcsid'];
+                $query = "SELECT `id` FROM `users` WHERE `rcsid` = '" . $rcsid . "'";
+                $result = $db->getQuery($query);
+                $user_id = json_decode($result, true);
+                $user_id = $user_id[0]['id'];
+
+                $query = "SELECT * FROM `favorites` WHERE `attraction_id` = $id AND $user_id = $user_id";
+                $query = $db->getQuery($query);
+
+                if ($query != NULL) {
+                    echo '<i id="favorite-' . $id . '" class="fas fa-heart favorited" onclick="favoriteAttraction(' . $id . ')"></i>';
+                } else {
+                    echo '<i id="favorite-' . $id . '" class="fas fa-heart not-favorited" onclick="favoriteAttraction(' . $id . ')"></i>';
+                }
+                
+            ?>
+
+            <!-- <i id="favorite-<?php echo $id ?>" class="fas fa-heart favorite" onclick="favoriteAttraction(<?php echo $id ?>)"></i> -->
             <button type="submit" class="btn btn-primary review-button btn-dark" onclick="window.location.href='addpostcurrent.php'"> Write a Review </a> </button>
         </div>
         <div class="container">
