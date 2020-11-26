@@ -215,6 +215,17 @@ main {
     font-size: 24px;
 }
 
+#dropdown-menus {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.amenu {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 #exploreSearch {
     display: inline-block;
     position: absolute;

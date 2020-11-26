@@ -35,6 +35,50 @@
         <section class="explore-page-main">
             <div class="explore-category">
                 <h2 class="explore-page-header-text">Explore</h2>
+
+                <div id="dropdown-menus">
+                <?php
+
+                echo '<select class="selectpicker amenu" title="Restaurant" data-live-search="true" multiple>';
+                
+                $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Restaurant'";
+                $dropdownquery = $db->getQuery($dropdownquery);
+                $dropdownquery = json_decode($dropdownquery, true);
+
+                foreach($dropdownquery as $restaurant){
+                    echo '<option>' . $restaurant['tag_name'] . '</option>';
+                }
+
+                echo '</select>';
+
+                echo '<select class="selectpicker amenu" title="Shopping" data-live-search="true" multiple>';
+
+                $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Shopping'";
+                $dropdownquery = $db->getQuery($dropdownquery);
+                $dropdownquery = json_decode($dropdownquery, true);
+
+                foreach($dropdownquery as $shop){
+                    echo '<option>' . $shop['tag_name'] . '</option>';
+                }
+
+                echo '</select>';
+
+                echo '<select class="selectpicker amenu" title="Recreation" data-live-search="true" multiple>';
+
+                $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Recreation'";
+                $dropdownquery = $db->getQuery($dropdownquery);
+                $dropdownquery = json_decode($dropdownquery, true);
+
+                foreach($dropdownquery as $recreation){
+                    echo '<option>' . $recreation['tag_name'] . '</option>';
+                }
+
+                echo '</select>';
+
+                ?>
+
+                </div>
+
                 <input id="exploreSearch" onkeyup="searchListings()" type="text" placeholder="Search for a location &#128269">
             </div>
             <div class="container-fluid explore-grid">
