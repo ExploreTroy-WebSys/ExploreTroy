@@ -49,6 +49,7 @@ function searchListings() {
     }
   }
 
+
 $(document).ready(function() {
   $(".grid-item").each(function() {
     var gridItem = this;

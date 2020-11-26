@@ -30,6 +30,43 @@ CREATE TABLE IF NOT EXISTS `tags` (
     PRIMARY KEY (`id`)
 );
 
+INSERT INTO `attractions` (`tag_name`, `category`) VALUES
+    ('Chinese', 'Restaurant'),
+    ('Mexican', 'Restaurant'),
+    ('Italian', 'Restaurant'),
+    ('Jamaican', 'Restaurant'),
+    ('Sit-Down', 'Restaurant'),
+    ('Fast Food', 'Restaurant'),
+    ('Cheap', 'Restaurant'),
+    ('Outdoor Seating', 'Restaurant'),
+    ('Casual', 'Restaurant'),
+    ('Formal', 'Restaurant'),
+    ('Vegan', 'Restaurant'),
+    ('Breakfast', 'Restaurant'),
+    ('Lunch', 'Restaurant'),
+    ('Dinner', 'Restaurant'),
+    ('Desert', 'Restaurant'),
+    ('Ice-Cream', 'Restaurant'),
+    ('Steak', 'Restaurant'),
+    ('Burger', 'Restaurant'),
+    ('Clothes', 'Shopping'),
+    ('Toys', 'Shopping'),
+    ('Books', 'Shopping'),
+    ('Electronics', 'Shopping'),
+    ('Grocery', 'Shopping'),
+    ('Drug Store', 'Shopping'),
+    ('Hiking', 'Recreation'),
+    ('Swimming', 'Recreation'),
+    ('Sports Field', 'Recreation'),
+    ('Biking', 'Recreation'),
+    ('Indoor', 'Recreation'),
+    ('Kayak', 'Recreation'),
+    ('Gym', 'Recreation'),
+    ('Rock-Climbing', 'Recreation'),
+    ('Skatepark', 'Recreation'),
+    ('Basketball', 'Recreation'),
+    ('Stadium', 'Recreation');
+
 CREATE TABLE IF NOT EXISTS `users_interests` (
     `index` INT(10) signed NOT NULL AUTO_INCREMENT,
     `user_id` INT(10) signed NOT NULL,
@@ -71,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
     `dislikes` INT(10) DEFAULT 0,
     PRIMARY KEY (`id`),
     FOREIGN KEY (`author_id`) REFERENCES users(`id`),
-    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`);
+    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `comments` (
