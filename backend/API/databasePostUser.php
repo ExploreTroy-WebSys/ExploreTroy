@@ -1,34 +1,6 @@
 <?php
 
-include('../../assets/includes/database_object.php');
-
-// Function which checks to see if the user making a post request to the DB has an ExploreTroy account
-function checkUserExists($rcsid) {
-    $db = new Database();
-    $query = "SELECT * FROM `users` WHERE `rcsid` = :rcsid";
-    $param_arr = array(':rcsid'=>$rcsid);
-    if ($db->getQuery($query, $param_arr)) {
-        return true;
-    } 
-    return false;
-}
-
-// Function which checks whether the RCSID is a column in the table being worked with
-function checkRCSIDColumn($tableName) {
-    $db = new Database();
-    $query = "DESCRIBE " . $tableName;
-    $query = $db->getQuery($query);
-    $query = json_decode($query);
-    // var_dump($query);
-    
-    foreach ($query as $item) {
-        foreach ($item as $key => $val) {
-            if ($key == "Field" && $val == "rcsid") return true;
-        }
-    }
-
-    return false;
-}
+include('../../assets/includes/helperFunctions.php');
 
 // Post workflow
 if (isset($_POST)) {
@@ -49,37 +21,84 @@ if (isset($_POST)) {
         $db = new Database();
 
         // Add table checking logic for INSERT or UPDATE
+        $update = false;
+        $usrID = checkUserOptionalExists($request['rcsid']);
+        if (!array_key_exists("newUser", $request['postData']) && ($request['tableName'] == "users" || $usrID != NULL)) $update = true;
 
+        // Fetch user ID -- Exit process if user doesn't exist in users table
+        if ($request['tableName'] != 'users' && $usrID == NULL) exit("Error: Please provide your name and email address before continuing.");
 
-        // Prepare insert statement
-        $query = "INSERT INTO " . $request['tableName'] . " (";
-        $valStr = '(';
-        $param_arr = array();
-        $i = 0;
-        foreach ($request['postData'] as $key => $val) {
-            $i++;
-            if ($key == "newUser") continue;
-            $query .= "`" . $key . "`";
-            $valStr .= ":" . $i;
-            $param_arr[":$i"] = $val;
-            if ($i != sizeof($request['postData'])) {
-                $query .= ", ";
-                $valStr .= ", ";
-            } else {
-                if (checkRCSIDColumn($request['tableName'])) {
-                    $query .= ", ";
-                    $valStr .= ", ";
-                    $i++;
-                    $query .= "`rcsid`";
-                    $valStr .= ":" . $i;
-                    $param_arr[":$i"] = $request['rcsid'];
-                }
-                $query .= ") ";
-                $valStr .= ") ";
+        // Tag processing for user interests
+        if ($request['tableName'] == 'users_interests') {
+            $currentTags = array();
+            $removeTags = array();
+            $addTags = array();
+            $query = "SELECT * FROM `users_interests` WHERE `user_id` = :usrID";
+            $param_arr = array(":usrID" => $usrID);
+            $resp = $db->getQuery($query, $param_arr);
+            $resp = json_decode($resp, true);
+            foreach ($resp as $item) {
+                $currentTags[] = $item['interest'];
             }
+
+            exit;
         }
 
-        $query .= "VALUES " . $valStr;
+        // Prepare insert/update statement
+        if ($update) {
+            $query = "UPDATE " . $request['tableName'] . " SET ";
+            $param_arr = array();
+            $i = 0;
+            foreach ($request['postData'] as $key => $val) {
+                $i++;
+                $query .= "`" . $key . "` = :" . $i;
+                $param_arr[":$i"] = $val;
+                if ($i != sizeof($request['postData'])) $query .= ", ";
+            }
+            $i++;
+            $query .= " WHERE `id` = :" . $i;
+            $param_arr[":$i"] = $usrID;
+            
+        } else {
+            $query = "INSERT INTO " . $request['tableName'] . " (";
+            $valStr = '(';
+            $param_arr = array();
+            $i = 0;
+            foreach ($request['postData'] as $key => $val) {
+                $i++;
+                if ($key == "newUser") continue;
+                $query .= "`" . $key . "`";
+                $valStr .= ":" . $i;
+                $param_arr[":$i"] = $val;
+                if ($i != sizeof($request['postData'])) {
+                    $query .= ", ";
+                    $valStr .= ", ";
+                } else {
+                    if (checkRCSIDColumn($request['tableName'])) {
+                        $query .= ", ";
+                        $valStr .= ", ";
+                        $i++;
+                        $query .= "`rcsid`";
+                        $valStr .= ":" . $i;
+                        $param_arr[":$i"] = $request['rcsid'];
+                    } if ($request['tableName'] != 'users') {
+                        $query .= ", ";
+                        $valStr .= ", ";
+                        $i++;
+                        $query .= "`id`";
+                        $valStr .= ":" . $i;
+                        $param_arr[":$i"] = $usrID;
+                    }
+                    $query .= ") ";
+                    $valStr .= ") ";
+                }
+            }
+            $query .= "VALUES " . $valStr;
+        }
+
+        echo $query;
+        var_dump($param_arr);
+        
 
         if ($db->postQuery($query, $param_arr)) {
             exit("Success");
