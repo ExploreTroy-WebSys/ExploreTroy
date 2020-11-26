@@ -6,10 +6,27 @@
     // Get query string from url
     $category = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 
+    $disprest = false;
+    $dispshop = false;
+    $disprec = false;
+
+
     if ($category != NULL) {
         $query = "SELECT DISTINCT `attractions`.`id`, `attractions`.`name`, `attractions`.`description`, `attractions`.`phone`, `attractions`.`avg_rating`, `attractions`.`address` FROM `attractions` INNER JOIN `attractions_categories` ON `attractions`.`id` = `attractions_categories`.`attraction_id` INNER JOIN `tags` ON `attractions_categories`.`category` = `tags`.`id` WHERE `tags`.`category` = '" . $category . "'";
+        if(isset($_GET['restaurant'])){
+            $disprest = true;
+        }
+        else if(isset($_GET['shopping'])){
+            $dispshop = true;
+        }
+        else if(isset($_GET['recreation'])){
+            $disprec = true;
+        }
     } else {
         $query = "SELECT * FROM `attractions`";
+        $disprest = true;
+        $dispshop = true;
+        $disprec = true;
     }
 
     $query = $db->getQuery($query);
@@ -39,31 +56,36 @@
                 <div id="dropdown-menus">
                 <?php
 
-                echo '<select class="selectpicker amenu" title="Restaurant" data-live-search="true" multiple>';
-                
-                $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Restaurant'";
-                $dropdownquery = $db->getQuery($dropdownquery);
-                $dropdownquery = json_decode($dropdownquery, true);
+                if($disprest){
+                    echo '<select class="selectpicker amenu restaurantpicker" title="Restaurant" data-live-search="true" multiple>';
+                    
+                    $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Restaurant'";
+                    $dropdownquery = $db->getQuery($dropdownquery);
+                    $dropdownquery = json_decode($dropdownquery, true);
 
-                foreach($dropdownquery as $restaurant){
-                    echo '<option>' . $restaurant['tag_name'] . '</option>';
+                    foreach($dropdownquery as $restaurant){
+                        echo '<option>' . $restaurant['tag_name'] . '</option>';
+                    }
+
+                    echo '</select>';
                 }
 
-                echo '</select>';
+                if($dispshop){
+                    echo '<select class="selectpicker amenu shoppingpicker" title="Shopping" data-live-search="true" multiple>';
 
-                echo '<select class="selectpicker amenu" title="Shopping" data-live-search="true" multiple>';
+                    $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Shopping'";
+                    $dropdownquery = $db->getQuery($dropdownquery);
+                    $dropdownquery = json_decode($dropdownquery, true);
 
-                $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Shopping'";
-                $dropdownquery = $db->getQuery($dropdownquery);
-                $dropdownquery = json_decode($dropdownquery, true);
+                    foreach($dropdownquery as $shop){
+                        echo '<option>' . $shop['tag_name'] . '</option>';
+                    }
 
-                foreach($dropdownquery as $shop){
-                    echo '<option>' . $shop['tag_name'] . '</option>';
+                    echo '</select>';
                 }
 
-                echo '</select>';
-
-                echo '<select class="selectpicker amenu" title="Recreation" data-live-search="true" multiple>';
+                if($disprec){
+                echo '<select class="selectpicker amenu recreationpicker" title="Recreation" data-live-search="true" multiple>';
 
                 $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Recreation'";
                 $dropdownquery = $db->getQuery($dropdownquery);
@@ -74,6 +96,7 @@
                 }
 
                 echo '</select>';
+                }
 
                 ?>
 
