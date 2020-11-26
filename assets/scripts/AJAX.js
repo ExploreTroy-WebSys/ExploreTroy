@@ -15,7 +15,8 @@ function parseForm(formID) {
                 dataOBJ['rcsid'] = splitElem[1];
                 break;
             default:
-                dataOBJ.postData[splitElem[0]] = splitElem[1].replace(/%20/g, ' ').replace(/%40/g, '@');
+                if (splitElem[1] == '') break;
+                dataOBJ.postData[splitElem[0]] = splitElem[1].replace(/%20/g, ' ').replace(/%40/g, '@').replace(/\+/g, ' ').replace(/%23/g, '#');
                 break;
         }
     });
@@ -51,6 +52,14 @@ function postToDatabase(data) {
             }
         }
     });
+}
+
+function getFromData(inData, callback) {
+    return $.get(
+        "backend/API/databaseGetUser.php",
+        {'tableName': inData.tableName, 'rcsid': inData.rcsid},
+        callback
+    );
 }
 
 // Function to add likes for a particular review
