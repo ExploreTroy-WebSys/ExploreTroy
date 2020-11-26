@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
     `likes` INT(10) DEFAULT 0,
     PRIMARY KEY (`id`),
     FOREIGN KEY (`author_id`) REFERENCES users(`id`),
-    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`);
+    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`)
 );
 
 CREATE TABLE IF NOT EXISTS `comments` (
