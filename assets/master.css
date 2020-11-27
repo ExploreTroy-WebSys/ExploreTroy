@@ -32,6 +32,7 @@ body {
     border-radius: 16px;
     margin: 5px;
     padding: 0 10px;
+    cursor: pointer;
 }
 
 .chip-active {
