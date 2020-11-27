@@ -5,6 +5,7 @@
   
   # Include all boiler-plate head information for the site
   include("assets/includes/head.php");
+  include("assets/includes/database_object.php");
 ?>
 
 <body onresize="repositionFooter()">
@@ -37,8 +38,8 @@
             <label for="exampleFormControlInput1" id="nameof">Name of Restaurant:</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Restaurant"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
-            <fieldset class="form-row justify-content-left chips">
-            <div class="col-md-auto chip fooditem1">Fine-Dining</div>
+            <fieldset class="form-row justify-content-left chips">         
+            <!-- <div class="col-md-auto chip fooditem1">Fine-Dining</div>
             <div class="col-md-auto chip fooditem2">Fast food</div>
             <div class="col-md-auto chip fooditem3">Outdoor Dining</div>
             <div class="col-md-auto chip fooditem4">Italian</div>
@@ -50,9 +51,9 @@
             <div class="col-md-auto chip fooditem10">Curbside Pickup</div>
             <div class="col-md-auto chip fooditem11">Food Court</div>
             <div class="col-md-auto chip fooditem12">Farmer's Market</div>
-            <div class="col-md-auto chip fooditem12">Kid Friendly</div> 
-            </fieldset>
+            <div class="col-md-auto chip fooditem12">Kid Friendly</div>  -->
             </div>
+        </fieldset>
             
             <input type="checkbox" id="shop" class="check" name="shop" value="shop">
             <label for="shop">Shop</label><br>
@@ -71,6 +72,7 @@
                 <div class="col-md-auto chip shopitem8">Shopping Mall</div>
               </fieldset>
               </div>
+
             
             <input type="checkbox" id="excursion" class="check" name="excursion" value="excursion">
             <label for="Excursion">Activity</label><br><br>
@@ -349,3 +351,14 @@
     include('assets/includes/foot.php');
   ?>
 </body>
+
+<?php
+            $db = new Database();
+            $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Restaurant'";
+                    $dropdownquery = $db->getQuery($dropdownquery);
+                    $dropdownquery = json_decode($dropdownquery, true);
+
+                    foreach($dropdownquery as $restaurant){
+                        echo '<div class="restaurant_items"' . $restaurant['tag_name'] . '</div>';
+            }
+?>   
