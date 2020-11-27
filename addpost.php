@@ -29,7 +29,8 @@
         <section class="info">
          <!-- Category selection -->
          <section class="options">
-            <p><b>Select category type: </b></p>
+         <section class="text">
+            <p>Select category type:</p>
             <input type="checkbox" id="restaurant" class="class" class="check" name="restaurant" value="Restaurant">
             <label for="restaurant">Restaurant</label><br>
             <div id="restaurant_items">
@@ -94,6 +95,7 @@
                   <div class="col-md-auto chip activityitem14">Kid Friendly</div>
              </fieldset>
             </div>
+          </section>
           </section>
 
           <!-- Confirms that only one checkbox can be checked at one time-->
@@ -250,13 +252,17 @@
 
         <!-- Title of post and review body -->
         <section class="font">
-          <label for="exampleFormControlInput1"><b>Title of post </b></label>
+        <section class="text">
+          <label for="exampleFormControlInput1">Title of post</label>
+          </section>
           <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Summarize your review or question">
           <br>
 
           <section class="form-group1">
-            <label for="exampleFormControlTextarea1"><b>What's on your mind? Ask a question or write a review. </b></label>
+          <section class="text">
+            <label for="exampleFormControlTextarea1">What's on your mind? Ask a question or write a review. </label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </section>
             <br>
           </section>
 
@@ -266,7 +272,9 @@
               <div class="star-rating">
                 <section class="font">
                 <div id="size">
-                <p><b>Select a rating </b> </p>
+                <section class="text">
+                <p>Select a rating</p>
+                </section>
             </div>
                 <span class="fa fa-star-o" data-rating="1"></span>
                 <span class="fa fa-star-o" data-rating="2"></span>
@@ -325,8 +333,9 @@
           <input type="file" id="myFile" name="filename">
           <br>
           <br>
-
+        <section class="text">
           <button type="submit" class="btn btn-primary">Submit your post!</button>
+          </section>
         </section>
         </section>
       </form>
