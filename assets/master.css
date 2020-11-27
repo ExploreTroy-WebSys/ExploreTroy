@@ -37,6 +37,7 @@ body {
     height: auto;
     border-radius: 100%;
     border: 2px solid #838383;
+    margin-top: 20px;
 }
 
 #fileToUpload {
