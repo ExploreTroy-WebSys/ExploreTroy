@@ -8,6 +8,26 @@
    // Get query string from url
     $id = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
     $url="insert.php?".$id;
+
+    include("assets/includes/helperFunctions.php");
+
+    // Create database object
+    $db = new Database();
+
+    // Get query string from url
+    $id = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+
+    // Make prepared statement to get attraction
+    $query = "SELECT * FROM `attractions` WHERE `id` = :id";
+
+    // Create parameter array
+    $param_array = array();
+    $param_array[':id'] =  $id;
+
+    // Get result of query
+    $query = $db->getQuery($query, $param_array);
+    $query = json_decode($query, true);
+    $attr_name = $query[0]['name'];
 ?>
 
 <body onresize="repositionFooter()">
@@ -19,7 +39,7 @@
   <main class="post-page">
   
     <div class="post-header">
-    <h2 class="explore-page-header-text">Write a Review for the Whistling Kettle</h2>
+    <h2 class="explore-page-header-text">Write a Review for <?php echo $attr_name ?></h2>
     <?php
     ?>
     </div>
