@@ -14,7 +14,11 @@
 <body>
     <?php include_once("assets/includes/header.php");?>
     </header>
-    <main class="container">
+    <main>
+        <div class="profile-header">
+            <h2 class="profile-header-text">Profile</h2>
+        </div>
+        <div class="container">
         <section class="columns">
             <section class="row">
                 <section class="col-md">
@@ -169,6 +173,7 @@
                 <button class="btn btn-primary btn-small" id="update-interests" onclick="parseTagData('chips')">Update Interests</button>
             </fieldset>
         </form>
+        </div>
     </main>
     <?php echo '<p id="rcsid">' . $_SESSION['rcsid'] . '</p>' ?>
 

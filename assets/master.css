@@ -20,9 +20,22 @@ body {
 
 /* Profile page */
 
+.profile-header {
+    background-color: #457b9d;
+    padding: 1%;
+    display: flex;
+}
+
+.profile-header-text {
+    display: inline-block;
+    color: #f1faee;
+    font-size: 24px;
+}
+
 #profile-photo {
     width: 120px;
     height: auto;
+    border-radius: 100%;
 }
 
 .chip {

@@ -15,7 +15,7 @@
 
   <main class="post-page">
     <div class="post-header">
-      <h2 class="post-header-text">Post</h2>
+      <h2 class="post-header-text">Add Location</h2>
     </div>
     <section class="container">
       <form>
