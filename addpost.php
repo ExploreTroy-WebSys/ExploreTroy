@@ -38,41 +38,38 @@
             <label for="exampleFormControlInput1" id="nameof">Name of Restaurant:</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Restaurant"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
-            <fieldset class="form-row justify-content-left chips">         
-            <!-- <div class="col-md-auto chip fooditem1">Fine-Dining</div>
-            <div class="col-md-auto chip fooditem2">Fast food</div>
-            <div class="col-md-auto chip fooditem3">Outdoor Dining</div>
-            <div class="col-md-auto chip fooditem4">Italian</div>
-            <div class="col-md-auto chip fooditem5">American</div>
-            <div class="col-md-auto chip fooditem6">Indian</div>
-            <div class="col-md-auto chip fooditem7">Thai</div>
-            <div class="col-md-auto chip fooditem8">Mexican</div>
-            <div class="col-md-auto chip fooditem9">Chinese</div>
-            <div class="col-md-auto chip fooditem10">Curbside Pickup</div>
-            <div class="col-md-auto chip fooditem11">Food Court</div>
-            <div class="col-md-auto chip fooditem12">Farmer's Market</div>
-            <div class="col-md-auto chip fooditem12">Kid Friendly</div>  -->
+            <fieldset class="form-row justify-content-left chips">   
+            <?php
+                $db = new Database();
+                $query = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Restaurant'";
+                $restauranttags = $db->getQuery($query);
+                $restauranttags = json_decode($restauranttags, true);
+                foreach($restauranttags as $foodtag) {
+                    echo '<div class="col-md-auto chip"' . $foodtag['tag_name'] . '">' . $foodtag['tag_name'] . '</div>';
+                }
+            ?>
+            </fieldset> 
             </div>
-        </fieldset>
-            
+                                    
             <input type="checkbox" id="shop" class="check" name="shop" value="shop">
             <label for="shop">Shop</label><br>
             <div id="shop_items">
             <label for="exampleFormControlInput1" id="nameof">Name of Shop:</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Shop"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
-            <fieldset class="form-row justify-content-left chips">
-                <div class="col-md-auto chip shopitem1">Grocery</div>
-                <div class="col-md-auto chip shopitem2">Clothing</div>
-                <div class="col-md-auto chip shopitem3">Toys</div>
-                <div class="col-md-auto chip shopitem4">Pharmacy</div>
-                <div class="col-md-auto chip shopitem5">Car Dealership</div>
-                <div class="col-md-auto chip shopitem6">Home Improvement</div>
-                <div class="col-md-auto chip shopitem7">Dry Cleaning</div>
-                <div class="col-md-auto chip shopitem8">Shopping Mall</div>
+            <fieldset class="form-row justify-content-left chips" id="shopping">
+            <?php
+                $db = new Database();
+                $query = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Shopping'";
+                $shoptags = $db->getQuery($query);
+                $shoptags = json_decode($shoptags, true);
+                foreach($shoptags as $shoptag) {
+                    echo '<div class="col-md-auto chip"' . $shoptag['tag_name'] . '">' . $shoptag['tag_name'] . '</div>'; 
+                }          
+            ?>
               </fieldset>
               </div>
-
+              
             
             <input type="checkbox" id="excursion" class="check" name="excursion" value="excursion">
             <label for="Excursion">Activity</label><br><br>
@@ -81,20 +78,15 @@
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Activity"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips activitychips">
-                  <div class="col-md-auto chip activityitem1">Swimming</div>
-                  <div class="col-md-auto chip activityitem2">Golfing</div>
-                  <div class="col-md-auto chip activityitem3">Hiking</div>
-                  <div class="col-md-auto chip activityitem4">Rock Climbing</div>
-                  <div class="col-md-auto chip activityitem5">Movie Theatre</div>
-                  <div class="col-md-auto chip activityitem6">Water Sports</div>
-                  <div class="col-md-auto chip activityitem7">Museum</div>
-                  <div class="col-md-auto chip activityitem8">Historic Sight</div>
-                  <div class="col-md-auto chip activityitem9">Cuisine and Culture Tours</div>
-                  <div class="col-md-auto chip activityitem10">Outdoor Activity</div>
-                  <div class="col-md-auto chip activityitem11">Indoor Activity</div>
-                  <div class="col-md-auto chip activityitem12">Exercise Class</div>
-                  <div class="col-md-auto chip activityitem13">Park</div>
-                  <div class="col-md-auto chip activityitem14">Kid Friendly</div>
+            <?php
+                $db = new Database();
+                $query = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Recreation'";
+                $rectags = $db->getQuery($query);
+                $rectags = json_decode($rectags, true);
+                foreach($rectags as $activitytag) {
+                    echo '<div class="col-md-auto chip"' . $activitytag['tag_name'] . '">' . $activitytag['tag_name'] . '</div>';
+                }
+            ?>
              </fieldset>
             </div>
           </section>
@@ -352,13 +344,3 @@
   ?>
 </body>
 
-<?php
-            $db = new Database();
-            $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Restaurant'";
-                    $dropdownquery = $db->getQuery($dropdownquery);
-                    $dropdownquery = json_decode($dropdownquery, true);
-
-                    foreach($dropdownquery as $restaurant){
-                        echo '<div class="restaurant_items"' . $restaurant['tag_name'] . '</div>';
-            }
-?>   
