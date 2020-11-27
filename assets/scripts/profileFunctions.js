@@ -1,3 +1,17 @@
+function parseTagData(containerID) {
+    tagData = {
+        'tableName': "users_interests",
+        'rcsid': $('#rcsid').text(),
+        'postData': []
+    }
+    $("#"+containerID).children().each(function() {
+        tmpObj = {'tagName': $(this).text(), 'status': $(this).hasClass("chip-active")};
+        tagData.postData.push(tmpObj);
+    });
+    
+    postToDatabase(JSON.stringify(tagData));
+}
+
 $(document).ready(function() {
     var rcsid = $("#rcsid");
     rcsid.hide();
@@ -20,6 +34,15 @@ $(document).ready(function() {
             $("input[name ='" + key + "']").attr('placeholder', retData[key]);
         }
     });
+
+    getFromData({'tableName': 'users_interests', 'rcsid': rcsid}, function(data) {
+        var retData = JSON.parse(data);
+        for (let i = 0; i < retData.length; i++) {
+            for (const key in retData[i]) {
+                $("div[name = '" + retData[i][key] + "']").addClass("chip-active");
+            }
+        }
+    })
 
     $('#chips').on("click", ".chip", function(event) {
         $(this).toggleClass("chip-active");
