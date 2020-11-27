@@ -145,7 +145,7 @@
             </fieldset>
         </form>
 
-        <form action="post.php" class="columns">
+        <form class="columns">
             <aside class="row">
                 <header class="col justify-content-center">
                     <h1>Interests</h1>
@@ -166,7 +166,7 @@
             </fieldset>
             
             <fieldset class="col-auto-md form-group">
-                <button class="btn btn-primary btn-small" id="update-interests">Update Interests</button>
+                <button class="btn btn-primary btn-small" id="update-interests" onclick="parseTagData('chips')">Update Interests</button>
             </fieldset>
         </form>
     </main>
