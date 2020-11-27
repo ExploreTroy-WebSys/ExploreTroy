@@ -16,7 +16,7 @@
     </header>
     <main>
         <div class="profile-header">
-            <h2 class="profile-header-text">Profile</h2>
+            <?php if (array_key_exists('rcsid', $_SESSION)) echo("<h2 class='profile-header-text'>Welcome " . $_SESSION['rcsid'] . "!</h2>");?>
         </div>
         <div class="container">
         <section class="columns">
@@ -38,17 +38,14 @@
                             <input type="file" name="fileToUpload" id="fileToUpload" class="form-control mb-2">
                             <input type="hidden" name="rcsid" value="<?php echo $_SESSION['rcsid']; ?>">
                             <input type="hidden" name="imageType" value="profile">
-                            <button class="btn btn-primary btn-small" type="submit" name="submit">Upload Image</button>
+                            <button class="btn btn-primary btn-small btn-dark" type="submit" name="submit">Upload Image</button>
                         </fieldset>
                     </form>
                 </section>
-                <article class="col-md">
-                    <?php if (array_key_exists('rcsid', $_SESSION)) echo("<h4>Welcome " . $_SESSION['rcsid'] . "!</h4>");?>
-                </article>
             </section>
             <aside class="row">
                 <header class="col">
-                    <h1>Personal Information</h1>
+                    <h1 class="profile-form-label">Personal Information</h1>
                 </header>
             </aside>
             <section class="row">
@@ -73,7 +70,7 @@
                                 <input type="text" class="form-control mb-2" name="email" placeholder="<?php echo $_SESSION['rcsid'] . "@rpi.edu"; ?>">
                             </fieldset>
                             <fieldset class="col-auto-md">
-                                <button class="btn btn-primary btn-small" onclick="parseForm(this.parentElement.parentElement.parentElement.id)">Update Name</button>
+                                <button class="btn btn-primary btn-small btn-dark" onclick="parseForm(this.parentElement.parentElement.parentElement.id)">Update Name</button>
                             </fieldset>
                         </fieldset>
                     </form>
@@ -83,7 +80,7 @@
         <form class="columns" id="userOptional">
             <aside class="row">
                 <header class="col justify-content-center">
-                    <h1>Account Details</h1>
+                    <h1 class="profile-form-label">Account Details</h1>
                 </header>
             </aside>
             <fieldset class="form-row">
@@ -91,14 +88,14 @@
                 <input type="hidden" name="tableName" value="users_optional">
                 <fieldset class="col-md-2 form-group">
                     <label for="phone" class="sr-only">Phone Number:</label>
-                    <input type="text" class="form-control mb-2" name="phone" placeholder="(xxx).xxx.xxxx">
+                    <input type="text" class="form-control mb-2" name="phone" placeholder="(xxx) xxx-xxxx">
                 </fieldset>
                 <fieldset class="col-md form-group">
                     <label for="bio" class="sr-only">Bio:</label>
                     <input type="text" class="form-control mb-2" name="bio" placeholder="Tell us a bit about yourself">
                 </fieldset>
                 <fieldset class="col-auto-md form-group">
-                    <button class="btn btn-primary btn-small" onclick="parseForm(this.parentElement.parentElement.parentElement.id)">Update Details</button>
+                    <button class="btn btn-primary btn-small btn-dark" onclick="parseForm(this.parentElement.parentElement.parentElement.id)">Update Details</button>
                 </fieldset>
             </fieldset>
         </form>
@@ -107,7 +104,7 @@
             <input type="hidden" name="tableName" value="users_optional">
             <aside class="row">
                 <header class="col">
-                    <h1>Linked Accounts</h1>
+                    <h1 class="profile-form-label">Linked Accounts</h1>
                 </header>
             </aside>
             <fieldset class="form-row">
@@ -144,7 +141,7 @@
                     <input type="text" class="form-control" name="instagram" placeholder="Username">
                 </fieldset>
                 <fieldset class="col-auto-md">
-                    <button class="btn btn-primary" onclick="parseForm(this.parentElement.parentElement.parentElement.id)">Update Accounts</button>
+                    <button class="btn btn-primary btn-dark" onclick="parseForm(this.parentElement.parentElement.parentElement.id)">Update Accounts</button>
                 </fieldset>
             </fieldset>
         </form>
@@ -152,7 +149,7 @@
         <form class="columns">
             <aside class="row">
                 <header class="col justify-content-center">
-                    <h1>Interests</h1>
+                    <h1 class="profile-form-label">Interests</h1>
                 </header>
             </aside>
             <fieldset class="form-row justify-content-center chips" id="chips">
@@ -170,7 +167,7 @@
             </fieldset>
             
             <fieldset class="col-auto-md form-group">
-                <button class="btn btn-primary btn-small" id="update-interests" onclick="parseTagData('chips')">Update Interests</button>
+                <button class="btn btn-primary btn-small btn-dark" id="update-interests" onclick="parseTagData('chips')">Update Interests</button>
             </fieldset>
         </form>
         </div>
