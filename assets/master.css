@@ -265,10 +265,8 @@ main {
 }
 
 #dropdown-menus {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    height: auto;
+    float: left;
+    margin-left: 50px;
 }
 
 .bootstrap-select>.dropdown-toggle {
@@ -277,8 +275,8 @@ main {
 }
 
 .amenu {
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 30px;
+    margin-right: 30px;
     height: 20px;
 }
 

@@ -51,7 +51,7 @@
     <main>
         <section class="explore-page-main">
             <div class="explore-category">
-                <h2 class="explore-page-header-text">Explore<?php if ($category != NULL) echo "&nbsp" . ucwords($category); ?></h2>
+                <h2 class="explore-page-header-text">Explore<?php if ($category != NULL) echo "&nbsp" . ucwords($category); if ($category == "restaurant") echo "s" ?></h2>
 
                 <div id="dropdown-menus">
                 <?php
