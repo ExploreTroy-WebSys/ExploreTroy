@@ -1,8 +1,7 @@
 <?php
  session_start();
  if ($_SESSION && !(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
-
- include("assets/includes/database_object.php");
+ include("assets/includes/helperFunctions.php");
  
 
 $title=$_POST['title'];
@@ -52,7 +51,36 @@ echo "Post Attraction Successfully Submitted";
 echo $queryone;
 
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+if (isset($_POST['submit']) && isset($_POST['id'])) {
+    $imageName = 'attraction' . $_POST['id'];
+    $path = "backend/uploads/";
+    $file = $_FILES['fileToUpload'];
+
+    $fileName = $file['name'];
+    $fileTmpName = $file['tmp_name'];
+    $fileType = $file['type'];
+    $fileSize = $file['size'];
+    $fileError = $file['error'];
+    $fileExt = "." . pathinfo($fileName, PATHINFO_EXTENSION);
+
+    $fileDest = $path . $imageName . $fileExt;
+    move_uploaded_file($fileTmpName, $fileDest);
+
+    $db = new Database();
+
+    $query = "UPDATE `attractions` SET `attractionPictureLocation` = :filePath WHERE `id` = :id";
+    $param_arr = array(":filePath" => $imageName . $fileExt, ":id" => $_POST['id']);
+    $db->postQuery($query, $param_arr);
+
+}
+
 header("Location: listing.php?" . $attraction_id);
+
 
 
 ?>

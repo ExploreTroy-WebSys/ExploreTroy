@@ -22,7 +22,7 @@
       <h2 class="post-header-text">Add Location</h2>
     </div>
     <section class="container">
-      <form action="insertone.php" method="POST">
+      <form action="insertone.php" method="post" enctype="multipart/form-data" >
         <!-- Form header -->
         <section class="form-group">
           <section class="intro">
@@ -245,12 +245,26 @@
           <p><b>Date of visit:</b> <input type="text" name="date" id="datepicker"></p>
           <br>
 
+
+          <?php
+            $idquery = 'SELECT MAX(id) FROM attractions';
+            $idquery = $db->getQuery($idquery);
+            $idquery = json_decode($idquery,true)[0]['MAX(id)'];
+
+            $idquery = intval($idquery) + 1;
+            echo $idquery;
+
+          ?>
+
+
           <p><b>Upload Photo of Location </b></p>
-          <input type="file" id="myFile" name="filename">
-          <br>
-          <br>
+          <fieldset class="col-md">
+              <label for="" class="sr-only">Upload attraction image</label>
+              <input type="file" name="fileToUpload" id="fileToUpload" class="form-control mb-2">
+              <input type="hidden" name="id" value="<?php echo $idquery; ?>">
+          </fieldset>
         <section class="text">
-          <button type="submit" class="btn btn-primary">Submit your post!</button>
+          <button type="submit" name="submit" class="btn btn-primary">Submit your post!</button>
           </section>
         </section>
         </section>

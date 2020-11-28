@@ -62,4 +62,14 @@ function fetchProfileImageURI($rcsid) {
     return NULL;
   }
 
+  function fetchAttractionImageURI($id) {
+    $db = new Database(); 
+    $query = "SELECT `attractionPictureLocation` FROM `attractions` WHERE `id` = :id";
+    $param_arr = array(":id" => $id);
+    $resp = $db->getQuery($query, $param_arr);
+    $resp = json_decode($resp, true)[0]['attractionPictureLocation'];
+    return $resp;
+  }
+
+
 ?>
