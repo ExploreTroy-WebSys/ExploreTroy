@@ -340,13 +340,38 @@ main {
     font-size: 18px;
 }
 
+.rating {
+    display: inline-block;
+    unicode-bidi: bidi-override;
+    color: #888888;
+    font-size: 25px;
+    height: 25px;
+    width: auto;
+    margin: 0 auto;
+    position: relative;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .rating-upper {
+    color: #c52b2f;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+  
+  .rating-lower {
+    padding: 0;
+    display: flex;
+    z-index: 0;
+  }
+
 .hidden-attrid {
     display: none;
-}
-
-.rating .avg-rating {
-    margin-left: 5px;
-    font-size: 14px;
 }
 
 .description {
