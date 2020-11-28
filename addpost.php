@@ -38,19 +38,25 @@
             <label for="exampleFormControlInput1" id="nameof">Name of Restaurant:</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Restaurant"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
-            <fieldset class="form-row justify-content-left chips">   
+            <fieldset class="form-row justify-content-left chips" id="restcolor">   
             <?php
                 $db = new Database();
                 $query = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Restaurant'";
                 $restauranttags = $db->getQuery($query);
                 $restauranttags = json_decode($restauranttags, true);
                 foreach($restauranttags as $foodtag) {
-                    echo '<div class="col-md-auto chip"' . $foodtag['tag_name'] . '">' . $foodtag['tag_name'] . '</div>';
+                    echo '<div class="col-md-auto chip" id="testingone"' . $foodtag['tag_name'] . '">' . $foodtag['tag_name'] . '</div>';
                 }
-            ?>
-            </fieldset> 
-            </div>
-                                    
+                ?>
+                </fieldset> 
+                </div>
+                <script>
+                $('#restcolor').on("click", ".chip", function() {
+                $(this).toggleClass("colorchange");
+                });
+                </script>
+
+       
             <input type="checkbox" id="shop" class="check" name="shop" value="shop">
             <label for="shop">Shop</label><br>
             <div id="shop_items">
@@ -64,11 +70,16 @@
                 $shoptags = $db->getQuery($query);
                 $shoptags = json_decode($shoptags, true);
                 foreach($shoptags as $shoptag) {
-                    echo '<div class="col-md-auto chip"' . $shoptag['tag_name'] . '">' . $shoptag['tag_name'] . '</div>'; 
+                    echo '<div class="col-md-auto chip" id="testingtwo"' . $shoptag['tag_name'] . '">' . $shoptag['tag_name'] . '</div>'; 
                 }          
-            ?>
+                ?>
               </fieldset>
               </div>
+              <script>
+                $('#shopping').on("click", ".chip", function() {
+                $(this).toggleClass("colorchange");
+                });
+            </script>
               
             
             <input type="checkbox" id="excursion" class="check" name="excursion" value="excursion">
@@ -77,7 +88,7 @@
             <label for="exampleFormControlInput1" id="nameof">Name of Activity:</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Activity"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
-            <fieldset class="form-row justify-content-left chips activitychips">
+            <fieldset class="form-row justify-content-left chips" id="activitychips">
             <?php
                 $db = new Database();
                 $query = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Recreation'";
@@ -92,6 +103,12 @@
           </section>
           </section>
 
+          <script>
+                $('#activitychips').on("click", ".chip", function() {
+                $(this).toggleClass("colorchange");
+                });
+            </script>
+
           <!-- Confirms that only one checkbox can be checked at one time-->
           <script>
           $(document).ready(function(){
@@ -99,110 +116,7 @@
              $('input:checkbox').not(this).prop('checked', false);
           });
             });
-          $(document).ready(function(){
-              $('.fooditem1').on("click", function(){
-              $(this).toggleClass('colorchange');
-          }); 
-          $('.fooditem2').on("click", function(){
-              $(this).toggleClass('colorchange');
-          }); 
-          $('.fooditem3').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.fooditem4').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.fooditem5').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.fooditem6').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.fooditem7').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.fooditem8').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.fooditem9').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.fooditem10').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.fooditem11').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.fooditem12').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.shopitem1').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.shopitem2').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.shopitem3').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.shopitem4').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.shopitem5').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.shopitem6').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.shopitem7').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.shopitem8').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.activityitem1').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.activityitem2').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.activityitem3').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.activityitem4').on("click", function(){
-              $(this).toggleClass('colorchange');
-          }); 
-          $('.activityitem5').on("click", function(){
-              $(this).toggleClass('colorchange');
-          }); 
-          $('.activityitem6').on("click", function(){
-              $(this).toggleClass('colorchange');
-          }); 
-          $('.activityitem7').on("click", function(){
-              $(this).toggleClass('colorchange');
-          }); 
-          $('.activityitem8').on("click", function(){
-              $(this).toggleClass('colorchange');
-          }); 
-          $('.activityitem9').on("click", function(){
-              $(this).toggleClass('colorchange');
-          }); 
-          $('.activityitem10').on("click", function(){
-              $(this).toggleClass('colorchange');
-          }); 
-          $('.activityitem11').on("click", function(){
-              $(this).toggleClass('colorchange');
-          }); 
-          $('.activityitem12').on("click", function(){
-              $(this).toggleClass('colorchange');
-          }); 
-          $('.activityitem13').on("click", function(){
-              $(this).toggleClass('colorchange');
-          });
-          $('.activityitem14').on("click", function(){
-              $(this).toggleClass('colorchange');
-          }); 
-      });
+    
           document.getElementById('restaurant').onclick = function() {
           toggleSub(this, 'restaurant_items');
           $('#shop_items').hide();
@@ -284,7 +198,7 @@
           <script>
           var $star_rating = $('.star-rating .fa');
 
-          var SetRatingStar = function() {
+          var ratestar = function() {
             return $star_rating.each(function() {
               if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
                 return $(this).removeClass('fa-star-o').addClass('fa-star');
@@ -296,10 +210,10 @@
 
           $star_rating.on('click', function() {
             $star_rating.siblings('input.rating-value').val($(this).data('rating'));
-            return SetRatingStar();
+            return ratestar();
           });
 
-          SetRatingStar();
+          ratestar();
           $(document).ready(function() {
 
           });
@@ -343,4 +257,3 @@
     include('assets/includes/foot.php');
   ?>
 </body>
-
