@@ -19,7 +19,7 @@
       <h2 class="post-header-text">Post</h2>
     </div>
     <section class="container">
-      <form>
+      <form action="insertone.php" method="POST">
         <!-- Form header -->
         <section class="form-group">
           <section class="intro">
@@ -35,8 +35,8 @@
             <input type="checkbox" id="restaurant" class="class" class="check" name="restaurant" value="Restaurant">
             <label for="restaurant">Restaurant</label><br>
             <div id="restaurant_items">
-            <label for="exampleFormControlInput1" id="nameof">Name of Restaurant:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Restaurant"> <br>
+            <label for="exampleFormControlInput1" id="nameof" >Name of Restaurant:</label>
+            <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="Enter Name of Restaurant"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips" id="restcolor">   
             <?php
@@ -60,7 +60,7 @@
             <input type="checkbox" id="shop" class="check" name="shop" value="shop">
             <label for="shop">Shop</label><br>
             <div id="shop_items">
-            <label for="exampleFormControlInput1" id="nameof">Name of Shop:</label>
+            <label for="exampleFormControlInput1" id="nameof" >Name of Shop:</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Shop"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips" id="shopping">
@@ -85,7 +85,7 @@
             <input type="checkbox" id="excursion" class="check" name="excursion" value="excursion">
             <label for="Excursion">Activity</label><br><br>
             <div id="excursion_items">
-            <label for="exampleFormControlInput1" id="nameof">Name of Activity:</label>
+            <label for="exampleFormControlInput1" id="nameof" >Name of Activity:</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Activity"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips" id="activitychips">
@@ -163,13 +163,18 @@
         <section class="text">
           <label for="exampleFormControlInput1">Title of post</label>
           </section>
-          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Summarize your review or question">
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Summarize your review or question">
           <br>
+
+          <section class="text">
+          <label for="exampleFormControlInput1">Name of Attraction</label>
+          </section>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Name of Attraction">
 
           <section class="form-group1">
           <section class="text">
             <label for="exampleFormControlTextarea1">What's on your mind? Ask a question or write a review. </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="review_body" rows="3"></textarea>
             </section>
             <br>
           </section>
@@ -234,7 +239,7 @@
           $( "#datepicker" ).datepicker();
           } );
           </script>
-          <p><b>Date of visit:</b> <input type="text" id="datepicker"></p>
+          <p><b>Date of visit:</b> <input type="text" name="date" id="datepicker"></p>
           <br>
 
           <p><b>Upload Photo of Location </b></p>
