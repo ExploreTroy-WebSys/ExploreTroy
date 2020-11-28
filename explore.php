@@ -1,5 +1,5 @@
 <?php
-    include("assets/includes/database_object.php");
+    include("assets/includes/helperFunctions.php");
 
     $db = new Database();
 
@@ -120,7 +120,10 @@
 
                             echo '<div class="col-sm-3 grid-item">';
                             echo '<div class="hidden-attrid">' . $item['id'] . '</div>';
-                            echo '<img class="tmpImg" src="assets/images/the-whistling-kettle.jpg"/>';
+
+
+                            $photolocation = fetchAttractionImageURI($item['id']);
+                            echo '<img class="tmpImg" src="backend/uploads/' . $photolocation . '"/>';
                             echo '<p class="locationName">' . $item['name'] . '</p>';
                             echo '<p class="address">' . $item['address'] . '</p>';
                             echo '<p class="phone">' . $item['phone'] . '</p>';
