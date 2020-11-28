@@ -20,9 +20,35 @@ body {
 
 /* Profile page */
 
+.profile-header {
+    background-color: #457b9d;
+    padding: 1%;
+    display: flex;
+}
+
+.profile-header-text {
+    display: inline-block;
+    color: #f1faee;
+    font-size: 24px;
+}
+
 #profile-photo {
     width: 120px;
     height: auto;
+    border-radius: 100%;
+    border: 2px solid #838383;
+    margin-top: 20px;
+}
+
+#fileToUpload {
+    width: auto;
+    height: auto;
+    padding: 5px;
+    display: inline-block;
+}
+
+.profile-form-label {
+    font-size: 24px;
 }
 
 .chip {
@@ -31,11 +57,18 @@ body {
     border: 2px solid;
     border-radius: 16px;
     margin: 5px;
-    padding: 0 10px;
+    padding: 2px 15px;
+    cursor: pointer;
+}
+
+.explore-chip {
+    font-size: 14px;
 }
 
 .chip-active {
     background-color: #457b9d;
+    color: white;
+    border-color: #343a40;
 }
 
 .chip.tile {
@@ -47,7 +80,7 @@ body {
 }
 
 .form-row>[class*=col-] {
-    padding: 0 10px;
+    padding: 2px 15px;
 }
 
 /* Post page */
@@ -85,6 +118,8 @@ body {
 
 .colorchange{
     background-color: #457b9d;
+    color: white;
+    border-color: #343a40;
 }
 
 #shop_items{
