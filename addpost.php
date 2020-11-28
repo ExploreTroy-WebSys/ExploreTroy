@@ -32,14 +32,35 @@
         <section class="postpageborder">
         <section class="info">
          <!-- Category selection -->
+         <section class="text">
+          <label for="exampleFormControlInput1">Name of Attraction</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Name of Location"> <br>
+        </section>
+
+        <section class="text">
+          <label for="exampleFormControlInput1">Description</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="description" placeholder="A few words to describe the location"> <br>
+        </section>
+
+        <section class="text">
+          <label for="exampleFormControlInput1">Phone Number</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" placeholder="Enter Phone Number"> <br>
+        </section>
+
+        
+        <section class="text">
+          <label for="exampleFormControlInput1">Address</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="address" placeholder="Enter Address"> <br>
+        </section>
+
+
+
          <section class="options">
          <section class="text">
             <p>Select category type:</p>
             <input type="checkbox" id="restaurant" class="class" class="check" name="restaurant" value="Restaurant">
             <label for="restaurant">Restaurant</label><br>
             <div id="restaurant_items">
-            <label for="exampleFormControlInput1" id="nameof" >Name of Restaurant:</label>
-            <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="Enter Name of Restaurant"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips" id="restcolor">   
             <?php
@@ -63,8 +84,6 @@
             <input type="checkbox" id="shop" class="check" name="shop" value="shop">
             <label for="shop">Shop</label><br>
             <div id="shop_items">
-            <label for="exampleFormControlInput1" id="nameof" >Name of Shop:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Shop"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips" id="shopping">
             <?php
@@ -88,8 +107,6 @@
             <input type="checkbox" id="excursion" class="check" name="excursion" value="excursion">
             <label for="Excursion">Activity</label><br><br>
             <div id="excursion_items">
-            <label for="exampleFormControlInput1" id="nameof" >Name of Activity:</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter Name of Activity"> <br>
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips" id="activitychips">
             <?php
@@ -169,10 +186,6 @@
           <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Summarize your review or question">
           <br>
 
-          <section class="text">
-          <label for="exampleFormControlInput1">Name of Attraction</label>
-          </section>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Name of Attraction">
 
           <section class="form-group1">
           <section class="text">
@@ -237,13 +250,15 @@
           <br>
 
           <!-- Date of visit -->
+          <section class="text">
           <script>
           $( function() {
           $( "#datepicker" ).datepicker();
           } );
           </script>
-          <p><b>Date of visit:</b> <input type="text" name="date" id="datepicker"></p>
+          <p>Date of visit:<input type="text" name="date" id="datepicker"></p>
           <br>
+        </section>
 
 
           <?php
@@ -252,18 +267,20 @@
             $idquery = json_decode($idquery,true)[0]['MAX(id)'];
 
             $idquery = intval($idquery) + 1;
-            echo $idquery;
+            // echo $idquery;
 
           ?>
 
-
-          <p><b>Upload Photo of Location </b></p>
+          <section class="text">
+          <p>Upload Photo of Location</p>
+        </section>
           <fieldset class="col-md">
               <label for="" class="sr-only">Upload attraction image</label>
               <input type="file" name="fileToUpload" id="fileToUpload" class="form-control mb-2">
               <input type="hidden" name="id" value="<?php echo $idquery; ?>">
           </fieldset>
         <section class="text">
+            <br>
           <button type="submit" name="submit" class="btn btn-primary">Submit your post!</button>
           </section>
         </section>
