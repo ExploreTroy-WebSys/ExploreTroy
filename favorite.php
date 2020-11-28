@@ -4,6 +4,9 @@
     session_start();
     if ($_SESSION && !(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
 
+    // Redirect people to login if they try to access page without being signed in.
+    if (!$_SESSION['authenticated']) header("location: backend/authentication/login.php");
+
     include("assets/includes/database_object.php");
 
     $db = new Database();
