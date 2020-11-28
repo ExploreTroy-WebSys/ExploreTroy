@@ -75,6 +75,10 @@ body {
     margin: 3px auto;
 }
 
+.chip.tile.hiddentile{
+    display: none;
+}
+
 .form-row>[class*=col-] {
     padding: 2px 15px;
 }
@@ -141,6 +145,12 @@ body {
     color: #457b9d;
 }
 
+.text{
+    color: #457b9d;
+    font-family: 'Maven Pro', sans-serif;
+    font-size:18px;
+}
+
 .post-header-text{
     display: inline-block;
     color: #f1faee;
@@ -154,7 +164,7 @@ body {
 .star-rating {
     line-height:32px;
     font-size:1.25em;
-  }
+}
   
   .star-rating .fa-star{color: yellow;}
 

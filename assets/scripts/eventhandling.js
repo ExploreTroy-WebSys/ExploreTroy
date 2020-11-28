@@ -60,6 +60,51 @@ $(document).ready(function() {
   });
 });
 
+
+function filterlistings(selectedtags){
+    $(".grid-item").each(function(){
+      showitem=false;
+      if(selectedtags.length==0){
+        showitem=true;
+      }
+      for(i=0; i<selectedtags.length; i++){
+        if($(this).hasClass(selectedtags[i])){
+          showitem = true;
+        }
+      }
+      if(!showitem){
+        $(this).hide();
+      }
+      else{
+        $(this).show();
+      }
+    });
+};
+
+
+$(document).ready(function() {
+  $(".selectpicker").on('change',function(){
+    var tagarray = [];
+    var selecteds = document.getElementsByClassName("dropdown-item selected");
+    for(i=0; i<selecteds.length; i++){
+      var tmpstr = selecteds[i].getElementsByClassName("text");
+      tmpstr = tmpstr[0].innerText.replace(' ','-');
+      tagarray.push(tmpstr);
+    }
+    filterlistings(tagarray);
+  });
+});
+
+$(document).ready(function(){
+  $(".grid-item").each(function(){
+    var gridItem = this;
+    var listingtags = gridItem.getElementsByClassName("tile");
+    for(i=0; i<listingtags.length; i++){
+      $(this).addClass(listingtags[i].innerText.replace(' ','-'));
+    }
+  });
+});
+
 function showComments(review_id) {
   if ($("#review-comments-" + review_id).css("display") == "block") {
     $("#review-comments-" + review_id).css("display", "none");
