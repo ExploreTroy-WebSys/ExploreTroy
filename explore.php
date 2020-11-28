@@ -109,6 +109,15 @@
                     <?php
 
                         foreach ($query as $item) {
+
+                           $ratingquery = 'SELECT AVG(rating) FROM reviews WHERE attraction_id ='. $item['id'];
+                           $ratingquery = $db->getQuery($ratingquery);
+                           $ratingquery = json_decode($ratingquery, true)[0]['AVG(rating)'];
+
+                           $updateavgquery = "UPDATE attractions SET avg_rating = '". $ratingquery ."' WHERE id =". $item['id'];
+                           $db->postQuery($updateavgquery);
+
+
                             echo '<div class="col-sm-3 grid-item">';
                             echo '<div class="hidden-attrid">' . $item['id'] . '</div>';
                             echo '<img class="tmpImg" src="assets/images/the-whistling-kettle.jpg"/>';
