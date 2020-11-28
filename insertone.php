@@ -73,8 +73,8 @@ if (isset($_POST['submit']) && isset($_POST['name'])) {
 
     $db = new Database();
 
-    $query = "UPDATE `attractions` SET `attractionPictureLocation` = :filePath WHERE `id` = :id";
-    $param_arr = array(":filePath" => $imageName . $fileExt, ":id" => $_POST['id']);
+    $query = "UPDATE `attractions` SET `attractionPictureLocation` = :filePath WHERE `name` = :name";
+    $param_arr = array(":filePath" => $imageName . $fileExt, ":name" => $_POST['name']);
     $db->postQuery($query, $param_arr);
 
 }
