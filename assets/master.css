@@ -351,6 +351,11 @@ main {
     bottom: 2px;
 }
 
+.no-rating {
+    font-size: 14px;
+    line-height: 37px;
+}
+
 .rating {
     display: inline-block;
     unicode-bidi: bidi-override;
