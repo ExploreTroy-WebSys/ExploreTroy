@@ -9,6 +9,9 @@ $review_body=$_POST['review_body'];
 $date=$_POST['date'];
 $rating=$_POST['rating'];
 $name=$_POST['name'];
+$description=$_POST['description'];
+$phone=$_POST['phone'];
+$address=$_POST['address'];
 
 
 $db = new Database();
@@ -21,9 +24,12 @@ $author_id = json_decode($result, true);
 $author_id = $author_id[0]['id'];
 
 
-$query= "Insert into attractions (name) values(:name)";
+$query= "Insert into attractions (name,description,phone,address) values(:name,:description,:phone,:address)";
 $param_name=array();
 $param_name[':name'] = $name;
+$param_name[':description'] = $description;
+$param_name[':phone'] = $phone;
+$param_name[':address'] = $address;
 $db->postQuery($query, $param_name);
 echo "Post Attraction Successfully Submitted";
 

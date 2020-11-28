@@ -59,17 +59,15 @@
         <section class="font">
         <section class="text">
           <label for="exampleFormControlInput1">Title of Post</label>
-        </section>
           <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Summarize your review or question">
-          
+          </section>
           <br>
 
           <section class="form-group1">
           <section class="text">
             <label for="exampleFormControlTextarea1">What's on your mind? Write a question or review. </label>
-            </section>
             <textarea class="form-control" id="exampleFormControlTextarea1" name="review_body" rows="3"></textarea>
-
+            </section>
             <br>
           </section>
 
@@ -155,4 +153,5 @@
 
 </body>
 </section>
+
 

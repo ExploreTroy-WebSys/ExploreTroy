@@ -101,11 +101,12 @@ body {
 
 .postpagecurrent{
     border: 2px solid #457b9d;
-    padding: 1%;
+    padding: 17px;
 }
 
 .postpageborder{
     border: 2px solid #457b9d;
+    padding:3px;
 }
 
 .info{
@@ -149,6 +150,7 @@ body {
     color: #457b9d;
     font-family: 'Maven Pro', sans-serif;
     font-size:18px;
+    margin-top:-5px;
 }
 
 .post-header-text{
