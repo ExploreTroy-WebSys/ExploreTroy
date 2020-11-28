@@ -35,7 +35,7 @@
           <a href="explore.php?shopping" class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-2">
             <i class="fas fa-store fa-4x explore-icon"></i>
           </a>
-          <a href="explore.php?activity" class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-3">
+          <a href="explore.php?recreation" class="shadow col-lg-3 col-md-12 col-sm-12 explore-box" id="explore-box-3">
             <i class="fas fa-hiking fa-4x explore-icon"></i>
           </a>
         </div>

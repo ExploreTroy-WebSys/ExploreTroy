@@ -137,8 +137,11 @@
                             $num_tags = 0;
                             foreach($tagquery as $tag){
                                 $num_tags += 1;
-                                if ($num_tags <= 5) {
+                                if ($num_tags <= 4) {
                                     echo '<div class="chip tile">'. $tag['tag_name'] . '</div>';
+                                }
+                                else{
+                                    echo '<div class="chip tile hiddentile">'. $tag['tag_name'] . '</div>';
                                 }
                             }
                             echo '</fieldset>';

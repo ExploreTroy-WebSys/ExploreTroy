@@ -42,6 +42,10 @@ body {
     margin: 3px auto;
 }
 
+.chip.tile.hiddentile{
+    display: none;
+}
+
 .form-row>[class*=col-] {
     padding: 0 10px;
 }
