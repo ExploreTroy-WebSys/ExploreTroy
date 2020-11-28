@@ -64,6 +64,9 @@ $(document).ready(function() {
 function filterlistings(selectedtags){
     $(".grid-item").each(function(){
       showitem=false;
+      if(selectedtags.length==0){
+        showitem=true;
+      }
       for(i=0; i<selectedtags.length; i++){
         if($(this).hasClass(selectedtags[i])){
           showitem = true;
