@@ -34,29 +34,31 @@
         <section class="postpagecurrent">
         <!-- Title of post and review body -->
         <section class="font">
-          <label for="exampleFormControlInput1"><b>Title of Post </b></label>
+        <section class="text">
+          <label for="exampleFormControlInput1">Title of Post</label>
+        </section>
           <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Summarize your review or question">
           
           <br>
 
           <section class="form-group1">
-            <label for="exampleFormControlTextarea1"><b>What's on your mind? Write a question or review. </b></label>
+          <section class="text">
+            <label for="exampleFormControlTextarea1">What's on your mind? Write a question or review. </label>
+            </section>
             <textarea class="form-control" id="exampleFormControlTextarea1" name="review_body" rows="3"></textarea>
 
             <br>
           </section>
 
           <section class="form-group1">
-            <!-- <label for="exampleFormControlTextarea1"><b>Rating </b></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" name="rating" rows="3"></textarea> -->
-
-
           <div class="row">
             <div class="col-lg-12">
               <div class="star-rating">
                 <section class="font">
                 <div id="size">
-                <p><b>Select a rating </b> </p>
+                <section class="text">
+                <p>Select a rating</p>
+                </section>
             </div>
                 <span class="fa fa-star-o" data-rating="1"></span>
                 <span class="fa fa-star-o" data-rating="2"></span>
@@ -109,10 +111,14 @@
           $( "#datepicker" ).datepicker();
           } );
           </script>
-          <p><b>Date of visit:</b> <input type="text" name="date" id="datepicker"></p>
+          <section class="text">
+          <p>Date of visit: <input type="text" name="date" id="datepicker"></p>
+          </section>
           <br>
 
+        <section class="text">
         <button type="submit"  class="btn btn-primary">Submit your post! </button>
+        </section>
         </section>
       </form>
     </section>
