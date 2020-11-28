@@ -56,8 +56,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-if (isset($_POST['submit']) && isset($_POST['id'])) {
-    $imageName = 'attraction' . $_POST['id'];
+if (isset($_POST['submit']) && isset($_POST['name'])) {
+    $imageName = $_POST['name'];
     $path = "backend/uploads/";
     $file = $_FILES['fileToUpload'];
 
