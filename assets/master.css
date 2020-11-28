@@ -291,21 +291,20 @@ main {
     font-size: 50%;
     border-radius: 10px;
     display: flex;
-    width: auto;
+    width: 200px;
+    height: 40px;
 }
 
 #exploreSearch, textarea {
     transition: all .30s;
     outline: none;
     padding: 3px 0 3px 10px;
-    margin: 5px 1px 3px 0px;
     border: 2px solid #838383;
   }
    
 #exploreSearch:focus, textarea:focus {
     box-shadow: 0px 0px 10px 4px rgb(44, 110, 128);
     padding: 3px 0px 3px 10px;
-    margin: 5px 1px 3px 0px;
     border: 2px solid #a8dadc;
 }
 
