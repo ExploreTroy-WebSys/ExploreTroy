@@ -102,6 +102,11 @@ $(document).ready(function(){
     for(i=0; i<listingtags.length; i++){
       $(this).addClass(listingtags[i].innerText.replace(' ','-'));
     }
+    rating = this.getElementsByClassName('avg-rating');
+    rating = (rating[0].innerText/5)*100;
+    stars = this.getElementsByClassName('rating-upper');
+    stars = stars[0];
+    stars.style.width = rating + '%';
   });
 });
 
