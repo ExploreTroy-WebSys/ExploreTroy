@@ -340,10 +340,17 @@ main {
     font-size: 18px;
 }
 
+.avg-rating {
+    font-size: 14px;
+    margin-left: 5px;
+    position: relative;
+    bottom: 2px;
+}
+
 .rating {
     display: inline-block;
     unicode-bidi: bidi-override;
-    color: #888888;
+    color: #343a40;
     font-size: 25px;
     height: 25px;
     width: auto;
@@ -354,7 +361,7 @@ main {
   }
   
   .rating-upper {
-    color: #c52b2f;
+    color: #f9c74f;
     padding: 0;
     position: absolute;
     z-index: 1;

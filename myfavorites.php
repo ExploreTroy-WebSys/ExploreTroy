@@ -1,5 +1,5 @@
 <?php
-    include("assets/includes/database_object.php");
+    include("assets/includes/helperFunctions.php");
 
     # Spawn session cookie if one does not exist and set authentication status to false
     session_start();
@@ -47,19 +47,28 @@
                             foreach ($query as $item) {
                                 echo '<div class="col-sm-3 grid-item">';
                                 echo '<div class="hidden-attrid">' . $item['id'] . '</div>';
-                                echo '<img class="tmpImg" src="assets/images/the-whistling-kettle.jpg"/>';
+                                $photolocation = fetchAttractionImageURI($item['id']);
+                                echo '<img class="tmpImg" src="backend/uploads/' . $photolocation . '"/>';
                                 echo '<p class="locationName">' . $item['name'] . '</p>';
                                 echo '<p class="address">' . $item['address'] . '</p>';
                                 echo '<p class="phone">' . $item['phone'] . '</p>';
                                 echo '<div class="rating">';
-                                for ($i = 1; $i < 6; $i++) {
-                                    if ($item['avg_rating'] >= $i) {
-                                        echo '<i class="fas fa-star filled-star"></i>';
-                                    } else {
-                                        echo '<i class="fas fa-star unfilled-star"></i>';
-                                    }
-                                }
-                                echo '<span class="avg-rating">' . $item['avg_rating'] . '</span></div>';
+                                echo '<div class="rating-upper" style="width: 0%">';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                echo '</div>';
+                                echo '<div class="rating-lower">';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '<span class="avg-rating hiddentile">' . $item['avg_rating'] . '</span>';
                                 echo '<div class="description">' . $item['description'] . '</div>';
     
                                 $tagquery = "SELECT DISTINCT `tags`.`tag_name` FROM `tags` INNER JOIN `attractions_categories` ON  `tags`.`id` = `attractions_categories`.`category` WHERE `attractions_categories`.`attraction_id` = '" . $item['id'] . "'";
