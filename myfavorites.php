@@ -52,24 +52,29 @@
                                 echo '<p class="locationName">' . $item['name'] . '</p>';
                                 echo '<p class="address">' . $item['address'] . '</p>';
                                 echo '<p class="phone">' . $item['phone'] . '</p>';
-                                echo '<div class="rating">';
-                                echo '<div class="rating-upper" style="width: 0%">';
-                                    echo '<span>★</span>';
-                                    echo '<span>★</span>';
-                                    echo '<span>★</span>';
-                                    echo '<span>★</span>';
-                                    echo '<span>★</span>';
-                                echo '</div>';
-                                echo '<div class="rating-lower">';
-                                    echo '<span>★</span>';
-                                    echo '<span>★</span>';
-                                    echo '<span>★</span>';
-                                    echo '<span>★</span>';
-                                    echo '<span>★</span>';
-                                echo '</div>';
-                                echo '</div>';
-                                echo '<span class="avg-rating hiddentile">' . $item['avg_rating'] . '</span>';
-                                echo '<div class="description">' . $item['description'] . '</div>';
+                                if ($item['avg_rating'] != 0.0) {
+                                    echo '<div class="rating">';
+                                    echo '<div class="rating-upper" style="width: 0%">';
+                                        echo '<span>★</span>';
+                                        echo '<span>★</span>';
+                                        echo '<span>★</span>';
+                                        echo '<span>★</span>';
+                                        echo '<span>★</span>';
+                                    echo '</div>';
+                                    echo '<div class="rating-lower">';
+                                        echo '<span>★</span>';
+                                        echo '<span>★</span>';
+                                        echo '<span>★</span>';
+                                        echo '<span>★</span>';
+                                        echo '<span>★</span>';
+                                    echo '</div>';
+                                    echo '</div>';
+                                    echo '<span class="avg-rating hiddentile">' . $item['avg_rating'] . '</span>';
+                                    echo '<div class="description">' . $item['description'] . '</div>';
+                                } else {
+                                    echo '<span class="no-rating">' . "No ratings. Be the first to review!" . '</span>';
+                                }
+                                
     
                                 $tagquery = "SELECT DISTINCT `tags`.`tag_name` FROM `tags` INNER JOIN `attractions_categories` ON  `tags`.`id` = `attractions_categories`.`category` WHERE `attractions_categories`.`attraction_id` = '" . $item['id'] . "'";
     

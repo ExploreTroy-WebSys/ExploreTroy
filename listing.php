@@ -95,9 +95,9 @@
                             echo '<div class="rating">';
                             for ($i = 1; $i < 6; $i++) {
                                 if ($review['rating'] >= $i) {
-                                    echo '<i class="fas fa-star filled-star"></i>';
+                                    echo '<span class="filled-star">★</span>';
                                 } else {
-                                    echo '<i class="fas fa-star unfilled-star"></i>';
+                                    echo '<span class="unfilled-star">★</span>';
                                 }
                             }
 

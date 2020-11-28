@@ -265,14 +265,19 @@ main {
 }
 
 #dropdown-menus {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
+    float: left;
+    margin-left: 50px;
+}
+
+.bootstrap-select>.dropdown-toggle {
+    border: 2px solid #838383;
+    border-radius: 10px;
 }
 
 .amenu {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 30px;
+    margin-right: 30px;
+    height: 20px;
 }
 
 #exploreSearch {
@@ -284,21 +289,20 @@ main {
     font-size: 50%;
     border-radius: 10px;
     display: flex;
-    width: auto;
+    width: 200px;
+    height: 40px;
 }
 
 #exploreSearch, textarea {
     transition: all .30s;
     outline: none;
     padding: 3px 0 3px 10px;
-    margin: 5px 1px 3px 0px;
     border: 2px solid #838383;
   }
    
 #exploreSearch:focus, textarea:focus {
     box-shadow: 0px 0px 10px 4px rgb(44, 110, 128);
     padding: 3px 0px 3px 10px;
-    margin: 5px 1px 3px 0px;
     border: 2px solid #a8dadc;
 }
 
@@ -330,14 +334,16 @@ main {
 
 .rating .filled-star {
     color: #f9c74f;
-    padding: 2px;
-    font-size: 18px;
+    font-size: 25px;
+    position: relative;
+    top: 2px;
 }
 
 .rating .unfilled-star {
     color: #343a40;
-    padding: 2px;
-    font-size: 18px;
+    font-size: 25px;
+    position: relative;
+    top: 2px;
 }
 
 .avg-rating {
@@ -345,6 +351,11 @@ main {
     margin-left: 5px;
     position: relative;
     bottom: 2px;
+}
+
+.no-rating {
+    font-size: 14px;
+    line-height: 37px;
 }
 
 .rating {

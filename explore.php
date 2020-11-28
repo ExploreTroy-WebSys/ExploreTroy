@@ -51,7 +51,7 @@
     <main>
         <section class="explore-page-main">
             <div class="explore-category">
-                <h2 class="explore-page-header-text">Explore</h2>
+                <h2 class="explore-page-header-text">Explore<?php if ($category != NULL) echo "&nbsp" . ucwords($category); if ($category == "restaurant") echo "s" ?></h2>
 
                 <div id="dropdown-menus">
                 <?php
@@ -127,23 +127,28 @@
                             echo '<p class="locationName">' . $item['name'] . '</p>';
                             echo '<p class="address">' . $item['address'] . '</p>';
                             echo '<p class="phone">' . $item['phone'] . '</p>';
-                            echo '<div class="rating">';
-                            echo '<div class="rating-upper" style="width: 0%">';
-                                echo '<span>★</span>';
-                                echo '<span>★</span>';
-                                echo '<span>★</span>';
-                                echo '<span>★</span>';
-                                echo '<span>★</span>';
-                            echo '</div>';
-                            echo '<div class="rating-lower">';
-                                echo '<span>★</span>';
-                                echo '<span>★</span>';
-                                echo '<span>★</span>';
-                                echo '<span>★</span>';
-                                echo '<span>★</span>';
-                            echo '</div>';
-                            echo '</div>';
-                            echo '<span class="avg-rating hiddentile">' . $item['avg_rating'] . '</span>';
+                            if ($item['avg_rating'] != 0.0) {
+                                echo '<div class="rating">';
+                                echo '<div class="rating-upper" style="width: 0%">';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                echo '</div>';
+                                echo '<div class="rating-lower">';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                    echo '<span>★</span>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '<span class="avg-rating hiddentile">' . $item['avg_rating'] . '</span>';
+                            } else {
+                                echo '<span class="no-rating">' . "No ratings. Be the first to review!" . '</span>';
+                            }
+                            
                             echo '<div class="description">' . $item['description'] . '</div>';
                             
 
