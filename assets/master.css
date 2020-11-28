@@ -334,14 +334,16 @@ main {
 
 .rating .filled-star {
     color: #f9c74f;
-    padding: 2px;
-    font-size: 18px;
+    font-size: 25px;
+    position: relative;
+    top: 2px;
 }
 
 .rating .unfilled-star {
     color: #343a40;
-    padding: 2px;
-    font-size: 18px;
+    font-size: 25px;
+    position: relative;
+    top: 2px;
 }
 
 .avg-rating {
