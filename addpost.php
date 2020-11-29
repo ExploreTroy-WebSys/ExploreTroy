@@ -26,15 +26,17 @@
         <!-- Form header -->
         <section class="form-group">
           <section class="intro">
-          <p><b>Your first-hand experiences, recommendations, and questions truly help other travelers. Thanks! </b>
-          <br>
-        </section>
+            <p>Your first-hand experiences, recommendations, and questions truly help other students. Thanks!</p>
+          </section>
         <section class="postpageborder">
         <section class="info">
          <!-- Category selection -->
+         <p class="form-label-center">Location Details</p>
+         <section class="section-border">
+          
          <section class="text">
-          <label for="exampleFormControlInput1">Name of Attraction</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Name of Location"> <br>
+          <label for="exampleFormControlInput1">Name of attraction</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Name of location"> <br>
         </section>
 
         <section class="text">
@@ -43,16 +45,16 @@
         </section>
 
         <section class="text">
-          <label for="exampleFormControlInput1">Phone Number</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" placeholder="Enter Phone Number"> <br>
+          <label for="exampleFormControlInput1">Phone number</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" placeholder="Enter phone number"> <br>
         </section>
 
         
         <section class="text">
           <label for="exampleFormControlInput1">Address</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="address" placeholder="Enter Address"> <br>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="address" placeholder="Enter address"> <br>
         </section>
-
+        
 
 
          <section class="options">
@@ -177,39 +179,42 @@
               }
           }
         </script>
+        </section>
 
         <!-- Title of post and review body -->
+        <p class="form-label-center">Post Details</p>
+        <section class="section-border">
+        
         <section class="font">
-        <section class="text">
+        <section class="text post-section">
           <label for="exampleFormControlInput1">Title of post</label>
-          </section>
+          
           <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Summarize your review or question">
-          <br>
+          </section>
 
 
           <section class="form-group1">
-          <section class="text">
+          <section class="text post-section">
             <label for="exampleFormControlTextarea1">What's on your mind? Ask a question or write a review. </label>
             <textarea class="form-control" id="exampleFormControlTextarea1" name="review_body" rows="3"></textarea>
             </section>
-            <br>
           </section>
 
 
           <div class="row">
             <div class="col-lg-12">
-              <div class="star-rating">
+              <div class="star-rating post-section">
                 <section class="font">
                 <div id="size">
                 <section class="text">
-                <p>Select a rating</p>
+                <p class="rating-label">Select a rating</p>
                 </section>
-            </div>
-                <span class="fa fa-star-o" data-rating="1"></span>
-                <span class="fa fa-star-o" data-rating="2"></span>
-                <span class="fa fa-star-o" data-rating="3"></span>
-                <span class="fa fa-star-o" data-rating="4"></span>
-                <span class="fa fa-star-o" data-rating="5"></span>
+                </div>
+                <span class="fa fa-star unfilled" data-rating="1"></span>
+                <span class="fa fa-star unfilled" data-rating="2"></span>
+                <span class="fa fa-star unfilled" data-rating="3"></span>
+                <span class="fa fa-star unfilled" data-rating="4"></span>
+                <span class="fa fa-star unfilled" data-rating="5"></span>
                 <input type="hidden" name="rating" class="rating-value">
               </div>
             </div>
@@ -222,9 +227,9 @@
           var ratestar = function() {
             return $star_rating.each(function() {
               if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
-                return $(this).removeClass('fa-star-o').addClass('fa-star');
+                return $(this).removeClass('unfilled').addClass('filled');
               } else {
-                return $(this).removeClass('fa-star').addClass('fa-star-o');
+                return $(this).removeClass('filled').addClass('unfilled');
               }
             });
           };
@@ -247,17 +252,16 @@
                     $('.show-result').text(numStars + (numStars == 1 ? " star" : " stars!"));
           });
           </script>
-          <br>
 
           <!-- Date of visit -->
-          <section class="text">
+          <section class="text post-section">
           <script>
           $( function() {
           $( "#datepicker" ).datepicker();
           } );
           </script>
-          <p>Date of visit:<input type="text" name="date" id="datepicker"></p>
-          <br>
+          <p class="date-label">Date of visit</p>
+          <input type="text" name="date" id="datepicker">
         </section>
 
 
@@ -272,22 +276,23 @@
           ?>
 
           <section class="text">
-          <p>Upload Photo of Location</p>
-        </section>
+          <p class="photo-label">Upload photo of location</p>
+        
           <fieldset class="col-md">
               <label for="" class="sr-only">Upload attraction image</label>
               <input type="file" name="fileToUpload" id="fileToUpload" class="form-control mb-2">
               <input type="hidden" name="id" value="<?php echo $idquery; ?>">
           </fieldset>
+          </section>
+          </section>
         <section class="text">
-            <br>
-          <button type="submit" name="submit" class="btn btn-primary">Submit your post!</button>
+          <button type="submit" name="submit" class="btn btn-primary btn-dark">Submit your post!</button>
           </section>
         </section>
         </section>
       </form>
     </section>
-        </section>
+    </section>
   </main>
 
   <?php
