@@ -31,9 +31,12 @@
         <section class="postpageborder">
         <section class="info">
          <!-- Category selection -->
+         <p class="form-label-center">Location Details</p>
+         <section class="section-border">
+          
          <section class="text">
           <label for="exampleFormControlInput1">Name of attraction</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Name of Location"> <br>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Name of location"> <br>
         </section>
 
         <section class="text">
@@ -43,15 +46,15 @@
 
         <section class="text">
           <label for="exampleFormControlInput1">Phone number</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" placeholder="Enter Phone Number"> <br>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" placeholder="Enter phone number"> <br>
         </section>
 
         
         <section class="text">
           <label for="exampleFormControlInput1">Address</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="address" placeholder="Enter Address"> <br>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="address" placeholder="Enter address"> <br>
         </section>
-
+        
 
 
          <section class="options">
@@ -176,34 +179,37 @@
               }
           }
         </script>
+        </section>
 
         <!-- Title of post and review body -->
+        <p class="form-label-center">Post Details</p>
+        <section class="section-border">
+        
         <section class="font">
-        <section class="text">
+        <section class="text post-section">
           <label for="exampleFormControlInput1">Title of post</label>
-          </section>
+          
           <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Summarize your review or question">
-          <br>
+          </section>
 
 
           <section class="form-group1">
-          <section class="text">
+          <section class="text post-section">
             <label for="exampleFormControlTextarea1">What's on your mind? Ask a question or write a review. </label>
             <textarea class="form-control" id="exampleFormControlTextarea1" name="review_body" rows="3"></textarea>
             </section>
-            <br>
           </section>
 
 
           <div class="row">
             <div class="col-lg-12">
-              <div class="star-rating">
+              <div class="star-rating post-section">
                 <section class="font">
                 <div id="size">
                 <section class="text">
                 <p class="rating-label">Select a rating</p>
                 </section>
-            </div>
+                </div>
                 <span class="fa fa-star unfilled" data-rating="1"></span>
                 <span class="fa fa-star unfilled" data-rating="2"></span>
                 <span class="fa fa-star unfilled" data-rating="3"></span>
@@ -246,10 +252,9 @@
                     $('.show-result').text(numStars + (numStars == 1 ? " star" : " stars!"));
           });
           </script>
-          <br>
 
           <!-- Date of visit -->
-          <section class="text">
+          <section class="text post-section">
           <script>
           $( function() {
           $( "#datepicker" ).datepicker();
@@ -257,7 +262,6 @@
           </script>
           <p class="date-label">Date of visit</p>
           <input type="text" name="date" id="datepicker">
-          <br>
         </section>
 
 
@@ -273,14 +277,15 @@
 
           <section class="text">
           <p class="photo-label">Upload photo of location</p>
-        </section>
+        
           <fieldset class="col-md">
               <label for="" class="sr-only">Upload attraction image</label>
               <input type="file" name="fileToUpload" id="fileToUpload" class="form-control mb-2">
               <input type="hidden" name="id" value="<?php echo $idquery; ?>">
           </fieldset>
+          </section>
+          </section>
         <section class="text">
-            <br>
           <button type="submit" name="submit" class="btn btn-primary btn-dark">Submit your post!</button>
           </section>
         </section>

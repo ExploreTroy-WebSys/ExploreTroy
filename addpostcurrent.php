@@ -56,35 +56,33 @@
         <section class="postpagecurrent">
         <!-- Title of post and review body -->
         <section class="font">
-        <section class="text">
-          <label for="exampleFormControlInput1">Title of Post</label>
+        <section class="text post-section">
+          <label for="exampleFormControlInput1">Title of post</label>
           <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Summarize your review or question">
           </section>
-          <br>
 
           <section class="form-group1">
-          <section class="text">
+          <section class="text post-section">
             <label for="exampleFormControlTextarea1">What's on your mind? Write a question or review. </label>
             <textarea class="form-control" id="exampleFormControlTextarea1" name="review_body" rows="3"></textarea>
             </section>
-            <br>
           </section>
 
           <section class="form-group1">
           <div class="row">
             <div class="col-lg-12">
-              <div class="star-rating">
+              <div class="star-rating post-section">
                 <section class="font">
                 <div id="size">
                 <section class="text">
-                <p>Select a rating</p>
+                <p class="rating-label">Select a rating</p>
                 </section>
             </div>
-                <span class="fa fa-star-o" data-rating="1"></span>
-                <span class="fa fa-star-o" data-rating="2"></span>
-                <span class="fa fa-star-o" data-rating="3"></span>
-                <span class="fa fa-star-o" data-rating="4"></span>
-                <span class="fa fa-star-o" data-rating="5"></span>
+                <span class="fa fa-star unfilled" data-rating="1"></span>
+                <span class="fa fa-star unfilled" data-rating="2"></span>
+                <span class="fa fa-star unfilled" data-rating="3"></span>
+                <span class="fa fa-star unfilled" data-rating="4"></span>
+                <span class="fa fa-star unfilled" data-rating="5"></span>
                 <input type="hidden" name="rating" class="rating-value">
               </div>
             </div>
@@ -97,9 +95,9 @@
           var SetRatingStar = function() {
             return $star_rating.each(function() {
               if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
-                return $(this).removeClass('fa-star-o').addClass('fa-star');
+                return $(this).removeClass('unfilled').addClass('filled');
               } else {
-                return $(this).removeClass('fa-star').addClass('fa-star-o');
+                return $(this).removeClass('filled').addClass('unfilled');
               }
             });
           };
@@ -124,17 +122,16 @@
           </script>
 
 
-        <br>
           <!-- Date of visit -->
           <script>
           $( function() {
           $( "#datepicker" ).datepicker();
           } );
           </script>
-          <section class="text">
-          <p>Date of visit: <input type="text" name="date" id="datepicker"></p>
+          <section class="text post-section">
+          <p class="date-label">Date of visit</p>
+          <input type="text" name="date" id="datepicker">
           </section>
-          <br>
 
         <section class="text">
         <button type="submit"  class="btn btn-primary btn-dark">Submit your post! </button>
