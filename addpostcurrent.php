@@ -51,8 +51,7 @@
         <!-- Form header -->
         <section class="form-group">
           <section class="intro">
-          <p>Your first-hand experiences, recommendations, and questions truly help other travelers. Thanks!
-          <br>
+          <p>Your first-hand experiences, recommendations, and questions truly help other students. Thanks!</p>
         </section>
         <section class="postpagecurrent">
         <!-- Title of post and review body -->
@@ -138,7 +137,7 @@
           <br>
 
         <section class="text">
-        <button type="submit"  class="btn btn-primary">Submit your post! </button>
+        <button type="submit"  class="btn btn-primary btn-dark">Submit your post! </button>
         </section>
         </section>
       </form>

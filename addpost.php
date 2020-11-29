@@ -26,14 +26,13 @@
         <!-- Form header -->
         <section class="form-group">
           <section class="intro">
-          <p><b>Your first-hand experiences, recommendations, and questions truly help other travelers. Thanks! </b>
-          <br>
-        </section>
+            <p>Your first-hand experiences, recommendations, and questions truly help other students. Thanks!</p>
+          </section>
         <section class="postpageborder">
         <section class="info">
          <!-- Category selection -->
          <section class="text">
-          <label for="exampleFormControlInput1">Name of Attraction</label>
+          <label for="exampleFormControlInput1">Name of attraction</label>
           <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Name of Location"> <br>
         </section>
 
@@ -43,7 +42,7 @@
         </section>
 
         <section class="text">
-          <label for="exampleFormControlInput1">Phone Number</label>
+          <label for="exampleFormControlInput1">Phone number</label>
           <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" placeholder="Enter Phone Number"> <br>
         </section>
 
@@ -202,14 +201,14 @@
                 <section class="font">
                 <div id="size">
                 <section class="text">
-                <p>Select a rating</p>
+                <p class="rating-label">Select a rating</p>
                 </section>
             </div>
-                <span class="fa fa-star-o" data-rating="1"></span>
-                <span class="fa fa-star-o" data-rating="2"></span>
-                <span class="fa fa-star-o" data-rating="3"></span>
-                <span class="fa fa-star-o" data-rating="4"></span>
-                <span class="fa fa-star-o" data-rating="5"></span>
+                <span class="fa fa-star unfilled" data-rating="1"></span>
+                <span class="fa fa-star unfilled" data-rating="2"></span>
+                <span class="fa fa-star unfilled" data-rating="3"></span>
+                <span class="fa fa-star unfilled" data-rating="4"></span>
+                <span class="fa fa-star unfilled" data-rating="5"></span>
                 <input type="hidden" name="rating" class="rating-value">
               </div>
             </div>
@@ -222,9 +221,9 @@
           var ratestar = function() {
             return $star_rating.each(function() {
               if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
-                return $(this).removeClass('fa-star-o').addClass('fa-star');
+                return $(this).removeClass('unfilled').addClass('filled');
               } else {
-                return $(this).removeClass('fa-star').addClass('fa-star-o');
+                return $(this).removeClass('filled').addClass('unfilled');
               }
             });
           };
@@ -256,7 +255,8 @@
           $( "#datepicker" ).datepicker();
           } );
           </script>
-          <p>Date of visit:<input type="text" name="date" id="datepicker"></p>
+          <p class="date-label">Date of visit</p>
+          <input type="text" name="date" id="datepicker">
           <br>
         </section>
 
@@ -272,7 +272,7 @@
           ?>
 
           <section class="text">
-          <p>Upload Photo of Location</p>
+          <p class="photo-label">Upload photo of location</p>
         </section>
           <fieldset class="col-md">
               <label for="" class="sr-only">Upload attraction image</label>
@@ -281,13 +281,13 @@
           </fieldset>
         <section class="text">
             <br>
-          <button type="submit" name="submit" class="btn btn-primary">Submit your post!</button>
+          <button type="submit" name="submit" class="btn btn-primary btn-dark">Submit your post!</button>
           </section>
         </section>
         </section>
       </form>
     </section>
-        </section>
+    </section>
   </main>
 
   <?php

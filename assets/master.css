@@ -99,18 +99,24 @@ body {
     display: flex;
 }
 
+.intro p {
+    margin-bottom: 10px;
+}
+
 .postpagecurrent{
     border: 2px solid #457b9d;
-    padding: 17px;
+    padding: 30px;
+    border-radius: 8px;
 }
 
 .postpageborder{
     border: 2px solid #457b9d;
-    padding:3px;
+    padding: 30px;
+    border-radius: 8px;
 }
 
-.info{
-    padding:15px;
+fieldset.col-md {
+    padding-left: 0;
 }
 
 #restaurant_items{
@@ -137,20 +143,28 @@ body {
     padding-bottom: 42px;
 }
 
-#detailsforchips{
-    margin-top:-2px;
-    color: #457b9d;
-}
-
 #nameof{
     color: #457b9d;
 }
 
+#datepicker {
+    margin-bottom: 20px;
+}
+
+.date-label {
+    margin-bottom: 10px;
+}
+
+.photo-label {
+    margin-bottom: 10px;
+}
+
+.rating-label {
+    margin-bottom: 5px;
+}
+
 .text{
-    color: #457b9d;
-    font-family: 'Maven Pro', sans-serif;
     font-size:18px;
-    margin-top:-5px;
 }
 
 .post-header-text{
@@ -168,12 +182,16 @@ body {
     font-size:1.25em;
 }
   
-  .star-rating .fa-star{color: yellow;}
+.star-rating .fa-star {
+    cursor: pointer;
+}
 
+.filled {
+    color: #f9c74f;
+}
 
-
-.font{
-    font-family: 'Poppins', sans-serif;
+.unfilled {
+    color: #343a40;
 }
 
 .jumbotron-banner {
