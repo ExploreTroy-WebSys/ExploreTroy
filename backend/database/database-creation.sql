@@ -86,6 +86,15 @@ CREATE TABLE IF NOT EXISTS `attractions` (
     PRIMARY KEY (`id`)
 );
 
+CREATE TABLE IF NOT EXISTS `friends` (
+    `index` INT(10) signed NOT NULL AUTO_INCREMENT,
+    `user1` INT(10) signed NOT NULL,
+    `user2` INT(10) signed NOT NULL,
+    PRIMARY KEY (`index`),
+    FOREIGN KEY (`user2`) REFERENCES users(`id`),
+    FOREIGN KEY (`user1`) REFERENCES users(`id`)
+);
+
 INSERT INTO `attractions` (`id`, `name`, `description`, `phone`, `avg_rating`, `address`) VALUES
 (1, 'The Whistling Kettle', 'Contemporary cafe & tearoom serving savory crepes, panini & salads, plus afternoon tea.', '(518) 874-1938', 4.6, '254 Broadway, Troy, NY 12180'),
 (2, 'Dinosaur Bar-B-Que', 'Barbecue chain serving Southern-style meats & draft brews in a retro setting (most have live music).', '(518) 308-0400', 4.4, '377 River St, Troy, NY 12180'),
