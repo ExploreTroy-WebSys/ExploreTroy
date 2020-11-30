@@ -170,7 +170,7 @@
             </fieldset>
             
             <fieldset class="col-auto-md form-group">
-                <button class="btn btn-primary btn-small btn-dark" id="update-interests" onclick="parseTagData('chips')">Update Interests</button>
+                <button class="btn btn-primary btn-small btn-dark" id="update-interests">Update Interests</button>
             </fieldset>
         </form>
         </div>
