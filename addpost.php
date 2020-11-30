@@ -57,7 +57,7 @@
         
 
 
-         <section class="options">
+         <section class="options" name="options">
          <section class="text">
             <p>Select category type:</p>
             <input type="checkbox" id="restaurant" class="class" class="check" name="restaurant" value="Restaurant">
@@ -138,6 +138,20 @@
              $('input:checkbox').not(this).prop('checked', false);
           });
             });
+
+    
+        $(document).ready(function() {
+        $(".colorchange").on('change',function(){
+            var tagarray = [];
+            var selecteds = document.getElementsByClassName("dropdown-item selected");
+            for(i=0; i<selecteds.length; i++){
+            var tmpstr = selecteds[i].getElementsByClassName("text");
+            tmpstr = tmpstr[0].innerText.replace(' ','-');
+            tagarray.push(tmpstr);
+            }
+            filterlistings(tagarray);
+        });
+        });
     
           document.getElementById('restaurant').onclick = function() {
           toggleSub(this, 'restaurant_items');
@@ -251,6 +265,21 @@
               .done(function( data ) {
                     $('.show-result').text(numStars + (numStars == 1 ? " star" : " stars!"));
           });
+
+          
+            function parseTagData(containerID) {
+                tagData = {
+                    'tableName': "attraction_categories",
+                    'rcsid': $('#rcsid').text(),
+                    'postData': []
+                }
+                $("#"+containerID).children().each(function() {
+                    tmpObj = {'tagName': $(this).text(), 'status': $(this).hasClass("colorchange")};
+                    tagData.postData.push(tmpObj);
+                })
+            }
+
+
           </script>
 
           <!-- Date of visit -->

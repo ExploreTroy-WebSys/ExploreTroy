@@ -82,8 +82,69 @@ if (isset($_POST['submit']) && isset($_POST['name'])) {
     $query = "UPDATE `attractions` SET `attractionPictureLocation` = :filePath WHERE `name` = :name";
     $param_arr = array(":filePath" => $imageName . $fileExt, ":name" => $_POST['name']);
     $db->postQuery($query, $param_arr);
-
 }
+
+
+if(isset($_POST['options'])){
+$categories=$_POST['options'];
+$sql=mysql_query("insert into reviews() values('$categories')");
+}
+
+
+// Post workflow
+if (isset($_POST)) {
+    // Read in JSON OBJ
+    $rawIn = file_get_contents('php://input');
+    $request = json_decode($rawIn, true);
+
+    $query= "SELECT id FROM attractions WHERE name=:name";
+    $param_name=array();
+    $param_name[':name'] = $name;
+    $query=$db->getQuery($query, $param_name);
+
+
+    // Check to make sure proper keys are in JSON obj
+    // if (!array_key_exists("tableName", $request) || !array_key_exists("postData", $request)) {
+    //     exit("DEV ERROR: Failed to provide proper form data");
+    // } 
+    
+
+    // Add table checking logic for INSERT or UPDATE
+    $update = false;
+    $attraction_id = json_decode($query, true)[0]['id'];
+    if (!array_key_exists("newUser", $request['postData']) && ($request['tableName'] == "users" || $attraction_id != NULL)) $update = true;
+
+    // Tag processing for user interests
+    if ($request['tableName'] == 'attraction_categories') {
+        $tags = $request['postData'];
+        $activeTagIDs = array();
+        foreach($tags as $tag) {
+            if ($tag['status'] == 'true') {
+                $query = "SELECT `id` FROM `tags` WHERE `tag_name` = :tagName";
+                $param_arr = array(':tagName' => $tag['tagName']);
+                $resp = $db->getQuery($query, $param_arr);
+                $resp = json_decode($resp, true)[0]['id'];
+                $activeTagIDs[] = $resp;
+            }
+        }
+
+
+        $query = "INSERT INTO `attractions_categories` (`attraction_id`, `category`) VALUES ";
+        $i = 0;
+        $j = 100;
+        $param_arr = array();
+        foreach($activeTagIDs as $tag) {
+            $i++;
+            $j++;
+            $query .= "(:$i, :$j)";
+            if ($i != sizeof($activeTagIDs)) $query .= ", ";
+            $param_arr[":$i"] = $usrID;
+            $param_arr[":$j"] = $tag;
+        }
+
+    }
+}
+
 
 header("Location: listing.php?" . $attraction_id);
 
