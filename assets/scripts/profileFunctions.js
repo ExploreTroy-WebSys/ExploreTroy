@@ -49,6 +49,6 @@ $(document).ready(function() {
     });
 
     $("#update-interests").on("click", function(event) {
-        
+        parseTagData('chips');
     });
 });
