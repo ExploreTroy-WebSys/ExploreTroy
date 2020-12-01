@@ -103,6 +103,8 @@
 
                             echo '</div>';
 
+                            echo '<span class="review-date">' . $review['date'] . '</span>';
+
                             // Echo author image
                             $author_id = $review['author_id'];
                             $author_rcsid_query = "SELECT `rcsid` from `users` WHERE `id` = $author_id";
