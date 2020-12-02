@@ -594,6 +594,10 @@ input.review-comment:focus {
     transition: 0.5s;
 }
 
+.following {
+    border-color: goldenrod;
+}
+
 /* Favorites page */
 
 .no-favorites-message {
