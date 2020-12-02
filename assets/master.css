@@ -508,6 +508,12 @@ main {
     color: #f9c74f;
 }
 
+.review-date {
+    margin-left: 10px;
+    font-style: italic;
+    font-size: 14px;
+}
+
 .review-description {
     font-size: 18px;
 }
