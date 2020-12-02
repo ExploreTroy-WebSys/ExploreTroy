@@ -22,6 +22,11 @@
         $rcsid = $_SESSION['rcsid'];
     }
 
+    if ($rcsid != $_SESSION['rcsid']) {
+        $following = false;
+        if (checkIfFollowing($_SESSION['rcsid'], $rcsid)) $following = true;
+    }
+
 
     # Include all boiler-plate head information for the site
     include("assets/includes/head.php");
@@ -35,7 +40,20 @@
     </header>
     <main>
         <div class="profile-header">
-            <?php if (array_key_exists('rcsid', $_SESSION)) echo("<h2 class='profile-header-text'>Welcome " . $_SESSION['rcsid'] . "!</h2>");?>
+            <?php 
+            if (array_key_exists('rcsid', $_SESSION)) {
+                $echoStr = "Welcome " . $_SESSION['rcsid'] . "!";
+                $addButton = '';
+                if ($_SESSION['rcsid'] != $rcsid) {
+                    $echoStr .= " You are currently viewing the profile of " . $rcsid . ".";
+                    if ($following) {
+                        $addButton .= "<button type='button' id='follow' class='btn btn-primary btn-small btn-dark ml-auto' name=" . $_SESSION['rcsid'] . "&" . $rcsid . ">Unfollow</button>";
+                    } else $addButton .= "<button type='button' id='follow' class='btn btn-primary btn-small btn-dark ml-auto' name=" . $_SESSION['rcsid'] . "&" . $rcsid . ">Follow</button>";
+                }
+                echo("<h2 class='profile-header-text'>" . $echoStr . "</h2>");
+                echo $addButton;
+            }
+            ?>
         </div>
         <div class="container">
         <section class="columns">

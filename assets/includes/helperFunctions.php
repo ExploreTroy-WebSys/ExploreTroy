@@ -71,5 +71,21 @@ function fetchProfileImageURI($rcsid) {
     return $resp;
   }
 
+  function checkIfFollowing($followerRCSID, $followedRCSID) {
+      $db = new Database();
+      $query = "SELECT `index` FROM `followers` WHERE `follower_id` = :followerID AND `followed_id` = :followedID";
+      $param_arr = array(":followerID" => fetchUserID($followerRCSID), ":followedID" => fetchUserID($followedRCSID));
+      if ($db->getQuery($query, $param_arr)) return true;
+      return false;
+  }
+
+  function checkIfFollowingIDs($followerID, $followedID) {
+    $db = new Database();
+    $query = "SELECT `index` FROM `followers` WHERE `follower_id` = :followerID AND `followed_id` = :followedID";
+    $param_arr = array(":followerID" => $followerID, ":followedID" => $followedID);
+    if ($db->getQuery($query, $param_arr)) return true;
+    return false;
+}
+
 
 ?>
