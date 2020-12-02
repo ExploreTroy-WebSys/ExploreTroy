@@ -16,7 +16,7 @@ function parseForm(formID) {
                 break;
             default:
                 if (splitElem[1] == '') break;
-                dataOBJ.postData[splitElem[0]] = splitElem[1].replace(/%20/g, ' ').replace(/%40/g, '@').replace(/\+/g, ' ').replace(/%23/g, '#');
+                dataOBJ.postData[splitElem[0]] = splitElem[1].replace(/%20/g, ' ').replace(/%40/g, '@').replace(/\+/g, ' ').replace(/%23/g, '#').replace(/%2C/g, ',');
                 break;
         }
     });
