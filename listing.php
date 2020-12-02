@@ -113,9 +113,9 @@
                             $author_rcsid = $author_rcsid[0]['rcsid'];
                             $pfp_uri_review = fetchProfileImageURI($author_rcsid);
                             if ($pfp_uri_review != NULL) {
-                                echo '<img class="user-image float-right" src="backend/uploads/' . $pfp_uri_review . '" alt="temp-image">';
+                                echo '<img class="user-image float-right" src="backend/uploads/' . $pfp_uri_review . '" name=' . $author_id . ' alt="temp-image">';
                             } else {
-                                echo '<img class="user-image float-right" src="assets/images/blankPFP.png" alt="image-temp">';
+                                echo '<img class="user-image float-right" src="assets/images/blankPFP.png" name='. $author_id . ' alt="image-temp">';
                             }
                             
                             echo '</p>';
@@ -171,9 +171,9 @@
                                     $author_rcsid = $author_rcsid[0]['rcsid'];
                                     $pfp_uri_comment = fetchProfileImageURI($author_rcsid);
                                     if ($pfp_uri_comment != NULL) {
-                                        echo '<img class="user-image" src="backend/uploads/' . $pfp_uri_comment . '" alt="image-temp">';
+                                        echo '<img class="user-image" src="backend/uploads/' . $pfp_uri_comment . '" name=' . $author_id . 'alt="image-temp">';
                                     } else {
-                                        echo '<img class="user-image" src="assets/images/blankPFP.png" alt="image-temp">';
+                                        echo '<img class="user-image" src="assets/images/blankPFP.png" name=' . $author_id . ' alt="image-temp">';
                                     }
                                     
                                     echo '</div>';
@@ -215,6 +215,20 @@
         </div>
         </section>
     </main>
+
+    <script>
+    
+        // indicate that profiles can be viewed
+        $("img").hover(function() {
+            $(this).css("cursor", "pointer");
+        });
+        
+        // Add click listener to redirect to a profile page
+        $("main").on("click", "img", function(e) {
+            location.href = "profile.php?" + $(this).attr('name');
+        });
+
+    </script>
 
     <?php
     include('assets/includes/footer.php');

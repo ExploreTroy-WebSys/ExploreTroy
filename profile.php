@@ -9,13 +9,29 @@
     // Redirect people to login if they try to access page without being signed in.
     if (!$_SESSION['authenticated']) header("location: backend/authentication/login.php");
 
+    $db = new Database();
+
+    $queryString = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+
+    if($queryString != "" && $queryString != "newUser") {
+        $query = "SELECT `rcsid` FROM `users` WHERE `id` = :usrID";
+        $resp = $db->getQuery($query, array(':usrID' => parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY)));
+        $resp = json_decode($resp, true)[0]['rcsid'];
+        $rcsid = $resp;
+    } else {
+        $rcsid = $_SESSION['rcsid'];
+    }
+
+
     # Include all boiler-plate head information for the site
     include("assets/includes/head.php");
 ?>
     <script src="assets/scripts/profileFunctions.js"></script>
 
 <body>
-    <?php include_once("assets/includes/header.php");?>
+    <?php 
+        include_once("assets/includes/header.php");
+    ?>
     </header>
     <main>
         <div class="profile-header">
@@ -27,7 +43,7 @@
                 <section class="col-md">
                     <figure class="col-md">
                         <?php 
-                            $pfp_uri = fetchProfileImageURI($_SESSION['rcsid']); 
+                            $pfp_uri = fetchProfileImageURI($rcsid); 
                             if ($pfp_uri != NULL) {
                                 echo '<img src="' . "backend/uploads/" . $pfp_uri . '" alt="profile-photo" id="profile-photo">';
                             } else {
@@ -56,7 +72,7 @@
                     <form id="mandatoryUserForm">
                         <input type="hidden" name="rcsid" value="<?php echo $_SESSION['rcsid']; ?>">
                         <input type="hidden" name="tableName" value="users">
-                        <?php if(parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY) == "newUser") echo '<input type="hidden" name="newUser" value="true">'; ?>
+                        <?php if($queryString == "newUser") echo '<input type="hidden" name="newUser" value="true">'; ?>
                         <fieldset class="form-row">
                             <fieldset class="col-md">
                                 <label class="sr-only" for="first-name">First Name:</label>
@@ -156,9 +172,7 @@
                 </header>
             </aside>
             <fieldset class="form-row justify-content-center chips" id="chips">
-                <?php
-                
-                    $db = new Database();
+                <?php                
                     $query = "SELECT `tag_name` FROM `tags` ORDER BY `tag_name`";
                     $resp = $db->getQuery($query);
                     $resp = json_decode($resp, true);
@@ -174,8 +188,13 @@
             </fieldset>
         </form>
         </div>
+        <?php 
+        $foreigns = 'false';
+        if ($_SESSION['rcsid'] != $rcsid) $foreigns = "true";
+        echo '<p id="rcsid">' . $rcsid . '</p>';
+        echo '<p id="isForeign">' . $foreigns . '</p>';
+        ?>
     </main>
-    <?php echo '<p id="rcsid">' . $_SESSION['rcsid'] . '</p>' ?>
 
 <?php
     include_once("assets/includes/footer.php");

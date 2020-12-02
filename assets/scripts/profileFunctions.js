@@ -14,8 +14,17 @@ function parseTagData(containerID) {
 
 $(document).ready(function() {
     var rcsid = $("#rcsid");
+    var foreign = $("#isForeign");
     rcsid.hide();
     rcsid = rcsid.text();
+    foreign.hide();
+    foreign = foreign.text();
+
+    if (foreign == "true") {
+        $("input").each(function() {
+            $(this).prop("disabled", true);
+        })
+    }
 
     // Data from users
     getFromData({'tableName': 'users', 'rcsid': rcsid}, function(data) {
@@ -45,10 +54,10 @@ $(document).ready(function() {
     })
 
     $('#chips').on("click", ".chip", function(event) {
-        $(this).toggleClass("chip-active");
+        if (foreign == "false") $(this).toggleClass("chip-active");
     });
 
     $("#update-interests").on("click", function(event) {
-        parseTagData('chips');
+        if (foreign == "false") parseTagData('chips');
     });
 });
