@@ -58,13 +58,13 @@
         <section class="font">
         <section class="text post-section">
           <label for="exampleFormControlInput1">Title of post</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Summarize your review or question">
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Summarize your review or question" required>
           </section>
 
           <section class="form-group1">
           <section class="text post-section">
             <label for="exampleFormControlTextarea1">What's on your mind? Write a question or review. </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" name="review_body" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="review_body" rows="3" required></textarea>
             </section>
           </section>
 

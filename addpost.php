@@ -39,23 +39,23 @@
           
          <section class="text">
           <label for="exampleFormControlInput1">Name of attraction</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Name of location"> <br>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Name of location" required> <br>
         </section>
 
         <section class="text">
           <label for="exampleFormControlInput1">Description</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="description" placeholder="A few words to describe the location"> <br>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="description" placeholder="A few words to describe the location" required> <br>
         </section>
 
         <section class="text">
           <label for="exampleFormControlInput1">Phone number</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" placeholder="Enter phone number"> <br>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="phone" placeholder="Enter phone number" required> <br>
         </section>
 
         
         <section class="text">
           <label for="exampleFormControlInput1">Address</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="address" placeholder="Enter address"> <br>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="address" placeholder="Enter address" required> <br>
         </section>
         
 
@@ -207,14 +207,14 @@
         <section class="text post-section">
           <label for="exampleFormControlInput1">Title of post</label>
           
-          <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Summarize your review or question">
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Summarize your review or question" required>
           </section>
 
 
           <section class="form-group1">
           <section class="text post-section">
             <label for="exampleFormControlTextarea1">What's on your mind? Ask a question or write a review. </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" name="review_body" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="review_body" rows="3" required></textarea>
             </section>
           </section>
 
