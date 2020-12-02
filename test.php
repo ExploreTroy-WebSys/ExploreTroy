@@ -1,21 +1,24 @@
 <?php 
 
-session_start();
+// session_start();
 
-include('assets/includes/database_object.php');
+// include('assets/includes/database_object.php');
 
-$db = new Database();
+// $db = new Database();
 
-$query = "SELECT * FROM `attractions` WHERE `name` = :attrcName";
-// $query = "SELECT * FROM `attractions`";
-$param_array = array();
-$param_array[':attrcName'] = 'test place';
+// $query = "SELECT * FROM `attractions` WHERE `name` = :attrcName";
+// // $query = "SELECT * FROM `attractions`";
+// $param_array = array();
+// $param_array[':attrcName'] = 'test place';
 
-$query = $db->getQuery($query, $param_array);
+// $query = $db->getQuery($query, $param_array);
+
+
+var_dump($_POST);
 
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,4 +35,4 @@ $query = $db->getQuery($query, $param_array);
         <input type="submit" value="Submit" id="testFormSubmit" onclick="parseForm(this.parentElement.id)">
     </form>    
 </body>
-</html>
+</html> -->

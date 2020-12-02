@@ -12,6 +12,7 @@ $name=$_POST['name'];
 $description=$_POST['description'];
 $phone=$_POST['phone'];
 $address=$_POST['address'];
+$tags = array_keys($_POST['tags']);
 
 
 $db = new Database();
@@ -24,7 +25,7 @@ $author_id = json_decode($result, true);
 $author_id = $author_id[0]['id'];
 
 
-$query= "Insert into attractions (name,description,phone,address) values(:name,:description,:phone,:address)";
+$query= "INSERT INTO attractions (name, description, phone, address) VALUES (:name, :description, :phone, :address)";
 $param_name=array();
 $param_name[':name'] = $name;
 $param_name[':description'] = $description;
@@ -56,6 +57,27 @@ $queryone=$db->getQuery($queryone, $param_newreviews);
 echo "Post Attraction Successfully Submitted";
 echo $queryone;
 
+$query = "INSERT INTO attractions_categories (`attraction_id`, `category`) VALUES ";
+$param_arr = array();
+$i = 0;
+$j = 100;
+foreach($tags as $tag) {
+    $tagQuery = "SELECT `id` FROM tags WHERE `tag_name` = :tagName";
+    $tagID = json_decode($db->getQuery($tagQuery, array(":tagName" => $tag)), true)[0]['id'];
+    
+    $i++;
+    $j++;
+
+    $query .= "(:$i, :$j)";
+
+    if ($i != sizeof($tags)) $query .= ', ';
+    
+    $param_arr[":$i"] = $attraction_id;
+    $param_arr[":$j"] = $tagID;
+}
+
+$db->postQuery($query, $param_arr);
+
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -86,7 +108,5 @@ if (isset($_POST['submit']) && isset($_POST['name'])) {
 }
 
 header("Location: listing.php?" . $attraction_id);
-
-
 
 ?>
