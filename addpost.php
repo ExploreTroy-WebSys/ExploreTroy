@@ -11,6 +11,9 @@
   include("assets/includes/database_object.php");
 ?>
 
+<script src="assets/scripts/addAttractionFunctions.js"></script>
+</head>
+
 <body onresize="repositionFooter()">
   <?php
     # Include all boiler-plate header information for the site
@@ -22,7 +25,7 @@
       <h2 class="post-header-text">Add Location</h2>
     </div>
     <section class="container">
-      <form action="insertone.php" method="post" enctype="multipart/form-data" >
+      <form id="addPostForm" action="insertone.php" method="post" enctype="multipart/form-data" >
         <!-- Form header -->
         <section class="form-group">
           <section class="intro">
@@ -297,7 +300,7 @@
 
   <?php
     include('assets/includes/footer.php');
-    # Include end of document boiler-plate for the site
+    // Include end of document boiler-plate for the site
     include('assets/includes/foot.php');
   ?>
 </body>

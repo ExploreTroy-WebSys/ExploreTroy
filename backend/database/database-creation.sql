@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `tags` (
     PRIMARY KEY (`id`)
 );
 
-INSERT INTO `attractions` (`tag_name`, `category`) VALUES
+INSERT INTO `tags` (`tag_name`, `category`) VALUES
     ('Chinese', 'Restaurant'),
     ('Mexican', 'Restaurant'),
     ('Italian', 'Restaurant'),
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `attractions` (
     `name` VARCHAR(100) NOT NULL,
     `description` VARCHAR(1000),
     `phone` VARCHAR(20) signed NOT NULL,
-    `avg_rating` FLOAT(2) NOT NULL,
+    `avg_rating` FLOAT(2) NOT NULL DEFAULT 0.0,
     `address` VARCHAR(100) NOT NULL,
     `attraction_picture` BLOB,
     PRIMARY KEY (`id`)
