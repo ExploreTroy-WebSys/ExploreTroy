@@ -85,9 +85,13 @@
                         foreach ($reviews as $review) {
                             // Get review id
                             $review_id = $review['id'];
+                            $author_id = $review['author_id'];
+
+                            $followClass = '';
+                            if (checkIfFollowingIDs(fetchUserID($_SESSION['rcsid']), $author_id)) $followClass = " following";
 
                             // Echo review title
-                            echo '<div id="review-' . $review_id . '" class="col-12 review">';
+                            echo '<div id="review-' . $review_id . '" class="col-12 review' . $followClass . '" name=' . $author_id . '>';
                             echo '<p class="review-header">';
                             echo $review['title'];
 
@@ -106,7 +110,6 @@
                             echo '<span class="review-date">Visited ' . $review['date'] . '</span>';
 
                             // Echo author image
-                            $author_id = $review['author_id'];
                             $author_rcsid_query = "SELECT `rcsid` from `users` WHERE `id` = $author_id";
                             $author_rcsid = $db->getQuery($author_rcsid_query);
                             $author_rcsid = json_decode($author_rcsid, true);
@@ -175,9 +178,12 @@
                                     } else {
                                         echo '<img class="user-image" src="assets/images/blankPFP.png" name=' . $author_id . ' alt="image-temp">';
                                     }
+
+                                    $followClass = '';
+                                    if (checkIfFollowingIDs(fetchUserID($_SESSION['rcsid']), $author_id)) $followClass = " following";
                                     
                                     echo '</div>';
-                                    echo '<div class="col-10 review-comment">';
+                                    echo '<div class="col-10 review-comment' . $followClass . '">';
                                     echo $comment['comment_body'];
                                     echo '</div>';
                                     echo '</div>';

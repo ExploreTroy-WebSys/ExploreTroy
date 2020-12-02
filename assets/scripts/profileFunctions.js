@@ -60,4 +60,24 @@ $(document).ready(function() {
     $("#update-interests").on("click", function(event) {
         if (foreign == "false") parseTagData('chips');
     });
+
+    $("#follow").click(function() {
+        var followString = $(this).attr("name");
+        var follower = followString.split("&")[0];
+        var followed = followString.split("&")[1];
+        followUser(follower, followed);
+
+        var buttonText = $(this).text();
+
+        switch (buttonText) {
+            case "Follow":
+                $(this).text("Unfollow");
+                break;
+            case "Unfollow":
+                $(this).text("Follow");
+                break;
+            default:
+                break;
+        }
+    });
 });

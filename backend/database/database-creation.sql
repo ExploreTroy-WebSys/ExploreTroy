@@ -86,13 +86,13 @@ CREATE TABLE IF NOT EXISTS `attractions` (
     PRIMARY KEY (`id`)
 );
 
-CREATE TABLE IF NOT EXISTS `friends` (
+CREATE TABLE IF NOT EXISTS `followers` (
     `index` INT(10) signed NOT NULL AUTO_INCREMENT,
-    `user1` INT(10) signed NOT NULL,
-    `user2` INT(10) signed NOT NULL,
+    `follower_id` INT(10) signed NOT NULL,
+    `followed_id` INT(10) signed NOT NULL,
     PRIMARY KEY (`index`),
-    FOREIGN KEY (`user2`) REFERENCES users(`id`),
-    FOREIGN KEY (`user1`) REFERENCES users(`id`)
+    FOREIGN KEY (`follower_id`) REFERENCES users(`id`),
+    FOREIGN KEY (`followed_id`) REFERENCES users(`id`)
 );
 
 INSERT INTO `attractions` (`id`, `name`, `description`, `phone`, `avg_rating`, `address`) VALUES

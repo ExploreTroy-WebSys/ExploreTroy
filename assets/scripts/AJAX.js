@@ -119,3 +119,15 @@ function favoriteAttraction(attr_id) {
         }
     });
 }
+
+
+function followUser(follower, followed) {
+    $.ajax({
+        type: "POST",
+        url: "backend/API/followUser.php",
+        data: {"follower": follower, "followed": followed},
+        // complete: function(r) {
+        //     alert(r.responseText);
+        // }
+    })
+}
