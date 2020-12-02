@@ -103,7 +103,7 @@
 
                             echo '</div>';
 
-                            echo '<span class="review-date">' . $review['date'] . '</span>';
+                            echo '<span class="review-date">Visited ' . $review['date'] . '</span>';
 
                             // Echo author image
                             $author_id = $review['author_id'];
