@@ -13,6 +13,7 @@ $description=$_POST['description'];
 $phone=$_POST['phone'];
 $address=$_POST['address'];
 $tags = array_keys($_POST['tags']);
+$tagType = $_POST['tagType'];
 
 
 $db = new Database();
@@ -57,13 +58,23 @@ $queryone=$db->getQuery($queryone, $param_newreviews);
 echo "Post Attraction Successfully Submitted";
 echo $queryone;
 
+// Logic for inserting new attractions_catergories information into the table for this new attraction
 $query = "INSERT INTO attractions_categories (`attraction_id`, `category`) VALUES ";
 $param_arr = array();
 $i = 0;
 $j = 100;
 foreach($tags as $tag) {
     $tagQuery = "SELECT `id` FROM tags WHERE `tag_name` = :tagName";
-    $tagID = json_decode($db->getQuery($tagQuery, array(":tagName" => $tag)), true)[0]['id'];
+    $tagID = json_decode($db->getQuery($tagQuery, array(":tagName" => $tag)), true);
+    // Check to see if the tag exists in the database already and if not then add it in
+    if ($tagID) {
+        $tagID = $tagID[0]['id'];
+    } else {
+        $newTagQuery = "INSERT INTO `tags` (`tag_name`, `category`) VALUES (:tagName, :category)";
+        $db->postQuery($newTagQuery, array(":tagName" => $tag, ':category' => $tagType));
+        $tagQuery = "SELECT `id` FROM tags WHERE `tag_name` = :tagName";
+        $tagID = json_decode($db->getQuery($tagQuery, array(":tagName" => $tag)), true)[0]['id'];
+    }
     
     $i++;
     $j++;

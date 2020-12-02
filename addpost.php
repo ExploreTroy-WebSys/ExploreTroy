@@ -63,7 +63,7 @@
          <section class="options">
          <section class="text">
             <p>Select category type:</p>
-            <input type="checkbox" id="restaurant" class="class" class="check" name="restaurant" value="Restaurant">
+            <input type="checkbox" id="restaurant" class="class" class="check" name="tagType" value="restaurant">
             <label for="restaurant">Restaurant</label><br>
             <div id="restaurant_items">
             <div id="detailsforchips">Select all characteristics that apply:</div>
@@ -78,6 +78,11 @@
                 }
                 ?>
                 </fieldset> 
+                <fieldset class="form-row justify-content-left">
+                  <p>Or add a new tag:</p>
+                  <input type="text" name="newTag" class="newTag">
+                  <button class="newTagButton" type='button'>Add tag</button>
+                </fieldset>
                 </div>
                 <script>
                 $('#restcolor').on("click", ".chip", function() {
@@ -86,7 +91,7 @@
                 </script>
 
        
-            <input type="checkbox" id="shop" class="check" name="shop" value="shop">
+            <input type="checkbox" id="shop" class="check" name="tagType" value="shop">
             <label for="shop">Shop</label><br>
             <div id="shop_items">
             <div id="detailsforchips">Select all characteristics that apply:</div>
@@ -98,8 +103,13 @@
                 $shoptags = json_decode($shoptags, true);
                 foreach($shoptags as $shoptag) {
                     echo '<div class="col-md-auto chip" id="testingtwo"' . $shoptag['tag_name'] . '">' . $shoptag['tag_name'] . '</div>'; 
-                }          
+                }
                 ?>
+              </fieldset>
+              <fieldset class="form-row justify-content-left">
+                <p>Or add a new tag:</p>
+                <input type="text" name="newTag" class="newTag">
+                <button class="newTagButton" type='button'>Add tag</button>
               </fieldset>
               </div>
               <script>
@@ -109,7 +119,7 @@
             </script>
               
             
-            <input type="checkbox" id="excursion" class="check" name="excursion" value="excursion">
+            <input type="checkbox" id="excursion" class="check" name="tagType" value="excursion">
             <label for="Excursion">Activity</label><br><br>
             <div id="excursion_items">
             <div id="detailsforchips">Select all characteristics that apply:</div>
@@ -124,6 +134,11 @@
                 }
             ?>
              </fieldset>
+             <fieldset class="form-row justify-content-left">
+              <p>Or add a new tag:</p>
+              <input type="text" name="newTag" class="newTag">
+              <button class="newTagButton" type='button'>Add tag</button>
+            </fieldset>
             </div>
           </section>
           </section>
