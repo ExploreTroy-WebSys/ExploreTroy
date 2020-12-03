@@ -2,6 +2,10 @@
  session_start();
  if ($_SESSION && !(array_key_exists('authenticated', $_SESSION))) $_SESSION['authenticated'] = false;
  include("assets/includes/helperFunctions.php");
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
  
 
 $title=$_POST['title'];
@@ -28,25 +32,27 @@ $author_id = json_decode($result, true);
 $author_id = $author_id[0]['id'];
 
 
-$query= "INSERT INTO attractions (name, description, phone, address, lat, lng) VALUES (:name, :description, :phone, :address, :lat,:lng)";
+$query= "INSERT INTO attractions (`name`, `description`, `phone`, `address`) VALUES (:name, :description, :phone, :address)";
 $param_name=array();
 $param_name[':name'] = $name;
 $param_name[':description'] = $description;
 $param_name[':phone'] = $phone;
 $param_name[':address'] = $address;
-$param_name[':lat'] = $lat;
-$param_name[':lng'] = $lng;
 $db->postQuery($query, $param_name);
-echo "Post Attraction Successfully Submitted";
 
 $query= "SELECT id FROM attractions WHERE name=:name";
 $param_name=array();
 $param_name[':name'] = $name;
 $query=$db->getQuery($query, $param_name);
-echo "Post Attraction Successfully Submitted";
 echo $query;
 
 $attraction_id = json_decode($query, true)[0]['id'];
+
+if ($lat && $lng) {
+    $coordQuery = "UPDATE attractions SET `lat` = :lat AND `lng` = :lng WHERE `id` = :attrID";
+    $param_arr = array(':lat' => $lat, ":lng" => $lng);
+    $db->postQuery($coordQuery, $param_arr);
+}
 
 
 $queryone= "Insert into reviews(author_id, attraction_id, title, review_body, date,rating) values(:author_id, :attraction_id, :title, :review_body, :date, :rating)";
@@ -92,11 +98,6 @@ foreach($tags as $tag) {
 }
 
 $db->postQuery($query, $param_arr);
-
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 
 if (isset($_POST['submit']) && isset($_POST['name'])) {

@@ -7,12 +7,6 @@ CREATE TABLE IF NOT EXISTS `users` (
     PRIMARY KEY (`id`)
 );
 
-INSERT INTO `users` (`rcsid`, `fname`,`lname`,`email`) VALUES
-    ('zhanh', 'haotian', 'zhan', 'haotianzhan7@gmail.com'),
-    ('linz10', 'zhanfeng', 'lin', 'linz10@rpi.edu'),
-    ('zhout5', 'tianshi','zhou','zhout5@rpi.edu'),
-    ('wand12', 'dannong','wang','wand12@rpi.edu');
-
 CREATE TABLE IF NOT EXISTS `users_optional` (
     `index` INT(10) signed NOT NULL AUTO_INCREMENT,
     `id` INT(10) signed NOT NULL,
@@ -35,42 +29,6 @@ CREATE TABLE IF NOT EXISTS `tags` (
     PRIMARY KEY (`id`)
 );
 
-INSERT INTO `tags` (`tag_name`, `category`) VALUES
-    ('Chinese', 'Restaurant'),
-    ('Mexican', 'Restaurant'),
-    ('Italian', 'Restaurant'),
-    ('Jamaican', 'Restaurant'),
-    ('Sit-Down', 'Restaurant'),
-    ('Fast Food', 'Restaurant'),
-    ('Cheap', 'Restaurant'),
-    ('Outdoor Seating', 'Restaurant'),
-    ('Casual', 'Restaurant'),
-    ('Formal', 'Restaurant'),
-    ('Vegan', 'Restaurant'),
-    ('Breakfast', 'Restaurant'),
-    ('Lunch', 'Restaurant'),
-    ('Dinner', 'Restaurant'),
-    ('Desert', 'Restaurant'),
-    ('Ice-Cream', 'Restaurant'),
-    ('Steak', 'Restaurant'),
-    ('Burger', 'Restaurant'),
-    ('Clothes', 'Shopping'),
-    ('Toys', 'Shopping'),
-    ('Books', 'Shopping'),
-    ('Electronics', 'Shopping'),
-    ('Grocery', 'Shopping'),
-    ('Drug Store', 'Shopping'),
-    ('Hiking', 'Recreation'),
-    ('Swimming', 'Recreation'),
-    ('Sports Field', 'Recreation'),
-    ('Biking', 'Recreation'),
-    ('Indoor', 'Recreation'),
-    ('Kayak', 'Recreation'),
-    ('Gym', 'Recreation'),
-    ('Rock-Climbing', 'Recreation'),
-    ('Skatepark', 'Recreation'),
-    ('Basketball', 'Recreation'),
-    ('Stadium', 'Recreation');
 
 CREATE TABLE IF NOT EXISTS `users_interests` (
     `index` INT(10) signed NOT NULL AUTO_INCREMENT,
@@ -88,13 +46,11 @@ CREATE TABLE IF NOT EXISTS `attractions` (
     `phone` VARCHAR(20) NOT NULL,
     `avg_rating` FLOAT(2) NOT NULL DEFAULT 0.0,
     `address` VARCHAR(100) NOT NULL,
-    `attraction_picture` BLOB,
+    `attractionPictureLocation` VARCHAR(255) DEFAULT NULL,
+    `lat` FLOAT,
+    `lng` FLOAT,
     PRIMARY KEY (`id`)
 );
-
-ALTER TABLE `attractions`
-ADD COLUMN lat FLOAT AFTER attraction_picture,
-ADD COLUMN lng FLOAT AFTER lat;
 
 CREATE TABLE IF NOT EXISTS `followers` (
     `index` INT(10) signed NOT NULL AUTO_INCREMENT,
@@ -104,18 +60,6 @@ CREATE TABLE IF NOT EXISTS `followers` (
     FOREIGN KEY (`follower_id`) REFERENCES users(`id`),
     FOREIGN KEY (`followed_id`) REFERENCES users(`id`)
 );
-
-INSERT INTO `attractions` (`id`, `name`, `description`, `phone`, `avg_rating`, `address`, `lat`, `lng`) VALUES
-(1, 'The Whistling Kettle', 'Contemporary cafe & tearoom serving savory crepes, panini & salads, plus afternoon tea.', '(518) 874-1938', 4.6, '254 Broadway, Troy, NY 12180',42.7209687,-73.7147398),
-(2, 'Dinosaur Bar-B-Que', 'Barbecue chain serving Southern-style meats & draft brews in a retro setting (most have live music).', '(518) 308-0400', 4.4, '377 River St, Troy, NY 12180',42.7326548,-73.6878615),
-(3, 'Druthers Brewing Company', 'Elevated comfort food and handcrafted beer.', '(518) 650-7996', 4.5, '1053 Broadway, Albany, NY 12204',42.6711755,-73.746359),
-(4, "De Fazio\'s", 'Italian eatery serving wood-fired pies & handmade treats in an easygoing outlet with outdoor tables.', '(518) 271-1111', 4.6, '266 4th St, Troy, NY 12180',42.7232157,-73.6927589),
-(5, 'Slidin Dirty', 'Lively, compact outpost featuring inventive sliders, cocktails & craft brews in a rustic-chic venue.', '(518) 326-8492', 4.1, '9 1st St, Troy, NY 12180',42.7306479,-73.6952804),
-(6, 'Troy Waterfront Farmers Market', 'Our market provides access to healthy, locally grown food for our community.', '(518) 708-4216', 4.8, 'Riverfront Park, Troy, NY 12180',42.7320688,-73.6915275),
-(7, 'Truly Rhe', 'Truly Rhe is the premier women’s boutique in Troy, NY.', '(518) 273-1540', 4.9, '1 Broadway, Troy, NY 12180',NULL,NULL),
-(8, 'Rainbow Shops', 'Apparel chain offering fashionable clothing for juniors & plus-size women, plus accessories.', '(518) 274-3801', 3.8, '120 Hoosick St, Troy, NY 12180',NULL,NULL),
-(9, 'Prospect Park', 'Prospect Park is an 80-acre city park in Troy, New York.', '(518) 235-0215', 4.3, '65 Prospect Park Rd, Troy, NY 12180',NULL,NULL);
-
 
 CREATE TABLE IF NOT EXISTS `attractions_categories` (
     `index` INT(10) signed NOT NULL AUTO_INCREMENT,
@@ -140,14 +84,6 @@ CREATE TABLE IF NOT EXISTS `reviews` (
     FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`)
 );
 
-INSERT INTO `reviews` (`id`, `author_id`, `attraction_id`, `title`, `review_body`, `date`, `rating`, `likes`) VALUES
-(1, 1, 1, 'Fantastic food and service', "I love this place! The food is great and the servers are so nice. Plus it\'s not too far from campus.", '11/01/2020', 4, 26),
-(3, 1, 1, 'My favorite place to eat!', 'I go to The Whistling Kettle with my friends almost every weekend. They have the best sandwiches and so many teas to choose from. Highly recommend!', '11/02/2020', 5, 16),
-(4, 1, 1, 'Awesome options', "There are so many different options for everyone. There's something for everyone!", '11/03/2020', 5, 13),
-(8, 1, 1, 'Great lunch spot', 'This is a great choice for a quick lunch.', '11/07/2020', 3, 1),
-(9, 1, 1, 'My favorite place', 'The Whistling Kettle is my favorite place ever!', '11/14/2020', 5, 4),
-(10, 1, 1, 'Best place ever', 'The Whistling Kettle is the greatest restaurant ever.', '11/13/2020', 4, 1);
-
 CREATE TABLE IF NOT EXISTS `comments` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
     `author_id` INT(10) signed NOT NULL,
@@ -157,6 +93,48 @@ CREATE TABLE IF NOT EXISTS `comments` (
     FOREIGN KEY (`author_id`) REFERENCES users(`id`),
     FOREIGN KEY (`parent_id`) REFERENCES reviews(`id`)
 );
+
+CREATE TABLE IF NOT EXISTS `favorites` (
+    `id` INT(10) signed NOT NULL AUTO_INCREMENT,
+    `attraction_id` INT(10) signed NOT NULL,
+    `user_id` INT(10) signed NOT NULL,
+    PRIMARY KEY(`id`),
+    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`),
+    FOREIGN KEY (`user_id`) REFERENCES users(`id`)
+);
+
+CREATE TABLE IF NOT EXISTS `user_like` (
+    `id` INT(10) signed NOT NULL AUTO_INCREMENT,
+    `like_id` INT(10) signed NOT NULL,
+    `review_id` INT(10) signed NOT NULL,
+    PRIMARY KEY(`id`)
+);
+
+
+INSERT INTO `favorites` (`id`, `attraction_id`, `user_id`) VALUES
+(57, 3, 1),
+(58, 9, 1),
+(59, 1, 1),
+(60, 4, 1);
+
+INSERT INTO `attractions` (`id`, `name`, `description`, `phone`, `avg_rating`, `address`, `lat`, `lng`) VALUES
+(1, 'The Whistling Kettle', 'Contemporary cafe & tearoom serving savory crepes, panini & salads, plus afternoon tea.', '(518) 874-1938', 4.6, '254 Broadway, Troy, NY 12180',42.7209687,-73.7147398),
+(2, 'Dinosaur Bar-B-Que', 'Barbecue chain serving Southern-style meats & draft brews in a retro setting (most have live music).', '(518) 308-0400', 4.4, '377 River St, Troy, NY 12180',42.7326548,-73.6878615),
+(3, 'Druthers Brewing Company', 'Elevated comfort food and handcrafted beer.', '(518) 650-7996', 4.5, '1053 Broadway, Albany, NY 12204',42.6711755,-73.746359),
+(4, "De Fazio\'s", 'Italian eatery serving wood-fired pies & handmade treats in an easygoing outlet with outdoor tables.', '(518) 271-1111', 4.6, '266 4th St, Troy, NY 12180',42.7232157,-73.6927589),
+(5, 'Slidin Dirty', 'Lively, compact outpost featuring inventive sliders, cocktails & craft brews in a rustic-chic venue.', '(518) 326-8492', 4.1, '9 1st St, Troy, NY 12180',42.7306479,-73.6952804),
+(6, 'Troy Waterfront Farmers Market', 'Our market provides access to healthy, locally grown food for our community.', '(518) 708-4216', 4.8, 'Riverfront Park, Troy, NY 12180',42.7320688,-73.6915275),
+(7, 'Truly Rhe', 'Truly Rhe is the premier women’s boutique in Troy, NY.', '(518) 273-1540', 4.9, '1 Broadway, Troy, NY 12180',NULL,NULL),
+(8, 'Rainbow Shops', 'Apparel chain offering fashionable clothing for juniors & plus-size women, plus accessories.', '(518) 274-3801', 3.8, '120 Hoosick St, Troy, NY 12180',NULL,NULL),
+(9, 'Prospect Park', 'Prospect Park is an 80-acre city park in Troy, New York.', '(518) 235-0215', 4.3, '65 Prospect Park Rd, Troy, NY 12180',NULL,NULL);
+
+INSERT INTO `reviews` (`id`, `author_id`, `attraction_id`, `title`, `review_body`, `date`, `rating`, `likes`) VALUES
+(1, 1, 1, 'Fantastic food and service', "I love this place! The food is great and the servers are so nice. Plus it\'s not too far from campus.", '11/01/2020', 4, 26),
+(3, 1, 1, 'My favorite place to eat!', 'I go to The Whistling Kettle with my friends almost every weekend. They have the best sandwiches and so many teas to choose from. Highly recommend!', '11/02/2020', 5, 16),
+(4, 1, 1, 'Awesome options', "There are so many different options for everyone. There's something for everyone!", '11/03/2020', 5, 13),
+(8, 1, 1, 'Great lunch spot', 'This is a great choice for a quick lunch.', '11/07/2020', 3, 1),
+(9, 1, 1, 'My favorite place', 'The Whistling Kettle is my favorite place ever!', '11/14/2020', 5, 4),
+(10, 1, 1, 'Best place ever', 'The Whistling Kettle is the greatest restaurant ever.', '11/13/2020', 4, 1);
 
 INSERT INTO `comments` (`id`, `author_id`, `comment_body`, `parent_id`) VALUES
 (1, 1, 'I also love The Whistling Kettle. So many good options!', 1),
@@ -206,28 +184,48 @@ INSERT INTO `comments` (`id`, `author_id`, `comment_body`, `parent_id`) VALUES
 (78, 1, 'I completely agree.', 10),
 (79, 1, 'Very true.', 10);
 
-CREATE TABLE IF NOT EXISTS `favorites` (
-    `id` INT(10) signed NOT NULL AUTO_INCREMENT,
-    `attraction_id` INT(10) signed NOT NULL,
-    `user_id` INT(10) signed NOT NULL,
-    PRIMARY KEY(`id`),
-    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`),
-    FOREIGN KEY (`user_id`) REFERENCES users(`id`)
-);
+INSERT INTO `tags` (`tag_name`, `category`) VALUES
+    ('Chinese', 'Restaurant'),
+    ('Mexican', 'Restaurant'),
+    ('Italian', 'Restaurant'),
+    ('Jamaican', 'Restaurant'),
+    ('Sit-Down', 'Restaurant'),
+    ('Fast Food', 'Restaurant'),
+    ('Cheap', 'Restaurant'),
+    ('Outdoor Seating', 'Restaurant'),
+    ('Casual', 'Restaurant'),
+    ('Formal', 'Restaurant'),
+    ('Vegan', 'Restaurant'),
+    ('Breakfast', 'Restaurant'),
+    ('Lunch', 'Restaurant'),
+    ('Dinner', 'Restaurant'),
+    ('Desert', 'Restaurant'),
+    ('Ice-Cream', 'Restaurant'),
+    ('Steak', 'Restaurant'),
+    ('Burger', 'Restaurant'),
+    ('Clothes', 'Shopping'),
+    ('Toys', 'Shopping'),
+    ('Books', 'Shopping'),
+    ('Electronics', 'Shopping'),
+    ('Grocery', 'Shopping'),
+    ('Drug Store', 'Shopping'),
+    ('Hiking', 'Recreation'),
+    ('Swimming', 'Recreation'),
+    ('Sports Field', 'Recreation'),
+    ('Biking', 'Recreation'),
+    ('Indoor', 'Recreation'),
+    ('Kayak', 'Recreation'),
+    ('Gym', 'Recreation'),
+    ('Rock-Climbing', 'Recreation'),
+    ('Skatepark', 'Recreation'),
+    ('Basketball', 'Recreation'),
+    ('Stadium', 'Recreation');
 
-INSERT INTO `favorites` (`id`, `attraction_id`, `user_id`) VALUES
-(57, 3, 1),
-(58, 9, 1),
-(59, 1, 1),
-(60, 4, 1);
+INSERT INTO `users` (`rcsid`, `fname`,`lname`,`email`) VALUES
+    ('zhanh', 'haotian', 'zhan', 'haotianzhan7@gmail.com'),
+    ('linz10', 'zhanfeng', 'lin', 'linz10@rpi.edu'),
+    ('zhout5', 'tianshi','zhou','zhout5@rpi.edu'),
+    ('wand12', 'dannong','wang','wand12@rpi.edu');
 
 
 -- haotian
-
-CREATE TABLE IF NOT EXISTS `user_like` (
-    `id` INT(10) signed NOT NULL AUTO_INCREMENT,
-    `like_id` INT(10) signed NOT NULL,
-    `review_id` INT(10) signed NOT NULL,
-    PRIMARY KEY(`id`)
-);
-

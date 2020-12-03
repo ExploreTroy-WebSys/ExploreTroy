@@ -13,7 +13,7 @@
 
     $queryString = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 
-    if($queryString != "" && $queryString != "newUser") {
+    if($queryString != "" && $queryString != "newUser" && is_numeric($queryString)) {
         $query = "SELECT `rcsid` FROM `users` WHERE `id` = :usrID";
         $resp = $db->getQuery($query, array(':usrID' => parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY)));
         $resp = json_decode($resp, true)[0]['rcsid'];
