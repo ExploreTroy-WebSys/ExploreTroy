@@ -12,6 +12,8 @@ $name=$_POST['name'];
 $description=$_POST['description'];
 $phone=$_POST['phone'];
 $address=$_POST['address'];
+$lat = $_POST['lat'];
+$lng = $_POST['lng'];
 $tags = array_keys($_POST['tags']);
 $tagType = $_POST['tagType'];
 
@@ -26,12 +28,14 @@ $author_id = json_decode($result, true);
 $author_id = $author_id[0]['id'];
 
 
-$query= "INSERT INTO attractions (name, description, phone, address) VALUES (:name, :description, :phone, :address)";
+$query= "INSERT INTO attractions (name, description, phone, address, lat, lng) VALUES (:name, :description, :phone, :address, :lat,:lng)";
 $param_name=array();
 $param_name[':name'] = $name;
 $param_name[':description'] = $description;
 $param_name[':phone'] = $phone;
 $param_name[':address'] = $address;
+$param_name[':lat'] = $lat;
+$param_name[':lng'] = $lng;
 $db->postQuery($query, $param_name);
 echo "Post Attraction Successfully Submitted";
 

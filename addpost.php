@@ -302,6 +302,19 @@
               <input type="hidden" name="id" value="<?php echo $idquery; ?>">
           </fieldset>
           </section>
+
+          <section class="text post-section">
+          <label for="exampleFormControlInput15">Lat(optional)</label>
+          
+          <input type="number" step="0.0000001" class="form-control" id="exampleFormControlInput15" name="lat" placeholder="latitude" >
+          </section>
+
+          <section class="text post-section">
+          <label for="exampleFormControlInput16">Lng(optional)</label>
+          
+          <input type="number" step="0.0000001" class="form-control" id="exampleFormControlInput16" name="lng" placeholder="longitude" >
+          </section>
+
           </section>
         <section class="text">
           <button type="submit" name="submit" class="btn btn-primary btn-dark">Submit your post!</button>

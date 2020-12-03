@@ -64,11 +64,15 @@ function getFromData(inData, callback) {
 
 // Function to add likes for a particular review
 function likePost(review_id) {
-    $.ajax({
-        type: "POST",
-        url: "like.php?" + review_id,
-        success: function() {$("#num-likes-" + review_id).html(parseInt($("#num-likes-" + review_id).html(), 10) + 1)}
-    });
+    //to get the likes from php echo
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("num-likes-" + review_id).innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET","like.php?" + review_id,true);
+    xmlhttp.send();
 }
 
 // Function to post a comment under a review
