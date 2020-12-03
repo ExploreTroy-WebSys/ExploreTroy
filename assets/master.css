@@ -634,3 +634,19 @@ footer {
     color: whitesmoke;
     text-decoration: none;
 }
+
+.float_window{
+    padding:20px;
+    width: 200px;
+    left: 5%;
+    top:150px;
+    border-radius: 16px;
+    background-color: white;
+    position: fixed;
+}
+.location_title{
+    font-size: 20px;
+}
+.location_description{
+    color: grey;
+}
