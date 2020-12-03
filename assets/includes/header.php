@@ -18,6 +18,10 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link" href="map.php">MAP</a>
+        </li>
+
+        <li class="nav-item">
             <?php
                 if($_SESSION && $_SESSION['authenticated']) echo('<a href="backend/authentication/logout.php" target="_blank" class="nav-link" tabindex="-1" aria-disabled="true">LOG OUT ' . strtoupper($_SESSION['rcsid']) . '</a>');
                 else echo('<a href="backend/authentication/login.php" class="nav-link" tabindex="-1" aria-disabled="true">LOG IN</a>');
