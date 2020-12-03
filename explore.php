@@ -113,6 +113,7 @@
                            $ratingquery = 'SELECT AVG(rating) FROM reviews WHERE attraction_id ='. $item['id'];
                            $ratingquery = $db->getQuery($ratingquery);
                            $ratingquery = json_decode($ratingquery, true)[0]['AVG(rating)'];
+                           $ratingquery = round($ratingquery, 2);
 
                            $updateavgquery = "UPDATE attractions SET avg_rating = '". $ratingquery ."' WHERE id =". $item['id'];
                            $db->postQuery($updateavgquery);
