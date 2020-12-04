@@ -63,7 +63,7 @@
          <section class="options">
          <section class="text">
             <p>Select category type:</p>
-            <input type="checkbox" id="restaurant" class="class" class="check" name="tagType" value="restaurant">
+            <input type="checkbox" id="restaurant" class="class" class="check" name="tagType" value="Restaurant">
             <label for="restaurant">Restaurant</label><br>
             <div id="restaurant_items">
             <div id="detailsforchips">Select all characteristics that apply:</div>
@@ -91,7 +91,7 @@
                 </script>
 
        
-            <input type="checkbox" id="shop" class="check" name="tagType" value="shop">
+            <input type="checkbox" id="shop" class="check" name="tagType" value="Shopping">
             <label for="shop">Shop</label><br>
             <div id="shop_items">
             <div id="detailsforchips">Select all characteristics that apply:</div>
@@ -119,7 +119,7 @@
             </script>
               
             
-            <input type="checkbox" id="excursion" class="check" name="tagType" value="excursion">
+            <input type="checkbox" id="excursion" class="check" name="tagType" value="Recreation">
             <label for="Excursion">Activity</label><br><br>
             <div id="excursion_items">
             <div id="detailsforchips">Select all characteristics that apply:</div>
