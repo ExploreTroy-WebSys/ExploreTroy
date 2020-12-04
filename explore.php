@@ -59,7 +59,7 @@
                 if($disprest){
                     echo '<select class="selectpicker amenu restaurantpicker" title="Restaurant" data-live-search="true" multiple>';
                     
-                    $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Restaurant'";
+                    $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Restaurant' ORDER BY `tag_name`";
                     $dropdownquery = $db->getQuery($dropdownquery);
                     $dropdownquery = json_decode($dropdownquery, true);
 
@@ -73,7 +73,7 @@
                 if($dispshop){
                     echo '<select class="selectpicker amenu shoppingpicker" title="Shopping" data-live-search="true" multiple>';
 
-                    $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Shopping'";
+                    $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Shopping' ORDER BY `tag_name`";
                     $dropdownquery = $db->getQuery($dropdownquery);
                     $dropdownquery = json_decode($dropdownquery, true);
 
@@ -87,7 +87,7 @@
                 if($disprec){
                 echo '<select class="selectpicker amenu recreationpicker" title="Recreation" data-live-search="true" multiple>';
 
-                $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Recreation'";
+                $dropdownquery = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Recreation' ORDER BY `tag_name`";
                 $dropdownquery = $db->getQuery($dropdownquery);
                 $dropdownquery = json_decode($dropdownquery, true);
 

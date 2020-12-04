@@ -174,9 +174,9 @@
                                     $author_rcsid = $author_rcsid[0]['rcsid'];
                                     $pfp_uri_comment = fetchProfileImageURI($author_rcsid);
                                     if ($pfp_uri_comment != NULL) {
-                                        echo '<img class="user-image" src="backend/uploads/' . $pfp_uri_comment . '" name=' . $author_id . 'alt="image-temp">';
+                                        echo '<img class="user-image" src="backend/uploads/' . $pfp_uri_comment . '" name="' . $author_id . '" alt="image-temp">';
                                     } else {
-                                        echo '<img class="user-image" src="assets/images/blankPFP.png" name=' . $author_id . ' alt="image-temp">';
+                                        echo '<img class="user-image" src="assets/images/blankPFP.png" name="' . $author_id . '" alt="image-temp">';
                                     }
 
                                     $followClass = '';

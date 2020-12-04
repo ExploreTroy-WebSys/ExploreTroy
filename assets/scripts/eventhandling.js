@@ -78,6 +78,9 @@ function filterlistings(selectedtags){
       else{
         $(this).show();
       }
+
+      // Reposition footer as needed based on element removal/addition
+      resizeEvents();
     });
 };
 
