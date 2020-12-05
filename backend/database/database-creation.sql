@@ -240,5 +240,21 @@ INSERT INTO `favorites` (`attraction_id`, `user_id`) VALUES
 (1, 1),
 (4, 1);
 
+INSERT INTO `attractions_categories` (`attraction_id`, `category`) VALUES
+(1, 12),
+(1, 9),
+(2, 9),
+(2, 14),
+(3, 9),
+(3, 13),
+(4, 3),
+(4, 5),
+(5, 5),
+(6, 9),
+(6, 16),
+(7, 19),
+(8, 19),
+(9, 25);
+
 
 -- haotian
