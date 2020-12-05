@@ -76,6 +76,45 @@
 
         </div>
         <div class="container">
+
+            <div id="#attraction-info" class="attraction-info">
+                <?php
+
+                    $attr_query = "SELECT * FROM `attractions` WHERE `id` = '" . $id . "'";
+                    $attr_info = $db->getQuery($attr_query);
+                    $attr_info = json_decode($attr_info, true);
+                    $attr_info = $attr_info[0];
+
+                    $photolocation = fetchAttractionImageURI($attr_info['id']);
+                    echo '<img class="listing-image" src="backend/uploads/' . $photolocation . '"/>';
+
+                    echo '<p class="listing-info">' . $attr_info['address'] . '</p>';
+
+                    echo '<p class="listing-info">' . $attr_info['phone'] . '</p>';
+
+                    echo '<div class="rating">';
+                    echo '<div class="rating-upper" style="width: 0%">';
+                        echo '<span>★</span>';
+                        echo '<span>★</span>';
+                        echo '<span>★</span>';
+                        echo '<span>★</span>';
+                        echo '<span>★</span>';
+                    echo '</div>';
+                    echo '<div class="rating-lower">';
+                        echo '<span>★</span>';
+                        echo '<span>★</span>';
+                        echo '<span>★</span>';
+                        echo '<span>★</span>';
+                        echo '<span>★</span>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '<span class="avg-rating hiddentile">' . $attr_info['avg_rating'] . '</span>';
+
+                    echo '<div>' . $attr_info['description'] . '</div>';
+
+                ?>
+            </div>
+
             <div class="row reviews">
 
                 <?php

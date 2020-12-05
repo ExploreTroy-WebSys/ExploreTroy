@@ -466,6 +466,28 @@ main {
 
 /* Listing page */
 
+.attraction-info {
+    background-color: #457b9d;
+    padding: 30px;
+    width: 60%;
+    margin: auto;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}
+
+.listing-image {
+    height: 200px;
+    border-radius: 8px;
+    border: 2px solid #838383;
+    margin-bottom: 10px;
+}
+
+.listing-info {
+    margin: 0;
+}
+
 .not-favorited {
     margin-left: 20px;
     cursor: pointer;
