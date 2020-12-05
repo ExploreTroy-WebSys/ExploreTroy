@@ -84,6 +84,14 @@ function checkIfFollowing($followerRCSID, $followedRCSID) {
     return false;
 }
 
+function checkIfFollowingIDs($followerID, $followedID) {
+    $db = new Database();
+    $query = "SELECT `index` FROM `followers` WHERE `follower_id` = :followerID AND `followed_id` = :followedID";
+    $param_arr = array(":followerID" => $followerID, ":followedID" => $followedID);
+    if ($db->getQuery($query, $param_arr)) return true;
+    return false;
+}
+
 // Boolean function which return whether or not a given attractionID already has a given tagID
 function checkTagLocationExists($attractionID, $tagID) {
     $db = new Database();
