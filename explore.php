@@ -39,19 +39,6 @@
 
     # Include all boiler-plate head information for the site
     include("assets/includes/head.php");
-
-    $isadmin = false;
-    $rcsid = $_SESSION['rcsid'];
-
-    $admincheckquery = "SELECT COUNT(rcsid) FROM adminlist WHERE rcsid = '" . $rcsid . "'";
-    $admincheckquery = $db->getQuery($admincheckquery);
-    $admincheckquery = json_decode($admincheckquery, true)[0]['COUNT(rcsid)'];
-    
-    if($admincheckquery == 1){
-        $isadmin = true;
-    }
-
-
 ?>
 
 <body>
@@ -157,10 +144,6 @@
                                 echo '</div>';
                                 echo '</div>';
                                 echo '<span class="avg-rating hiddentile">' . $item['avg_rating'] . '</span>';
-
-                                if($isadmin){
-                                    echo '<div><i class="fas fa-trash"></i></div>';
-                                }
                             
                             echo '<div class="description">' . $item['description'] . '</div>';
                             

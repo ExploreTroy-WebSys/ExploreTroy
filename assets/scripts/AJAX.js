@@ -125,15 +125,6 @@ function favoriteAttraction(attr_id) {
 }
 
 
-function deleteAttraction(attr_id) {
-    $.ajax({
-        type: "POST",
-        url: "backend/API/deleteAttraction.php",
-        async: false,
-        data: {"attrid": attr_id},
-    });
-}
-
 function followUser(follower, followed) {
     $.ajax({
         type: "POST",
