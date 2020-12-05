@@ -305,7 +305,7 @@
           <section class="form-group1">
           <section class="text post-section">
             <label for="exampleFormControlTextarea1">Website link for location </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" name="link" rows="1" placeholder="Enter website link for location" required></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="link" rows="1" placeholder="Enter website link for location"></textarea>
             </section>
           </section>
 
