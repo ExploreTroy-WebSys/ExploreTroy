@@ -16,6 +16,7 @@ $name=$_POST['name'];
 $description=$_POST['description'];
 $phone=$_POST['phone'];
 $address=$_POST['address'];
+$link=$_POST['link'];
 $lat = $_POST['lat'];
 $lng = $_POST['lng'];
 $tags = array_keys($_POST['tags']);
@@ -47,12 +48,13 @@ $doubleCheckQuery = $db->getQuery($doubleCheckQuery, $param_arr);
 if ($doubleCheckQuery) {
     echo "Location already exists";
 } else {
-    $query= "INSERT INTO attractions (`name`, `description`, `phone`, `address`) VALUES (:name, :description, :phone, :address)";
+    $query= "INSERT INTO attractions (`name`, `description`, `phone`, `address`,`link`) VALUES (:name, :description, :phone, :address, :link)";
     $param_name=array();
     $param_name[':name'] = $name;
     $param_name[':description'] = $description;
     $param_name[':phone'] = $phone;
     $param_name[':address'] = $address;
+    $param_name[':link'] = $address;
     $db->postQuery($query, $param_name);
 }
 
