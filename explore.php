@@ -12,7 +12,7 @@
 
 
     if ($category != NULL) {
-        $query = "SELECT DISTINCT `attractions`.`id`, `attractions`.`name`, `attractions`.`description`, `attractions`.`phone`, `attractions`.`avg_rating`, `attractions`.`address` FROM `attractions` INNER JOIN `attractions_categories` ON `attractions`.`id` = `attractions_categories`.`attraction_id` INNER JOIN `tags` ON `attractions_categories`.`category` = `tags`.`id` WHERE `tags`.`category` = '" . $category . "'";
+        $query = "SELECT DISTINCT `attractions`.`id`, `attractions`.`name`, `attractions`.`description`, `attractions`.`phone`, `attractions`.`avg_rating`, `attractions`.`address`,`attractions`.`link` FROM `attractions` INNER JOIN `attractions_categories` ON `attractions`.`id` = `attractions_categories`.`attraction_id` INNER JOIN `tags` ON `attractions_categories`.`category` = `tags`.`id` WHERE `tags`.`category` = '" . $category . "'";
         if(isset($_GET['restaurant'])){
             $disprest = true;
         }
@@ -128,6 +128,7 @@
                             echo '<p class="locationName">' . $item['name'] . '</p>';
                             echo '<p class="address">' . $item['address'] . '</p>';
                             echo '<p class="phone">' . $item['phone'] . '</p>';
+                            echo "<p><a href='".$item['link']."' target='_blank'>Link</a>"."</p>";
                                 echo '<div class="rating">';
                                 echo '<div class="rating-upper" style="width: 0%">';
                                     echo '<span>★</span>';
