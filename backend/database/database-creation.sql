@@ -124,16 +124,16 @@ CREATE TABLE IF NOT EXISTS `user_like` (
     PRIMARY KEY(`id`)
 );
 
-INSERT INTO `attractions` (`id`, `name`, `description`, `phone`, `avg_rating`, `address`, `lat`, `lng`) VALUES
-(1, 'The Whistling Kettle', 'Contemporary cafe & tearoom serving savory crepes, panini & salads, plus afternoon tea.', '(518) 874-1938', 4.6, '254 Broadway, Troy, NY 12180',42.7209687,-73.7147398),
-(2, 'Dinosaur Bar-B-Que', 'Barbecue chain serving Southern-style meats & draft brews in a retro setting (most have live music).', '(518) 308-0400', 4.4, '377 River St, Troy, NY 12180',42.7326548,-73.6878615),
-(3, 'Druthers Brewing Company', 'Elevated comfort food and handcrafted beer.', '(518) 650-7996', 4.5, '1053 Broadway, Albany, NY 12204',42.6711755,-73.746359),
-(4, "De Fazio\'s", 'Italian eatery serving wood-fired pies & handmade treats in an easygoing outlet with outdoor tables.', '(518) 271-1111', 4.6, '266 4th St, Troy, NY 12180',42.7232157,-73.6927589),
-(5, 'Slidin Dirty', 'Lively, compact outpost featuring inventive sliders, cocktails & craft brews in a rustic-chic venue.', '(518) 326-8492', 4.1, '9 1st St, Troy, NY 12180',42.7306479,-73.6952804),
-(6, 'Troy Waterfront Farmers Market', 'Our market provides access to healthy, locally grown food for our community.', '(518) 708-4216', 4.8, 'Riverfront Park, Troy, NY 12180',42.7320688,-73.6915275),
-(7, 'Truly Rhe', 'Truly Rhe is the premier women’s boutique in Troy, NY.', '(518) 273-1540', 4.9, '1 Broadway, Troy, NY 12180',NULL,NULL),
-(8, 'Rainbow Shops', 'Apparel chain offering fashionable clothing for juniors & plus-size women, plus accessories.', '(518) 274-3801', 3.8, '120 Hoosick St, Troy, NY 12180',NULL,NULL),
-(9, 'Prospect Park', 'Prospect Park is an 80-acre city park in Troy, New York.', '(518) 235-0215', 4.3, '65 Prospect Park Rd, Troy, NY 12180',NULL,NULL);
+INSERT INTO `attractions` (`id`, `name`, `description`, `phone`, `avg_rating`, `address`, `lat`, `lng`, `attractionPictureLocation`) VALUES
+(1, 'The Whistling Kettle', 'Contemporary cafe & tearoom serving savory crepes, panini & salads, plus afternoon tea.', '(518) 874-1938', 4.6, '254 Broadway, Troy, NY 12180',42.7209687,-73.7147398, 'The Whistling Kettle.jpg'),
+(2, 'Dinosaur Bar-B-Que', 'Barbecue chain serving Southern-style meats & draft brews in a retro setting (most have live music).', '(518) 308-0400', 4.4, '377 River St, Troy, NY 12180',42.7326548,-73.6878615, 'Dinosaur Bar-B-Que.jpg'),
+(3, 'Druthers Brewing Company', 'Elevated comfort food and handcrafted beer.', '(518) 650-7996', 4.5, '1053 Broadway, Albany, NY 12204',42.6711755,-73.746359, 'Druthers Brewing Company.jpg'),
+(4, "De Fazio\'s", 'Italian eatery serving wood-fired pies & handmade treats in an easygoing outlet with outdoor tables.', '(518) 271-1111', 4.6, '266 4th St, Troy, NY 12180',42.7232157,-73.6927589, "De Fazio\'s.jpg"),
+(5, 'Slidin Dirty', 'Lively, compact outpost featuring inventive sliders, cocktails & craft brews in a rustic-chic venue.', '(518) 326-8492', 4.1, '9 1st St, Troy, NY 12180',42.7306479,-73.6952804, 'Slidin Dirty.jpg'),
+(6, 'Troy Waterfront Farmers Market', 'Our market provides access to healthy, locally grown food for our community.', '(518) 708-4216', 4.8, 'Riverfront Park, Troy, NY 12180',42.7320688,-73.6915275, 'Troy Waterfront Farmers Market.jpg'),
+(7, 'Truly Rhe', 'Truly Rhe is the premier women’s boutique in Troy, NY.', '(518) 273-1540', 4.9, '1 Broadway, Troy, NY 12180',NULL,NULL, 'Truly Rhe.jpg'),
+(8, 'Rainbow Shops', 'Apparel chain offering fashionable clothing for juniors & plus-size women, plus accessories.', '(518) 274-3801', 3.8, '120 Hoosick St, Troy, NY 12180',NULL,NULL, 'Rainbow Shops.jpg'),
+(9, 'Prospect Park', 'Prospect Park is an 80-acre city park in Troy, New York.', '(518) 235-0215', 4.3, '65 Prospect Park Rd, Troy, NY 12180',NULL,NULL, 'Prospect Park.jpg');
 
 INSERT INTO `users` (`rcsid`, `fname`,`lname`,`email`) VALUES
     ('zhanh', 'haotian', 'zhan', 'haotianzhan7@gmail.com'),
