@@ -113,6 +113,15 @@ $(document).ready(function(){
   });
 });
 
+$(document).ready(function(){
+  var attractionInfo = document.getElementById("#attraction-info");
+  rating = attractionInfo.getElementsByClassName('avg-rating');
+  rating = (rating[0].innerText/5)*100;
+  stars = attractionInfo.getElementsByClassName('rating-upper');
+  stars = stars[0];
+  stars.style.width = rating + '%';
+});
+
 function showComments(review_id) {
   if ($("#review-comments-" + review_id).css("display") == "block") {
     $("#review-comments-" + review_id).css("display", "none");
