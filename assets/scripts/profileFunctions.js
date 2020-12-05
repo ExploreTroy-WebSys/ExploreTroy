@@ -1,19 +1,18 @@
-// 
-
+// Function which handles posting the selected tags for the user interests to the database
 function parseTagData(containerID) {
+    // API JSON formatting
     tagData = {
         tableName: "users_interests",
         rcsid: $("#rcsid").text(),
         postData: []
     };
-    $("#" + containerID)
-        .children()
-        .each(function() {
+    // Select the container of the chips add add them to the API JSON
+    $("#" + containerID).children().each(function() {
             tmpObj = {
                 tagName: $(this).text(),
                 status: $(this).hasClass("chip-active")
             };
-            tagData.postData.push(tmpObj);
+            tagData.postData.push(tmpObj);``
         });
 
     postToDatabase(JSON.stringify(tagData));
@@ -27,11 +26,14 @@ $(document).ready(function() {
     foreign.hide();
     foreign = foreign.text();
 
+    // Check to see if viewing a foriegn profile page, if so disable all form input
     if (foreign == "true") {
         $("input").each(function() {
             $(this).prop("disabled", true);
         });
     }
+
+    // Loading in user information from the database
 
     // Data from users
     getFromData({ tableName: "users", rcsid: rcsid }, function(data) {
@@ -57,6 +59,7 @@ $(document).ready(function() {
         }
     });
 
+    // Data from users_interests
     getFromData({ tableName: "users_interests", rcsid: rcsid }, function(data) {
         var retData = JSON.parse(data);
         for (let i = 0; i < retData.length; i++) {
@@ -67,6 +70,8 @@ $(document).ready(function() {
             }
         }
     });
+
+    // Click listeners for various elements
 
     $("#chips").on("click", ".chip", function(event) {
         if (foreign == "false") $(this).toggleClass("chip-active");

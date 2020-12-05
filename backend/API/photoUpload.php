@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 include("../../assets/includes/helperFunctions.php");
 
-
+// Checks to make sure that it received a file in the upload
 if (isset($_POST['submit']) && isset($_POST['rcsid']) && isset($_POST['imageType'])) {
     $imageName = time() . $_POST['rcsid'] . $_POST['imageType'];
 
@@ -25,6 +25,7 @@ if (isset($_POST['submit']) && isset($_POST['rcsid']) && isset($_POST['imageType
 
     $db = new Database();
 
+    // Check to see if uploaded image is a profile picture
     if ($_POST['imageType'] == "profile") {
         $headerLocation = "../../profile.php";
         $usrID = checkUserOptionalExists($_POST['rcsid']);

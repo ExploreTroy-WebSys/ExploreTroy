@@ -1,5 +1,11 @@
 <?php 
 
+
+/////////////////////////////////////
+/// THIS IS A TEST PAGE NOT REAL  ///
+/////////////////////////////////////
+
+
 // session_start();
 
 include('assets/includes/helperFunctions.php');

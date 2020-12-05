@@ -13,6 +13,7 @@
 
     $queryString = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 
+    // Check to see if we're viewing a user other than ourself
     if($queryString != "" && $queryString != "newUser" && is_numeric($queryString)) {
         $query = "SELECT `rcsid` FROM `users` WHERE `id` = :usrID";
         $resp = $db->getQuery($query, array(':usrID' => parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY)));
@@ -41,6 +42,7 @@
     <main>
         <div class="profile-header">
             <?php 
+            // Header information displayed on the profile page including follow button
             if (array_key_exists('rcsid', $_SESSION)) {
                 $echoStr = "Welcome " . $_SESSION['rcsid'] . "!";
                 $addButton = '';
@@ -61,6 +63,7 @@
                 <section class="col-md">
                     <figure class="col-md">
                         <?php 
+                            // Profile picture loading
                             $pfp_uri = fetchProfileImageURI($rcsid); 
                             if ($pfp_uri != NULL) {
                                 echo '<img src="' . "backend/uploads/" . $pfp_uri . '" alt="profile-photo" id="profile-photo">';
@@ -191,6 +194,7 @@
             </aside>
             <fieldset class="form-row justify-content-center chips" id="chips">
                 <?php                
+                    // Display all tags storeed in the db
                     $query = "SELECT `tag_name` FROM `tags` ORDER BY `tag_name`";
                     $resp = $db->getQuery($query);
                     $resp = json_decode($resp, true);
@@ -207,6 +211,7 @@
         </form>
         </div>
         <?php 
+        // Load some hidden attributes for JS 
         $foreigns = 'false';
         if ($_SESSION['rcsid'] != $rcsid) $foreigns = "true";
         echo '<p id="rcsid">' . $rcsid . '</p>';

@@ -2,9 +2,11 @@
 
 include('../../assets/includes/helperFunctions.php');
 
+// Ensure that request has proper data
 if (isset($_GET['tableName']) && isset($_GET['rcsid'])) {
     $db = new Database();
     
+    // Select various information and return it depending on the tableName
     if ($_GET['tableName'] == "users") {
         $query = "SELECT * FROM `users` WHERE `rcsid` = :rcsid";
         $param_arr = array(':rcsid' => $_GET['rcsid']);
