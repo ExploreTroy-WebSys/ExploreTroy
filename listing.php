@@ -114,8 +114,11 @@
                     echo '<span class="avg-rating hiddentile">' . $attr_info['avg_rating'] . '</span>';
 
                     echo '<div>' . $attr_info['description'] . '</div>';
-                    echo "<p><a href='".$attr_info['link']."' target='_blank'>Link</a>"."</p>";
-
+                    if (empty($attr_info['link'])) {
+                        echo "";
+                    } else {
+                        echo "<p><a href='".$attr_info['link']."' target='_blank'>Link</a>"."</p>";
+                    }
                 ?>
             </div>
 
