@@ -2,7 +2,7 @@
 
 // session_start();
 
-// include('assets/includes/database_object.php');
+include('assets/includes/helperFunctions.php');
 
 // $db = new Database();
 
@@ -13,8 +13,8 @@
 
 // $query = $db->getQuery($query, $param_array);
 
-
-var_dump($_POST);
+if (checkTagLocationExists(27, 15)) echo "Tag here";
+else echo "Tag not here";
 
 ?>
 

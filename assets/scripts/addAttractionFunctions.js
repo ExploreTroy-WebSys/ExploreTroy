@@ -20,8 +20,20 @@ $(document).ready(function() {
         var chipContainer;
         $(this).parent().parent().children().each(function() {
             if ($(this).hasClass("chips")) chipContainer = $(this);
+        });
+        var dontAppend = false
+        chipContainer.children().each(function() {
+            var tagNameLower = tagName.toLowerCase();
+            var childName = $(this).text().toLowerCase();
+            if (tagNameLower == childName) {
+                $(this).toggleClass("colorchange");
+                dontAppend = true;
+            }
         })
-        chipContainer.append('<div class="col-md-auto chip colorchange" name="' + tagName + '">' + tagName + '</div>');
+
+        console.log(dontAppend);
+        
+        if (!dontAppend) chipContainer.append('<div class="col-md-auto chip colorchange" name="' + tagName + '">' + tagName + '</div>');
         $("#newTag").val() = '';
     });
 });

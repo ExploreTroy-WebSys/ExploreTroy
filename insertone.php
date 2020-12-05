@@ -21,6 +21,16 @@ $lng = $_POST['lng'];
 $tags = array_keys($_POST['tags']);
 $tagType = $_POST['tagType'];
 
+// Convert location name to title case
+$result = '';    
+$arr = array();
+$pattern = '/([;:,-.\/ X])/';
+$array = preg_split($pattern, $str, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+
+foreach($array as $k => $v)
+    $result .= ucwords(strtolower($v));
+
+$name = $result;
 
 $db = new Database();
 
@@ -31,14 +41,20 @@ $result = $db->getQuery($query);
 $author_id = json_decode($result, true);
 $author_id = $author_id[0]['id'];
 
-
-$query= "INSERT INTO attractions (`name`, `description`, `phone`, `address`) VALUES (:name, :description, :phone, :address)";
-$param_name=array();
-$param_name[':name'] = $name;
-$param_name[':description'] = $description;
-$param_name[':phone'] = $phone;
-$param_name[':address'] = $address;
-$db->postQuery($query, $param_name);
+$doubleCheckQuery = "SELECT * FROM attractions WHERE `name` = :name";
+$param_arr = array(':name' => $name);
+$doubleCheckQuery = $db->getQuery($doubleCheckQuery, $param_arr);
+if ($doubleCheckQuery) {
+    echo "Location already exists";
+} else {
+    $query= "INSERT INTO attractions (`name`, `description`, `phone`, `address`) VALUES (:name, :description, :phone, :address)";
+    $param_name=array();
+    $param_name[':name'] = $name;
+    $param_name[':description'] = $description;
+    $param_name[':phone'] = $phone;
+    $param_name[':address'] = $address;
+    $db->postQuery($query, $param_name);
+}
 
 $query= "SELECT id FROM attractions WHERE name=:name";
 $param_name=array();
@@ -54,10 +70,8 @@ if ($lat && $lng) {
     $db->postQuery($coordQuery, $param_arr);
 }
 
-
-$queryone= "Insert into reviews(author_id, attraction_id, title, review_body, date,rating) values(:author_id, :attraction_id, :title, :review_body, :date, :rating)";
+$queryone= "INSERT INTO reviews (author_id, attraction_id, title, review_body, date,rating) values (:author_id, :attraction_id, :title, :review_body, :date, :rating)";
 $param_newreviews=array();
-$param_newreviews[':author_id'] = $author_id;
 $param_newreviews[':author_id'] = $author_id;
 $param_newreviews[':attraction_id'] = $attraction_id;
 $param_newreviews[':title'] = $title;
@@ -84,7 +98,10 @@ foreach($tags as $tag) {
         $db->postQuery($newTagQuery, array(":tagName" => $tag, ':category' => $tagType));
         $tagQuery = "SELECT `id` FROM tags WHERE `tag_name` = :tagName";
         $tagID = json_decode($db->getQuery($tagQuery, array(":tagName" => $tag)), true)[0]['id'];
+        echo "Brand new tag";
     }
+
+    if (checkTagLocationExists($attractionID, $tagID)) continue;
     
     $i++;
     $j++;
@@ -117,12 +134,13 @@ if (isset($_POST['submit']) && isset($_POST['name'])) {
 
     $db = new Database();
 
-    $query = "UPDATE `attractions` SET `attractionPictureLocation` = :filePath WHERE `name` = :name";
-    $param_arr = array(":filePath" => $imageName . $fileExt, ":name" => $_POST['name']);
-    $db->postQuery($query, $param_arr);
-
+    if ($file['name'] != '') {
+        $query = "UPDATE `attractions` SET `attractionPictureLocation` = :filePath WHERE `name` = :name";
+        $param_arr = array(":filePath" => $imageName . $fileExt, ":name" => $_POST['name']);
+        $db->postQuery($query, $param_arr);
+    }
 }
 
-header("Location: listing.php?" . $attraction_id);
+// header("Location: listing.php?" . $attraction_id);
 
 ?>

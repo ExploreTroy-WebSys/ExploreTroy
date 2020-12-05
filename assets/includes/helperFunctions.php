@@ -85,7 +85,16 @@ function fetchProfileImageURI($rcsid) {
     $param_arr = array(":followerID" => $followerID, ":followedID" => $followedID);
     if ($db->getQuery($query, $param_arr)) return true;
     return false;
-}
+  }
+
+  function checkTagLocationExists($attractionID, $tagID) {
+      $db = new Database();
+      $query = "SELECT `index` FROM `attractions_categories` WHERE `attraction_id` = :attrID AND `category` = :tagID";
+      $param_arr = array(':attrID' => $attractionID, ':tagID' => $tagID);
+      $query = $db->getQuery($query, $param_arr);
+      if ($query) return true;
+      return false;
+  }
 
 
 ?>
