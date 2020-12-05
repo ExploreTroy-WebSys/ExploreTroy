@@ -25,7 +25,7 @@ $tagType = $_POST['tagType'];
 $result = '';    
 $arr = array();
 $pattern = '/([;:,-.\/ X])/';
-$array = preg_split($pattern, $str, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+$array = preg_split($pattern, $name, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 
 foreach($array as $k => $v)
     $result .= ucwords(strtolower($v));
@@ -101,7 +101,7 @@ foreach($tags as $tag) {
         echo "Brand new tag";
     }
 
-    if (checkTagLocationExists($attractionID, $tagID)) continue;
+    if (checkTagLocationExists($attraction_id, $tagID)) continue;
     
     $i++;
     $j++;
