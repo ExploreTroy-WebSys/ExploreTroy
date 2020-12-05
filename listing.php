@@ -40,6 +40,9 @@
                 // Get result of query
                 $query = $db->getQuery($query, $param_array);
                 $query = json_decode($query, true);
+                if($query == NULL){
+                    header("Location: explore.php");
+                }
                 $attr_name = $query[0]['name'];
 
                 // Make prepared statement to get reviews for attraction

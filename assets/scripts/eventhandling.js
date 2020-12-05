@@ -132,6 +132,20 @@ $(document).ready(function() {
     stars.style.width = rating + "%";
 });
 
+$(document).ready(function(){
+  $(".fa-trash").on("click",function(){
+    
+    var parent = this.parentElement.parentElement;
+    id = parent.getElementsByClassName("hidden-attrid");
+    id = id[0].innerText;
+
+    deleteAttraction(id);
+    $(this).parent().parent().remove();
+  });
+
+    
+});
+
 function showComments(review_id) {
     if ($("#review-comments-" + review_id).css("display") == "block") {
         $("#review-comments-" + review_id).css("display", "none");
