@@ -34,13 +34,14 @@ $name = $result;
 
 $db = new Database();
 
-
+// Fetch user ID of the signed in user
 $rcsid = $_SESSION['rcsid'];
 $query = "SELECT id FROM users WHERE rcsid = '" . $rcsid . "'";
 $result = $db->getQuery($query);
 $author_id = json_decode($result, true);
 $author_id = $author_id[0]['id'];
 
+// Check to see if there is an attraction with this name already in the DB
 $doubleCheckQuery = "SELECT * FROM attractions WHERE `name` = :name";
 $param_arr = array(':name' => $name);
 $doubleCheckQuery = $db->getQuery($doubleCheckQuery, $param_arr);
@@ -56,6 +57,7 @@ if ($doubleCheckQuery) {
     $db->postQuery($query, $param_name);
 }
 
+// Get ID of working attraction
 $query= "SELECT id FROM attractions WHERE name=:name";
 $param_name=array();
 $param_name[':name'] = $name;
@@ -64,12 +66,14 @@ echo $query;
 
 $attraction_id = json_decode($query, true)[0]['id'];
 
+// Add latitude and longitude to the attraction if they're given
 if ($lat && $lng) {
     $coordQuery = "UPDATE attractions SET `lat` = :lat AND `lng` = :lng WHERE `id` = :attrID";
     $param_arr = array(':lat' => $lat, ":lng" => $lng);
     $db->postQuery($coordQuery, $param_arr);
 }
 
+// Insert the review
 $queryone= "INSERT INTO reviews (author_id, attraction_id, title, review_body, date,rating) values (:author_id, :attraction_id, :title, :review_body, :date, :rating)";
 $param_newreviews=array();
 $param_newreviews[':author_id'] = $author_id;
@@ -116,7 +120,7 @@ foreach($tags as $tag) {
 
 $db->postQuery($query, $param_arr);
 
-
+// Uploading the iamge for the attraction
 if (isset($_POST['submit']) && isset($_POST['name'])) {
     $imageName = $_POST['name'];
     $path = "backend/uploads/";
@@ -141,6 +145,7 @@ if (isset($_POST['submit']) && isset($_POST['name'])) {
     }
 }
 
-// header("Location: listing.php?" . $attraction_id);
+// Redirect to attraction's listing page
+header("Location: listing.php?" . $attraction_id);
 
 ?>

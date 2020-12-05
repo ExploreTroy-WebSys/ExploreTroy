@@ -8,11 +8,12 @@ include('../../assets/includes/helperFunctions.php');
 
 $db = new Database();
 
-
+// Check for bother follower and followed data
 if (isset($_POST['follower']) && isset($_POST['followed'])) {
     $followerID = -1;
     $followedID = -1;
 
+    // Convert RCSID of each to userID
     $followerID = fetchUserID($_POST['follower']);
     $followedID = fetchUserID($_POST['followed']);
 
@@ -20,6 +21,7 @@ if (isset($_POST['follower']) && isset($_POST['followed'])) {
     
     $param_arr = array(":followerID" => $followerID, ":followedID" => $followedID);
     
+    // Toggle following
     if (checkIfFollowing($_POST['follower'], $_POST['followed'])) $query = "DELETE FROM `followers` WHERE `follower_id` = :followerID AND `followed_id` = :followedID"; 
     else $query = "INSERT INTO `followers` (`follower_id`, `followed_id`) VALUES (:followerID, :followedID)";
     

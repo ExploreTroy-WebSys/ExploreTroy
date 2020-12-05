@@ -42,12 +42,14 @@ if (isset($_POST)) {
             }
         }
 
+        // Clear out the user interests for a specific user before inserting new ones to prevent duplicate rows
         $query = "DELETE FROM `users_interests` WHERE `user_id` = :usrID";
         $db->postQuery($query, array(':usrID' => $usrID));
 
+        // Write into user interests
         $query = "INSERT INTO `users_interests` (`user_id`, `interest`) VALUES ";
         $i = 0;
-        $j = 100;
+        $j = 10000;
         $param_arr = array();
         foreach($activeTagIDs as $tag) {
             $i++;
@@ -112,6 +114,7 @@ if (isset($_POST)) {
         $query .= "VALUES " . $valStr;
     }
 
+    // Execute statement
     if ($db->postQuery($query, $param_arr)) {
         exit("Success");
     } else {
