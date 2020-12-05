@@ -135,6 +135,12 @@ INSERT INTO `attractions` (`id`, `name`, `description`, `phone`, `avg_rating`, `
 (8, 'Rainbow Shops', 'Apparel chain offering fashionable clothing for juniors & plus-size women, plus accessories.', '(518) 274-3801', 3.8, '120 Hoosick St, Troy, NY 12180',NULL,NULL),
 (9, 'Prospect Park', 'Prospect Park is an 80-acre city park in Troy, New York.', '(518) 235-0215', 4.3, '65 Prospect Park Rd, Troy, NY 12180',NULL,NULL);
 
+INSERT INTO `users` (`rcsid`, `fname`,`lname`,`email`) VALUES
+    ('zhanh', 'haotian', 'zhan', 'haotianzhan7@gmail.com'),
+    ('linz10', 'zhanfeng', 'lin', 'linz10@rpi.edu'),
+    ('zhout5', 'tianshi','zhou','zhout5@rpi.edu'),
+    ('wand12', 'dannong','wang','wand12@rpi.edu');
+
 INSERT INTO `reviews` (`id`, `author_id`, `attraction_id`, `title`, `review_body`, `date`, `rating`, `likes`) VALUES
 (1, 1, 1, 'Fantastic food and service', "I love this place! The food is great and the servers are so nice. Plus it\'s not too far from campus.", '11/01/2020', 4, 26),
 (3, 1, 1, 'My favorite place to eat!', 'I go to The Whistling Kettle with my friends almost every weekend. They have the best sandwiches and so many teas to choose from. Highly recommend!', '11/02/2020', 5, 16),
@@ -227,12 +233,6 @@ INSERT INTO `tags` (`tag_name`, `category`) VALUES
     ('Skatepark', 'Recreation'),
     ('Basketball', 'Recreation'),
     ('Stadium', 'Recreation');
-
-INSERT INTO `users` (`rcsid`, `fname`,`lname`,`email`) VALUES
-    ('zhanh', 'haotian', 'zhan', 'haotianzhan7@gmail.com'),
-    ('linz10', 'zhanfeng', 'lin', 'linz10@rpi.edu'),
-    ('zhout5', 'tianshi','zhou','zhout5@rpi.edu'),
-    ('wand12', 'dannong','wang','wand12@rpi.edu');
 
 INSERT INTO `favorites` (`attraction_id`, `user_id`) VALUES
 (3, 1),
