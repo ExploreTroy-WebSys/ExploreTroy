@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `attractions` (
     `phone` VARCHAR(20) NOT NULL,
     `avg_rating` FLOAT(2) NOT NULL DEFAULT 0.0,
     `address` VARCHAR(100) NOT NULL,
+    `link` VARCHAR(300) NOT NULL,
     `attractionPictureLocation` VARCHAR(255) DEFAULT NULL,
     `lat` FLOAT,
     `lng` FLOAT,
