@@ -225,12 +225,12 @@
     <script>
     
         // indicate that profiles can be viewed
-        $("img").hover(function() {
+        $(".user-image").hover(function() {
             $(this).css("cursor", "pointer");
         });
         
         // Add click listener to redirect to a profile page
-        $("main").on("click", "img", function(e) {
+        $("main").on("click", ".user-image", function(e) {
             location.href = "profile.php?" + $(this).attr('name');
         });
 
