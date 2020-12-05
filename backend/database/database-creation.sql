@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `attractions` (
     `phone` VARCHAR(20) NOT NULL,
     `avg_rating` FLOAT(2) NOT NULL DEFAULT 0.0,
     `address` VARCHAR(100) NOT NULL,
-    `link` VARCHAR(300) NOT NULL,
+    `link` VARCHAR(300),
     `attractionPictureLocation` VARCHAR(255) DEFAULT NULL,
     `lat` FLOAT,
     `lng` FLOAT,
@@ -123,13 +123,6 @@ CREATE TABLE IF NOT EXISTS `user_like` (
     `review_id` INT(10) signed NOT NULL,
     PRIMARY KEY(`id`)
 );
-
-
-INSERT INTO `favorites` (`id`, `attraction_id`, `user_id`) VALUES
-(57, 3, 1),
-(58, 9, 1),
-(59, 1, 1),
-(60, 4, 1);
 
 INSERT INTO `attractions` (`id`, `name`, `description`, `phone`, `avg_rating`, `address`, `lat`, `lng`) VALUES
 (1, 'The Whistling Kettle', 'Contemporary cafe & tearoom serving savory crepes, panini & salads, plus afternoon tea.', '(518) 874-1938', 4.6, '254 Broadway, Troy, NY 12180',42.7209687,-73.7147398),
@@ -240,6 +233,12 @@ INSERT INTO `users` (`rcsid`, `fname`,`lname`,`email`) VALUES
     ('linz10', 'zhanfeng', 'lin', 'linz10@rpi.edu'),
     ('zhout5', 'tianshi','zhou','zhout5@rpi.edu'),
     ('wand12', 'dannong','wang','wand12@rpi.edu');
+
+INSERT INTO `favorites` (`attraction_id`, `user_id`) VALUES
+(3, 1),
+(9, 1),
+(1, 1),
+(4, 1);
 
 
 -- haotian
