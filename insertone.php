@@ -26,7 +26,7 @@ $tagType = $_POST['tagType'];
 $result = '';    
 $arr = array();
 $pattern = '/([;:,-.\/ X])/';
-$array = preg_split($pattern, $str, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+$array = preg_split($pattern, $name, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 
 foreach($array as $k => $v)
     $result .= ucwords(strtolower($v));
@@ -54,7 +54,7 @@ if ($doubleCheckQuery) {
     $param_name[':description'] = $description;
     $param_name[':phone'] = $phone;
     $param_name[':address'] = $address;
-    $param_name[':link'] = $address;
+    $param_name[':link'] = $link;
     $db->postQuery($query, $param_name);
 }
 
@@ -103,7 +103,7 @@ foreach($tags as $tag) {
         echo "Brand new tag";
     }
 
-    if (checkTagLocationExists($attractionID, $tagID)) continue;
+    if (checkTagLocationExists($attraction_id, $tagID)) continue;
     
     $i++;
     $j++;
@@ -143,6 +143,6 @@ if (isset($_POST['submit']) && isset($_POST['name'])) {
     }
 }
 
-// header("Location: listing.php?" . $attraction_id);
+header("Location: listing.php?" . $attraction_id);
 
 ?>
