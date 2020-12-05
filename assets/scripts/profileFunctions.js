@@ -1,3 +1,5 @@
+// 
+
 function parseTagData(containerID) {
     tagData = {
         tableName: "users_interests",
