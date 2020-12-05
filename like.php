@@ -14,24 +14,21 @@
     // Get review id from url query string
     $review_id = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 
-    /////////
+    // Get user id from rcsid
     $rcsid = $_SESSION['rcsid'];
     $query = "SELECT `id` FROM `users` WHERE `rcsid` = '" . $rcsid . "'";
     $result = $db->getQuery($query);
     $user_id = json_decode($result, true);
     $user_id = $user_id[0]['id'];
 
-
+    // Query to check if user has liked the review
     $query = "SELECT * FROM `user_like` WHERE `like_id` = $user_id and `review_id` =  $review_id ";
     $result = $db->getQuery($query);
     $result= json_decode($result, true);
     $count = $result[0]['id'];
 
-    if($count){
-    }else{
-    
-    ////////
-
+    if ($count) {
+    } else {
         // Make prepared statement to update number of likes
         $query = 'UPDATE `reviews` SET `likes` = `likes` + 1 WHERE `id` = :id';
 
@@ -44,14 +41,20 @@
 
         $query = "INSERT INTO `user_like` (`like_id`, `review_id`) VALUES ( $user_id, $review_id );";
         $query = $db->postQuery($query);
-
     }
+
+    // Get number of likes for a review
     $query = "SELECT `likes` FROM `reviews` WHERE `id` = $review_id";
     $result = $db->getQuery($query);
     $result= json_decode($result, true);
     $likes_count = $result[0]['likes'];
+
+    // Echo number of likes
     echo $likes_count;
-    if($count){
-        echo "(Already liked)";
+
+    // Echo message if user has already liked review
+    if ($count) {
+        echo " (Already liked)";
     }
+    
 ?>

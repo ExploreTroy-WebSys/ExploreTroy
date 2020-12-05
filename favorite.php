@@ -38,6 +38,7 @@
         // Post query
         $post_query = $db->postQuery($post_query, $param_array);
 
+        // Return "true" back to AJAX call since attraction was favorited
         echo "true";
     } else {
         // Make prepared statement to remove from favorites
@@ -46,6 +47,7 @@
         // Post query
         $post_query = $db->postQuery($post_query);
 
+        // Return "false" back to AJAX call since attraction was unfavorited
         echo "false";
     }
     

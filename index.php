@@ -13,8 +13,9 @@
     include('assets/includes/header.php');
   ?>
 
-  <!-- Explore banner -->
+  <!-- Home page -->
   <main>
+    <!-- Jumbotron with logo -->
     <section class="banner">
       <div class="jumbotron jumbotron-fluid jumbotron-banner">
         <div class="container">
@@ -23,6 +24,7 @@
         </div>
       </div>
     </section>
+    <!-- Three buttons below jumbotron -->
     <section class="explore-banner">
       <div class="explore-heading">
         <h2>Explore</h2>
