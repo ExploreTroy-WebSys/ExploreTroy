@@ -40,6 +40,9 @@
                 // Get result of query
                 $query = $db->getQuery($query, $param_array);
                 $query = json_decode($query, true);
+                if($query == NULL){
+                    header("Location: explore.php");
+                }
                 $attr_name = $query[0]['name'];
 
                 // Make prepared statement to get reviews for attraction
@@ -111,6 +114,7 @@
                     echo '<span class="avg-rating hiddentile">' . $attr_info['avg_rating'] . '</span>';
 
                     echo '<div>' . $attr_info['description'] . '</div>';
+                    echo "<p><a href='".$attr_info['link']."' target='_blank'>Link</a>"."</p>";
 
                 ?>
             </div>

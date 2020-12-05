@@ -17,10 +17,11 @@
     $user_id = json_decode($result, true);
     $user_id = $user_id[0]['id'];
 
+    // Get all information for user's favorite attractions
     $query = "SELECT DISTINCT `attractions`.`id`, `attractions`.`name`, `attractions`.`description`, `attractions`.`phone`, `attractions`.`avg_rating`, `attractions`.`address` FROM `attractions` INNER JOIN `favorites` ON `favorites`.`attraction_id` = `attractions`.`id` WHERE `favorites`.`user_id` = $user_id";
 
+    // Get the result of the query
     $query = $db->getQuery($query);
-
     $query = json_decode($query, true);
 
     # Include all boiler-plate head information for the site
@@ -36,18 +37,26 @@
 
     <main>
         <section class="explore-page-main">
+            <!-- Header -->
             <div class="explore-category">
                 <h2 class="explore-page-header-text">My Favorites</h2>
             </div>
+            <!-- Attraction grids -->
             <div class="container-fluid explore-grid">
                 <div id="listingGrid" class="row justify-content-center">
                     <?php
-
+                        
+                        // Check for null (no favorite attractions) before looping
                         if ($query != NULL) {
+                            // Loop through each of the user's favorite attractions
                             foreach ($query as $item) {
                                 echo '<div class="col-sm-3 grid-item">';
                                 echo '<div class="hidden-attrid">' . $item['id'] . '</div>';
+
+                                // Get photo location for attraction
                                 $photolocation = fetchAttractionImageURI($item['id']);
+
+                                // Echo image, attraction name, address, phone number, and star rating
                                 echo '<img class="tmpImg" src="backend/uploads/' . $photolocation . '"/>';
                                 echo '<p class="locationName">' . $item['name'] . '</p>';
                                 echo '<p class="address">' . $item['address'] . '</p>';
@@ -70,16 +79,16 @@
                                     echo '</div>';
                                     echo '<span class="avg-rating hiddentile">' . $item['avg_rating'] . '</span>';
                                     echo '<div class="description">' . $item['description'] . '</div>';
-                                
     
+                                // Make query to get all tags for an attraction
                                 $tagquery = "SELECT DISTINCT `tags`.`tag_name` FROM `tags` INNER JOIN `attractions_categories` ON  `tags`.`id` = `attractions_categories`.`category` WHERE `attractions_categories`.`attraction_id` = '" . $item['id'] . "'";
     
+                                // Get result of query
                                 $tagquery = $db->getQuery($tagquery);
-    
                                 $tagquery = json_decode($tagquery, true);
     
+                                // Echo the tags as chips
                                 echo '<fieldset class="form-row justify-content-left chips">';
-
                                 $num_tags = 0;
                                 foreach($tagquery as $tag){
                                     $num_tags += 1;
@@ -102,8 +111,8 @@
     </main>
 
     <?php
-    include('assets/includes/footer.php');
-    # Include end of document boiler-plate for the site
-    include('assets/includes/foot.php');
+        include('assets/includes/footer.php');
+        # Include end of document boiler-plate for the site
+        include('assets/includes/foot.php');
     ?>
 </body>

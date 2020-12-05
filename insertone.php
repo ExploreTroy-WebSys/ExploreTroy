@@ -16,6 +16,7 @@ $name=$_POST['name'];
 $description=$_POST['description'];
 $phone=$_POST['phone'];
 $address=$_POST['address'];
+$link=$_POST['link'];
 $lat = $_POST['lat'];
 $lng = $_POST['lng'];
 $tags = array_keys($_POST['tags']);
@@ -25,7 +26,7 @@ $tagType = $_POST['tagType'];
 $result = '';    
 $arr = array();
 $pattern = '/([;:,-.\/ X])/';
-$array = preg_split($pattern, $str, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+$array = preg_split($pattern, $name, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 
 foreach($array as $k => $v)
     $result .= ucwords(strtolower($v));
@@ -48,12 +49,13 @@ $doubleCheckQuery = $db->getQuery($doubleCheckQuery, $param_arr);
 if ($doubleCheckQuery) {
     echo "Location already exists";
 } else {
-    $query= "INSERT INTO attractions (`name`, `description`, `phone`, `address`) VALUES (:name, :description, :phone, :address)";
+    $query= "INSERT INTO attractions (`name`, `description`, `phone`, `address`,`link`) VALUES (:name, :description, :phone, :address, :link)";
     $param_name=array();
     $param_name[':name'] = $name;
     $param_name[':description'] = $description;
     $param_name[':phone'] = $phone;
     $param_name[':address'] = $address;
+    $param_name[':link'] = $link;
     $db->postQuery($query, $param_name);
 }
 
@@ -105,7 +107,7 @@ foreach($tags as $tag) {
         echo "Brand new tag";
     }
 
-    if (checkTagLocationExists($attractionID, $tagID)) continue;
+    if (checkTagLocationExists($attraction_id, $tagID)) continue;
     
     $i++;
     $j++;

@@ -38,7 +38,7 @@
          <section class="section-border">
           
          <section class="text">
-          <label for="exampleFormControlInput1">Name of attraction</label>
+          <label for="exampleFormControlInput1">Name of location</label>
           <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Name of location" required> <br>
         </section>
 
@@ -214,7 +214,7 @@
           <section class="form-group1">
           <section class="text post-section">
             <label for="exampleFormControlTextarea1">What's on your mind? Ask a question or write a review. </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" name="review_body" rows="3" required></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="review_body" rows="3" placeholder="Ask a question or write a review" required></textarea>
             </section>
           </section>
 
@@ -279,7 +279,7 @@
           } );
           </script>
           <p class="date-label">Date of visit</p>
-          <input type="text" name="date" id="datepicker">
+          <input type="text" name="date" id="datepicker" placeholder="Select date of visit">
         </section>
 
 
@@ -289,7 +289,6 @@
             $idquery = json_decode($idquery,true)[0]['MAX(id)'];
 
             $idquery = intval($idquery) + 1;
-            // echo $idquery;
 
           ?>
 
@@ -301,6 +300,13 @@
               <input type="file" name="fileToUpload" id="fileToUpload" class="form-control mb-2">
               <input type="hidden" name="id" value="<?php echo $idquery; ?>">
           </fieldset>
+          </section>
+          <br>
+          <section class="form-group1">
+          <section class="text post-section">
+            <label for="exampleFormControlTextarea1">Website link for location </label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="link" rows="1" placeholder="Enter website link for location" required></textarea>
+            </section>
           </section>
 
           <section class="text post-section">

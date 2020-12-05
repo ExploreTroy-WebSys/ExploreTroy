@@ -1,3 +1,15 @@
+CREATE TABLE `adminlist` (
+  `id` int(10) NOT NULL,
+  `rcsid` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `adminlist` (`id`, `rcsid`) VALUES
+(1, 'bonada'),
+(2, 'sunraj'),
+(3, 'hales3'),
+(4, 'treham');
+
+
 CREATE TABLE IF NOT EXISTS `users` (
     `id` INT(10) signed NOT NULL AUTO_INCREMENT,
     `rcsid` VARCHAR(10) NOT NULL,
@@ -20,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `users_optional` (
     `profilePictureLocation` VARCHAR(255),
     PRIMARY KEY (`index`),
     FOREIGN KEY (`id`) REFERENCES users(`id`)
+    ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `tags` (
@@ -35,8 +48,8 @@ CREATE TABLE IF NOT EXISTS `users_interests` (
     `user_id` INT(10) signed NOT NULL,
     `interest` INT NOT NULL,
     PRIMARY KEY (`index`),
-    FOREIGN KEY (`user_id`) REFERENCES users(`id`),
-    FOREIGN KEY (`interest`) REFERENCES tags(`id`)
+    FOREIGN KEY (`user_id`) REFERENCES users(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`interest`) REFERENCES tags(`id`) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `attractions` (
@@ -46,6 +59,7 @@ CREATE TABLE IF NOT EXISTS `attractions` (
     `phone` VARCHAR(20) NOT NULL,
     `avg_rating` FLOAT(2) NOT NULL DEFAULT 0.0,
     `address` VARCHAR(100) NOT NULL,
+    `link` VARCHAR(300) NOT NULL,
     `attractionPictureLocation` VARCHAR(255) DEFAULT NULL,
     `lat` FLOAT,
     `lng` FLOAT,
@@ -57,8 +71,8 @@ CREATE TABLE IF NOT EXISTS `followers` (
     `follower_id` INT(10) signed NOT NULL,
     `followed_id` INT(10) signed NOT NULL,
     PRIMARY KEY (`index`),
-    FOREIGN KEY (`follower_id`) REFERENCES users(`id`),
-    FOREIGN KEY (`followed_id`) REFERENCES users(`id`)
+    FOREIGN KEY (`follower_id`) REFERENCES users(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`followed_id`) REFERENCES users(`id`) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `attractions_categories` (
@@ -66,8 +80,8 @@ CREATE TABLE IF NOT EXISTS `attractions_categories` (
     `attraction_id` INT(10) signed NOT NULL,
     `category` INT(10) signed NOT NULL,
     PRIMARY KEY (`index`),
-    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`),
-    FOREIGN KEY (`category`) REFERENCES tags(`id`)
+    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`category`) REFERENCES tags(`id`) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `reviews` (
@@ -80,8 +94,8 @@ CREATE TABLE IF NOT EXISTS `reviews` (
     `rating` INT(2) NOT NULL,
     `likes` INT(10) DEFAULT 0,
     PRIMARY KEY (`id`),
-    FOREIGN KEY (`author_id`) REFERENCES users(`id`),
-    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`)
+    FOREIGN KEY (`author_id`) REFERENCES users(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `comments` (
@@ -90,8 +104,8 @@ CREATE TABLE IF NOT EXISTS `comments` (
     `comment_body` VARCHAR(300) NOT NULL,
     `parent_id` INT(10) signed NOT NULL,
     PRIMARY KEY(`id`),
-    FOREIGN KEY (`author_id`) REFERENCES users(`id`),
-    FOREIGN KEY (`parent_id`) REFERENCES reviews(`id`)
+    FOREIGN KEY (`author_id`) REFERENCES users(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`parent_id`) REFERENCES reviews(`id`) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `favorites` (
@@ -99,8 +113,8 @@ CREATE TABLE IF NOT EXISTS `favorites` (
     `attraction_id` INT(10) signed NOT NULL,
     `user_id` INT(10) signed NOT NULL,
     PRIMARY KEY(`id`),
-    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`),
-    FOREIGN KEY (`user_id`) REFERENCES users(`id`)
+    FOREIGN KEY (`attraction_id`) REFERENCES attractions(`id`) ON DELETE CASCADE,
+    FOREIGN KEY (`user_id`) REFERENCES users(`id`) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS `user_like` (
