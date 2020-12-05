@@ -1,9 +1,10 @@
+// Takes in the element ID of a form and parses it into a JSON object in the format required for the API/ interactions on the backend
 function parseForm(formID) {
     var form = $("#" + formID);
     form = form.serialize();
     form = form.split('&');
 
-    var dataOBJ = {postData: {}};
+    var dataOBJ = { postData: {} };
 
     form.forEach(element => {
         var splitElem = element.split('=');
@@ -43,7 +44,7 @@ function postToDatabase(data) {
         dataType: "json",
         async: false,
         data: data,
-        complete: function(r) {
+        complete: function (r) {
             console.log(r);
             if (r.responseText == "Success") {
                 alert("Data saved");
@@ -57,7 +58,7 @@ function postToDatabase(data) {
 function getFromData(inData, callback) {
     return $.get(
         "backend/API/databaseGetUser.php",
-        {'tableName': inData.tableName, 'rcsid': inData.rcsid},
+        { 'tableName': inData.tableName, 'rcsid': inData.rcsid },
         callback
     );
 }
@@ -66,12 +67,12 @@ function getFromData(inData, callback) {
 function likePost(review_id) {
     //to get the likes from php echo
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
+    xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("num-likes-" + review_id).innerHTML = this.responseText;
         }
     };
-    xmlhttp.open("GET","like.php?" + review_id,true);
+    xmlhttp.open("GET", "like.php?" + review_id, true);
     xmlhttp.send();
 }
 
@@ -81,7 +82,7 @@ function postComment(review_id, image_url) {
     $.ajax({
         type: "POST",
         url: "postcomment.php?id=" + review_id + "&comment=" + comment_body,
-        success: function() {
+        success: function () {
             // New comment
             var html = '<div class="row comment-container">';
             html += '<div class="col-1">';
@@ -90,7 +91,7 @@ function postComment(review_id, image_url) {
             } else {
                 html += '<img class="user-image" src="assets/images/blankPFP.png" alt="image-temp">';
             }
-            
+
             html += '</div>';
             html += '<div class="col-10 review-comment">';
             html += comment_body;
@@ -114,7 +115,7 @@ function favoriteAttraction(attr_id) {
     $.ajax({
         type: "POST",
         url: "favorite.php?" + attr_id,
-        success: function(inserted) {
+        success: function (inserted) {
             if (inserted == "true") {
                 $("#favorite-" + attr_id).css("color", "#f08080");
             } else {
@@ -129,7 +130,7 @@ function followUser(follower, followed) {
     $.ajax({
         type: "POST",
         url: "backend/API/followUser.php",
-        data: {"follower": follower, "followed": followed},
+        data: { "follower": follower, "followed": followed },
         // complete: function(r) {
         //     alert(r.responseText);
         // }
