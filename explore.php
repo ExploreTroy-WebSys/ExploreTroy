@@ -6,11 +6,12 @@
     // Get query string from url
     $category = parse_url($_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 
+    //set whether to display restaurants, shops, activities as false to begin
     $disprest = false;
     $dispshop = false;
     $disprec = false;
 
-
+    //use get requests to see if you should only display one type
     if ($category != NULL) {
         $query = "SELECT DISTINCT `attractions`.`id`, `attractions`.`name`, `attractions`.`description`, `attractions`.`phone`, `attractions`.`avg_rating`, `attractions`.`address` FROM `attractions` INNER JOIN `attractions_categories` ON `attractions`.`id` = `attractions_categories`.`attraction_id` INNER JOIN `tags` ON `attractions_categories`.`category` = `tags`.`id` WHERE `tags`.`category` = '" . $category . "'";
         if(isset($_GET['restaurant'])){
@@ -29,6 +30,7 @@
         $disprec = true;
     }
 
+    //rund query to get attractions
     $query = $db->getQuery($query);
 
     $query = json_decode($query, true);
@@ -40,6 +42,7 @@
     # Include all boiler-plate head information for the site
     include("assets/includes/head.php");
 
+    //checking to see if current user is an admin
     $isadmin = false;
     $rcsid = $_SESSION['rcsid'];
 
@@ -69,6 +72,7 @@
                 <div id="dropdown-menus">
                 <?php
 
+                //displaying certain sections based off of three buttons on the home page
                 if($disprest){
                     echo '<select class="selectpicker amenu restaurantpicker" title="Restaurant" data-live-search="true" multiple>';
                     

@@ -71,6 +71,7 @@ $(document).ready(function() {
     });
 });
 
+//shows and hides attractions based on tags
 function filterlistings(selectedtags) {
     $(".grid-item").each(function() {
         showitem = false;
@@ -93,6 +94,7 @@ function filterlistings(selectedtags) {
     });
 }
 
+//creates array of tags to filter from
 $(document).ready(function() {
     $(".selectpicker").on("change", function() {
         var tagarray = [];
@@ -108,6 +110,7 @@ $(document).ready(function() {
     });
 });
 
+//finds avg rating and styles the stars accordingly
 $(document).ready(function() {
     $(".grid-item").each(function() {
         var gridItem = this;
@@ -123,6 +126,7 @@ $(document).ready(function() {
     });
 });
 
+//populates with avg rating
 $(document).ready(function() {
     var attractionInfo = document.getElementById("#attraction-info");
     rating = attractionInfo.getElementsByClassName("avg-rating");
@@ -132,6 +136,7 @@ $(document).ready(function() {
     stars.style.width = rating + "%";
 });
 
+//makes ajax request to delete
 $(document).ready(function(){
   $(".fa-trash").on("click",function(){
     
