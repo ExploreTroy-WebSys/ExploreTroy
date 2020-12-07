@@ -117,7 +117,7 @@
                     if (empty($attr_info['link'])) {
                         echo "";
                     } else {
-                        echo "<p><a href='".$attr_info['link']."' target='_blank'>Link</a>"."</p>";
+                        echo "<p class='listing-info listing-link'><a href='".$attr_info['link']."' target='_blank'>Link to attraction site</a>"."</p>";
                     }
                 ?>
             </div>

@@ -484,6 +484,11 @@ main {
     margin-bottom: 10px;
 }
 
+.listing-link a {
+    color: white;
+    text-decoration: underline;
+}
+
 .listing-info {
     margin: 0;
 }
