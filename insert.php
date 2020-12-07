@@ -37,7 +37,7 @@ if ($conn->connect_error){
 }else{
     $stmt=$conn->prepare("insert into reviews(author_id, attraction_id, title, review_body, date,rating)
     values(?,?,?,?,?,?)");
-    $stmt->bind_param('iisssi',$author_id, $attraction_id, $title, $review_body, $date, $rating,);
+    $stmt->bind_param('iisssi',$author_id, $attraction_id, $title, $review_body, $date, $rating);
     $stmt->execute();
     echo "Post Successfully Submitted";
     $stmt->close();
