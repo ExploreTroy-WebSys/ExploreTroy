@@ -28,6 +28,10 @@
         if (checkIfFollowing($_SESSION['rcsid'], $rcsid)) $following = true;
     }
 
+    if ($queryString == "newUser" || !checkUserExists($rcsid)) {
+        $newUser = true;
+    }
+
 
     # Include all boiler-plate head information for the site
     include("assets/includes/head.php");
@@ -93,7 +97,7 @@
                     <form id="mandatoryUserForm">
                         <input type="hidden" name="rcsid" value="<?php echo $_SESSION['rcsid']; ?>">
                         <input type="hidden" name="tableName" value="users">
-                        <?php if($queryString == "newUser") echo '<input type="hidden" name="newUser" value="true">'; ?>
+                        <?php if($newUser) echo '<input type="hidden" name="newUser" value="true">'; ?>
                         <fieldset class="form-row">
                             <fieldset class="col-md">
                                 <label class="sr-only" for="first-name">First Name:</label>
