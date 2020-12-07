@@ -125,13 +125,16 @@
                 <div id="listingGrid" class="row justify-content-center">
                     <?php
 
+                        //displaying each attraction from the SELECT Query
                         foreach ($query as $item) {
-
+                            
+                            //get avg rating
                            $ratingquery = 'SELECT AVG(rating) FROM reviews WHERE attraction_id ='. $item['id'];
                            $ratingquery = $db->getQuery($ratingquery);
                            $ratingquery = json_decode($ratingquery, true)[0]['AVG(rating)'];
                            $ratingquery = round($ratingquery, 2);
 
+                           //updates rating
                            $updateavgquery = "UPDATE attractions SET avg_rating = '". $ratingquery ."' WHERE id =". $item['id'];
                            $db->postQuery($updateavgquery);
 
@@ -139,7 +142,7 @@
                             echo '<div class="col-sm-3 grid-item">';
                             echo '<div class="hidden-attrid">' . $item['id'] . '</div>';
 
-
+                            //get photo and diplays all info
                             $photolocation = fetchAttractionImageURI($item['id']);
                             echo '<img class="tmpImg" src="backend/uploads/' . $photolocation . '"/>';
                             echo '<p class="locationName">' . $item['name'] . '</p>';
@@ -169,7 +172,7 @@
                             
                             echo '<div class="description">' . $item['description'] . '</div>';
                             
-
+                                //get and display tags
                             $tagquery = "SELECT DISTINCT `tags`.`tag_name` FROM `tags` INNER JOIN `attractions_categories` ON  `tags`.`id` = `attractions_categories`.`category` WHERE `attractions_categories`.`attraction_id` = '" . $item['id'] . "'";
 
                             $tagquery = $db->getQuery($tagquery);
