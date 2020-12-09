@@ -33,7 +33,7 @@
           </section>
         <section class="postpageborder">
         <section class="info">
-         <!-- Category selection -->
+         <!-- Add new location details (name, description, phone number, address) -->
          <p class="form-label-center">Location Details</p>
          <section class="section-border">
           
@@ -67,7 +67,8 @@
             <label for="restaurant">Restaurant</label><br>
             <div id="restaurant_items">
             <div id="detailsforchips">Select all characteristics that apply:</div>
-            <fieldset class="form-row justify-content-left chips" id="restcolor">   
+            <fieldset class="form-row justify-content-left chips" id="restcolor">  
+            <!-- Display all tags related to restaurants from tags table --> 
             <?php
                 $db = new Database();
                 $query = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Restaurant'";
@@ -78,12 +79,14 @@
                 }
                 ?>
                 </fieldset> 
+                <!-- Allow users to add new tags -->
                 <fieldset class="form-row justify-content-left">
                   <p>Or add a new tag:</p>
                   <input type="text" name="newTag" class="newTag">
                   <button class="newTagButton" type='button'>Add tag</button>
                 </fieldset>
                 </div>
+                 <!-- Change color of tag onclick -->
                 <script>
                 $('#restcolor').on("click", ".chip", function() {
                 $(this).toggleClass("colorchange");
@@ -96,6 +99,7 @@
             <div id="shop_items">
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips" id="shopping">
+             <!-- Display all tags related to shopping from tags table -->
             <?php
                 $db = new Database();
                 $query = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Shopping'";
@@ -106,12 +110,14 @@
                 }
                 ?>
               </fieldset>
+              <!-- Allow users to add new tags -->
               <fieldset class="form-row justify-content-left">
                 <p>Or add a new tag:</p>
                 <input type="text" name="newTag" class="newTag">
                 <button class="newTagButton" type='button'>Add tag</button>
               </fieldset>
               </div>
+              <!-- Change color of tag onclick -->
               <script>
                 $('#shopping').on("click", ".chip", function() {
                 $(this).toggleClass("colorchange");
@@ -124,6 +130,7 @@
             <div id="excursion_items">
             <div id="detailsforchips">Select all characteristics that apply:</div>
             <fieldset class="form-row justify-content-left chips" id="activitychips">
+             <!-- Display all tags related to recreation activities from tags table --> 
             <?php
                 $db = new Database();
                 $query = "SELECT `tag_name` FROM `tags` WHERE `category` = 'Recreation'";
@@ -134,6 +141,7 @@
                 }
             ?>
              </fieldset>
+             <!-- Allow users to add new tags -->
              <fieldset class="form-row justify-content-left">
               <p>Or add a new tag:</p>
               <input type="text" name="newTag" class="newTag">
@@ -142,7 +150,7 @@
             </div>
           </section>
           </section>
-
+          <!-- Change color of tag onclick -->
           <script>
                 $('#activitychips').on("click", ".chip", function() {
                 $(this).toggleClass("colorchange");
@@ -156,7 +164,8 @@
              $('input:checkbox').not(this).prop('checked', false);
           });
             });
-    
+          
+          //Display restaurant tags when checkbox selected and hide all others
           document.getElementById('restaurant').onclick = function() {
           toggleSub(this, 'restaurant_items');
           $('#shop_items').hide();
@@ -170,6 +179,8 @@
                   food.style.display = 'none';
               }
           }  
+         
+         //Display shopping tags when checkbox selected and hide all others
           document.getElementById('shop').onclick = function() {
           toggleSub(this, 'shop_items');
           $('#restaurant_items').hide();
@@ -183,6 +194,7 @@
                   shop.style.display = 'none';
               }
           }
+          //Display excursion tags when checkbox selected and hide all others
           document.getElementById('excursion').onclick = function() {
           toggleSub(this, 'excursion_items');
           $('#shop_items').hide();
@@ -218,7 +230,7 @@
             </section>
           </section>
 
-
+          <!-- Star Rating -->
           <div class="row">
             <div class="col-lg-12">
               <div class="star-rating post-section">
@@ -264,6 +276,7 @@
 
           $(fa-star).addClass('active'); 
 
+         //Save results of star rating to be inserted into database
           var numStars = $(fa-star).parentsUntil("div").length+1;
           $.post( "insert.php", { rating: numStars})
               .done(function( data ) {
@@ -291,7 +304,7 @@
             $idquery = intval($idquery) + 1;
 
           ?>
-
+          <!-- Upload image of new location -->
           <section class="text">
           <p class="photo-label">Upload photo of location</p>
         
@@ -302,6 +315,7 @@
           </fieldset>
           </section>
           <br>
+          <!-- Add website link for new location -->
           <section class="form-group1">
           <section class="text post-section">
             <label for="exampleFormControlTextarea1">Website link for location </label>
@@ -309,6 +323,7 @@
             </section>
           </section>
 
+          <!-- Add latitude and longtitude (not required) for purpose of map -->
           <section class="text post-section">
           <label for="exampleFormControlInput15">Lat(optional)</label>
           
