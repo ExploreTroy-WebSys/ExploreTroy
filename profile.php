@@ -111,7 +111,7 @@
                         <fieldset class="form-row">
                             <fieldset class="col-md">
                                 <label for="email" class='sr-only'>Email:</label>
-                                <input type="text" class="form-control mb-2" name="email" placeholder="<?php echo $_SESSION['rcsid'] . "@rpi.edu"; ?>">
+                                <input type="text" class="form-control mb-2" name="email" placeholder="Email">
                             </fieldset>
                             <fieldset class="col-auto-md">
                                 <button class="btn btn-primary btn-small btn-dark" onclick="parseForm(this.parentElement.parentElement.parentElement.id)">Update Name</button>
