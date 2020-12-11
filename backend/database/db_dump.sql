@@ -57,7 +57,7 @@ CREATE TABLE `attractions` (
   `lat` float DEFAULT NULL,
   `lng` float DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `attractions` (
 
 LOCK TABLES `attractions` WRITE;
 /*!40000 ALTER TABLE `attractions` DISABLE KEYS */;
-INSERT INTO `attractions` VALUES (1,'The Whistling Kettle','Contemporary cafe & tearoom serving savory crepes, panini & salads, plus afternoon tea.','(518) 874-1938',4.33,'254 Broadway, Troy, NY 12180',NULL,'The Whistling Kettle.jpg',42.721,-73.7147),(2,'Dinosaur Bar-B-Que','Barbecue chain serving Southern-style meats & draft brews in a retro setting (most have live music).','(518) 308-0400',0,'377 River St, Troy, NY 12180',NULL,'Dinosaur Bar-B-Que.jpg',42.7327,-73.6879),(3,'Druthers Brewing Company','Elevated comfort food and handcrafted beer.','(518) 650-7996',0,'1053 Broadway, Albany, NY 12204',NULL,'Druthers Brewing Company.jpg',42.6712,-73.7464),(4,'De Fazio\'s','Italian eatery serving wood-fired pies & handmade treats in an easygoing outlet with outdoor tables.','(518) 271-1111',0,'266 4th St, Troy, NY 12180',NULL,'De Fazio\'s.jpg',42.7232,-73.6928),(5,'Slidin Dirty','Lively, compact outpost featuring inventive sliders, cocktails & craft brews in a rustic-chic venue.','(518) 326-8492',0,'9 1st St, Troy, NY 12180',NULL,'Slidin Dirty.jpg',42.7306,-73.6953),(6,'Troy Waterfront Farmers Market','Our market provides access to healthy, locally grown food for our community.','(518) 708-4216',0,'Riverfront Park, Troy, NY 12180',NULL,'Troy Waterfront Farmers Market.jpg',42.7321,-73.6915),(7,'Truly Rhe','Truly Rhe is the premier women’s boutique in Troy, NY.','(518) 273-1540',0,'1 Broadway, Troy, NY 12180',NULL,'Truly Rhe.jpg',NULL,NULL);
+INSERT INTO `attractions` VALUES (1,'The Whistling Kettle','Contemporary cafe & tearoom serving savory crepes, panini & salads, plus afternoon tea.','(518) 874-1938',4.5,'254 Broadway, Troy, NY 12180',NULL,'The Whistling Kettle.jpg',42.721,-73.7147),(2,'Dinosaur Bar-B-Que','Barbecue chain serving Southern-style meats & draft brews in a retro setting (most have live music).','(518) 308-0400',3.33,'377 River St, Troy, NY 12180',NULL,'Dinosaur Bar-B-Que.jpg',42.7327,-73.6879),(3,'Druthers Brewing Company','Elevated comfort food and handcrafted beer.','(518) 650-7996',3,'1053 Broadway, Albany, NY 12204',NULL,'Druthers Brewing Company.jpg',42.6712,-73.7464),(4,'De Fazio\'s','Italian eatery serving wood-fired pies & handmade treats in an easygoing outlet with outdoor tables.','(518) 271-1111',5,'266 4th St, Troy, NY 12180',NULL,'De Fazio\'s.jpg',42.7232,-73.6928),(5,'Slidin Dirty','Lively, compact outpost featuring inventive sliders, cocktails & craft brews in a rustic-chic venue.','(518) 326-8492',5,'9 1st St, Troy, NY 12180',NULL,'Slidin Dirty.jpg',42.7306,-73.6953),(6,'Troy Waterfront Farmers Market','Our market provides access to healthy, locally grown food for our community.','(518) 708-4216',5,'Riverfront Park, Troy, NY 12180',NULL,'Troy Waterfront Farmers Market.jpg',42.7321,-73.6915),(7,'Truly Rhe','Truly Rhe is the premier women’s boutique in Troy, NY.','(518) 273-1540',4,'1 Broadway, Troy, NY 12180',NULL,'Truly Rhe.jpg',NULL,NULL),(10,'Grafton Lakes State Park','There are some fantastic hikes around here, large park with multiple lakes to swim in, fish from, or boat around on.',' (518) 279-1155',5,'254 Grafton Lakes State Park Way, Grafton, NY 12082','https://parks.ny.gov/parks/53/details.aspx','Grafton Lakes State Park.jpg',NULL,NULL),(11,'Copper Pot','Located in Historic North Central Troy NY, Copper Pot is a purveyor of Northeast favorites with a twist from the Chef who brought you Sweet Sue\'s.','(518) 629-5922',4,'433 River St, Troy, NY 12180','https://www.riverstreetmkt.com/vendors/copper-pot/','Copper Pot.jpg',NULL,NULL),(12,'Prospect Park','Prospect Park is an 80-acre city park in Troy, New York.','(518) 235-0215',5,'65 Prospect Park Rd, Troy, NY 12180','http://www.troyny.gov/departments/parks-recreation/parks-facilities/prospect-park/','Prospect Park.jpg',NULL,NULL);
 /*!40000 ALTER TABLE `attractions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +86,7 @@ CREATE TABLE `attractions_categories` (
   KEY `category` (`category`),
   CONSTRAINT `attractions_categories_ibfk_1` FOREIGN KEY (`attraction_id`) REFERENCES `attractions` (`id`) ON DELETE CASCADE,
   CONSTRAINT `attractions_categories_ibfk_2` FOREIGN KEY (`category`) REFERENCES `tags` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,6 +95,7 @@ CREATE TABLE `attractions_categories` (
 
 LOCK TABLES `attractions_categories` WRITE;
 /*!40000 ALTER TABLE `attractions_categories` DISABLE KEYS */;
+INSERT INTO `attractions_categories` VALUES (15,1,12),(16,1,9),(17,2,9),(18,2,14),(19,3,9),(20,3,13),(21,4,3),(22,4,5),(23,5,5),(24,6,9),(25,6,16),(26,7,19),(27,10,25),(28,10,26),(29,10,30),(30,10,36),(31,11,5),(32,11,9),(33,12,25),(34,12,37);
 /*!40000 ALTER TABLE `attractions_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +116,7 @@ CREATE TABLE `comments` (
   KEY `parent_id` (`parent_id`),
   CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`parent_id`) REFERENCES `reviews` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +125,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,1,'I also love The Whistling Kettle. So many good options!',1),(3,1,'Agreed! Such a great place to grab a bite.',1),(4,1,'I\'ve always wanted to go there. Now I definitely will!',1),(5,1,'What\'s your favorite tea to get?',3),(8,1,'My favorite is the hot chocolate.',3),(9,1,'I like the hot chocolate too.',3),(10,1,'I just went there! The food is great.',3),(16,1,'This is my favorite place!',1),(17,1,'I agree! So much to choose from.',4),(36,1,'So true! I always find something new to try!',4),(40,1,'I couldn\'t agree more.',3),(45,1,'That\'s so true!',1),(46,1,'I agree.',1),(47,1,'I agree.',4),(48,1,'Same here.',4),(49,1,'Me too!',1),(50,1,'Same here!',1),(51,1,'Me as well.',1),(52,1,'I agree also!',3),(53,1,'Great place!',4),(54,1,'Me too!',3),(55,1,'Best place ever.',4),(56,1,'Same here!',3),(57,1,'Same here.',1),(58,1,'Me too.',1),(59,1,'Same here!',1),(60,1,'Agreed!',8),(61,1,'Same.',9),(62,1,'Me too.',9),(63,1,'Same.',9),(64,1,'Me too.',9),(65,1,'Same!',9),(66,1,'Me too!',9),(67,1,'Same!',9),(68,1,'Agreed.',9),(69,1,'Same here.',9),(70,1,'Agreed!',9),(71,1,'Same.',8),(72,1,'Me too!',8),(73,1,'Agreed.',8),(74,1,'I agree.',1),(75,1,'Same here.',9),(76,1,'So true.',8),(77,1,'Agree!',10),(78,1,'I completely agree.',10),(79,1,'Very true.',10);
+INSERT INTO `comments` VALUES (80,6,'I agree! There is so much to choose from.',11),(81,5,'Especially those fancy hot chocolates that they do',12),(82,7,'I agree... they are probably one of the best burgers I have had!',19),(83,6,'That doesn\'t sound too good.',20),(84,5,'I feel like they\'re always soggy or hard as a rock here, no in between',15);
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +145,7 @@ CREATE TABLE `favorites` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`attraction_id`) REFERENCES `attractions` (`id`) ON DELETE CASCADE,
   CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +154,7 @@ CREATE TABLE `favorites` (
 
 LOCK TABLES `favorites` WRITE;
 /*!40000 ALTER TABLE `favorites` DISABLE KEYS */;
-INSERT INTO `favorites` VALUES (1,3,1),(3,1,1),(4,4,1);
+INSERT INTO `favorites` VALUES (1,3,1),(3,1,1),(4,4,1),(5,5,6);
 /*!40000 ALTER TABLE `favorites` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +174,7 @@ CREATE TABLE `followers` (
   KEY `followed_id` (`followed_id`),
   CONSTRAINT `followers_ibfk_1` FOREIGN KEY (`follower_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `followers_ibfk_2` FOREIGN KEY (`followed_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,6 +183,7 @@ CREATE TABLE `followers` (
 
 LOCK TABLES `followers` WRITE;
 /*!40000 ALTER TABLE `followers` DISABLE KEYS */;
+INSERT INTO `followers` VALUES (2,5,7);
 /*!40000 ALTER TABLE `followers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -206,7 +208,7 @@ CREATE TABLE `reviews` (
   KEY `attraction_id` (`attraction_id`),
   CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `reviews_ibfk_2` FOREIGN KEY (`attraction_id`) REFERENCES `attractions` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,7 +217,7 @@ CREATE TABLE `reviews` (
 
 LOCK TABLES `reviews` WRITE;
 /*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
-INSERT INTO `reviews` VALUES (1,1,1,'Fantastic food and service','I love this place! The food is great and the servers are so nice. Plus it\'s not too far from campus.','11/01/2020',4,26),(3,1,1,'My favorite place to eat!','I go to The Whistling Kettle with my friends almost every weekend. They have the best sandwiches and so many teas to choose from. Highly recommend!','11/02/2020',5,16),(4,1,1,'Awesome options','There are so many different options for everyone. There\'s something for everyone!','11/03/2020',5,13),(8,1,1,'Great lunch spot','This is a great choice for a quick lunch.','11/07/2020',3,1),(9,1,1,'My favorite place','The Whistling Kettle is my favorite place ever!','11/14/2020',5,4),(10,1,1,'Best place ever','The Whistling Kettle is the greatest restaurant ever.','11/13/2020',4,1);
+INSERT INTO `reviews` VALUES (11,7,1,'Great Food','Had a great lunch there yesterday. Highly recommend!','12/09/2020',5,2),(12,6,1,'Really great food','I really like the food here. Definitely try the hot chocolate if you come!','12/03/2020',4,0),(13,6,2,'I love dinosaurs','I was hoping there would be dinosaurs here, but the food is still tasty.','12/11/2020',3,2),(14,7,2,'Great Dinner','Great service and even better food! The \'Wango Tango\' wings are the best.','12/01/2020',5,1),(15,6,3,'Was a little disappointed','The service was amazing, but I was not too impressed with the French fries I ordered.','12/03/2020',3,0),(16,7,6,'Wonderful Experience','Great place to spend a Saturday afternoon. So many options to choose from. I would give more than 5 stars if I could...','12/05/2020',5,2),(17,6,4,'All things Italian','If you love Italian food, this place is for you! I went here last week with my family, and we were all very satisfied with our meals!','12/03/2020',5,0),(18,6,7,'Beautiful clothing','I bought my graduation dress here. It was absolutely stunning!','12/05/2020',4,0),(19,6,5,'Huge fan of burgers','I love burgers, and I\'ve never loved a burger more than what I had at Slidin Dirty! It\'s no wonder they call them gourmet...','12/04/2020',5,1),(20,5,2,'Friends and Food Poisoning','This place is great for a good dinner on the water, but beware. Some friends of mine caught a bad case of food poisoning which landed them in the hospital!','12/08/2020',2,0),(21,5,10,'My dog can\'t get enough','A couple times a week I take my dog out here to hike around and burn off some energy and he loves it. It\'s a little outside Troy but totally worth the trip if you can make it.','10/13/2020',5,0),(22,6,11,'Awesome experience','I love everything about this place! Not only is the food really good but the servers are so nice.','12/09/2020',4,0),(23,7,12,'Great Day!','Spent Saturday afternoon at the park. What a lovely day! Had a great picnic. ','12/05/2020',5,0);
 /*!40000 ALTER TABLE `reviews` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -231,7 +233,7 @@ CREATE TABLE `tags` (
   `tag_name` varchar(25) NOT NULL,
   `category` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -240,7 +242,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'Chinese','Restaurant'),(2,'Mexican','Restaurant'),(3,'Italian','Restaurant'),(4,'Jamaican','Restaurant'),(5,'Sit-Down','Restaurant'),(6,'Fast Food','Restaurant'),(7,'Cheap','Restaurant'),(8,'Outdoor Seating','Restaurant'),(9,'Casual','Restaurant'),(10,'Formal','Restaurant'),(11,'Vegan','Restaurant'),(12,'Breakfast','Restaurant'),(13,'Lunch','Restaurant'),(14,'Dinner','Restaurant'),(15,'Desert','Restaurant'),(16,'Ice-Cream','Restaurant'),(17,'Steak','Restaurant'),(18,'Burger','Restaurant'),(19,'Clothes','Shopping'),(20,'Toys','Shopping'),(21,'Books','Shopping'),(22,'Electronics','Shopping'),(23,'Grocery','Shopping'),(24,'Drug Store','Shopping'),(25,'Hiking','Recreation'),(26,'Swimming','Recreation'),(27,'Sports Field','Recreation'),(28,'Biking','Recreation'),(29,'Indoor','Recreation'),(30,'Kayak','Recreation'),(31,'Gym','Recreation'),(32,'Rock-Climbing','Recreation'),(33,'Skatepark','Recreation'),(34,'Basketball','Recreation'),(35,'Stadium','Recreation');
+INSERT INTO `tags` VALUES (1,'Chinese','Restaurant'),(2,'Mexican','Restaurant'),(3,'Italian','Restaurant'),(4,'Jamaican','Restaurant'),(5,'Sit-Down','Restaurant'),(6,'Fast Food','Restaurant'),(7,'Cheap','Restaurant'),(8,'Outdoor Seating','Restaurant'),(9,'Casual','Restaurant'),(10,'Formal','Restaurant'),(11,'Vegan','Restaurant'),(12,'Breakfast','Restaurant'),(13,'Lunch','Restaurant'),(14,'Dinner','Restaurant'),(15,'Desert','Restaurant'),(16,'Ice-Cream','Restaurant'),(17,'Steak','Restaurant'),(18,'Burger','Restaurant'),(19,'Clothes','Shopping'),(20,'Toys','Shopping'),(21,'Books','Shopping'),(22,'Electronics','Shopping'),(23,'Grocery','Shopping'),(24,'Drug Store','Shopping'),(25,'Hiking','Recreation'),(26,'Swimming','Recreation'),(27,'Sports Field','Recreation'),(28,'Biking','Recreation'),(29,'Indoor','Recreation'),(30,'Kayak','Recreation'),(31,'Gym','Recreation'),(32,'Rock-Climbing','Recreation'),(33,'Skatepark','Recreation'),(34,'Basketball','Recreation'),(35,'Stadium','Recreation'),(36,'Fishing','Recreation'),(37,'Park','Recreation');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,7 +258,7 @@ CREATE TABLE `user_like` (
   `like_id` int(10) NOT NULL,
   `review_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -265,6 +267,7 @@ CREATE TABLE `user_like` (
 
 LOCK TABLES `user_like` WRITE;
 /*!40000 ALTER TABLE `user_like` DISABLE KEYS */;
+INSERT INTO `user_like` VALUES (1,6,11),(2,7,13),(3,6,16),(4,7,16),(5,5,11),(6,7,19),(7,6,14),(8,5,13);
 /*!40000 ALTER TABLE `user_like` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,7 +285,7 @@ CREATE TABLE `users` (
   `lname` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,7 +294,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'zhanh','haotian','zhan','haotianzhan7@gmail.com'),(2,'linz10','zhanfeng','lin','linz10@rpi.edu'),(3,'zhout5','tianshi','zhou','zhout5@rpi.edu'),(4,'wand12','dannong','wang','wand12@rpi.edu'),(5,'hales3','Sean','Hale','hales3@rpi.edu');
+INSERT INTO `users` VALUES (1,'zhanh','haotian','zhan','haotianzhan7@gmail.com'),(2,'linz10','zhanfeng','lin','linz10@rpi.edu'),(3,'zhout5','tianshi','zhou','zhout5@rpi.edu'),(4,'wand12','dannong','wang','wand12@rpi.edu'),(5,'hales3','Sean','Hale','hales3@rpi.edu'),(6,'sunraj','Jody','Sunray','sunraj@rpi.edu'),(7,'treham','Manya','Trehan','treham@rpi.edu');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -311,7 +314,7 @@ CREATE TABLE `users_interests` (
   KEY `interest` (`interest`),
   CONSTRAINT `users_interests_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `users_interests_ibfk_2` FOREIGN KEY (`interest`) REFERENCES `tags` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -320,7 +323,7 @@ CREATE TABLE `users_interests` (
 
 LOCK TABLES `users_interests` WRITE;
 /*!40000 ALTER TABLE `users_interests` DISABLE KEYS */;
-INSERT INTO `users_interests` VALUES (1,5,22),(2,5,6),(3,5,2),(4,5,35),(5,5,17);
+INSERT INTO `users_interests` VALUES (1,5,22),(2,5,6),(3,5,2),(4,5,35),(5,5,17),(6,6,12),(7,6,14),(8,6,25),(9,6,16),(10,7,15),(11,7,3),(12,7,13),(13,7,26);
 /*!40000 ALTER TABLE `users_interests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -345,7 +348,7 @@ CREATE TABLE `users_optional` (
   PRIMARY KEY (`index`),
   KEY `id` (`id`),
   CONSTRAINT `users_optional_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -354,7 +357,7 @@ CREATE TABLE `users_optional` (
 
 LOCK TABLES `users_optional` WRITE;
 /*!40000 ALTER TABLE `users_optional` DISABLE KEYS */;
-INSERT INTO `users_optional` VALUES (1,5,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1607189587hales3profile.jpg');
+INSERT INTO `users_optional` VALUES (1,5,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1607189587hales3profile.jpg'),(2,6,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1607635508sunrajprofile.JPG'),(3,7,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1607635563trehamprofile.jpg');
 /*!40000 ALTER TABLE `users_optional` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -367,4 +370,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-07 16:52:51
+-- Dump completed on 2020-12-11 14:39:43
